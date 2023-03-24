@@ -3,13 +3,12 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-
 android {
-    namespace 'net.helcel.been'
+    namespace 'net.helcel.beendroid'
     compileSdk 33
 
     defaultConfig {
-        applicationId "net.helcel.been"
+        applicationId 'net.helcel.beendroid'
         minSdk 28
         targetSdk 33
         versionCode 1
@@ -49,5 +48,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation 'org.osmdroid:osmdroid-android:6.1.14'
+    implementation 'com.caverock:androidsvg-aar:1.4'
+
 }

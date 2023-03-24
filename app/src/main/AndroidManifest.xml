@@ -2,24 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"  />
-
     <application
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Been"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Beendroid"
+        tools:targetApi="31"
+        tools:replace="android:allowBackup"
+        >
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Been.NoActionBar">
+            android:theme="@style/Theme.Beendroid.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

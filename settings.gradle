@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "been"
+rootProject.name = "beendroid"
 include ':app'
