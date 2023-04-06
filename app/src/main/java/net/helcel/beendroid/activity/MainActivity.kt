@@ -1,4 +1,4 @@
-package net.helcel.beendroid
+package net.helcel.beendroid.activity
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.caverock.androidsvg.SVG
 import com.caverock.androidsvg.SVGImageView
+import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.Country
 import net.helcel.beendroid.countries.WORLD
+import net.helcel.beendroid.svg.Level
+import net.helcel.beendroid.svg.PSVGWrapper
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +26,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         map = findViewById(R.id.map)
 
-        val cm = HashMap<Country,PSVGWrapper>()
+        val cm = HashMap<Country, PSVGWrapper>()
         Country.values().forEach { c->
-            cm[c] = PSVGWrapper(applicationContext,c,Level.ZERO).load()
+            cm[c] = PSVGWrapper(applicationContext,c, Level.ZERO).load()
         }
 
         val fm = cm.values.fold("") { acc, e -> acc + e.data }

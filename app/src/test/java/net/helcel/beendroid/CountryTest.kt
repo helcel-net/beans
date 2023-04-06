@@ -34,7 +34,7 @@ class CountryTest {
      fun allCountriesInAGroup() {
          Country.values().forEach { c ->
              val cnt = CountryGroup.values().none {
-                 it.countries.contains((c))
+                 it.children.contains((c))
              }
              Assert.assertEquals("$c has no group !",cnt,false)
          }
@@ -44,7 +44,7 @@ class CountryTest {
     fun allCountriesInASingleGroup() {
         Country.values().forEach { c ->
             val cnt = listOf(EEE,FFF,ABB,NNN,SRR,UUU,XXX,ZZZ).count {
-                it.countries.contains((c))
+                it.children.contains((c))
             }
             Assert.assertEquals("$c is in none or multiple continents",cnt,1)
         }

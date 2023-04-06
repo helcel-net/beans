@@ -1,4 +1,4 @@
-package net.helcel.beendroid
+package net.helcel.beendroid.activity
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.GeoLoc
 import net.helcel.beendroid.countries.LocType
 import java.util.*

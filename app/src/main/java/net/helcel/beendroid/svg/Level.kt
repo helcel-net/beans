@@ -1,4 +1,4 @@
-package net.helcel.beendroid
+package net.helcel.beendroid.svg
 
 enum class Level(id: Int) {
     ZERO(0), ONE(1);

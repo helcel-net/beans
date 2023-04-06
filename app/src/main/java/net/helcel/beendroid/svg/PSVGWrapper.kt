@@ -1,4 +1,4 @@
-package net.helcel.beendroid
+package net.helcel.beendroid.svg
 
 import android.content.Context
 import net.helcel.beendroid.countries.Country

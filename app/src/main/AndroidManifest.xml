@@ -15,7 +15,7 @@
         tools:replace="android:allowBackup"
         >
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Beendroid.NoActionBar">
             <intent-filter>
