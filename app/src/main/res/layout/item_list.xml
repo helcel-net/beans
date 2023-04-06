@@ -9,33 +9,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/sub_item"
+        <ImageView
+            android:id="@+id/expand"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription=">"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
-        <TextView
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.844"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="start|center_vertical"
             android:textColor="@color/design_default_color_on_primary"
-            app:layout_constraintBottom_toBottomOf="@+id/checkBox"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/checkBox"
-            app:layout_constraintTop_toTopOf="@+id/checkBox"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintBottom_toBottomOf="@id/checkBox"
+            app:layout_constraintEnd_toStartOf="@+id/checkBox"
+            app:layout_constraintStart_toEndOf="@+id/expand"
+            app:layout_constraintTop_toTopOf="@+id/expand"
+            app:layout_constraintVertical_bias="1.0" />
 
         <LinearLayout
             android:id="@+id/sub_item"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="32dp"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

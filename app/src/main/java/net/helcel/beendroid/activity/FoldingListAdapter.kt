@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import net.helcel.beendroid.R
@@ -32,21 +34,27 @@ class FoldingListAdapter(private val ctx: Context, l: List<GeoLoc>)  :
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
         val el = cg.toList()[position]
         holder.bind(el)
-        holder.itemView.setOnClickListener {
-            holder.checkBox.toggle()
-        }
-        holder.itemView.setOnLongClickListener {
-            if (el.second) {
-                cg[el.first] = false
-            }else {
-                cg.forEach {
-                    cg[it.key] = it.key == el.first
-                }
 
+        holder.textView.setOnClickListener { holder.checkBox.toggle() }
+
+        val expandLambda = { _:View ->
+            if (el.first.children.isEmpty() || el.first.type == LocType.STATE) {
+                false
+            } else {
+                cg[el.first] = !el.second
+                if (!el.second)
+                    cg.filter { (it.key != el.first) && (cg[it.key] == true) }.keys.forEach {
+                        cg[it] = false
+                        notifyItemChanged(cg.toList().map { e -> e.first }.indexOf(it))
+                    }
+
+                notifyItemChanged(position)
+                true
             }
-            notifyItemChanged(position)
-            true
+
         }
+        holder.itemView.setOnLongClickListener(expandLambda)
+        holder.expand.setOnClickListener { expandLambda(it) }
     }
 
     override fun getItemCount(): Int {
@@ -54,24 +62,34 @@ class FoldingListAdapter(private val ctx: Context, l: List<GeoLoc>)  :
     }
 
     class FoldingListViewHolder(private val ctx: Context, itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val textView: TextView
+        val textView: TextView
+        val expand: ImageView
         val checkBox: CheckBox
         private val subItemView: View
+        private val list: RecyclerView
 
         init {
             textView = itemView.findViewById(R.id.textView)
+            expand = itemView.findViewById(R.id.expand)
+            expand.setImageDrawable(AppCompatResources.getDrawable(ctx,R.drawable.chevron_right_solid))
             checkBox = itemView.findViewById(R.id.checkBox)
             subItemView = itemView.findViewById(R.id.sub_item)
+            list =  itemView.findViewById(R.id.list_list)
+            list.layoutManager = LinearLayoutManager(ctx, RecyclerView.VERTICAL, false)
+
         }
 
         fun bind(el: Pair<GeoLoc, Boolean>) {
+            expand.rotation = if(el.second) 90f else 0f
             subItemView.visibility = if (el.second) View.VISIBLE else View.GONE
-            textView.text = el.first.fullName
-            if(el.first.type == LocType.STATE || el.first.children.isEmpty())
-                return
 
-            val list: RecyclerView = itemView.findViewById(R.id.list_list)
-            list.layoutManager = LinearLayoutManager(ctx, RecyclerView.VERTICAL, false)
+
+            textView.text = el.first.fullName
+            if(el.first.type == LocType.STATE || el.first.children.isEmpty()){
+                expand.visibility = View.GONE
+                return
+            }
+            textView.parent.parent.requestChildFocus(textView,textView)
             list.adapter = FoldingListAdapter(ctx, el.first.children)
         }
 

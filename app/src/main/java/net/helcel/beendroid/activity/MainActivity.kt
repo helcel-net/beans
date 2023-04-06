@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val fm = cm.values.fold("") { acc, e -> acc + e.data }
         val svg = SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" >$fm</svg>")
 
-        val bitmap = Bitmap.createBitmap(1200,1200, Bitmap.Config.ARGB_8888)
+        val bitmap = Bitmap.createBitmap(1200,900, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         canvas.drawRGB(255, 255, 255)
 
