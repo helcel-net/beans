@@ -38,6 +38,7 @@ class FoldingListAdapter(
         val el = cg.toList()[position]
         holder.bind(el) {
             notifyItemChanged(position)
+            parentLambda()
         }
 
         holder.addListeners( {
@@ -50,8 +51,6 @@ class FoldingListAdapter(
             visited.setVisited(el.first, it)
             parentLambda()
         })
-
-
     }
 
     override fun getItemCount(): Int {
