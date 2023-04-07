@@ -1,8 +1,8 @@
 package net.helcel.beendroid
 
 import net.helcel.beendroid.countries.Country
-import net.helcel.beendroid.countries.CountryGroup
-import net.helcel.beendroid.countries.CountryGroup.*
+import net.helcel.beendroid.countries.Group
+import net.helcel.beendroid.countries.Group.*
 
 import org.junit.Assert
 import org.junit.Test
@@ -33,7 +33,7 @@ class CountryTest {
      @Test
      fun allCountriesInAGroup() {
          Country.values().forEach { c ->
-             val cnt = CountryGroup.values().none {
+             val cnt = Group.values().none {
                  it.children.contains((c))
              }
              Assert.assertEquals("$c has no group !",cnt,false)
@@ -85,14 +85,14 @@ class CountryTest {
 
     @Test
     fun allCountryGroupsValidName() {
-        CountryGroup.values().forEach {
+        Group.values().forEach {
             Assert.assertEquals("$it has no full_name", it.fullName.isNotEmpty(), true)
         }
     }
 
     @Test
     fun allCountryGroupsValidArea() {
-        CountryGroup.values().forEach {
+        Group.values().forEach {
             Assert.assertEquals("$it has an area of 0", it.area >= 0, true)
         }
     }

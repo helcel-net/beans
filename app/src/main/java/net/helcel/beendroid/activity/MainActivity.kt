@@ -10,7 +10,9 @@ import com.caverock.androidsvg.SVG
 import com.caverock.androidsvg.SVGImageView
 import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.Country
+import net.helcel.beendroid.countries.Visited
 import net.helcel.beendroid.countries.WORLD
+import net.helcel.beendroid.countries.World
 import net.helcel.beendroid.svg.Level
 import net.helcel.beendroid.svg.PSVGWrapper
 
@@ -20,11 +22,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var map : SVGImageView
     private lateinit var list : RecyclerView
 
+    private lateinit var visited : Visited
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        visited = Visited(this)
+        visited.load()
+
         setContentView(R.layout.activity_main)
         map = findViewById(R.id.map)
+
 
         val cm = HashMap<Country, PSVGWrapper>()
         Country.values().forEach { c->
@@ -43,6 +51,6 @@ class MainActivity : AppCompatActivity() {
 
         list = findViewById(R.id.list)
         list.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        list.adapter = FoldingListAdapter(this, WORLD)
+        list.adapter = FoldingListAdapter(this, World.WWW.children, visited)
     }
 }

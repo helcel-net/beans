@@ -3,16 +3,16 @@ package net.helcel.beendroid.countries
 import net.helcel.beendroid.countries.Country.*
 
 val WORLD = listOf(
-    CountryGroup.EEE,
-    CountryGroup.ABB,
-    CountryGroup.FFF,
-    CountryGroup.NNN,
-    CountryGroup.SRR,
-    CountryGroup.UUU,
-    CountryGroup.XXX
+    Group.EEE,
+    Group.ABB,
+    Group.FFF,
+    Group.NNN,
+    Group.SRR,
+    Group.UUU,
+    Group.XXX
 )
 
-enum class CountryGroup(override val fullName: String, override val children: List<Country>) : GeoLoc {
+enum class Group(override val fullName: String, override val children: List<Country>) : GeoLoc {
 
     EEE("Europe",listOf(
         ALB, AND, AUT, BLR, BEL, BIH, BGR, HRV, CYP, CZE, DNK, EST, FIN, FRA,
@@ -88,4 +88,6 @@ enum class CountryGroup(override val fullName: String, override val children: Li
 
     override val type: LocType = if (isInWorld) LocType.GROUP else LocType.CUSTOM_GROUP
     override val code = this.name
+
+
 }

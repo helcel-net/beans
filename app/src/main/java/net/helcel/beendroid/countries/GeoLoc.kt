@@ -11,4 +11,5 @@ interface GeoLoc {
 
     val type : LocType
     val children : List<GeoLoc>
+
 }
