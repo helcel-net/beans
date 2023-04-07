@@ -1,17 +1,6 @@
 package net.helcel.beendroid.countries
 
 import net.helcel.beendroid.countries.Country.*
-
-val WORLD = listOf(
-    Group.EEE,
-    Group.ABB,
-    Group.FFF,
-    Group.NNN,
-    Group.SRR,
-    Group.UUU,
-    Group.XXX
-)
-
 enum class Group(override val fullName: String, override val children: List<Country>) : GeoLoc {
 
     EEE("Europe",listOf(

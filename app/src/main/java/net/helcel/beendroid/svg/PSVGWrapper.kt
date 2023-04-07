@@ -1,28 +1,31 @@
 package net.helcel.beendroid.svg
 
 import android.content.Context
+import com.caverock.androidsvg.SVG
 import net.helcel.beendroid.countries.Country
-import java.nio.charset.StandardCharsets
+
+class PSVGWrapper(ctx: Context) {
 
 
-class PSVGWrapper(private val c: Context, private val country: Country, private var level: Level) {
-    var data = ""
 
-    fun load(): PSVGWrapper {
-        data = try {
-            String(
-                c.assets.open("${country.code}_${level.id}.psvg").readBytes(),
-                StandardCharsets.UTF_8
-            )
-        }catch(e: Exception){
-            ""
+    private val cm = HashMap<Country, PSVGLoader>()
+
+    init {
+        Country.values().forEach {
+            cm[it] = PSVGLoader(ctx, it, Level.ZERO).load()
         }
-        return this
+    }
+    fun level(el: Country, level: Level){
+        cm[el]?.changeLevel(level)
     }
 
-    fun changeLevel(level: Level): PSVGWrapper {
-        this.level = level
-        this.load()
-        return this
+    fun get(): SVG {
+        val fm = cm.values.fold("") { acc, e -> acc + e.data }
+        return SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" >$fm</svg>")
     }
+
+
+
+
+
 }
