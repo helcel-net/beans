@@ -124,11 +124,23 @@ concaveman@*:
     robust-predicates "^2.0.4"
     tinyqueue "^2.0.3"
 
-geojson2svg@^1.3.3:
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/geojson2svg/-/geojson2svg-1.3.6.tgz#7d8cf40fca1fcdea07952556bf833bbdd9daaf12"
-  integrity sha512-DZZIszYA9VTivziUu5mM+HyMI/pyrGkF9HYahcXNB/et0atRP3fCMwFVMIw1AczOejobjfKVolJZH8GX6kaMHQ==
+extend@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
+  integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
+
+geojson-bbox@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/geojson-bbox/-/geojson-bbox-0.0.1.tgz#6942b736dcb4e5ec6b2e47e46c1e2c49795b3e32"
+  integrity sha512-1ZuQ6SmG8X2c5a4rpiGHbjZuZOhz+Y1uCDyN1Az7552/jBziCIaJe4V1d07I6Ul9k8V8yGi6kisDlvpIjJrZ+Q==
+
+geojson2svg@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/geojson2svg/-/geojson2svg-2.0.1.tgz#192013e74f21677e58f35b1618deca70c79809dc"
+  integrity sha512-INJRMpR/iYLhSImHyPq2VhYcxkOguj/vquy1WXIijTsV+gqaxJsfJmGtRXhwxP6IS4i5aWQl927FG2dcAafeHA==
   dependencies:
+    extend "^3.0.2"
+    geojson-bbox "^0.0.1"
     multigeojson "~0.0.1"
 
 multigeojson@~0.0.1:
