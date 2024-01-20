@@ -10,13 +10,13 @@ class Visited(ctx: Context) {
 
     fun load() {
 
-        Group.values().forEach {
+        Group.entries.forEach {
             locs[it] = pref.getBoolean(it.code, false)
         }
-        Country.values().forEach {
+        Country.entries.forEach {
             locs[it] = pref.getBoolean(it.code, false)
         }
-        State.values().forEach {
+        State.entries.forEach {
             locs[it] = pref.getBoolean(it.code, false)
         }
         editor.apply()

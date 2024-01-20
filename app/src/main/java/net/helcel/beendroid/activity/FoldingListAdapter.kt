@@ -1,17 +1,20 @@
 package net.helcel.beendroid.activity
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
 import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.GeoLoc
+import net.helcel.beendroid.countries.LocType
 import net.helcel.beendroid.countries.Visited
 import java.util.*
 
@@ -36,10 +39,7 @@ class FoldingListAdapter(
 
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
         val el = cg.toList()[position]
-        holder.bind(el) {
-            notifyItemChanged(position)
-            parentLambda()
-        }
+        holder.bind(el) { parentLambda() }
 
         holder.addListeners( {
             if (!el.first.isEnd) {
@@ -60,46 +60,52 @@ class FoldingListAdapter(
     class FoldingListViewHolder(private val ctx: Context, itemView: View,
                                 private val visited: Visited,
                                 ) : RecyclerView.ViewHolder(itemView) {
-        private val textView: TextView
-        private val expand: ImageView
-        private val checkBox: MaterialCheckBox
-        private val subItemView: View
-        private val list: RecyclerView
-
+        private val textView: TextView = itemView.findViewById(R.id.textView)
+        private val checkBox: MaterialCheckBox = itemView.findViewById(R.id.checkBox)
+        private val subItemView: View = itemView.findViewById(R.id.sub_item)
+        private val list: RecyclerView = itemView.findViewById(R.id.list_list)
         init {
-            textView = itemView.findViewById(R.id.textView)
-            expand = itemView.findViewById(R.id.expand)
-            expand.setImageDrawable(AppCompatResources.getDrawable(ctx,R.drawable.chevron_right_solid))
-            checkBox = itemView.findViewById(R.id.checkBox)
-            subItemView = itemView.findViewById(R.id.sub_item)
-            list =  itemView.findViewById(R.id.list_list)
             list.layoutManager = LinearLayoutManager(ctx, RecyclerView.VERTICAL, false)
         }
 
         fun bind(el: Pair<GeoLoc, Boolean>, parentLambda: () -> Unit) {
-            expand.rotation = if(el.second) 90f else 0f
             subItemView.visibility = if (el.second) View.VISIBLE else View.GONE
-            expand.visibility = if(!el.first.isEnd) View.VISIBLE else View.GONE
 
             textView.text = el.first.fullName
+            if (el.first.type == LocType.GROUP) {
+                textView.setTypeface(null, Typeface.BOLD)
+
+                val colorGrayTyped = TypedValue()
+                ctx.theme.resolveAttribute(android.R.attr.panelColorBackground, colorGrayTyped, true)
+                val color = Color.valueOf(colorGrayTyped.data)
+                textView.setBackgroundColor(Color.valueOf(color.red(), color.green(), color.blue(), 0.5f).toArgb())
+                list.adapter = FoldingListAdapter(ctx, el.first.children,visited, parentLambda)
+                textView.parent.parent.requestChildFocus(textView,textView)
+
+            } else {
+                val colorBackgroundTyped = TypedValue()
+                ctx.theme.resolveAttribute(android.R.attr.colorBackground, colorBackgroundTyped, true)
+                textView.backgroundTintList = null
+                textView.background = ColorDrawable(colorBackgroundTyped.data)
+                textView.isActivated = false
+
+                val layoutParam = checkBox.layoutParams
+                layoutParam.width = 125
+                checkBox.layoutParams = layoutParam
+                checkBox.visibility = View.VISIBLE
+            }
             checkBox.checkedState =
-                if(visited.visited(el.first)) MaterialCheckBox.STATE_CHECKED
+                if (visited.visited(el.first)) MaterialCheckBox.STATE_CHECKED
                 else if (el.first.children.any { visited.visited(it) }) MaterialCheckBox.STATE_INDETERMINATE
                 else MaterialCheckBox.STATE_UNCHECKED
 
-            textView.parent.parent.requestChildFocus(textView,textView)
-            list.adapter = FoldingListAdapter(ctx, el.first.children,visited, parentLambda)
         }
 
         fun addListeners(expandLambda: ()->Boolean, visitedLambda: (Boolean)->Unit) {
-
-            textView.setOnClickListener { checkBox.toggle() }
+            textView.setOnClickListener { expandLambda() }
             checkBox.addOnCheckedStateChangedListener { _, e ->
                 visitedLambda(e == MaterialCheckBox.STATE_CHECKED)
             }
-
-            textView.setOnLongClickListener{ expandLambda() }
-            expand.setOnClickListener { expandLambda() }
         }
 
     }

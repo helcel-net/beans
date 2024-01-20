@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Beendroid</string>
+    <string name="app_name">BeenDroid</string>
+    <string name="app_version">1.0</string>
     <string name="action_settings">Settings</string>
-
+    <string name="action_stats">Stats</string>
+    <string name="action_edit">Edit</string>
     <string name="welcome">Welcome!</string>
     <string name="change_lang">Change language</string>
+    <string name="key_theme">App theme</string>
+    <string name="system">System</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="licenses">Licenses</string>
+    <string name="about">About</string>
+    <string name="beendroid_is_foss">BeenDroid is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
+    <string name="beendroid_repo">Project repository: https://git.helcel.net/helcel/beendroid\n Feel free to report issues or contribute to the project.</string>
+    <string name="foss_licenses">Free and open source dependencies and licenses</string>
+    <string name="about_beendroid">About the BeenDroid application</string>
 </resources>
