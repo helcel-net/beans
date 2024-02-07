@@ -1,4 +1,5 @@
 #!/bin/node
+#!/bin/node
 import {readFileSync,createWriteStream,writeFileSync} from 'fs';
 import {get as httpsGet} from 'https'
 import {execSync} from 'child_process'
@@ -17,9 +18,8 @@ const LOCAL_SVG_PATH = "./app/src/main/assets/"
 
 const GADM_VERSION="4.1"
 const GADM_BASEPATH="https://geodata.ucdavis.edu/gadm"
-//"HKG", "MAC"
-const countries = //["CHN"]//["CHE","GBR","USA","DEU","AUT","AUS","JPN"]
-// const a = 
+
+const countries =
 [
   "AFG","XAD","ALA","ALB","DZA","ASM","AND","AGO","AIA","ATG","ARG","ARM","ABW","AUS","AUT","AZE",
   "BHS","BHR","BGD","BRB","BLR","BEL","BLZ","BEN","BMU","BTN","BOL","BES","BIH","BWA","BVT","BRA", "IOT","VGB","BRN","BGR","BFA","BDI","KHM",
