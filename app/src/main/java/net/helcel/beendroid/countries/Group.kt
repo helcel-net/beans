@@ -20,6 +20,7 @@ enum class Group(override val fullName: String, override val children: List<Coun
         GNQ, ERI, SWZ, ETH, GAB, GMB, GHA, GIN, GNB, KEN, LSO, LBR, LBY, MDG, MWI, MLI, MRT,
         MUS, MYT, MAR, MOZ, NAM, NER, NGA, COD, REU, RWA, STP, SEN, SYC, SLE, SOM, ZAF, SSD,
         SHN, SDN, TZA, TGO, TUN, UGA, COD, ZMB, ZWE,
+        ESH,
     )),
     NNN("North America", listOf(
         ABW, AIA, ATG, BHS, BRB, BLZ, BMU, VGB, CAN, CYM, CRI, CUB, CUW, DMA,
@@ -56,7 +57,6 @@ enum class Group(override val fullName: String, override val children: List<Coun
         SJM, // Svalbard and Jan Mayen: an archipelago administered by Norway
         UMI, // United States Minor Outlying Islands: a collection of nine insular areas of the United States
         VIR, // United States Virgin Islands: an unincorporated territory of the United States in the Caribbean
-        ESH  // Western Sahara: a disputed territory claimed by both Morocco and the Sahrawi Arab Democratic Republic
     )),
 
     ZZZ("Undefined", listOf(

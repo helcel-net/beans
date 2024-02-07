@@ -1,4 +1,4 @@
-package net.helcel.beendroid.activity
+package net.helcel.beendroid.activity.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -7,7 +7,6 @@
         android:id="@+id/action_edit"
         android:orderInCategory="100"
         android:icon="@drawable/edit"
-        android:visible="false"
         android:title="@string/action_edit"
         app:showAsAction="ifRoom" />
     <item

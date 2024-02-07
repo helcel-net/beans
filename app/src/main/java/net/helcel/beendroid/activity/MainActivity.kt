@@ -1,53 +1,50 @@
 package net.helcel.beendroid.activity
 
-import kotlinx.coroutines.*
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.PictureDrawable
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.caverock.androidsvg.RenderOptions
-import com.caverock.androidsvg.SVGImageView
+import com.github.chrisbanes.photoview.PhotoView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import net.helcel.beendroid.R
+import net.helcel.beendroid.activity.fragment.SettingsFragment
 import net.helcel.beendroid.countries.Visited
-import net.helcel.beendroid.countries.World
+
 import net.helcel.beendroid.svg.CSSWrapper
 import net.helcel.beendroid.svg.PSVGWrapper
+import net.helcel.beendroid.helper.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
 
-    private lateinit var map : SVGImageView
-    private lateinit var list : RecyclerView
+    private lateinit var photoView : PhotoView
 
     private lateinit var visited : Visited
     private lateinit var psvg : PSVGWrapper
     private lateinit var css : CSSWrapper
 
-    private var processor: ImageProcessor = ImageProcessor({ refreshMapCompute() },{ refreshMapDisplay(it) })
-
-    private val bitmap: Bitmap = Bitmap.createBitmap(1200,900, Bitmap.Config.ARGB_8888)
-    private val canvas = Canvas(bitmap)
+    override fun onActivityReenter(resultCode: Int, data: Intent?) {
+        super.onActivityReenter(resultCode, data)
+        refreshMap()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Create action bar
-        val colorPrimaryTyped = TypedValue()
-        theme.resolveAttribute(android.R.attr.colorPrimary, colorPrimaryTyped, true)
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(colorPrimaryTyped.data))
+        supportActionBar?.setBackgroundDrawable(colorPrimary(this))
 
         // Fetch shared preferences to restore app theme upon startup
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -62,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.action_edit -> {
-                        // TODO: Enable editing selected countries
+                        startActivity(Intent(this@MainActivity, EditActivity::class.java))
                         true
                     }
                     R.id.action_stats -> {
@@ -92,47 +89,21 @@ class MainActivity : AppCompatActivity() {
 
         // Populate map from list of countries
         setContentView(R.layout.activity_main)
-        map = findViewById(R.id.map)
-        map.setImageBitmap(bitmap)
-        refreshMapDisplay(refreshMapCompute())
 
-        // Populate list below the map
-        list = findViewById(R.id.list)
-        list.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        list.adapter = FoldingListAdapter(this, World.WWW.children, visited) { processor.process() }
+        photoView = findViewById(R.id.photo_view)
+        photoView.minimumScale = 1f
+        photoView.maximumScale = 30f
+
+        refreshMap()
     }
 
-    private fun refreshMapDisplay(css_value: String){
-        // Set or reset background (replaces canvas.drawColor(0, 0, 0))
-        val colorBackgroundTyped = TypedValue()
-        theme.resolveAttribute(android.R.attr.colorBackground, colorBackgroundTyped, true)
-        canvas.drawColor(colorBackgroundTyped.data)
-
-        // Render all countries and visited ones
-        psvg.getFill().renderToCanvas(canvas, RenderOptions.create().css(css_value))
-
-        // Render all contours in the same color as the background to make them much clearer
-        psvg.getDraw().renderToCanvas(canvas)
-    }
-
-    private fun refreshMapCompute() : String {
-        return css.get()
-    }
-
-
-
-    class ImageProcessor(private val refreshMapCompute: ()->String, private val refreshMapDisplay: (String)->Unit) {
-
-        private var currentJob : Job? = null
-        fun process() {
-            currentJob?.cancel()
-            currentJob = CoroutineScope(Dispatchers.Main).launch {
-                try {
-                    refreshMapDisplay(refreshMapCompute())
-                } catch (_: CancellationException) {
-                }
-            }
+    private fun refreshMap() {
+        val opt : RenderOptions = RenderOptions.create()
+        CoroutineScope(Dispatchers.IO).launch {
+            opt.css(css.get())
         }
+        photoView.setImageLevel(1)
+        photoView.setImageDrawable(PictureDrawable(psvg.getFill().renderToPicture(opt)))
     }
 
 }

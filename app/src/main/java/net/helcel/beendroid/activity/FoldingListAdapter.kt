@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
 import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.GeoLoc
-import net.helcel.beendroid.countries.LocType
 import net.helcel.beendroid.countries.Visited
 import java.util.*
 
@@ -61,6 +60,7 @@ class FoldingListAdapter(
                                 private val visited: Visited,
                                 ) : RecyclerView.ViewHolder(itemView) {
         private val textView: TextView = itemView.findViewById(R.id.textView)
+        private val progressView: TextView = itemView.findViewById(R.id.progressView)
         private val checkBox: MaterialCheckBox = itemView.findViewById(R.id.checkBox)
         private val subItemView: View = itemView.findViewById(R.id.sub_item)
         private val list: RecyclerView = itemView.findViewById(R.id.list_list)
@@ -72,27 +72,37 @@ class FoldingListAdapter(
             subItemView.visibility = if (el.second) View.VISIBLE else View.GONE
 
             textView.text = el.first.fullName
-            if (el.first.type == LocType.GROUP) {
-                textView.setTypeface(null, Typeface.BOLD)
-
-                val colorGrayTyped = TypedValue()
-                ctx.theme.resolveAttribute(android.R.attr.panelColorBackground, colorGrayTyped, true)
-                val color = Color.valueOf(colorGrayTyped.data)
-                textView.setBackgroundColor(Color.valueOf(color.red(), color.green(), color.blue(), 0.5f).toArgb())
-                list.adapter = FoldingListAdapter(ctx, el.first.children,visited, parentLambda)
-                textView.parent.parent.requestChildFocus(textView,textView)
-
-            } else {
+            if (el.first.children.isEmpty()) {
                 val colorBackgroundTyped = TypedValue()
-                ctx.theme.resolveAttribute(android.R.attr.colorBackground, colorBackgroundTyped, true)
+                ctx.theme.resolveAttribute(
+                    android.R.attr.colorBackground,
+                    colorBackgroundTyped,
+                    true
+                )
                 textView.backgroundTintList = null
                 textView.background = ColorDrawable(colorBackgroundTyped.data)
                 textView.isActivated = false
+            }else {
+                textView.setTypeface(null, Typeface.BOLD)
+                progressView.text = "${(el.first.children.map { visited.visited(it) }.count { it })}/${el.first.children.size}"
 
-                val layoutParam = checkBox.layoutParams
-                layoutParam.width = 125
-                checkBox.layoutParams = layoutParam
-                checkBox.visibility = View.VISIBLE
+                val colorGrayTyped = TypedValue()
+                ctx.theme.resolveAttribute(
+                    android.R.attr.panelColorBackground,
+                    colorGrayTyped,
+                    true
+                )
+                val color = Color.valueOf(colorGrayTyped.data)
+                textView.setBackgroundColor(
+                    Color.valueOf(
+                        color.red(),
+                        color.green(),
+                        color.blue(),
+                        0.5f
+                    ).toArgb()
+                )
+                list.adapter = FoldingListAdapter(ctx, el.first.children, visited, parentLambda)
+                textView.parent.parent.requestChildFocus(textView, textView)
             }
             checkBox.checkedState =
                 if (visited.visited(el.first)) MaterialCheckBox.STATE_CHECKED

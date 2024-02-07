@@ -1,4 +1,4 @@
-package net.helcel.beendroid.activity
+package net.helcel.beendroid.activity.fragment
 
 import android.content.Context
 import android.os.Bundle

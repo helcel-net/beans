@@ -1,6 +1,9 @@
 package net.helcel.beendroid.countries
 
 import android.content.Context
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class Visited(ctx: Context) {
@@ -24,8 +27,10 @@ class Visited(ctx: Context) {
 
     fun setVisited(key: GeoLoc, b: Boolean){
         locs[key] = b
-        editor.putBoolean(key.code, b)
-        editor.apply()
+        CoroutineScope(Dispatchers.Main).launch {
+            editor.putBoolean(key.code, b)
+            editor.apply()
+        }
     }
 
     fun visited(key: GeoLoc): Boolean {

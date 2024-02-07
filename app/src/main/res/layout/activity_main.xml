@@ -6,27 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<com.caverock.androidsvg.SVGImageView
-        android:id="@+id/map"
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photo_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        app:css="" />
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/sv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:layout_weight="1">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:nestedScrollingEnabled="false"
-            android:scrollbars="vertical" />
-    </androidx.core.widget.NestedScrollView>
-
+        android:layout_height="match_parent"/>
 </LinearLayout>

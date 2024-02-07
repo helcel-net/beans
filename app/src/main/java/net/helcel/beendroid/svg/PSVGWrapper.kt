@@ -34,7 +34,7 @@ class PSVGWrapper(ctx: Context) {
         cm[el]?.changeLevel(level)
     }
 
-    fun build(){
+    private fun build(){
         fm = World.WWW.children.map { gr ->
             gr.children.map {c ->
                 val cc = cm[c]

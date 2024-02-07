@@ -16,14 +16,14 @@
     <Preference
         app:enabled="true"
         app:key="@string/licenses"
-        app:icon="@drawable/checklist"
+        app:icon="@drawable/licenses"
         app:title="@string/licenses"
         android:summary="@string/foss_licenses"/>
 
     <Preference
         app:enabled="true"
         app:key="@string/about"
-        app:icon="@drawable/info"
+        app:icon="@drawable/about"
         app:title="@string/about"
         android:summary="@string/about_beendroid"/>
 
