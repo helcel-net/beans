@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
             opt.css(css.get())
         }
         photoView.setImageLevel(1)
-        photoView.setImageDrawable(PictureDrawable(psvg.getFill().renderToPicture(opt)))
+        photoView.setImageDrawable(PictureDrawable(psvg.get().renderToPicture(opt)))
     }
 
 }

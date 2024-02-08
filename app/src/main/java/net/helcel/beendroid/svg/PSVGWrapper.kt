@@ -44,12 +44,8 @@ class PSVGWrapper(ctx: Context) {
         }.fold("") { acc, e -> acc + e }
     }
 
-    fun getFill(): SVG {
-        return SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" fill=${colorForeground}>$fm</svg>")
-    }
-
-    fun getDraw(): SVG {
-        return SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" fill-opacity=\"0\" stroke=${colorBackground}>$fm</svg>")
+    fun get(): SVG {
+        return SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" fill=${colorForeground} stroke=${colorBackground} stroke-width=\"0.25px\">$fm</svg>")
     }
 
 }
