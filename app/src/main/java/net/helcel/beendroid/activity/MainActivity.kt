@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var psvg : PSVGWrapper
     private lateinit var css : CSSWrapper
 
-    override fun onActivityReenter(resultCode: Int, data: Intent?) {
-        super.onActivityReenter(resultCode, data)
+    override fun onRestart() {
         refreshMap()
+        super.onRestart()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +81,6 @@ class MainActivity : AppCompatActivity() {
 
         // Restore visited countries
         visited = Visited(this)
-        visited.load()
 
         // Wrap lists of countries
         psvg = PSVGWrapper(this)
@@ -98,6 +97,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshMap() {
+        visited.load()
         val opt : RenderOptions = RenderOptions.create()
         CoroutineScope(Dispatchers.IO).launch {
             opt.css(css.get())
