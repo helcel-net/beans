@@ -9,13 +9,13 @@ class CSSWrapper(private val visited: Visited) {
 
     fun get() : String {
         return listOf(World.WWW.children
-            .filter { visited.visited(it)}
+            .filter { visited.getVisited(it)}
             .map { ".${it.code}{fill:$colorPrimary;}"}
             .fold(""){acc, s-> acc + s},
         World.WWW.children
-            .filter { !visited.visited(it) }
+            .filter { !visited.getVisited(it) }
             .map { cg -> cg.children
-                .filter { visited.visited(it) }
+                .filter { visited.getVisited(it) }
                 .map { ".${it.code}{fill:$colorPrimary;}"}
                 .fold(""){acc, s-> acc + s}
             }.fold(""){acc,s->acc+s},

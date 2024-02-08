@@ -14,13 +14,8 @@ class  SettingsActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Bind activity to XML layout with fragment view
         setContentView(R.layout.activity_settings)
-
-        // Create action bar
-        supportActionBar?.setBackgroundDrawable(colorPrimary(this))
-        supportActionBar?.title = getString(R.string.action_settings)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        createActionBar(this, getString(R.string.action_settings))
 
         // Populate activity with settings fragment
         supportFragmentManager.beginTransaction()

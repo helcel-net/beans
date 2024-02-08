@@ -1,30 +1,24 @@
 package net.helcel.beendroid.svg
 
 import android.content.Context
-import android.util.TypedValue
+import android.util.Log
 import com.caverock.androidsvg.SVG
+import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.Country
 import net.helcel.beendroid.countries.GeoLoc
 import net.helcel.beendroid.countries.World
+import net.helcel.beendroid.helper.colorWrapper
 
+@OptIn(ExperimentalStdlibApi::class)
 class PSVGWrapper(ctx: Context) {
 
     private val cm = HashMap<GeoLoc, PSVGLoader>()
     private var fm = ""
 
-    private val colorForeground: String
-    private val colorBackground: String
+    private val colorForeground: String = colorWrapper(ctx, R.color.darkgray).color.toHexString().substring(2)
+    private val colorBackground: String = colorWrapper(ctx, R.color.black).color.toHexString().substring(2)
 
     init {
-        val colorSecondaryTyped = TypedValue()
-        ctx.theme.resolveAttribute(android.R.attr.panelColorBackground, colorSecondaryTyped, true)
-        colorForeground = "\"#${Integer.toHexString(colorSecondaryTyped.data).subSequence(2, 8)}\""
-
-        val colorBackgroundTyped = TypedValue()
-        ctx.theme.resolveAttribute(android.R.attr.colorBackground, colorBackgroundTyped, true)
-        colorBackground = "\"#${Integer.toHexString(colorBackgroundTyped.data).subSequence(2, 8)}\""
-
-
         Country.entries.forEach {
             cm[it] = PSVGLoader(ctx, it, Level.ZERO).load()
         }
@@ -45,7 +39,7 @@ class PSVGWrapper(ctx: Context) {
     }
 
     fun get(): SVG {
-        return SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" fill=${colorForeground} stroke=${colorBackground} stroke-width=\"0.25px\">$fm</svg>")
+        return SVG.getFromString("<svg id=\"map\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"1200\" x=\"0\" y=\"0\" fill=\"#$colorForeground\" stroke=\"#$colorBackground\" stroke-width=\"0.25px\">$fm</svg>")
     }
 
 }

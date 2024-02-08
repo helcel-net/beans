@@ -2,9 +2,9 @@ package net.helcel.beendroid.activity
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.PictureDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var photoView : PhotoView
 
-    private lateinit var visited : Visited
     private lateinit var psvg : PSVGWrapper
     private lateinit var css : CSSWrapper
 
@@ -63,11 +62,10 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.action_stats -> {
-                        // TODO: Write stats activity
+                        startActivity(Intent(this@MainActivity, StatActivity::class.java))
                         true
                     }
                     R.id.action_settings -> {
-                        // Open settings
                         startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
                         true
                     }
@@ -80,11 +78,12 @@ class MainActivity : AppCompatActivity() {
         })
 
         // Restore visited countries
-        visited = Visited(this)
+        visited = Visited(this).load()
+
 
         // Wrap lists of countries
         psvg = PSVGWrapper(this)
-        css = CSSWrapper(visited)
+        css = CSSWrapper(visited!!)
 
         // Populate map from list of countries
         setContentView(R.layout.activity_main)
@@ -97,12 +96,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshMap() {
-        visited.load()
         val opt : RenderOptions = RenderOptions.create()
         CoroutineScope(Dispatchers.IO).launch {
             opt.css(css.get())
         }
-        photoView.setImageLevel(1)
         photoView.setImageDrawable(PictureDrawable(psvg.get().renderToPicture(opt)))
     }
 

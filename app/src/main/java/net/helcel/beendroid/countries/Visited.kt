@@ -11,8 +11,7 @@ class Visited(ctx: Context) {
     private val pref = ctx.getSharedPreferences("Visited", Context.MODE_PRIVATE)
     private val editor = pref.edit()
 
-    fun load() {
-
+    fun load(): Visited {
         Group.entries.forEach {
             locs[it] = pref.getBoolean(it.code, false)
         }
@@ -23,9 +22,10 @@ class Visited(ctx: Context) {
             locs[it] = pref.getBoolean(it.code, false)
         }
         editor.apply()
+        return this
     }
 
-    fun setVisited(key: GeoLoc, b: Boolean){
+    fun setVisited(key: GeoLoc, b: Boolean) {
         locs[key] = b
         CoroutineScope(Dispatchers.Main).launch {
             editor.putBoolean(key.code, b)
@@ -33,7 +33,7 @@ class Visited(ctx: Context) {
         }
     }
 
-    fun visited(key: GeoLoc): Boolean {
+    fun getVisited(key: GeoLoc): Boolean {
         return locs.getOrDefault(key,false)
     }
 

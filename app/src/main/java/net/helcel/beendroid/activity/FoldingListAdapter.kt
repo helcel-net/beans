@@ -1,10 +1,7 @@
 package net.helcel.beendroid.activity
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
-import android.graphics.drawable.ColorDrawable
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +12,17 @@ import com.google.android.material.checkbox.MaterialCheckBox
 import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.GeoLoc
 import net.helcel.beendroid.countries.Visited
+import net.helcel.beendroid.helper.colorBackground
+import net.helcel.beendroid.helper.colorPanelBackground
 import java.util.*
 
 
 class FoldingListAdapter(
     private val ctx: Context, l: List<GeoLoc>,
     private val visited: Visited,
-    private val parentLambda: () -> Unit,
                          ) : RecyclerView.Adapter<FoldingListAdapter.FoldingListViewHolder>()  {
 
-    private var cg : MutableMap<GeoLoc,Boolean> = l.sortedBy { it.fullName }.fold(LinkedHashMap<GeoLoc,Boolean>()) { acc, e ->
+    private val cg : MutableMap<GeoLoc,Boolean> = l.sortedBy { it.fullName }.fold(LinkedHashMap<GeoLoc,Boolean>()) { acc, e ->
         acc[e] = false
         acc
      }
@@ -38,8 +36,8 @@ class FoldingListAdapter(
 
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
         val el = cg.toList()[position]
-        holder.bind(el) { parentLambda() }
 
+        holder.bind(el)
         holder.addListeners( {
             if (!el.first.isEnd) {
                 cg[el.first] = !el.second
@@ -48,7 +46,6 @@ class FoldingListAdapter(
             !el.first.isEnd
         }, {
             visited.setVisited(el.first, it)
-            parentLambda()
         })
     }
 
@@ -66,47 +63,32 @@ class FoldingListAdapter(
         private val list: RecyclerView = itemView.findViewById(R.id.list_list)
         init {
             list.layoutManager = LinearLayoutManager(ctx, RecyclerView.VERTICAL, false)
+            list.setItemAnimator(null) //TODO: Fix slow recycler expansion
+            //list.setHasFixedSize(true)
         }
 
-        fun bind(el: Pair<GeoLoc, Boolean>, parentLambda: () -> Unit) {
+        fun bind(el: Pair<GeoLoc, Boolean>) {
             subItemView.visibility = if (el.second) View.VISIBLE else View.GONE
 
             textView.text = el.first.fullName
             if (el.first.children.isEmpty()) {
-                val colorBackgroundTyped = TypedValue()
-                ctx.theme.resolveAttribute(
-                    android.R.attr.colorBackground,
-                    colorBackgroundTyped,
-                    true
-                )
+
                 textView.backgroundTintList = null
-                textView.background = ColorDrawable(colorBackgroundTyped.data)
+                textView.background = colorBackground(ctx)
                 textView.isActivated = false
             }else {
                 textView.setTypeface(null, Typeface.BOLD)
-                progressView.text = "${(el.first.children.map { visited.visited(it) }.count { it })}/${el.first.children.size}"
+                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visited.getVisited(it) }.count { it }),el.first.children.size)
 
-                val colorGrayTyped = TypedValue()
-                ctx.theme.resolveAttribute(
-                    android.R.attr.panelColorBackground,
-                    colorGrayTyped,
-                    true
-                )
-                val color = Color.valueOf(colorGrayTyped.data)
-                textView.setBackgroundColor(
-                    Color.valueOf(
-                        color.red(),
-                        color.green(),
-                        color.blue(),
-                        0.5f
-                    ).toArgb()
-                )
-                list.adapter = FoldingListAdapter(ctx, el.first.children, visited, parentLambda)
+                textView.background = colorPanelBackground(ctx)
+                textView.background.alpha = 128
+
+                list.adapter = FoldingListAdapter(ctx, el.first.children, visited)
                 textView.parent.parent.requestChildFocus(textView, textView)
             }
             checkBox.checkedState =
-                if (visited.visited(el.first)) MaterialCheckBox.STATE_CHECKED
-                else if (el.first.children.any { visited.visited(it) }) MaterialCheckBox.STATE_INDETERMINATE
+                if (visited.getVisited(el.first)) MaterialCheckBox.STATE_CHECKED
+                else if (el.first.children.any { visited.getVisited(it) }) MaterialCheckBox.STATE_INDETERMINATE
                 else MaterialCheckBox.STATE_UNCHECKED
 
         }

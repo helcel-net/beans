@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orderInCategory="100"
-        android:title="@string/action_stats"
+        android:title="@string/action_stat"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_settings"

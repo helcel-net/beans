@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/photo_view"
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
 </LinearLayout>
