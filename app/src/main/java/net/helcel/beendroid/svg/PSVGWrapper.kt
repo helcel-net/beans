@@ -15,8 +15,8 @@ class PSVGWrapper(ctx: Context) {
     private val cm = HashMap<GeoLoc, PSVGLoader>()
     private var fm = ""
 
-    private val colorForeground: String = colorWrapper(ctx, R.color.darkgray).color.toHexString().substring(2)
-    private val colorBackground: String = colorWrapper(ctx, R.color.black).color.toHexString().substring(2)
+    private val colorForeground: String = colorWrapper(ctx, android.R.attr.panelColorBackground).color.toHexString().substring(2)
+    private val colorBackground: String = colorWrapper(ctx, android.R.attr.colorBackground).color.toHexString().substring(2)
 
     init {
         Country.entries.forEach {
