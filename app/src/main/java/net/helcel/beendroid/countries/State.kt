@@ -1,6 +1,6 @@
 package net.helcel.beendroid.countries
 
-enum class State(override val fullName: String, override val area: Int,) : GeoLoc {
+enum class State(override val fullName: String, override val area: Int) : GeoLoc {
     AFG_BD("Badakhshan", 44851),
     AFG_BDG("Badghis", 22447),
     AFG_BGL("Baghlan", 21397),

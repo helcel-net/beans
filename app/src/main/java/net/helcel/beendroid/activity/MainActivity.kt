@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.drawable.PictureDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -18,7 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import net.helcel.beendroid.R
 import net.helcel.beendroid.activity.fragment.SettingsFragment
-import net.helcel.beendroid.countries.Visited
+import net.helcel.beendroid.helper.Visited
 
 import net.helcel.beendroid.svg.CSSWrapper
 import net.helcel.beendroid.svg.PSVGWrapper
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Create action bar
-        supportActionBar?.setBackgroundDrawable(colorPrimary(this))
+        supportActionBar?.setBackgroundDrawable(colorWrapper(this, android.R.attr.colorPrimary))
 
         // Fetch shared preferences to restore app theme upon startup
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -79,11 +78,11 @@ class MainActivity : AppCompatActivity() {
 
         // Restore visited countries
         visited = Visited(this).load()
-
+        groups = Groups(this).load()
 
         // Wrap lists of countries
         psvg = PSVGWrapper(this)
-        css = CSSWrapper(visited!!)
+        css = CSSWrapper(this,visited!!)
 
         // Populate map from list of countries
         setContentView(R.layout.activity_main)

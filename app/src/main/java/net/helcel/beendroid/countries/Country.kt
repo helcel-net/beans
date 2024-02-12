@@ -1,6 +1,5 @@
 package net.helcel.beendroid.countries
 
-import net.helcel.beendroid.countries.Country.*
 import net.helcel.beendroid.countries.State.*
 
 enum class Country(override val fullName: String, override val area : Int, override val children : List<GeoLoc>) : GeoLoc {

@@ -1,9 +1,11 @@
 package net.helcel.beendroid.helper
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.ColorUtils
 
 fun colorWrapper(ctx : Context, res: Int): ColorDrawable {
     val colorPrimaryTyped = TypedValue()
@@ -11,20 +13,23 @@ fun colorWrapper(ctx : Context, res: Int): ColorDrawable {
     return ColorDrawable(colorPrimaryTyped.data)
 }
 
-fun colorPrimary(ctx : Context): ColorDrawable {
-    return colorWrapper(ctx, android.R.attr.colorPrimary)
+fun colorToHex6(c: ColorDrawable): String {
+    return '#'+colorToHex8(c).substring(3)
 }
 
-fun colorBackground(ctx : Context): ColorDrawable {
-    return colorWrapper(ctx, android.R.attr.colorBackground)
-}
-
-fun colorPanelBackground(ctx: Context): ColorDrawable {
-    return colorWrapper(ctx, android.R.attr.panelColorBackground)
+@OptIn(ExperimentalStdlibApi::class)
+fun colorToHex8(c: ColorDrawable): String {
+    return '#'+c.color.toHexString()
 }
 
 fun createActionBar(ctx: AppCompatActivity, title: String) {
-    ctx.supportActionBar?.setBackgroundDrawable(colorPrimary(ctx))
+    ctx.supportActionBar?.setBackgroundDrawable(colorWrapper(ctx, android.R.attr.colorPrimary))
     ctx.supportActionBar?.title = title
     ctx.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+}
+
+fun getContrastColor(color: Int): Int {
+    val whiteContrast = ColorUtils.calculateContrast(Color.WHITE, color)
+    val blackContrast = ColorUtils.calculateContrast(Color.BLACK, color)
+    return if (whiteContrast > blackContrast) Color.WHITE else Color.BLACK
 }

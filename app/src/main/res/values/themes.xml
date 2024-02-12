@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <style name="Theme.Beendroid" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/blue</item>
         <item name="background">@color/darkgray</item>
@@ -11,5 +11,4 @@
 
     <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
     </style>
-
 </resources>

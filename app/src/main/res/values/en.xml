@@ -13,9 +13,13 @@
     <string name="dark">Dark</string>
     <string name="licenses">Licenses</string>
     <string name="about">About</string>
-    <string name="rate">%1$d/%2$d</string>
     <string name="beendroid_is_foss">BeenDroid is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
     <string name="beendroid_repo">Project repository: https://git.helcel.net/helcel/beendroid\n Feel free to report issues or contribute to the project.</string>
     <string name="foss_licenses">Free and open source dependencies and licenses</string>
     <string name="about_beendroid">About the BeenDroid application</string>
+    <string name="group_add">Add</string>
+    <string name="logo">Logo</string>
+    <string name="name">Name</string>
+    <string name="rate">%1$d/%2$d</string>
+    <string name="color_rrggbb">Color (#RRGGBB)</string>
 </resources>

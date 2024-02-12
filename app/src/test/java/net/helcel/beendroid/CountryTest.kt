@@ -32,8 +32,8 @@ class CountryTest {
 
      @Test
      fun allCountriesInAGroup() {
-         Country.values().forEach { c ->
-             val cnt = Group.values().none {
+         Country.entries.forEach { c ->
+             val cnt = Group.entries.none {
                  it.children.contains((c))
              }
              Assert.assertEquals("$c has no group !",cnt,false)
@@ -42,7 +42,7 @@ class CountryTest {
 
     @Test
     fun allCountriesInASingleGroup() {
-        Country.values().forEach { c ->
+        Country.entries.forEach { c ->
             val cnt = listOf(EEE,FFF,ABB,NNN,SRR,UUU,XXX,ZZZ).count {
                 it.children.contains((c))
             }
@@ -53,7 +53,7 @@ class CountryTest {
     @Test
     fun allCountriesFoundInEnum() {
         codes.forEach {co ->
-            val r = Country.values().map { it.code }.contains(co)
+            val r = Country.entries.map { it.code }.contains(co)
             Assert.assertEquals("$co not found in enum", r, true)
         }
     }
@@ -61,7 +61,7 @@ class CountryTest {
 
     @Test
     fun allCountriesFoundInImport() {
-        Country.values().forEach {
+        Country.entries.forEach {
             if(codesIgnore.contains(it.code))
                 return@forEach
             val r = codes.contains(it.code)
@@ -71,28 +71,28 @@ class CountryTest {
 
     @Test
     fun allCountriesValidName() {
-        Country.values().forEach {
+        Country.entries.forEach {
             Assert.assertEquals("$it has no full_name", it.fullName.isNotEmpty(), true)
         }
     }
 
     @Test
     fun allCountriesValidArea() {
-        Country.values().forEach {
+        Country.entries.forEach {
             Assert.assertEquals("$it has an area of 0", it.area > 0, true)
         }
     }
 
     @Test
     fun allCountryGroupsValidName() {
-        Group.values().forEach {
+        Group.entries.forEach {
             Assert.assertEquals("$it has no full_name", it.fullName.isNotEmpty(), true)
         }
     }
 
     @Test
     fun allCountryGroupsValidArea() {
-        Group.values().forEach {
+        Group.entries.forEach {
             Assert.assertEquals("$it has an area of 0", it.area >= 0, true)
         }
     }

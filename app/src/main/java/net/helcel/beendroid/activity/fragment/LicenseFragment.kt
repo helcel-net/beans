@@ -12,8 +12,6 @@ import com.mikepenz.aboutlibraries.LibsBuilder
 class LicenseFragment: Fragment() {
     private var _binding: FragmentLicenseBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(

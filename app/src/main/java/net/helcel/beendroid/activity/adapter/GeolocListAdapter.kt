@@ -1,4 +1,4 @@
-package net.helcel.beendroid.activity
+package net.helcel.beendroid.activity.adapter
 
 import android.content.Context
 import android.graphics.Typeface
@@ -11,16 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
 import net.helcel.beendroid.R
 import net.helcel.beendroid.countries.GeoLoc
-import net.helcel.beendroid.countries.Visited
-import net.helcel.beendroid.helper.colorBackground
-import net.helcel.beendroid.helper.colorPanelBackground
+import net.helcel.beendroid.helper.colorWrapper
+import net.helcel.beendroid.helper.visited
 import java.util.*
 
 
-class FoldingListAdapter(
-    private val ctx: Context, l: List<GeoLoc>,
-    private val visited: Visited,
-                         ) : RecyclerView.Adapter<FoldingListAdapter.FoldingListViewHolder>()  {
+class GeolocListAdapter(
+    private val ctx: Context, l: List<GeoLoc>) : RecyclerView.Adapter<GeolocListAdapter.FoldingListViewHolder>()  {
 
     private val cg : MutableMap<GeoLoc,Boolean> = l.sortedBy { it.fullName }.fold(LinkedHashMap<GeoLoc,Boolean>()) { acc, e ->
         acc[e] = false
@@ -30,8 +27,8 @@ class FoldingListAdapter(
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoldingListViewHolder {
         val view: View = LayoutInflater
             .from(viewGroup.context)
-            .inflate(R.layout.item_list, viewGroup, false)
-        return FoldingListViewHolder(ctx, view, visited)
+            .inflate(R.layout.item_list_geoloc, viewGroup, false)
+        return FoldingListViewHolder(ctx, view)
     }
 
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
@@ -45,7 +42,7 @@ class FoldingListAdapter(
             }
             !el.first.isEnd
         }, {
-            visited.setVisited(el.first, it)
+            visited!!.setVisited(el.first, it)
         })
     }
 
@@ -53,18 +50,15 @@ class FoldingListAdapter(
         return cg.size
     }
 
-    class FoldingListViewHolder(private val ctx: Context, itemView: View,
-                                private val visited: Visited,
-                                ) : RecyclerView.ViewHolder(itemView) {
+    class FoldingListViewHolder(private val ctx: Context, itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textView: TextView = itemView.findViewById(R.id.textView)
-        private val progressView: TextView = itemView.findViewById(R.id.progressView)
+        private val progressView: TextView = itemView.findViewById(R.id.name)
         private val checkBox: MaterialCheckBox = itemView.findViewById(R.id.checkBox)
         private val subItemView: View = itemView.findViewById(R.id.sub_item)
         private val list: RecyclerView = itemView.findViewById(R.id.list_list)
         init {
             list.layoutManager = LinearLayoutManager(ctx, RecyclerView.VERTICAL, false)
-            list.setItemAnimator(null) //TODO: Fix slow recycler expansion
-            //list.setHasFixedSize(true)
+            list.itemAnimator = null //TODO: Fix slow recycler expansion
         }
 
         fun bind(el: Pair<GeoLoc, Boolean>) {
@@ -74,29 +68,28 @@ class FoldingListAdapter(
             if (el.first.children.isEmpty()) {
 
                 textView.backgroundTintList = null
-                textView.background = colorBackground(ctx)
+                textView.background = colorWrapper(ctx, android.R.attr.colorBackground)
                 textView.isActivated = false
             }else {
                 textView.setTypeface(null, Typeface.BOLD)
-                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visited.getVisited(it) }.count { it }),el.first.children.size)
+                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visited!!.getVisited(it)>0 }.count { it }),el.first.children.size)
 
-                textView.background = colorPanelBackground(ctx)
+                textView.background = colorWrapper(ctx, android.R.attr.panelColorBackground)
                 textView.background.alpha = 128
 
-                list.adapter = FoldingListAdapter(ctx, el.first.children, visited)
+                list.adapter = GeolocListAdapter(ctx, el.first.children)
                 textView.parent.parent.requestChildFocus(textView, textView)
             }
             checkBox.checkedState =
-                if (visited.getVisited(el.first)) MaterialCheckBox.STATE_CHECKED
-                else if (el.first.children.any { visited.getVisited(it) }) MaterialCheckBox.STATE_INDETERMINATE
+                if (visited!!.getVisited(el.first)>0) MaterialCheckBox.STATE_CHECKED
+                else if (el.first.children.any { visited!!.getVisited(it)>0 }) MaterialCheckBox.STATE_INDETERMINATE
                 else MaterialCheckBox.STATE_UNCHECKED
-
         }
 
-        fun addListeners(expandLambda: ()->Boolean, visitedLambda: (Boolean)->Unit) {
+        fun addListeners(expandLambda: ()->Boolean, visitedLambda: (Int)->Unit) {
             textView.setOnClickListener { expandLambda() }
             checkBox.addOnCheckedStateChangedListener { _, e ->
-                visitedLambda(e == MaterialCheckBox.STATE_CHECKED)
+                visitedLambda( if(e == MaterialCheckBox.STATE_CHECKED) 1 else 0)
             }
         }
 
