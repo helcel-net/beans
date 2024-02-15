@@ -23,13 +23,12 @@ class EditGroupFragment : Fragment() {
         ): View {
                 _binding = FragmentEditGroupsBinding.inflate(inflater, container, false)
 
-                listadapt = GroupListAdapter(requireActivity())
+                listadapt = GroupListAdapter(requireActivity(),null)
                 binding.addGroup.setOnClickListener {
                         val dialogFragment = EditGroupAddFragment {
                                 listadapt.notifyItemInserted(groups!!.findGroupPos(it))
                         }
                         dialogFragment.show(requireActivity().supportFragmentManager, "AddColorDialogFragment")
-
                 }
 
                 binding.list.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)

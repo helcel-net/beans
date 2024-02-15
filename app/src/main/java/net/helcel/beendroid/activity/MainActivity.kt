@@ -17,7 +17,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import net.helcel.beendroid.R
 import net.helcel.beendroid.activity.fragment.SettingsFragment
-import net.helcel.beendroid.helper.Visited
 
 import net.helcel.beendroid.svg.CSSWrapper
 import net.helcel.beendroid.svg.PSVGWrapper
@@ -76,20 +75,17 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        // Restore visited countries
-        visited = Visited(this).load()
-        groups = Groups(this).load()
-
-        // Wrap lists of countries
-        psvg = PSVGWrapper(this)
-        css = CSSWrapper(this,visited!!)
-
         // Populate map from list of countries
         setContentView(R.layout.activity_main)
 
         photoView = findViewById(R.id.photo_view)
         photoView.minimumScale = 1f
         photoView.maximumScale = 30f
+
+        loadData(this, Int.MIN_VALUE)
+
+        psvg = PSVGWrapper(this)
+        css = CSSWrapper(this)
 
         refreshMap()
     }

@@ -1,22 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/group_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name"
-        android:inputType="text" />
+        android:inputType="text"
+        android:autofillHints="" />
 
-    <EditText
-        android:id="@+id/group_color"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/color_rrggbb"
-        android:inputType="text" />
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/colorView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/colorR"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="?attr/background"/>
+
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/colorR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/colorG"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/colorView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:thumbColor="@color/red"
+            app:trackColorActive="@color/red" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/colorG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foregroundTint="#FF0000"
+            app:layout_constraintBottom_toTopOf="@id/colorB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/colorView"
+            app:layout_constraintTop_toBottomOf="@id/colorR"
+            app:thumbColor="@color/green"
+            app:trackColorActive="@color/green" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/colorB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/colorView"
+            app:layout_constraintTop_toBottomOf="@id/colorG"
+            app:thumbColor="@color/blue"
+            app:trackColorActive="@color/blue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/group_color"
+            android:text="@string/hashtag"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/group_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/color_rrggbb"
+            android:inputType="text"
+            android:maxLength="6" />
+    </LinearLayout>
 
 </LinearLayout>

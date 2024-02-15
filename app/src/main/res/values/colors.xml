@@ -3,6 +3,16 @@
     <color name="black">#FF000000</color>
     <color name="darkgray">#FF0C1D2E</color>
     <color name="lightgray">#FF93A9BE</color>
-    <color name="blue">#FF3193F5</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="orange">#F59331</color>
+    <color name="yellow">#F5F531</color>
+    <color name="green">#93F531</color>
+    <color name="turquoise">#31F593</color>
+    <color name="blue">#3193F5</color>
+    <color name="purple">#9331F5</color>
+    <color name="pink">#F53193</color>
+    <color name="red">#F53131</color>
+
+
 </resources>

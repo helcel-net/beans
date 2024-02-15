@@ -23,7 +23,7 @@ class EditPlaceFragment : Fragment() {
         _binding = FragmentEditPlacesBinding.inflate(inflater, container, false)
 
         binding.list.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        binding.list.adapter = GeolocListAdapter(requireContext(), World.WWW.children)
+        binding.list.adapter = GeolocListAdapter(requireActivity(), World.WWW.children)
         return binding.root
     }
 

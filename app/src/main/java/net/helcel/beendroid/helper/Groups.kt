@@ -1,35 +1,24 @@
 package net.helcel.beendroid.helper
 
-import android.content.Context
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Serializer
+import kotlinx.serialization.json.Json
+import java.io.InputStream
 import kotlin.random.Random
 
 
-class Groups(ctx: Context) {
-    private val randSeed = 0
-    private val rnd = Random(randSeed)
-    private var grps: MutableMap<Int,Pair<String, ColorDrawable>> = HashMap()
-    private val pref = ctx.getSharedPreferences("Groups", Context.MODE_PRIVATE)
-    private val editor = pref.edit()
-
-    fun load(): Groups {
-        pref.all.keys.filter { !it.endsWith("_color") }.forEach {
-            grps[it.toInt()] = Pair(pref.getString(it, "")!!,
-                ColorDrawable(pref.getInt(it+"_color", Color.WHITE)))
-        }
-        editor.apply()
-        return this
-    }
+private const val randSeed = 0
+private val rnd = Random(randSeed)
+@Serializable
+class Groups(val id: Int, private val grps: HashMap<Int,Group>) {
 
     fun setGroup(key: Int, name: String, col: ColorDrawable) {
-        grps[key] = Pair(name,col)
-        editor.putString(key.toString(), name)
-        editor.putInt(key.toString()+"_color", col.color)
-        editor.apply()
+        grps[key] = Group(key,name,col)
     }
 
-    fun getGroupFromKey(key: Int): Pair<String,ColorDrawable>? {
+    fun getGroupFromKey(key: Int): Group? {
         return grps.getOrDefault(key,null)
     }
 
@@ -43,13 +32,32 @@ class Groups(ctx: Context) {
         return grps.size
     }
 
-    fun getGroupFromPos(pos: Int): Pair<Int,Pair<String,ColorDrawable>> {
+    fun getGroupFromPos(pos: Int): Pair<Int,Group> {
         val key = grps.keys.toList()[pos]
         return Pair(key,getGroupFromKey(key)!!)
     }
 
     fun findGroupPos(key: Int): Int {
         return grps.keys.toList().indexOf(key)
+    }
+
+    @Serializable
+    class Group(val key: Int, val name: String, @Serializable(with = ColorDrawableSerializer::class) val color: ColorDrawable)
+
+    @OptIn(ExperimentalSerializationApi::class)
+    @Serializer(Groups::class)
+    class GroupsSerializer{
+        val defaultValue: Groups
+            get() = Groups(Int.MIN_VALUE,hashMapOf())
+
+        fun readFrom(input: InputStream): Groups {
+            return Json.decodeFromString(serializer(),input.readBytes().decodeToString())
+        }
+
+        fun writeTo(t: Groups): String {
+            return Json.encodeToString(serializer(),t).encodeToByteArray().decodeToString()
+        }
+
     }
 
 }

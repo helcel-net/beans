@@ -1,25 +1,29 @@
 package net.helcel.beendroid.activity.adapter
 
-import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
 import net.helcel.beendroid.R
+import net.helcel.beendroid.activity.fragment.EditPlaceColorFragment
 import net.helcel.beendroid.countries.GeoLoc
 import net.helcel.beendroid.helper.colorWrapper
-import net.helcel.beendroid.helper.visited
-import java.util.*
-
-
+import net.helcel.beendroid.helper.groups
+import net.helcel.beendroid.helper.saveData
+import net.helcel.beendroid.helper.selected_geoloc
+import net.helcel.beendroid.helper.selected_group
+import net.helcel.beendroid.helper.visits
 class GeolocListAdapter(
-    private val ctx: Context, l: List<GeoLoc>) : RecyclerView.Adapter<GeolocListAdapter.FoldingListViewHolder>()  {
+    private val ctx: FragmentActivity, l: List<GeoLoc>) : RecyclerView.Adapter<GeolocListAdapter.FoldingListViewHolder>()  {
 
-    private val cg : MutableMap<GeoLoc,Boolean> = l.sortedBy { it.fullName }.fold(LinkedHashMap<GeoLoc,Boolean>()) { acc, e ->
+    private val cg : MutableMap<GeoLoc,Boolean> = l.sortedBy { it.fullName }.fold(LinkedHashMap()) { acc, e ->
         acc[e] = false
         acc
      }
@@ -35,22 +39,20 @@ class GeolocListAdapter(
         val el = cg.toList()[position]
 
         holder.bind(el)
-        holder.addListeners( {
+        holder.addListeners(el) {
             if (!el.first.isEnd) {
                 cg[el.first] = !el.second
                 notifyItemChanged(position)
             }
             !el.first.isEnd
-        }, {
-            visited!!.setVisited(el.first, it)
-        })
+        }
     }
 
     override fun getItemCount(): Int {
         return cg.size
     }
 
-    class FoldingListViewHolder(private val ctx: Context, itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class FoldingListViewHolder(private val ctx: FragmentActivity, itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textView: TextView = itemView.findViewById(R.id.textView)
         private val progressView: TextView = itemView.findViewById(R.id.name)
         private val checkBox: MaterialCheckBox = itemView.findViewById(R.id.checkBox)
@@ -72,7 +74,7 @@ class GeolocListAdapter(
                 textView.isActivated = false
             }else {
                 textView.setTypeface(null, Typeface.BOLD)
-                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visited!!.getVisited(it)>0 }.count { it }),el.first.children.size)
+                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visits!!.getVisited(it)>0 }.count { it }),el.first.children.size)
 
                 textView.background = colorWrapper(ctx, android.R.attr.panelColorBackground)
                 textView.background.alpha = 128
@@ -80,17 +82,43 @@ class GeolocListAdapter(
                 list.adapter = GeolocListAdapter(ctx, el.first.children)
                 textView.parent.parent.requestChildFocus(textView, textView)
             }
-            checkBox.checkedState =
-                if (visited!!.getVisited(el.first)>0) MaterialCheckBox.STATE_CHECKED
-                else if (el.first.children.any { visited!!.getVisited(it)>0 }) MaterialCheckBox.STATE_INDETERMINATE
-                else MaterialCheckBox.STATE_UNCHECKED
+            refreshCheck(el.first)
         }
 
-        fun addListeners(expandLambda: ()->Boolean, visitedLambda: (Int)->Unit) {
+        fun addListeners(el: Pair<GeoLoc, Boolean>, expandLambda: () -> Boolean) {
             textView.setOnClickListener { expandLambda() }
-            checkBox.addOnCheckedStateChangedListener { _, e ->
-                visitedLambda( if(e == MaterialCheckBox.STATE_CHECKED) 1 else 0)
+            checkBox.setOnClickListener {
+                val dialogFragment = EditPlaceColorFragment(this)
+                selected_geoloc = el.first
+                selected_group = null
+                dialogFragment.show(ctx.supportFragmentManager, "AddColorDialogFragment")
             }
+        }
+
+        fun onColorDialogDismiss(clear: Boolean) {
+            if(clear){
+                visits!!.setVisited(selected_geoloc!!,0)
+                saveData()
+            }
+            if(selected_group!=null && selected_geoloc!=null) {
+                visits!!.setVisited(selected_geoloc!!, selected_group!!.key)
+                saveData()
+            }
+            selected_geoloc?.let { refreshCheck(it) }
+            selected_geoloc = null
+            selected_group = null
+        }
+
+        private fun refreshCheck(geoLoc: GeoLoc){
+            val col = groups!!.getGroupFromKey(visits!!.getVisited(geoLoc))?.color?.color?:Color.WHITE
+            checkBox.checkedState =
+                if (visits!!.getVisited(geoLoc)!=0) MaterialCheckBox.STATE_CHECKED
+                else if (geoLoc.children.any { visits!!.getVisited(it)!=0 }) MaterialCheckBox.STATE_INDETERMINATE
+                else MaterialCheckBox.STATE_UNCHECKED
+
+            checkBox.buttonTintList = ColorStateList(arrayOf(
+                intArrayOf(-android.R.attr.state_checked), intArrayOf(android.R.attr.state_checked)),
+                intArrayOf(col, col))
         }
 
     }

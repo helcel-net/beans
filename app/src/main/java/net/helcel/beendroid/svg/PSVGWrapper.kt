@@ -23,10 +23,6 @@ class PSVGWrapper(ctx: Context) {
         build()
     }
 
-    fun level(el: Country, level: Level){
-        cm[el]?.changeLevel(level)
-    }
-
     private fun build(){
         fm = World.WWW.children.map { gr ->
             gr.children.map {c ->
