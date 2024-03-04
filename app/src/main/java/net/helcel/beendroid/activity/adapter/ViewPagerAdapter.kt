@@ -8,8 +8,8 @@ import net.helcel.beendroid.activity.fragment.EditGroupFragment
 import net.helcel.beendroid.activity.fragment.EditPlaceFragment
 
 private val tabArray = arrayOf(
+    "Places",
     "Groups",
-    "Places"
 )
 class ViewPagerAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
@@ -24,10 +24,10 @@ class ViewPagerAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle) 
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> return EditGroupFragment()
-            1 -> return EditPlaceFragment()
+            0 -> return EditPlaceFragment()
+            1 -> return EditGroupFragment()
         }
-        return EditGroupFragment()
+        return EditPlaceFragment()
     }
 }
 

@@ -18,6 +18,10 @@ class Groups(val id: Int, private val grps: HashMap<Int,Group>) {
         grps[key] = Group(key,name,col)
     }
 
+    fun deleteGroup(key: Int) {
+        grps.remove(key)
+    }
+
     fun getGroupFromKey(key: Int): Group? {
         return grps.getOrDefault(key,null)
     }

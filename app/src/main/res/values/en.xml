@@ -17,6 +17,7 @@
     <string name="beendroid_repo">Project repository: https://git.helcel.net/helcel/beendroid\n Feel free to report issues or contribute to the project.</string>
     <string name="foss_licenses">Free and open source dependencies and licenses</string>
     <string name="about_beendroid">About the BeenDroid application</string>
+    <string name="delete_group">Do you want to delete this group?</string>
     <string name="group_add">Add</string>
     <string name="logo">Logo</string>
     <string name="name">Name</string>

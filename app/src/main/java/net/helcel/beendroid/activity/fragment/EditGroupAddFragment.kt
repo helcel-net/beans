@@ -23,15 +23,16 @@ import net.helcel.beendroid.helper.saveData
 import java.lang.Exception
 
 
-class EditGroupAddFragment(private val key: Int =0, val onAddCb : (Int)->Unit) : DialogFragment() {
+class EditGroupAddFragment(private val key: Int = 0, val onAddCb: (Int) -> Unit) :
+    DialogFragment() {
     private lateinit var colorNameEditText: TextInputEditText
     private lateinit var colorEditText: TextInputEditText
 
-    private lateinit var colorView : View
+    private lateinit var colorView: View
 
-    private lateinit var colorEditR : Slider
-    private lateinit var colorEditG : Slider
-    private lateinit var colorEditB : Slider
+    private lateinit var colorEditR: Slider
+    private lateinit var colorEditG: Slider
+    private lateinit var colorEditB: Slider
 
     private val grp = groups!!.getGroupFromKey(key)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -48,45 +49,59 @@ class EditGroupAddFragment(private val key: Int =0, val onAddCb : (Int)->Unit) :
         colorEditG = view.findViewById(R.id.colorG)
         colorEditB = view.findViewById(R.id.colorB)
 
-        setupSlider(colorEditR,(grp?.color?.color?.red ?: 0)/ 255F)
-        setupSlider(colorEditG,(grp?.color?.color?.green ?: 0)/ 255F)
-        setupSlider(colorEditB,(grp?.color?.color?.blue ?: 0)/ 255F)
+        setupSlider(colorEditR, (grp?.color?.color?.red ?: 0) / 255F)
+        setupSlider(colorEditG, (grp?.color?.color?.green ?: 0) / 255F)
+        setupSlider(colorEditB, (grp?.color?.color?.blue ?: 0) / 255F)
 
-        setupText(colorEditText,grp)
+        setupText(colorEditText, grp)
 
         colorView.background = ColorDrawable(grp?.color?.color ?: 0)
 
-
         colorNameEditText.setText(grp?.name ?: "")
         builder.setView(view)
-            .setPositiveButton("Ok") { _: DialogInterface?, _: Int ->
+            .setPositiveButton(android.R.string.ok) { _: DialogInterface?, _: Int ->
                 val name = colorNameEditText.text.toString()
                 val color = colorEditText.text.toString()
-                val key = (if (key!=0) key else groups!!.genKey())
-                groups!!.setGroup(key,name, ColorDrawable(Color.parseColor("#$color")))
+                val key = (if (key != 0) key else groups!!.genKey())
+                groups!!.setGroup(key, name, ColorDrawable(Color.parseColor("#$color")))
                 saveData()
                 onAddCb(key)
             }
-            .setNegativeButton(
-                "Cancel"
-            ) { dialog: DialogInterface, _: Int -> dialog.cancel() }
+            .setNegativeButton(android.R.string.cancel) { dialog: DialogInterface, _: Int ->
+                dialog.cancel()
+            }
         return builder.create()
     }
 
     private fun setupText(s: TextInputEditText, grp: Groups.Group?) {
-        s.setText( colorToHex6(ColorDrawable(grp?.color?.color ?: 0)).substring(1))
-        s.addTextChangedListener(EditTextListener(colorEditR, colorEditG, colorEditB, colorEditText, colorView))
+        s.setText(colorToHex6(ColorDrawable(grp?.color?.color ?: 0)).substring(1))
+        s.addTextChangedListener(
+            EditTextListener(
+                colorEditR,
+                colorEditG,
+                colorEditB,
+                colorEditText,
+                colorView
+            )
+        )
     }
 
-    private fun setupSlider(s: Slider, v: Float){
+    private fun setupSlider(s: Slider, v: Float) {
         s.valueFrom = 0F
         s.valueTo = 1F
         s.value = v
-        s.addOnChangeListener(SliderOnChangeListener( colorEditR, colorEditG, colorEditB,colorEditText, colorView))
+        s.addOnChangeListener(
+            SliderOnChangeListener(
+                colorEditR,
+                colorEditG,
+                colorEditB,
+                colorEditText,
+                colorView
+            )
+        )
     }
 
 }
-
 
 
 private class EditTextListener(
@@ -95,7 +110,7 @@ private class EditTextListener(
     private val colorEditB: Slider,
     private val colorEditText: TextInputEditText,
     private val colorView: View
-): TextWatcher  {
+) : TextWatcher {
 
 
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -105,10 +120,10 @@ private class EditTextListener(
     }
 
     override fun afterTextChanged(s: Editable?) {
-        val col : Color
-        try{
+        val col: Color
+        try {
             col = Color.valueOf(Color.parseColor("#${colorEditText.text}"))
-        }catch (e:Exception){
+        } catch (e: Exception) {
             return
         }
 
@@ -126,9 +141,10 @@ private class SliderOnChangeListener(
     private val colorEditB: Slider,
     private val colorEditText: TextInputEditText,
     private val colorView: View
-): Slider.OnChangeListener {
+) : Slider.OnChangeListener {
     override fun onValueChange(slider: Slider, value: Float, fromUser: Boolean) {
-        val rgb = ColorDrawable(Color.argb(1F,colorEditR.value, colorEditG.value, colorEditB.value))
+        val rgb =
+            ColorDrawable(Color.argb(1F, colorEditR.value, colorEditG.value, colorEditB.value))
         colorEditText.setText(colorToHex6(rgb).substring(1))
         colorView.background = rgb
     }

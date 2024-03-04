@@ -26,7 +26,7 @@
             app:layout_constraintEnd_toStartOf="@+id/colorR"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="?attr/background"/>
+            android:background="@color/black"/>
 
 
         <com.google.android.material.slider.Slider

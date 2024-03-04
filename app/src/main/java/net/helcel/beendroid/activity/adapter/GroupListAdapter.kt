@@ -7,11 +7,13 @@ import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.helcel.beendroid.R
 import net.helcel.beendroid.activity.fragment.EditGroupAddFragment
 import net.helcel.beendroid.helper.Groups
 import net.helcel.beendroid.helper.getContrastColor
 import net.helcel.beendroid.helper.groups
+import net.helcel.beendroid.helper.saveData
 import net.helcel.beendroid.helper.selected_group
 
 class GroupListAdapter(private val activity: FragmentActivity, private val selectDialog: DialogFragment?) : RecyclerView.Adapter<GroupListAdapter.GroupViewHolder>()  {
@@ -29,7 +31,7 @@ class GroupListAdapter(private val activity: FragmentActivity, private val selec
         return groups!!.size()
     }
 
-    class GroupViewHolder(itemView: View, private val activity: FragmentActivity, private val selectDialog: DialogFragment?) : RecyclerView.ViewHolder(itemView) {
+    inner class GroupViewHolder(itemView: View, private val activity: FragmentActivity, private val selectDialog: DialogFragment?) : RecyclerView.ViewHolder(itemView) {
         private val color: Button = itemView.findViewById(R.id.group_color)
 
         fun bind(entry: Pair<Int, Groups.Group>) {
@@ -52,6 +54,25 @@ class GroupListAdapter(private val activity: FragmentActivity, private val selec
                         selected_group = entry.second
                         selectDialog.dismiss()
                     }
+            }
+
+            color.setOnLongClickListener {
+                MaterialAlertDialogBuilder(activity)
+                    .setMessage(R.string.delete_group)
+                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                        // TODO: Remove all countries belonging to that group
+
+
+                        // Delete the group
+                        val key = entry.first
+                        val pos = groups!!.findGroupPos(key)
+                        groups!!.deleteGroup(key)
+                        saveData()
+                        this@GroupListAdapter.notifyItemRemoved(pos)
+                    }
+                    .setNegativeButton(android.R.string.cancel) { _, _ -> }
+                    .show()
+                true
             }
         }
     }
