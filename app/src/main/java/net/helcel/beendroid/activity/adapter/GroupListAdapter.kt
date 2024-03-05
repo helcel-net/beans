@@ -15,6 +15,7 @@ import net.helcel.beendroid.helper.getContrastColor
 import net.helcel.beendroid.helper.groups
 import net.helcel.beendroid.helper.saveData
 import net.helcel.beendroid.helper.selected_group
+import net.helcel.beendroid.helper.visits
 
 class GroupListAdapter(private val activity: FragmentActivity, private val selectDialog: DialogFragment?) : RecyclerView.Adapter<GroupListAdapter.GroupViewHolder>()  {
 
@@ -39,7 +40,7 @@ class GroupListAdapter(private val activity: FragmentActivity, private val selec
             color.setBackgroundColor(entry.second.color.color)
             color.setTextColor(getContrastColor(entry.second.color.color))
             color.setOnClickListener {
-                    if(selectDialog==null) {
+                    if (selectDialog == null) {
                         val dialogFragment = EditGroupAddFragment(entry.first) {
                             val newEntry = groups!!.getGroupFromKey(entry.first)!!
                             color.text = newEntry.name
@@ -50,28 +51,30 @@ class GroupListAdapter(private val activity: FragmentActivity, private val selec
                             activity.supportFragmentManager,
                             "AddColorDialogFragment"
                         )
-                    }else{
+                    } else {
                         selected_group = entry.second
                         selectDialog.dismiss()
                     }
             }
 
             color.setOnLongClickListener {
-                MaterialAlertDialogBuilder(activity)
-                    .setMessage(R.string.delete_group)
-                    .setPositiveButton(android.R.string.ok) { _, _ ->
-                        // TODO: Remove all countries belonging to that group
+                if (selectDialog == null) {
+                    MaterialAlertDialogBuilder(activity)
+                        .setMessage(R.string.delete_group)
+                        .setPositiveButton(android.R.string.ok) { _, _ ->
+                            // Remove all countries belonging to that group
+                            val key = entry.first
+                            visits!!.deleteVisited(key)
 
-
-                        // Delete the group
-                        val key = entry.first
-                        val pos = groups!!.findGroupPos(key)
-                        groups!!.deleteGroup(key)
-                        saveData()
-                        this@GroupListAdapter.notifyItemRemoved(pos)
-                    }
-                    .setNegativeButton(android.R.string.cancel) { _, _ -> }
-                    .show()
+                            // Delete the group
+                            val pos = groups!!.findGroupPos(key)
+                            groups!!.deleteGroup(key)
+                            saveData()
+                            this@GroupListAdapter.notifyItemRemoved(pos)
+                        }
+                        .setNegativeButton(android.R.string.cancel) { _, _ -> }
+                        .show()
+                }
                 true
             }
         }

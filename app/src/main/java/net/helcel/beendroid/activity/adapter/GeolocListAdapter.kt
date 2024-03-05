@@ -88,10 +88,15 @@ class GeolocListAdapter(
         fun addListeners(el: Pair<GeoLoc, Boolean>, expandLambda: () -> Boolean) {
             textView.setOnClickListener { expandLambda() }
             checkBox.setOnClickListener {
-                val dialogFragment = EditPlaceColorFragment(this)
                 selected_geoloc = el.first
-                selected_group = null
-                dialogFragment.show(ctx.supportFragmentManager, "AddColorDialogFragment")
+                if (groups!!.size() != 1) {
+                    val dialogFragment = EditPlaceColorFragment(this)
+                    selected_group = null
+                    dialogFragment.show(ctx.supportFragmentManager, "AddColorDialogFragment")
+                } else {
+                    selected_group = groups!!.getUniqueEntry()!!
+                    onColorDialogDismiss(false)
+                }
             }
         }
 

@@ -15,6 +15,15 @@ class Visits(val id: Int, private val locs: HashMap<String,Int>) {
         locs[key.code] = b
     }
 
+    fun deleteVisited(key: Int) {
+        val keysToDelete = locs
+            .filter { it.value == key }
+            .map { it.key }
+        keysToDelete.forEach {
+            locs.remove(it)
+        }
+    }
+
     fun getVisited(key: GeoLoc): Int {
         return locs.getOrDefault(key.code,0)
     }

@@ -36,6 +36,15 @@ class Groups(val id: Int, private val grps: HashMap<Int,Group>) {
         return grps.size
     }
 
+    fun getUniqueEntry(): Group? {
+        assert(size() == 1)
+        return if (grps.size == 1) {
+            grps[grps.keys.first()]
+        } else {
+            null
+        }
+    }
+
     fun getGroupFromPos(pos: Int): Pair<Int,Group> {
         val key = grps.keys.toList()[pos]
         return Pair(key,getGroupFromKey(key)!!)
