@@ -13,6 +13,16 @@
         app:entryValues="@array/entries_theme"
         app:defaultValue="@string/system" />
 
+    <ListPreference
+        app:enabled="true"
+        app:key="@string/key_stats"
+        app:icon="@drawable/stats"
+        app:title="@string/key_stats"
+        app:useSimpleSummaryProvider="true"
+        app:entries="@array/entries_stats"
+        app:entryValues="@array/entries_stats"
+        app:defaultValue="@string/counters" />
+
     <Preference
         app:enabled="true"
         app:key="@string/licenses"

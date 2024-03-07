@@ -5,4 +5,9 @@
         <item>@string/light</item>
         <item>@string/dark</item>
     </string-array>
+
+    <string-array name="entries_stats" >
+        <item>@string/counters</item>
+        <item>@string/percentages</item>
+    </string-array>
 </resources>

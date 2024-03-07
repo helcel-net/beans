@@ -11,6 +11,9 @@
     <string name="system">System</string>
     <string name="light">Light</string>
     <string name="dark">Dark</string>
+    <string name="key_stats">Statistics</string>
+    <string name="counters">Prefer counters (#)</string>
+    <string name="percentages">Prefer percentages (%)</string>
     <string name="licenses">Licenses</string>
     <string name="about">About</string>
     <string name="beendroid_is_foss">BeenDroid is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
@@ -22,5 +25,6 @@
     <string name="logo">Logo</string>
     <string name="name">Name</string>
     <string name="rate">%1$d/%2$d</string>
+    <string name="percentage">%1$d&#65285;</string>
     <string name="color_rrggbb">RRGGBB</string>
 </resources>

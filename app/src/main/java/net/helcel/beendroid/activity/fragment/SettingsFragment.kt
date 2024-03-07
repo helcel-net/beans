@@ -21,20 +21,22 @@ class SettingsFragment: PreferenceFragmentCompat() {
             setTheme(requireContext(), key as String)
         }
 
+        // Open license fragment
+        val licensesPreference = findPreference<Preference>(getString(R.string.licenses))
+        licensesPreference?.setOnPreferenceClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_view, LicenseFragment(), getString(R.string.licenses))
+                .commit()
+            true
+        }
+
+        // Open about fragment
         val aboutPreference = findPreference<Preference>(getString(R.string.about))
         aboutPreference?.setOnPreferenceClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_view, AboutFragment(), getString(R.string.about))
                 .commit()
 
-            true
-        }
-
-        val licensesPreference = findPreference<Preference>(getString(R.string.licenses))
-        licensesPreference?.setOnPreferenceClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_view, LicenseFragment(), getString(R.string.licenses))
-                .commit()
             true
         }
 

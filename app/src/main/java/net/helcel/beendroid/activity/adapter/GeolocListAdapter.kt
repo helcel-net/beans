@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
@@ -63,6 +64,9 @@ class GeolocListAdapter(
             list.itemAnimator = null //TODO: Fix slow recycler expansion
         }
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx)
+        val statsPref = sharedPreferences.getString(ctx.getString(R.string.key_stats), ctx.getString(R.string.counters))
+
         fun bind(el: Pair<GeoLoc, Boolean>) {
             subItemView.visibility = if (el.second) View.VISIBLE else View.GONE
 
@@ -71,7 +75,15 @@ class GeolocListAdapter(
                 textView.backgroundTintList = ColorStateList.valueOf(colorWrapper(ctx, android.R.attr.colorBackground).color)
             } else {
                 textView.setTypeface(null, Typeface.BOLD)
-                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visits!!.getVisited(it) != 0 }.count { it }), el.first.children.size)
+
+                val numerator = el.first.children.map { visits!!.getVisited(it) != 0 }.count { it }
+                val denominator = el.first.children.size
+                println(100 * (numerator / denominator.toFloat()).toInt())
+
+                progressView.text = when (statsPref) {
+                    ctx.getString(R.string.percentages) -> ctx.getString(R.string.percentage, (100 * (numerator.toFloat() / denominator.toFloat())).toInt())
+                    else -> ctx.getString(R.string.rate, numerator, denominator)
+                }
 
                 textView.backgroundTintList = ColorStateList.valueOf(colorWrapper(ctx, android.R.attr.panelColorBackground).color).withAlpha(128)
 
