@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -34,18 +35,28 @@ class GroupListAdapter(private val activity: FragmentActivity, private val selec
 
     inner class GroupViewHolder(itemView: View, private val activity: FragmentActivity, private val selectDialog: DialogFragment?) : RecyclerView.ViewHolder(itemView) {
         private val color: Button = itemView.findViewById(R.id.group_color)
+        private val entries: TextView = itemView.findViewById(R.id.name)
 
         fun bind(entry: Pair<Int, Groups.Group>) {
             color.text = entry.second.name
-            color.setBackgroundColor(entry.second.color.color)
-            color.setTextColor(getContrastColor(entry.second.color.color))
+            val entryColor = entry.second.color.color
+            val contrastEntryColor = getContrastColor(entryColor)
+            color.setBackgroundColor(entryColor)
+            color.setTextColor(contrastEntryColor)
+            entries.setTextColor(contrastEntryColor)
+            entries.text = visits!!.countVisited(entry.first).toString()
+
             color.setOnClickListener {
                     if (selectDialog == null) {
                         val dialogFragment = EditGroupAddFragment(entry.first) {
                             val newEntry = groups!!.getGroupFromKey(entry.first)!!
                             color.text = newEntry.name
-                            color.setBackgroundColor(newEntry.color.color)
-                            color.setTextColor(getContrastColor(newEntry.color.color))
+                            val newEntryColor = newEntry.color.color
+                            val contrastNewEntryColor = getContrastColor(newEntryColor)
+                            color.setBackgroundColor(newEntryColor)
+                            color.setTextColor(contrastNewEntryColor)
+                            entries.setTextColor(contrastNewEntryColor)
+                            entries.text = "0"
                         }
                         dialogFragment.show(
                             activity.supportFragmentManager,

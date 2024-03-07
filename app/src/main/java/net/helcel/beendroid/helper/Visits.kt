@@ -28,6 +28,10 @@ class Visits(val id: Int, private val locs: HashMap<String,Int>) {
         return locs.getOrDefault(key.code,0)
     }
 
+    fun countVisited(key: Int): Int {
+        return locs.filter { it.value == key }.size
+    }
+
     @OptIn(ExperimentalSerializationApi::class)
     @Serializer(Visits::class)
     class VisitsSerializer {
