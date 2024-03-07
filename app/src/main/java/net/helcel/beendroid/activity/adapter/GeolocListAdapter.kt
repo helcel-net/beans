@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
-import com.google.android.material.checkbox.MaterialCheckBox.CheckedState
 import net.helcel.beendroid.R
 import net.helcel.beendroid.activity.fragment.EditPlaceColorFragment
 import net.helcel.beendroid.countries.GeoLoc
@@ -69,16 +68,12 @@ class GeolocListAdapter(
 
             textView.text = el.first.fullName
             if (el.first.children.isEmpty()) {
-
-                textView.backgroundTintList = null
-                textView.background = colorWrapper(ctx, android.R.attr.colorBackground)
-                textView.isActivated = false
-            }else {
+                textView.backgroundTintList = ColorStateList.valueOf(colorWrapper(ctx, android.R.attr.colorBackground).color)
+            } else {
                 textView.setTypeface(null, Typeface.BOLD)
-                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visits!!.getVisited(it)>0 }.count { it }),el.first.children.size)
+                progressView.text = ctx.getString(R.string.rate,(el.first.children.map { visits!!.getVisited(it) != 0 }.count { it }), el.first.children.size)
 
-                textView.background = colorWrapper(ctx, android.R.attr.panelColorBackground)
-                textView.background.alpha = 128
+                textView.backgroundTintList = ColorStateList.valueOf(colorWrapper(ctx, android.R.attr.panelColorBackground).color).withAlpha(128)
 
                 list.adapter = GeolocListAdapter(ctx, el.first.children)
                 textView.parent.parent.requestChildFocus(textView, textView)
