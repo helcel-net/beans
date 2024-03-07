@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
+import com.google.android.material.checkbox.MaterialCheckBox.CheckedState
 import net.helcel.beendroid.R
 import net.helcel.beendroid.activity.fragment.EditPlaceColorFragment
 import net.helcel.beendroid.countries.GeoLoc
@@ -94,8 +95,15 @@ class GeolocListAdapter(
                     selected_group = null
                     dialogFragment.show(ctx.supportFragmentManager, "AddColorDialogFragment")
                 } else {
-                    selected_group = groups!!.getUniqueEntry()!!
-                    onColorDialogDismiss(false)
+                    if (checkBox.isChecked) {
+                        // If one has just checked the box (assign unique group)
+                        selected_group = groups!!.getUniqueEntry()!!
+                        onColorDialogDismiss(false)
+                    } else {
+                        // If one has just unchecked the box (unassign unique group)
+                        selected_group = null
+                        onColorDialogDismiss(true)
+                    }
                 }
             }
         }
