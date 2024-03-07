@@ -130,7 +130,7 @@ class GeolocListAdapter(
         }
 
         private fun refreshCheck(geoLoc: GeoLoc){
-            val col = groups!!.getGroupFromKey(visits!!.getVisited(geoLoc))?.color?.color?:Color.WHITE
+            val col = groups!!.getGroupFromKey(visits!!.getVisited(geoLoc))?.color?.color?:Color.GRAY
             checkBox.checkedState =
                 if (visits!!.getVisited(geoLoc)!=0) MaterialCheckBox.STATE_CHECKED
                 else if (geoLoc.children.any { visits!!.getVisited(it)!=0 }) MaterialCheckBox.STATE_INDETERMINATE
