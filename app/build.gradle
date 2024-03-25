@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.23'
-    id 'com.mikepenz.aboutlibraries.plugin' version '11.1.0'
+    id 'com.mikepenz.aboutlibraries.plugin' version '11.1.1'
 }
 
 android {
