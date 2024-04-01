@@ -5,8 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="action_stat">Stats</string>
     <string name="action_edit">Edit</string>
-    <string name="welcome">Welcome!</string>
-    <string name="change_lang">Change language</string>
     <string name="key_theme">App theme</string>
     <string name="system">System</string>
     <string name="light">Light</string>

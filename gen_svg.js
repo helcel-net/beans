@@ -1,18 +1,10 @@
 #!/bin/node
-#!/bin/node
-import {readFileSync,createWriteStream,writeFileSync} from 'fs';
-import {get as httpsGet} from 'https'
-import {execSync} from 'child_process'
 
+import {readFileSync,createWriteStream,writeFileSync, existsSync} from 'fs';
+import {get as httpsGet} from 'https';
 
-import convex from '@turf/convex'
-import concave from '@turf/concave'
-import simplify from '@turf/simplify'
-import { polygon } from '@turf/helpers';
-import {toMercator} from '@turf/projection'
-import area from '@turf/area'
-
-import geojson2svg from 'geojson2svg'
+import mapshaper from  'mapshaper';
+import {GeoJSON2SVG} from 'geojson2svg';
 
 const LOCAL_SVG_PATH = "./app/src/main/assets/"
 
@@ -36,67 +28,65 @@ const countries =
   "UKR","ARE","GBR","USA","UMI","URY","UZB","VUT","VAT","VEN","VNM","VIR","WLF","ESH","YEM","ZMB","ZWE"
 ]
 
+
 const url_0 = (country) => `${GADM_BASEPATH}/gadm${GADM_VERSION}/json/gadm${GADM_VERSION.replace(".","")}_${country}_0.json`;
 const url_1 = (country) => `${GADM_BASEPATH}/gadm${GADM_VERSION}/json/gadm${GADM_VERSION.replace(".","")}_${country}_1.json.zip`;
 
-const parse0 = (country)=>{
-  return new Promise((resolve, _reject) => {
-    const filepath = `temp/${country}_0.json`
-    const file = createWriteStream(filepath);
+const dl0 = (country) => new Promise((resolve,_reject) => {
+  const filepath = `temp/${country}_0.json`
+  if (existsSync(filepath)){
+    return resolve(filepath)
+  }
+  try{
     httpsGet(url_0(country), r=>{
+      const file = createWriteStream(filepath);
       r.pipe(file);
       file.on("finish", ()=>{
         file.close();
-        try{
-          var geo = JSON.parse(readFileSync(filepath))
-          var geo_proj = toMercator(geo)
-          var geo_simp = simplify(geo_proj,
-            {tolerance: 1e4, highQuality: false, mutate:true})
-
-          geo_simp.features = geo_simp.features.map(feat_e=>{
-            feat_e.geometry.coordinates = feat_e.geometry.coordinates.filter(fc=>{
-              try{
-                if(fc.map(e=>e.length).reduce((a,b)=>Math.max(a,b))<=4) 
-                  return false
-
-                return area(polygon(fc))>=20_000_000**2
-              }catch(e){
-                console.log(e)
-                return true
-              }
-            })
-            return feat_e
-          })
-
-          var cc = convert(geo_simp)
-          .map(scc => `<path d="` + scc + `"/>`)
-          .join('')
-
-          resolve(cc);
-        }catch(e){
-          console.log(country," Error")
-          console.log(e)
-          resolve('')
-        }
-      });
+        resolve(filepath)
+      })
     })
-  })
-}
+  }catch(e){
+    console.log("DL Error:",country)
+    console.log(e)
+    resolve("")
+  }
+})
 
-const convert = (geojson)=>{
-  const converter = geojson2svg({
-    viewportSize: {width:1200,height:1200},
+const parse0 = (country) => new Promise((resolve, _reject) => {
+  const filepath = `temp/${country}_0.json`
+  try{
+    let geo0 = JSON.parse(readFileSync(filepath))
+      simplify(geo0)
+      .then(geo1=>{
+        resolve(toSVG(geo1).join(''))
+      })
+    }catch(e){
+    console.log(country," PARSE Error")
+    console.log(e)
+    resolve('')
+  }
+});
+
+const toSVG = (geojson)=> new GeoJSON2SVG({
+    viewportSize: {width:720,height:720},
     attributes: {},
-    explode: true,
-    precision: 5,
-    output:'path'
-  });
-  return converter.convert(geojson);
-}
+    mapExtent: {left: -180, bottom: -90, right: 180, top: 90},
+    precision: 0,
+    output:'svg'
+  }).convert(geojson)
+
+const simplify = (geo0) => mapshaper.applyCommands(`-i data.json -simplify 5% visvalingam weighted -o data.json rfc7946 -o data.svg `, { 'data.json': geo0}).then(res=>{
+  const geo1 = JSON.parse(res['data.json'].toString())
+  const svg = res['data.svg'].toString()
+  console.log(svg)
+  geo1.features = geo1.features.filter(e=>e.geometry != null)
+  return geo1
+})
+
 async function run(){
   const cp = countries.map(c=>
-    parse0(c).then(r=>{
-
+    dl0(c).then(_=> parse0(c)).then(r=>{
       writeFileSync(LOCAL_SVG_PATH+c+"_0.psvg",r)
       return r
     })

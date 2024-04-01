@@ -15,4 +15,5 @@ temp/
 /captures
 .externalNativeBuild
 .cxx
+.yarn
 local.properties

@@ -19,7 +19,7 @@ import net.helcel.beendroid.R
 import net.helcel.beendroid.activity.fragment.SettingsFragment
 
 import net.helcel.beendroid.svg.CSSWrapper
-import net.helcel.beendroid.svg.PSVGWrapper
+import net.helcel.beendroid.svg.SVGWrapper
 import net.helcel.beendroid.helper.*
 
 
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var photoView : PhotoView
 
-    private lateinit var psvg : PSVGWrapper
+    private lateinit var psvg : SVGWrapper
     private lateinit var css : CSSWrapper
 
     override fun onRestart() {
@@ -80,11 +80,10 @@ class MainActivity : AppCompatActivity() {
 
         photoView = findViewById(R.id.photo_view)
         photoView.minimumScale = 1f
-        photoView.maximumScale = 30f
+        photoView.maximumScale = 50f
 
         loadData(this, Int.MIN_VALUE)
-
-        psvg = PSVGWrapper(this)
+        psvg = SVGWrapper(this)
         css = CSSWrapper(this)
 
         refreshMap()
@@ -92,10 +91,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshMap() {
         val opt : RenderOptions = RenderOptions.create()
-        CoroutineScope(Dispatchers.IO).launch {
-            opt.css(css.get())
-        }
-        photoView.setImageDrawable(PictureDrawable(psvg.get().renderToPicture(opt)))
+        opt.css(css.get())
+        photoView.setImageDrawable(PictureDrawable(psvg.get()?.renderToPicture(opt)))
     }
 
 }
