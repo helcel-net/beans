@@ -6,45 +6,53 @@ plugins {
 }
 
 android {
-    namespace 'net.helcel.beendroid'
+    namespace 'net.helcel.beans'
     compileSdk 34
 
     defaultConfig {
-        applicationId 'net.helcel.beendroid'
+        applicationId 'net.helcel.beans'
         minSdk 28
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        encoding 'utf-8'
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_17
     }
+
     buildFeatures {
         viewBinding true
     }
+
+    dependenciesInfo {
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
+    }
+
 }
 
 dependencies {
-
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core-ktx:1.12.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.0.4'
     implementation 'androidx.preference:preference-ktx:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3'
 
@@ -52,5 +60,4 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation "com.github.AppDevNext:AndroidChart:3.1.0.21"
     implementation 'com.mikepenz:aboutlibraries:11.1.1'
-
 }

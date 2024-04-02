@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "BeenDroid"
+rootProject.name = "Beans"
 include ':app'

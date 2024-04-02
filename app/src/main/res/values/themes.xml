@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.Beendroid" parent="Theme.Material3.DayNight">
+    <style name="Theme.Beans" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/blue</item>
         <item name="background">@color/darkgray</item>
         <item name="android:colorPrimary">?attr/colorPrimary</item>

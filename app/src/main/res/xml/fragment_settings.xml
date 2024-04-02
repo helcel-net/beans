@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:theme="@style/Theme.Beendroid">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.Beans">
 
     <ListPreference
+        app:defaultValue="@string/off"
         app:enabled="true"
-        app:key="@string/key_theme"
-        app:icon="@drawable/palette"
-        app:title="@string/key_theme"
-        app:useSimpleSummaryProvider="true"
-        app:entries="@array/entries_theme"
-        app:entryValues="@array/entries_theme"
-        app:defaultValue="@string/system" />
+        app:entries="@array/entries_onoff"
+        app:entryValues="@array/entries_onoff"
+        app:icon="@drawable/edit"
+        app:key="@string/key_group"
+        app:title="@string/key_group"
+        app:useSimpleSummaryProvider="true" />
 
     <ListPreference
+        app:defaultValue="@string/off"
         app:enabled="true"
-        app:key="@string/key_stats"
-        app:icon="@drawable/stats"
-        app:title="@string/key_stats"
-        app:useSimpleSummaryProvider="true"
+        app:entries="@array/entries_onoff"
+        app:entryValues="@array/entries_onoff"
+        app:icon="@drawable/edit"
+        app:key="@string/key_regional"
+        app:title="@string/key_regional"
+        app:useSimpleSummaryProvider="true" />
+
+    <ListPreference
+        app:defaultValue="@string/counters"
+        app:enabled="true"
         app:entries="@array/entries_stats"
         app:entryValues="@array/entries_stats"
-        app:defaultValue="@string/counters" />
+        app:icon="@drawable/stats"
+        app:key="@string/key_stats"
+        app:title="@string/key_stats"
+        app:useSimpleSummaryProvider="true" />
 
     <Preference
+        android:summary="@string/foss_licenses"
         app:enabled="true"
-        app:key="@string/licenses"
         app:icon="@drawable/licenses"
-        app:title="@string/licenses"
-        android:summary="@string/foss_licenses"/>
+        app:key="@string/licenses"
+        app:title="@string/licenses" />
 
     <Preference
+        android:summary="@string/about_beans"
         app:enabled="true"
-        app:key="@string/about"
         app:icon="@drawable/about"
-        app:title="@string/about"
-        android:summary="@string/about_beendroid"/>
+        app:key="@string/about"
+        app:title="@string/about" />
 
 
 </PreferenceScreen>

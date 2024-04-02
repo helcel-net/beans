@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BeenDroid</string>
+    <string name="app_name">Beans</string>
     <string name="app_version">1.0</string>
     <string name="action_settings">Settings</string>
     <string name="action_stat">Stats</string>
@@ -13,16 +13,25 @@
     <string name="counters">Prefer counters (#)</string>
     <string name="percentages">Prefer percentages (%)</string>
     <string name="licenses">Licenses</string>
+    <string name="key_group">Groups</string>
+    <string name="key_regional">Regional</string>
     <string name="about">About</string>
-    <string name="beendroid_is_foss">BeenDroid is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
-    <string name="beendroid_repo">Project repository: https://git.helcel.net/helcel/beendroid\n Feel free to report issues or contribute to the project.</string>
+    <string name="beans_is_foss">Beans is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
+    <string name="beans_repo">Project repository: https://git.helcel.net/helcel/beans\n Feel free to report issues or contribute to the project.</string>
     <string name="foss_licenses">Free and open source dependencies and licenses</string>
-    <string name="about_beendroid">About the BeenDroid application</string>
+    <string name="about_beans">About the Beans application</string>
     <string name="delete_group">Are your sure you want to delete this group and remove all its country mappings?</string>
-    <string name="group_add">Add</string>
+    <string name="add">Add</string>
+    <string name="clear">Clear</string>
     <string name="logo">Logo</string>
     <string name="name">Name</string>
     <string name="rate">%1$d/%2$d</string>
     <string name="percentage">%1$d&#65285;</string>
     <string name="color_rrggbb">RRGGBB</string>
+    <string name="hashtag">#</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
 </resources>
