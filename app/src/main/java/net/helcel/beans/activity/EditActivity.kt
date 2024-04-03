@@ -4,36 +4,31 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import net.helcel.beans.R
 import net.helcel.beans.activity.adapter.ViewPagerAdapter
 import net.helcel.beans.activity.fragment.EditPlaceFragment
 import net.helcel.beans.countries.World
+import net.helcel.beans.databinding.ActivityEditBinding
 import net.helcel.beans.helper.Theme.createActionBar
 
 
 class EditActivity : AppCompatActivity() {
 
-    private lateinit var viewPager: ViewPager2
-    private lateinit var tabLayout: TabLayout
+    private lateinit var _binding: ActivityEditBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        _binding = ActivityEditBinding.inflate(layoutInflater)
 
-        setContentView(R.layout.activity_edit)
+        setContentView(_binding.root)
         createActionBar(this, getString(R.string.action_edit))
 
-
-        viewPager = findViewById(R.id.pager)
-        tabLayout = findViewById(R.id.tab)
-
-        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle, viewPager)
-        viewPager.adapter = adapter
+        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle, _binding.pager)
+        _binding.pager.adapter = adapter
         adapter.addFragment(null, EditPlaceFragment(World.WWW, adapter))
 
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+        TabLayoutMediator(_binding.tab, _binding.pager) { tab, position ->
             tab.text = adapter.getLabel(position)
         }.attach()
 

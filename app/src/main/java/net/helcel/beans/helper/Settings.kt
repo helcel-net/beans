@@ -30,6 +30,13 @@ object Settings {
         )
     }
 
+    fun getStatPref(ctx: Context): String? {
+        return sp.getString(
+            ctx.getString(R.string.key_stats),
+            ctx.getString(R.string.counters)
+        )
+    }
+
     private fun getBooleanValue(ctx: Context, key: String?): Boolean {
         return when (key) {
             ctx.getString(R.string.on) -> true

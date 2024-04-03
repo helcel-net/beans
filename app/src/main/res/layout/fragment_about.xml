@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_marginTop="40dp"
@@ -19,46 +19,46 @@
             android:contentDescription="@string/logo"
             android:src="@mipmap/ic_launcher_round" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:text="@string/app_name"
-            android:textStyle="bold"
+            android:textAlignment="center"
             android:textSize="30sp"
-            android:textAlignment="center" />
+            android:textStyle="bold" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:text="@string/app_version"
-            android:textSize="25sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="25sp" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:text="@string/beans_is_foss"
             android:textAlignment="center" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:autoLink="web"
             android:text="@string/beans_repo"
             android:textAlignment="center" />

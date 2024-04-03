@@ -1,15 +1,12 @@
 package net.helcel.beans.activity.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import net.helcel.beans.R
 import net.helcel.beans.activity.fragment.EditGroupAddFragment
+import net.helcel.beans.databinding.ItemListGroupBinding
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Groups
 import net.helcel.beans.helper.Theme.getContrastColor
@@ -20,9 +17,9 @@ class GroupListAdapter(
 ) : RecyclerView.Adapter<GroupListAdapter.GroupViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
-        val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_list_group, parent, false)
-        return GroupViewHolder(view, activity, selectDialog)
+        val binding =
+            ItemListGroupBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return GroupViewHolder(binding, activity, selectDialog)
     }
 
     override fun onBindViewHolder(holder: GroupViewHolder, pos: Int) {
@@ -34,41 +31,39 @@ class GroupListAdapter(
     }
 
     inner class GroupViewHolder(
-        itemView: View,
+        private val _binding: ItemListGroupBinding,
         private val activity: FragmentActivity,
         private val selectDialog: DialogFragment
-    ) : RecyclerView.ViewHolder(itemView) {
-        private val color: Button = itemView.findViewById(R.id.group_color)
-        private val entries: TextView = itemView.findViewById(R.id.name)
+    ) : RecyclerView.ViewHolder(_binding.root) {
         private lateinit var dialogFragment: EditGroupAddFragment
         fun bind(entry: Pair<Int, Groups.Group>) {
-            color.text = entry.second.name
+            _binding.groupColor.text = entry.second.name
             dialogFragment = EditGroupAddFragment(entry.first, {
                 val newEntry = Data.groups.getGroupFromKey(entry.first)
-                color.text = newEntry.name
+                _binding.groupColor.text = newEntry.name
                 val newEntryColor = newEntry.color.color
                 val contrastNewEntryColor =
                     getContrastColor(newEntryColor)
-                color.setBackgroundColor(newEntryColor)
-                color.setTextColor(contrastNewEntryColor)
-                entries.setTextColor(contrastNewEntryColor)
-                entries.text = "0"
+                _binding.groupColor.setBackgroundColor(newEntryColor)
+                _binding.groupColor.setTextColor(contrastNewEntryColor)
+                _binding.name.setTextColor(contrastNewEntryColor)
+                _binding.name.text = "0"
             }, {
                 notifyItemRemoved(it)
             })
 
             val entryColor = entry.second.color.color
             val contrastEntryColor = getContrastColor(entryColor)
-            color.setBackgroundColor(entryColor)
-            color.setTextColor(contrastEntryColor)
-            entries.setTextColor(contrastEntryColor)
-            entries.text = Data.visits.countVisited(entry.first).toString()
+            _binding.groupColor.setBackgroundColor(entryColor)
+            _binding.groupColor.setTextColor(contrastEntryColor)
+            _binding.name.setTextColor(contrastEntryColor)
+            _binding.name.text = Data.visits.countVisited(entry.first).toString()
 
-            color.setOnClickListener {
+            _binding.groupColor.setOnClickListener {
                 Data.selected_group = entry.second
                 selectDialog.dismiss()
             }
-            color.setOnLongClickListener {
+            _binding.groupColor.setOnLongClickListener {
                 dialogFragment.show(
                     activity.supportFragmentManager,
                     "AddColorDialogFragment"

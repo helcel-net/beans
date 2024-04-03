@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
@@ -17,6 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import com.google.android.material.textfield.TextInputEditText
 import net.helcel.beans.R
+import net.helcel.beans.databinding.FragmentEditGroupsAddBinding
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Groups
 import net.helcel.beans.helper.Theme.colorToHex6
@@ -26,51 +25,28 @@ class EditGroupAddFragment(
     private val key: Int = 0,
     val onAddCb: (Int) -> Unit,
     val onDelCb: (Int) -> Unit
-) :
-    DialogFragment() {
-    private lateinit var colorNameEditText: TextInputEditText
-    private lateinit var colorEditText: TextInputEditText
+) : DialogFragment() {
 
-    private lateinit var colorView: View
-
-    private lateinit var colorEditR: Slider
-    private lateinit var colorEditG: Slider
-    private lateinit var colorEditB: Slider
-
-    private lateinit var btnDelete: AppCompatButton
-    private lateinit var btnCancel: AppCompatButton
-    private lateinit var btnOk: AppCompatButton
-
+    private lateinit var _binding: FragmentEditGroupsAddBinding
     private val grp = Data.groups.getGroupFromKey(key)
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = AlertDialog.Builder(requireActivity())
-        val inflater = requireActivity().layoutInflater
-        val view: View = inflater.inflate(R.layout.fragment_edit_groups_add, null)
+        val builder = MaterialAlertDialogBuilder(requireContext())
+        _binding = FragmentEditGroupsAddBinding.inflate(layoutInflater)
 
-        colorNameEditText = view.findViewById(R.id.group_name)
-        colorEditText = view.findViewById(R.id.group_color)
-        colorView = view.findViewById(R.id.colorView)
-        colorEditR = view.findViewById(R.id.colorR)
-        colorEditG = view.findViewById(R.id.colorG)
-        colorEditB = view.findViewById(R.id.colorB)
+        setupSlider(_binding.colorR, grp.color.color.red / 255F)
+        setupSlider(_binding.colorG, grp.color.color.green / 255F)
+        setupSlider(_binding.colorB, grp.color.color.blue / 255F)
+        setupText(_binding.groupColor, grp)
 
-        setupSlider(colorEditR, grp.color.color.red / 255F)
-        setupSlider(colorEditG, grp.color.color.green / 255F)
-        setupSlider(colorEditB, grp.color.color.blue / 255F)
+        _binding.colorView.background = ColorDrawable(grp.color.color)
 
-        setupText(colorEditText, grp)
-
-        colorView.background = ColorDrawable(grp.color.color)
-
-        btnDelete = view.findViewById(R.id.btnDelete)
-        btnCancel = view.findViewById(R.id.btnCancel)
-        btnOk = view.findViewById(R.id.btnOk)
 
         if (key == 0) {
-            btnDelete.visibility = View.INVISIBLE
-            btnDelete.isEnabled = false
+            _binding.btnDelete.visibility = View.INVISIBLE
+            _binding.btnDelete.isEnabled = false
         }
-        btnDelete.setOnClickListener {
+        _binding.btnDelete.setOnClickListener {
             MaterialAlertDialogBuilder(requireActivity())
                 .setMessage(R.string.delete_group)
                 .setPositiveButton(android.R.string.ok) { _, _ ->
@@ -87,9 +63,9 @@ class EditGroupAddFragment(
                 .show()
         }
 
-        btnOk.setOnClickListener {
-            val name = colorNameEditText.text.toString()
-            val color = colorEditText.text.toString()
+        _binding.btnOk.setOnClickListener {
+            val name = _binding.groupName.text.toString()
+            val color = _binding.groupColor.text.toString()
             val key = (if (key != 0) key else Data.groups.genKey())
             Data.groups.setGroup(key, name, ColorDrawable(Color.parseColor("#$color")))
             Data.saveData()
@@ -97,12 +73,12 @@ class EditGroupAddFragment(
             dialog?.dismiss()
         }
 
-        btnCancel.setOnClickListener {
+        _binding.btnCancel.setOnClickListener {
             dialog?.cancel()
         }
 
-        colorNameEditText.setText(grp.name)
-        builder.setView(view)
+        _binding.groupName.setText(grp.name)
+        builder.setView(_binding.root)
         return builder.create()
     }
 
@@ -110,11 +86,11 @@ class EditGroupAddFragment(
         s.setText(colorToHex6(ColorDrawable(grp?.color?.color ?: 0)).substring(1))
         s.addTextChangedListener(
             EditTextListener(
-                colorEditR,
-                colorEditG,
-                colorEditB,
-                colorEditText,
-                colorView
+                _binding.colorR,
+                _binding.colorG,
+                _binding.colorB,
+                _binding.groupColor,
+                _binding.colorView
             )
         )
     }
@@ -125,11 +101,11 @@ class EditGroupAddFragment(
         s.value = v
         s.addOnChangeListener(
             SliderOnChangeListener(
-                colorEditR,
-                colorEditG,
-                colorEditB,
-                colorEditText,
-                colorView
+                _binding.colorR,
+                _binding.colorG,
+                _binding.colorB,
+                _binding.groupColor,
+                _binding.colorView
             )
         )
     }

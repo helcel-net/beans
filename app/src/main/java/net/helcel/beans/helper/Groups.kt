@@ -12,11 +12,12 @@ import kotlin.random.Random
 
 private const val randSeed = 0
 private val rnd = Random(randSeed)
+
 @Serializable
-class Groups(val id: Int, private val grps: HashMap<Int,Group>) {
+class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
 
     fun setGroup(key: Int, name: String, col: ColorDrawable) {
-        grps[key] = Group(key,name,col)
+        grps[key] = Group(key, name, col)
     }
 
     fun deleteGroup(key: Int) {
@@ -24,12 +25,12 @@ class Groups(val id: Int, private val grps: HashMap<Int,Group>) {
     }
 
     fun getGroupFromKey(key: Int): Group {
-        return grps.getOrDefault(key,EmptyGroup())
+        return grps.getOrDefault(key, EmptyGroup())
     }
 
     fun genKey(): Int {
         val key = rnd.nextInt()
-        if(grps.containsKey(key) || key == 0) return genKey()
+        if (grps.containsKey(key) || key == 0) return genKey()
         return key
     }
 
@@ -46,32 +47,38 @@ class Groups(val id: Int, private val grps: HashMap<Int,Group>) {
         }
     }
 
-    fun getGroupFromPos(pos: Int): Pair<Int,Group> {
+    fun getGroupFromPos(pos: Int): Pair<Int, Group> {
         val key = grps.keys.toList()[pos]
-        return Pair(key,getGroupFromKey(key))
+        return Pair(key, getGroupFromKey(key))
     }
 
     fun findGroupPos(key: Int): Int {
         return grps.keys.toList().indexOf(key)
     }
 
-    class EmptyGroup: Group(0,"")
+    class EmptyGroup : Group(0, "")
 
     @Serializable
-    open class Group(val key: Int, val name: String, @Serializable(with = ColorDrawableSerializer::class) val color: ColorDrawable = ColorDrawable(Color.TRANSPARENT))
+    open class Group(
+        val key: Int,
+        val name: String,
+        @Serializable(with = Theme.ColorDrawableSerializer::class) val color: ColorDrawable = ColorDrawable(
+            Color.TRANSPARENT
+        )
+    )
 
     @OptIn(ExperimentalSerializationApi::class)
     @Serializer(Groups::class)
-    class GroupsSerializer{
+    class GroupsSerializer {
         val defaultValue: Groups
-            get() = Groups(Int.MIN_VALUE,hashMapOf())
+            get() = Groups(Int.MIN_VALUE, hashMapOf())
 
         fun readFrom(input: InputStream): Groups {
-            return Json.decodeFromString(serializer(),input.readBytes().decodeToString())
+            return Json.decodeFromString(serializer(), input.readBytes().decodeToString())
         }
 
         fun writeTo(t: Groups): String {
-            return Json.encodeToString(serializer(),t).encodeToByteArray().decodeToString()
+            return Json.encodeToString(serializer(), t).encodeToByteArray().decodeToString()
         }
 
     }

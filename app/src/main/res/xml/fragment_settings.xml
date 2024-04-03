@@ -32,6 +32,16 @@
         app:key="@string/key_stats"
         app:title="@string/key_stats"
         app:useSimpleSummaryProvider="true" />
+    
+    <ListPreference
+        app:defaultValue="@string/system"
+        app:enabled="true"
+        app:entries="@array/entries_theme"
+        app:entryValues="@array/entries_theme"
+        app:icon="@drawable/palette"
+        app:key="@string/key_theme"
+        app:title="@string/key_theme"
+        app:useSimpleSummaryProvider="true" />
 
     <Preference
         android:summary="@string/foss_licenses"

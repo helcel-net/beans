@@ -14,15 +14,25 @@ android {
         minSdk 28
         targetSdk 34
         versionCode 1
-        versionName "1.0"
+        versionName "0.1a"
     }
+
+    signingConfigs {
+        create("release") {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
 
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -48,6 +58,9 @@ android {
         includeInBundle = false
     }
 
+}
+aboutLibraries {
+    exclusionPatterns = [~"androidx.*", ~"com.google.android.*", ~"org.jetbrains.*"]
 }
 
 dependencies {
