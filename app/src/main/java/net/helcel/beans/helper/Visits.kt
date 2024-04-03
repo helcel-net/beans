@@ -12,7 +12,7 @@ import java.io.InputStream
 class Visits(val id: Int, private val locs: HashMap<String, Int>) {
 
     fun setVisited(key: GeoLoc?, b: Int) {
-        if (b == 0 || key == null)
+        if (key == null)
             return
         locs[key.code] = b
     }
