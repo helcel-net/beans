@@ -1,7 +1,6 @@
 package net.helcel.beans.activity
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.drawable.PictureDrawable
 import android.os.Bundle
 import android.view.Menu
@@ -22,8 +21,6 @@ import net.helcel.beans.svg.SVGWrapper
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var sharedPreferences: SharedPreferences
-
     private lateinit var photoView: PhotoView
 
     private lateinit var psvg: SVGWrapper
@@ -40,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         // Create action bar
         supportActionBar?.setBackgroundDrawable(colorWrapper(this, android.R.attr.colorPrimary))
 
-        // Fetch shared preferences to restore app theme upon startup
+        // restore app theme & settings upon startup
         Settings.start(this)
 
         // Create menu in action bar
@@ -81,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         photoView.minimumScale = 1f
         photoView.maximumScale = 40f
 
-        GeoLocImporter.importState(this)
+        GeoLocImporter.importStates(this)
         loadData(this, Int.MIN_VALUE)
         psvg = SVGWrapper(this)
         css = CSSWrapper(this)

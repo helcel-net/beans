@@ -6,23 +6,30 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import net.helcel.beans.R
+import net.helcel.beans.countries.GeoLocImporter
 
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.fragment_settings, rootKey)
-
+        val ctx = requireContext()
+        findPreference<Preference>(getString(R.string.key_regional))?.setOnPreferenceChangeListener { _, key ->
+            when (key as String) {
+                ctx.getString(R.string.off) -> GeoLocImporter.clearStates()
+                ctx.getString(R.string.on) -> GeoLocImporter.importStates(ctx)
+                else -> GeoLocImporter.clearStates()
+            }
+            true
+        }
 
         // Select Light/Dark/System Mode
-        val themePreference = findPreference<Preference>(getString(R.string.key_theme))
-        themePreference?.setOnPreferenceChangeListener { _, key ->
-            setTheme(requireContext(), key as String)
+        findPreference<Preference>(getString(R.string.key_theme))?.setOnPreferenceChangeListener { _, key ->
+            setTheme(ctx, key as String)
         }
 
         // Open license fragment
-        val licensesPreference = findPreference<Preference>(getString(R.string.licenses))
-        licensesPreference?.setOnPreferenceClickListener {
+        findPreference<Preference>(getString(R.string.licenses))?.setOnPreferenceClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_view, LicenseFragment(), getString(R.string.licenses))
                 .commit()
@@ -30,12 +37,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         // Open about fragment
-        val aboutPreference = findPreference<Preference>(getString(R.string.about))
-        aboutPreference?.setOnPreferenceClickListener {
+        findPreference<Preference>(getString(R.string.about))?.setOnPreferenceClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_view, AboutFragment(), getString(R.string.about))
                 .commit()
-
             true
         }
 

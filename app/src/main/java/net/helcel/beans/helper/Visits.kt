@@ -9,9 +9,11 @@ import java.io.InputStream
 
 
 @Serializable
-class Visits(val id: Int, private val locs: HashMap<String,Int>) {
+class Visits(val id: Int, private val locs: HashMap<String, Int>) {
 
-    fun setVisited(key: GeoLoc, b: Int) {
+    fun setVisited(key: GeoLoc?, b: Int) {
+        if (b == 0 || key == null)
+            return
         locs[key.code] = b
     }
 
@@ -25,10 +27,11 @@ class Visits(val id: Int, private val locs: HashMap<String,Int>) {
     }
 
     fun getVisited(key: GeoLoc): Int {
-        return locs.getOrDefault(key.code,0)
+        return locs.getOrDefault(key.code, 0)
     }
+
     private fun getVisited(key: String): Int {
-        return locs.getOrDefault(key,0)
+        return locs.getOrDefault(key, 0)
     }
 
     fun countVisited(key: Int): Int {
@@ -43,14 +46,14 @@ class Visits(val id: Int, private val locs: HashMap<String,Int>) {
     @Serializer(Visits::class)
     class VisitsSerializer {
         val defaultValue: Visits
-            get() = Visits(Int.MIN_VALUE,hashMapOf())
+            get() = Visits(Int.MIN_VALUE, hashMapOf())
 
         fun readFrom(input: InputStream): Visits {
-            return Json.decodeFromString(serializer(),input.readBytes().decodeToString())
+            return Json.decodeFromString(serializer(), input.readBytes().decodeToString())
         }
 
-       fun writeTo(t: Visits): String {
-            return Json.encodeToString(serializer(),t).encodeToByteArray().decodeToString()
+        fun writeTo(t: Visits): String {
+            return Json.encodeToString(serializer(), t).encodeToByteArray().decodeToString()
         }
 
     }

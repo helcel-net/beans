@@ -18,13 +18,12 @@ class CSSWrapper(ctx: Context) {
     private var customCSS: String = ""
 
     init {
-
         val www = World.WWW.children.joinToString(",") { "#${it.code}2" }
-        val ccc =
-            World.WWW.children.joinToString(",") { itt -> itt.children.joinToString(",") { "#${it.code}2" } }
-        baseCSS =
-            "svg{fill:$colorForeground;stroke:$colorBackground;stroke-width:0.01;}" +
-                    "$www,$ccc{stroke-width:0.1;fill:none}"
+        val ccc = World.WWW.children.joinToString(",") { itt ->
+            itt.children.joinToString(",") { "#${it.code}2" }
+        }
+        baseCSS = "svg{fill:$colorForeground;stroke:$colorBackground;stroke-width:0.01;}" +
+                "$www,$ccc{stroke:$colorBackground;stroke-width:0.1;fill:none}"
         refresh()
     }
 

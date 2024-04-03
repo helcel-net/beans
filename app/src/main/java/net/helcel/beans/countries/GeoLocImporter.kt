@@ -7,7 +7,7 @@ import java.io.InputStreamReader
 
 object GeoLocImporter {
 
-    fun importState(ctx: Context) {
+    fun importStates(ctx: Context) {
         if (!Settings.isRegional(ctx)) {
             return
         }
@@ -17,5 +17,9 @@ object GeoLocImporter {
             val state = State(line[0], line[2], line[3].toInt())
             Country.entries.find { it.code == line[1] }?.children?.add(state)
         }
+    }
+
+    fun clearStates() {
+        Country.entries.forEach { it.children.clear() }
     }
 }
