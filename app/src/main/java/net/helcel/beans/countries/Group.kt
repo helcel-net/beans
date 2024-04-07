@@ -6,6 +6,8 @@ enum class Group(override val fullName: String, override val children: List<GeoL
 
     EEE(
         "Europe", listOf(
+            XAD,
+            ALA,// Åland Islands: an autonomous region of Finland, but not a member of the EU or UN
             ALB,
             AND,
             AUT,
@@ -18,14 +20,19 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             CZE,
             DNK,
             EST,
+            FRO, // Faroe Islands: an autonomous region of Denmark
             FIN,
             FRA,
             DEU,
+            GIB, // Gibraltar: a British overseas territory located at the southern tip of the Iberian Peninsula
             GRC,
+            GGY, // Guernsey: a British Crown dependency in the English Channel
             HUN,
             ISL,
             IRL,
+            IMN, // Isle of Man: a British Crown dependency located in the Irish Sea
             ITA,
+            JEY, // Jersey: a British Crown dependency located in the English Channel
             KAZ,
             XKO,
             LVA,
@@ -48,12 +55,12 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             SVK,
             SVN,
             ESP,
+            SJM, // Svalbard and Jan Mayen: an archipelago administered by Norway
             SWE,
             CHE,
             UKR,
             GBR,
             VAT,
-            XAD,
         )
     ),
     ABB(
@@ -64,9 +71,12 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             BHR,
             BGD,
             BTN,
+            IOT, // British Indian Ocean Territory: a British overseas territory in the Indian Ocean
             BRN,
             KHM,
+            CCK, // Cocos (Keeling) Islands: an Australian external territory in the Indian Ocean
             CHN,
+            CXR, // Christmas Island: an Australian external territory in the Indian Ocean
             GEO,
             HKG,
             IND,
@@ -131,8 +141,8 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             EGY,
             GNQ,
             ERI,
-            SWZ,
             ETH,
+            ATF, // French Southern and Antarctic Lands: a territory of France located in the southern Indian Ocean
             GAB,
             GMB,
             GHA,
@@ -165,6 +175,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             SSD,
             SHN,
             SDN,
+            SWZ,
             TZA,
             TGO,
             TUN,
@@ -184,9 +195,11 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             BRB,
             BLZ,
             BMU,
+            BES, // Bonaire, Sint Eustatius and Saba: special municipalities of the Netherlands in the Caribbean
             VGB,
             CAN,
             CYM,
+            XCL,
             CRI,
             CUB,
             CUW,
@@ -208,15 +221,18 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             NIC,
             PAN,
             PRI,
+            BLM, // Saint Barthélemy: an overseas collectivity of France in the Caribbean
             KNA,
             LCA,
             MAF,
             SPM,
             VCT,
+            SXM, // Sint Maarten: a constituent country of the Kingdom of the Netherlands in the Caribbean
             TTO,
             TCA,
             USA,
-            XCL,
+            UMI, // United States Minor Outlying Islands: a collection of nine insular areas of the United States
+            VIR, // United States Virgin Islands: an unincorporated territory of the United States in the Caribbean
         )
     ),
     SRR(
@@ -257,6 +273,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
             PLW,
             PNG,
             PCN,
+            WSM, // Samoa: an independent island nation in the South Pacific
             SLB,
             TKL,
             TON,
@@ -269,26 +286,9 @@ enum class Group(override val fullName: String, override val children: List<GeoL
     XXX(
         "Others", listOf(
             ATA, // Antarctica: not in any other region
-            ALA,// Åland Islands: an autonomous region of Finland, but not a member of the EU or UN
-            BES,// Bonaire, Sint Eustatius and Saba: special municipalities of the Netherlands in the Caribbean
-            BVT,// Bouvet Island: an uninhabited territory of Norway in the South Atlantic
-            IOT,// British Indian Ocean Territory: a British overseas territory in the Indian Ocean
-            CXR,// Christmas Island: an Australian external territory in the Indian Ocean
-            CCK,// Cocos (Keeling) Islands: an Australian external territory in the Indian Ocean
-            FRO,// Faroe Islands: an autonomous region of Denmark
-            ATF,// French Southern and Antarctic Lands: a territory of France located in the southern Indian Ocean
-            GIB,// Gibraltar: a British overseas territory located at the southern tip of the Iberian Peninsula
-            GGY,// Guernsey: a British Crown dependency in the English Channel
-            HMD,// Heard Island and McDonald Islands: an uninhabited Australian external territory in the southern Indian Ocean
-            IMN,// Isle of Man: a British Crown dependency located in the Irish Sea
-            JEY,// Jersey: a British Crown dependency located in the English Channel
-            BLM,// Saint Barthélemy: an overseas collectivity of France in the Caribbean
-            WSM, // Samoa: an independent island nation in the South Pacific
-            SXM, // Sint Maarten: a constituent country of the Kingdom of the Netherlands in the Caribbean
+            BVT, // Bouvet Island: an uninhabited territory of Norway in the South Atlantic
+            HMD, // Heard Island and McDonald Islands: an uninhabited Australian external territory in the southern Indian Ocean
             SGS, // South Georgia and the South Sandwich Islands: a British overseas territory in the southern Atlantic Ocean
-            SJM, // Svalbard and Jan Mayen: an archipelago administered by Norway
-            UMI, // United States Minor Outlying Islands: a collection of nine insular areas of the United States
-            VIR, // United States Virgin Islands: an unincorporated territory of the United States in the Caribbean
         )
     ),
 
