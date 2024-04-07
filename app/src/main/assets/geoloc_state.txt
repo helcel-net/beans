@@ -170,7 +170,7 @@ ARG_SL|ARG|San Luis|76041
 ARG_SC|ARG|Santa Cruz|242689
 ARG_SF|ARG|Santa Fe|133534
 ARG_SE|ARG|Santiagodel Estero|137431
-ARG_TF|ARG|Tierradel Fuego|20841
+ARG_TF|ARG|Tierra del Fuego|20841
 ARG_TM|ARG|Tucumán|22628
 ARM_AG|ARM|Aragatsotn|2884
 ARM_AR|ARM|Ararat|2227
@@ -291,7 +291,7 @@ BMU_HC|BMU|Hamilton Municipality|1
 BMU_PA|BMU|Paget|6
 BMU_PE|BMU|Pembroke|7
 BMU_SC|BMU|Saint George's|10
-BMU_SG|BMU|Saint Georgemunicipality|2
+BMU_SG|BMU|Saint George municipality|2
 BMU_SA|BMU|Sandys|9
 BMU_SM|BMU|Smiths|5
 BMU_SO|BMU|Southampton|6
@@ -499,7 +499,7 @@ CPV_CT|CPV|Santa Catarinado Fogo|55
 CPV_CZ|CPV|Santa Cruz|116
 CPV_SD|CPV|São Domingos|159
 CPV_FP|CPV|São Filipe|340
-CPV_LO|CPV|São Lourençodos Órgãos|36
+CPV_LO|CPV|São Lourenço dos Órgãos|36
 CPV_SM|CPV|São Miguel|81
 CPV_SS|CPV|São Salvadordo Mundo|31
 CPV_SV|CPV|São Vicente|271
@@ -555,7 +555,7 @@ CHL_AN|CHL|Antofagasta|126678
 CHL_AR|CHL|Araucanía|31844
 CHL_AP|CHL|Aricay Parinacota|16931
 CHL_AT|CHL|Atacama|75995
-CHL_AI|CHL|Ayséndel General Ibañezdel Cam|106476
+CHL_AI|CHL|Ayséndel General Ibañez del Cam|106476
 CHL_BI|CHL|Bío-Bío|24032
 CHL_CO|CHL|Coquimbo|40711
 CHL_LI|CHL|Libertador General Bernardo O'Hi|16389
@@ -626,11 +626,11 @@ COL_NS|COL|Norte de Santander|22077
 COL_PU|COL|Putumayo|26063
 COL_QD|COL|Quindío|1947
 COL_RI|COL|Risaralda|3562
-COL_SA|COL|San Andrésy Providencia|52
+COL_SA|COL|San Andrés y Providencia|52
 COL_ST|COL|Santander|30788
 COL_SU|COL|Sucre|10787
 COL_TO|COL|Tolima|24131
-COL_VC|COL|Valledel Cauca|21034
+COL_VC|COL|Valle del Cauca|21034
 COL_VP|COL|Vaupés|53546
 COL_VD|COL|Vichada|100014
 COM_MO|COM|Mwali|220
@@ -812,7 +812,7 @@ ECU_OR|ECU|Orellana|21738
 ECU_PA|ECU|Pastaza|29671
 ECU_PI|ECU|Pichincha|9512
 ECU_SE|ECU|Santa Elena|3720
-ECU_SD|ECU|Santo Domingodelos Tsachilas|3803
+ECU_SD|ECU|Santo Domingo de los Tsachilas|3803
 ECU_SU|ECU|Sucumbios|18069
 ECU_TU|ECU|Tungurahua|3405
 ECU_ZC|ECU|Zamora Chinchipe|10605
@@ -924,17 +924,17 @@ FRA_IF|FRA|Île-de-France|12058
 FRA_ND|FRA|Normandie|30143
 FRA_AC|FRA|Nouvelle-Aquitaine|84800
 FRA_LP|FRA|Occitanie|73302
-FRA_PL|FRA|Paysdela Loire|32365
-FRA_PR|FRA|Provence-Alpes-Côted'Azur|31952
+FRA_PL|FRA|Pays de la Loire|32365
+FRA_PR|FRA|Provence-Alpes-Côte d'Azur|31952
 GUF_CY|GUF|Cayenne|42886
 GUF_SL|GUF|Saint-Laurent-du-Maroni|40970
 PYF_TI|PYF|Îles Australes|373
-PYF_WI|PYF|Îlesdu Vent|1216
+PYF_WI|PYF|Îles du Vent|1216
 PYF_MI|PYF|Îles Marquises|996
 PYF_LI|PYF|Îles Sous-le-Vent|429
 PYF_TG|PYF|Îles Tuamotu-Gambier|1039
 ATF_CR|ATF|Îles Crozet|372
-ATF_NA|ATF|ÎlesÉparses|44
+ATF_NA|ATF|Îles Éparses|44
 ATF_AS|ATF|Îles Saint Paulet Amsterdam|64
 ATF_KG|ATF|Kerguelen|7372
 GAB_ES|GAB|Estuaire|20024
@@ -1896,7 +1896,7 @@ MAR_FB|MAR|Fès-Boulemane|19366
 MAR_GB|MAR|Gharb-Chrarda-Béni Hssen|8782
 MAR_GC|MAR|Grand Casablanca|879
 MAR_GE|MAR|Guelmim-Es-Semara|64701
-MAR_LB|MAR|Laâyoune-Boujdour-Sakia El H|5763
+MAR_LB|MAR|Laâyoune-Boujdour-Sakia El Hamra|5763
 MAR_MK|MAR|Marrakech-Tensift-Al Haouz|32483
 MAR_MT|MAR|Meknès-Tafilalet|60303
 MAR_OR|MAR|Oriental|59914
@@ -2131,7 +2131,7 @@ PLW_NW|PLW|Ngiwal|18
 PLW_SO|PLW|Sonsorol|3
 PSE_GZ|PSE|Gaza|344
 PSE_WE|PSE|West Bank|5895
-PAN_BC|PAN|Bocasdel Toro|4718
+PAN_BC|PAN|Bocas del Toro|4718
 PAN_CH|PAN|Chiriquí|6676
 PAN_CC|PAN|Coclé|4939
 PAN_CL|PAN|Colón|4711
@@ -3295,7 +3295,7 @@ ARE_UQ|ARE|Ummal-Qaywayn|746
 GBR_NIR|GBR|Northern Ireland|14134
 GBR_SCT|GBR|Scotland|78704
 GBR_WLS|GBR|Wales|20818
-GBR_NA|GBR|NA|130659
+GBR_NA|GBR|England|130659
 USA_AL|USA|Alabama|133995
 USA_AK|USA|Alaska|1501231
 USA_AZ|USA|Arizona|296082
@@ -3532,4 +3532,3 @@ Z05_UT|IND|Uttarakhand|259
 Z09_UT|IND|Uttarakhand|987
 Z06_JK|PAK|Azad Kashmir|13931
 Z06_NA|PAK|Gilgit-Baltistan|68053
-GBR_NA|GBR|England|417

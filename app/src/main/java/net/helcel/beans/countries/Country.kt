@@ -8,8 +8,6 @@ enum class Country(
     HKG("Hong Kong", 1104),
     MAC("Macao", 32),
     ANT("Netherlands Antilles", 800),
-
-
     AFG("Afghanistan", 645487),
     XAD("Akrotiri and Dhekelia", 234),
     ALA("Åland", 1483),
@@ -217,7 +215,7 @@ enum class Country(
     SLB("Solomon Islands", 28686),
     SOM("Somalia", 637672),
     ZAF("South Africa", 1224059),
-    SGS("South Georgia and the South Sand", 4085),
+    SGS("South Georgia and the South Sandwich Islands", 4085),
     KOR("South Korea", 100721),
     SSD("South Sudan", 632186),
     ESP("Spain", 506617),
@@ -248,7 +246,7 @@ enum class Country(
     ARE("United Arab Emirates", 71429),
     GBR("United Kingdom", 244732),
     USA("United States", 9477483),
-    UMI("United States Minor Outlying Isl", 47),
+    UMI("United States Minor Outlying Islands", 47),
     URY("Uruguay", 178103),
     UZB("Uzbekistan", 447894),
     VUT("Vanuatu", 12384),
