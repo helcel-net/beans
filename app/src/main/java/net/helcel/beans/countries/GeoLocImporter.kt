@@ -7,8 +7,8 @@ import java.io.InputStreamReader
 
 object GeoLocImporter {
 
-    fun importStates(ctx: Context) {
-        if (!Settings.isRegional(ctx)) {
+    fun importStates(ctx: Context, force: Boolean = false) {
+        if (!Settings.isRegional(ctx) and !force) {
             return
         }
         val fs = BufferedReader(InputStreamReader(ctx.assets.open("geoloc_state.txt")))

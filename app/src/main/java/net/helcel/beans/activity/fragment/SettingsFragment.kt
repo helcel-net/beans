@@ -17,8 +17,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         findPreference<Preference>(getString(R.string.key_regional))?.setOnPreferenceChangeListener { _, key ->
             when (key as String) {
                 ctx.getString(R.string.off) -> GeoLocImporter.clearStates()
-                ctx.getString(R.string.on) -> GeoLocImporter.importStates(ctx)
-                else -> GeoLocImporter.clearStates()
+                ctx.getString(R.string.on) -> GeoLocImporter.importStates(ctx, true)
             }
             true
         }
