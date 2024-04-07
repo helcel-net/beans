@@ -49,8 +49,8 @@ ALB_SD|ALB|Shkodër|3507
 ALB_TI|ALB|Tiranë|1638
 ALB_VR|ALB|Vlorë|2648
 DZA_AR|DZA|Adrar|433285
-DZA_AD|DZA|AïnDefla|4557
-DZA_AT|DZA|AïnTémouchent|2405
+DZA_AD|DZA|Aïn Defla|4557
+DZA_AT|DZA|Aïn Témouchent|2405
 DZA_AL|DZA|Alger|769
 DZA_AN|DZA|Annaba|1413
 DZA_BT|DZA|Batna|12167
@@ -106,7 +106,7 @@ AND_EN|AND|Encamp|68
 AND_EE|AND|Escaldes-Engordany|47
 AND_MA|AND|La Massana|68
 AND_OR|AND|Ordino|79
-AND_JL|AND|Sant Juliàde Lòria|65
+AND_JL|AND|Sant Julià de Lòria|65
 AGO_BO|AGO|Bengo|34586
 AGO_BG|AGO|Benguela|39748
 AGO_BI|AGO|Bié|72491
@@ -152,7 +152,7 @@ ARG_BA|ARG|Buenos Aires|307606
 ARG_CT|ARG|Catamarca|101718
 ARG_CC|ARG|Chaco|100177
 ARG_CH|ARG|Chubut|224436
-ARG_DF|ARG|Ciudadde Buenos Aires|212
+ARG_DF|ARG|Ciudad de Buenos Aires|212
 ARG_CB|ARG|Córdoba|165143
 ARG_CN|ARG|Corrientes|89281
 ARG_ER|ARG|Entre Ríos|78238
@@ -163,7 +163,7 @@ ARG_LR|ARG|La Rioja|91415
 ARG_MZ|ARG|Mendoza|149125
 ARG_MN|ARG|Misiones|30098
 ARG_NQ|ARG|Neuquén|94649
-ARG_RN|ARG|RíoNegro|202737
+ARG_RN|ARG|Río Negro|202737
 ARG_SA|ARG|Salta|155883
 ARG_SJ|ARG|San Juan|89103
 ARG_SL|ARG|San Luis|76041
@@ -213,7 +213,7 @@ BHS_CI|BHS|Cat Island|371
 BHS_CB|BHS|Central Abaco|712
 BHS_CN|BHS|Central Andros|1216
 BHS_CE|BHS|Central Eleuthera|70
-BHS_FP|BHS|Cityof Freeport|25
+BHS_FP|BHS|City of Freeport|25
 BHS_CK|BHS|Crooked Island|334
 BHS_EB|BHS|East Grand Bahama|580
 BHS_EM|BHS|Exuma|348
@@ -224,7 +224,7 @@ BHS_IN|BHS|Inagua|1688
 BHS_LI|BHS|Long Island|481
 BHS_MC|BHS|Mangrove Cay|489
 BHS_MG|BHS|Mayaguana|290
-BHS_MI|BHS|Moore'sIsland|21
+BHS_MI|BHS|Moore's Island|21
 BHS_NW|BHS|New Providence|231
 BHS_NB|BHS|North Abaco|219
 BHS_NN|BHS|North Andros|2876
@@ -365,13 +365,13 @@ BRA_PB|BRA|Paraíba|56838
 BRA_PR|BRA|Paraná|200198
 BRA_PE|BRA|Pernambuco|98705
 BRA_PI|BRA|Piauí|253394
-BRA_RJ|BRA|Riode Janeiro|43962
+BRA_RJ|BRA|Rio de Janeiro|43962
 BRA_RN|BRA|Rio Grandedo Norte|53165
 BRA_RS|BRA|Rio Grandedo Sul|282688
 BRA_RO|BRA|Rondônia|238929
 BRA_RR|BRA|Roraima|225857
 BRA_SC|BRA|Santa Catarina|96032
-BRA_SP|BRA|SãoPaulo|249417
+BRA_SP|BRA|São Paulo|249417
 BRA_SE|BRA|Sergipe|22079
 BRA_TO|BRA|Tocantins|279170
 VGB_NA|VGB|Virgin Gorda|28
@@ -445,11 +445,11 @@ KHM_KS|KHM|Kâmpóng Spœ|7014
 KHM_KT|KHM|Kâmpóng Thum|12907
 KHM_KP|KHM|Kâmpôt|4752
 KHM_KN|KHM|Kândal|3274
-KHM_KK|KHM|KaôhKong|11076
+KHM_KK|KHM|Kaôh Kong|11076
 KHM_KH|KHM|Krâchéh|12057
 KHM_PL|KHM|Krong Pailin|1082
 KHM_KA|KHM|Krong Preah Sihanouk|2651
-KHM_MK|KHM|MôndólKiri|13747
+KHM_MK|KHM|Môndól Kiri|13747
 KHM_OC|KHM|Otdar Mean Chey|6672
 KHM_PP|KHM|Phnom Penh|689
 KHM_PO|KHM|Pouthisat|12588
@@ -493,18 +493,18 @@ CPV_PN|CPV|Porto Novo|581
 CPV_PC|CPV|Praia|103
 CPV_RB|CPV|Ribeira Brava|237
 CPV_RG|CPV|Ribeira Grande|168
-CPV_RS|CPV|Ribeira Grandede Santiago|142
+CPV_RS|CPV|Ribeira Grande de Santiago|142
 CPV_SL|CPV|Sal|225
 CPV_CT|CPV|Santa Catarinado Fogo|55
 CPV_CZ|CPV|Santa Cruz|116
-CPV_SD|CPV|SãoDomingos|159
-CPV_FP|CPV|SãoFilipe|340
-CPV_LO|CPV|SãoLourençodosÓrgãos|36
-CPV_SM|CPV|SãoMiguel|81
-CPV_SS|CPV|SãoSalvadordo Mundo|31
-CPV_SV|CPV|SãoVicente|271
+CPV_SD|CPV|São Domingos|159
+CPV_FP|CPV|São Filipe|340
+CPV_LO|CPV|São Lourençodos Órgãos|36
+CPV_SM|CPV|São Miguel|81
+CPV_SS|CPV|São Salvadordo Mundo|31
+CPV_SV|CPV|São Vicente|271
 CPV_TF|CPV|Tarrafal|120
-CPV_TS|CPV|Tarrafalde SãoNicolau|115
+CPV_TS|CPV|Tarrafal de São Nicolau|115
 CYM_BT|CYM|Bodden Town|8
 CYM_EE|CYM|East End|56
 CYM_GT|CYM|George Town|29
@@ -549,7 +549,7 @@ TCD_SA|TCD|Salamat|68389
 TCD_SI|TCD|Sila|35924
 TCD_TA|TCD|Tandjilé|17645
 TCD_TI|TCD|Tibesti|126795
-TCD_NJ|TCD|Villede N'Djamena|399
+TCD_NJ|TCD|Ville de N'Djamena|399
 TCD_BI|TCD|Wadi Fira|54434
 CHL_AN|CHL|Antofagasta|126678
 CHL_AR|CHL|Araucanía|31844
@@ -604,7 +604,7 @@ COL_AM|COL|Amazonas|109901
 COL_AN|COL|Antioquia|63337
 COL_AR|COL|Arauca|23888
 COL_AT|COL|Atlántico|3336
-COL_DC|COL|BogotáD.C.|1646
+COL_DC|COL|Bogotá D.C.|1646
 COL_BL|COL|Bolívar|26790
 COL_BY|COL|Boyacá|23235
 COL_CL|COL|Caldas|7454
@@ -622,7 +622,7 @@ COL_LG|COL|La Guajira|20580
 COL_MA|COL|Magdalena|22912
 COL_ME|COL|Meta|85947
 COL_NA|COL|Nariño|31546
-COL_NS|COL|Nortede Santander|22077
+COL_NS|COL|Norte de Santander|22077
 COL_PU|COL|Putumayo|26063
 COL_QD|COL|Quindío|1947
 COL_RI|COL|Risaralda|3562
@@ -693,7 +693,7 @@ CUB_MA|CUB|Matanzas|11741
 CUB_MQ|CUB|Mayabeque|3692
 CUB_PR|CUB|Pinardel Río|11079
 CUB_SS|CUB|Sancti Spíritus|6401
-CUB_SC|CUB|Santiagode Cuba|6441
+CUB_SC|CUB|Santiago de Cuba|6441
 CUB_VC|CUB|Villa Clara|9161
 CYP_FA|CYP|Famagusta|204
 CYP_LA|CYP|Larnaca|915
@@ -774,7 +774,7 @@ DOM_AL|DOM|La Altagracia|3119
 DOM_EP|DOM|La Estrelleta|1432
 DOM_RO|DOM|La Romana|561
 DOM_VE|DOM|La Vega|2257
-DOM_MT|DOM|MaríaTrinidad Sánchez|1238
+DOM_MT|DOM|María Trinidad Sánchez|1238
 DOM_MN|DOM|Monseñor Nouel|977
 DOM_MC|DOM|Monte Cristi|1956
 DOM_MP|DOM|Monte Plata|2604
@@ -784,9 +784,9 @@ DOM_PP|DOM|Puerto Plata|1900
 DOM_SC|DOM|Salcedo|426
 DOM_SM|DOM|Samaná|864
 DOM_CR|DOM|San Cristóbal|1217
-DOM_JO|DOM|San Joséde Ocoa|853
+DOM_JO|DOM|San José de Ocoa|853
 DOM_JU|DOM|San Juan|3347
-DOM_PM|DOM|San Pedrode Macorís|1270
+DOM_PM|DOM|San Pedro de Macorís|1270
 DOM_SZ|DOM|Sánchez Ramírez|1183
 DOM_ST|DOM|Santiago|2786
 DOM_SR|DOM|Santiago Rodríguez|1150
@@ -916,7 +916,7 @@ FIN_LS|FIN|Western Finland|89423
 FRA_AR|FRA|Auvergne-Rhône-Alpes|71204
 FRA_BF|FRA|Bourgogne-Franche-Comté|48033
 FRA_BT|FRA|Bretagne|27609
-FRA_CN|FRA|Centre-Valde Loire|39509
+FRA_CN|FRA|Centre-Val de Loire|39509
 FRA_CE|FRA|Corse|8750
 FRA_AO|FRA|Grand Est|57666
 FRA_NC|FRA|Hauts-de-France|31945
@@ -1171,7 +1171,7 @@ IND_MN|IND|Manipur|22420
 IND_ML|IND|Meghalaya|22612
 IND_MZ|IND|Mizoram|21350
 IND_NL|IND|Nagaland|16668
-IND_DL|IND|NC Tof Delhi|1508
+IND_DL|IND|NCT of Delhi|1508
 IND_OR|IND|Odisha|156427
 IND_PY|IND|Puducherry|550
 IND_PB|IND|Punjab|50386
@@ -1518,9 +1518,9 @@ LSO_BB|LSO|Butha-Buthe|1796
 LSO_LE|LSO|Leribe|2829
 LSO_MF|LSO|Mafeteng|2659
 LSO_MS|LSO|Maseru|3781
-LSO_MH|LSO|Mohale'sHoek|3451
+LSO_MH|LSO|Mohale's Hoek|3451
 LSO_MK|LSO|Mokhotlong|4184
-LSO_QN|LSO|Qacha'sNek|2131
+LSO_QN|LSO|Qacha's Nek|2131
 LSO_QT|LSO|Quthing|2974
 LSO_TT|LSO|Thaba-Tseka|4849
 LBR_BM|LBR|Bomi|2122
@@ -1607,7 +1607,7 @@ MKD_DK|MKD|Demir Kapija|314
 MKD_DE|MKD|Dolneni|410
 MKD_GB|MKD|Gazi Baba|102
 MKD_GV|MKD|Gevgelija|438
-MKD_GP|MKD|GjorčePetrov|70
+MKD_GP|MKD|Gjorče Petrov|70
 MKD_GT|MKD|Gostivar|524
 MKD_GR|MKD|Gradsko|282
 MKD_IL|MKD|Ilinden|95
@@ -1979,11 +1979,11 @@ NCL_IL|NCL|Îles Loyauté|1988
 NCL_NO|NCL|Nord|9520
 NCL_SU|NCL|Sud|7408
 NZL_AU|NZL|Auckland|4958
-NZL_BP|NZL|Bayof Plenty|12293
+NZL_BP|NZL|Bay of Plenty|12293
 NZL_CA|NZL|Canterbury|48152
 NZL_CI|NZL|Chatham Islands|798
 NZL_GI|NZL|Gisborne|8369
-NZL_HB|NZL|Hawke'sBay|12790
+NZL_HB|NZL|Hawke's Bay|12790
 NZL_MW|NZL|Manawatu-Wanganui|21998
 NZL_MA|NZL|Marlborough|10491
 NZL_NE|NZL|Nelson|425
@@ -2013,7 +2013,7 @@ NIC_MN|NIC|Managua|4628
 NIC_MS|NIC|Masaya|607
 NIC_MT|NIC|Matagalpa|8856
 NIC_NS|NIC|Nueva Segovia|3142
-NIC_SJ|NIC|RíoSan Juan|7345
+NIC_SJ|NIC|Río San Juan|7345
 NIC_RI|NIC|Rivas|1909
 NER_AG|NER|Agadez|626771
 NER_DF|NER|Diffa|147076
@@ -2142,7 +2142,7 @@ PAN_SB|PAN|Kuna Yala|2554
 PAN_LS|PAN|Los Santos|3819
 PAN_NB|PAN|Ngöbe Buglé|6649
 PAN_PN|PAN|Panamá|8843
-PAN_PO|PAN|PanamáOeste|3066
+PAN_PO|PAN|Panamá Oeste|3066
 PAN_VR|PAN|Veraguas|10980
 PNG_NS|PNG|Bougainville|9470
 PNG_CE|PNG|Central|29630
@@ -2201,7 +2201,7 @@ PER_LB|PER|Lambayeque|14380
 PER_LR|PER|Lima|32537
 PER_LP|PER|Lima Province|2722
 PER_LO|PER|Loreto|377948
-PER_MD|PER|Madrede Dios|84858
+PER_MD|PER|Madre de Dios|84858
 PER_MQ|PER|Moquegua|15844
 PER_PA|PER|Pasco|24123
 PER_PI|PER|Piura|36095
@@ -2386,7 +2386,7 @@ PRI_PN|PRI|Peñuelas|118
 PRI_PO|PRI|Ponce|307
 PRI_QB|PRI|Quebradillas|60
 PRI_RC|PRI|Rincón|37
-PRI_RG|PRI|RíoGrande|158
+PRI_RG|PRI|Río Grande|158
 PRI_SB|PRI|Sabana Grande|94
 PRI_SA|PRI|Salinas|185
 PRI_SG|PRI|San Germán|140
@@ -2482,7 +2482,7 @@ RUS_CN|RUS|Chechnya|15154
 RUS_CL|RUS|Chelyabinsk|88739
 RUS_CK|RUS|Chukot|716435
 RUS_CV|RUS|Chuvash|18377
-RUS_SP|RUS|Cityof St.Petersburg|2039
+RUS_SP|RUS|City of St.Petersburg|2039
 RUS_DA|RUS|Dagestan|49446
 RUS_GA|RUS|Gorno-Altay|92910
 RUS_IN|RUS|Ingush|3228
@@ -2614,7 +2614,7 @@ SMR_MG|SMR|Montegiardino|3
 SMR_SM|SMR|San Marino|7
 SMR_SE|SMR|Serravalle|10
 STP_PR|STP|Príncipe|145
-STP_ST|STP|SãoTomé|864
+STP_ST|STP|São Tomé|864
 SAU_AS|SAU|'Asir|77398
 SAU_BA|SAU|Al Bahah|10566
 SAU_HS|SAU|Al Hududash Shamaliyah|104147
@@ -2789,17 +2789,17 @@ ESP_CM|ESP|Castilla-La Mancha|79561
 ESP_CL|ESP|Castillay León|94291
 ESP_CT|ESP|Cataluña|32133
 ESP_ML|ESP|Ceutay Melilla|29
-ESP_MD|ESP|Comunidadde Madrid|8036
-ESP_NA|ESP|Comunidad Foralde Navarra|10362
+ESP_MD|ESP|Comunidad de Madrid|8036
+ESP_NA|ESP|Comunidad Foral de Navarra|10362
 ESP_VC|ESP|Comunidad Valenciana|23290
 ESP_EX|ESP|Extremadura|41695
 ESP_GA|ESP|Galicia|29622
 ESP_PM|ESP|Islas Baleares|5036
 ESP_CN|ESP|Islas Canarias|7540
 ESP_LO|ESP|La Rioja|5053
-ESP_PV|ESP|PaísVasco|7237
-ESP_AS|ESP|Principadode Asturias|10607
-ESP_MU|ESP|Regiónde Murcia|11337
+ESP_PV|ESP|País Vasco|7237
+ESP_AS|ESP|Principado de Asturias|10607
+ESP_MU|ESP|Región de Murcia|11337
 LKA_AP|LKA|Ampara|4513
 LKA_AD|LKA|Anuradhapura|7253
 LKA_BD|LKA|Badulla|2887
@@ -2926,7 +2926,7 @@ TWN_TG|TWN|Taichung|2254
 TWN_TN|TWN|Tainan|2236
 TWN_TP|TWN|Taipei|279
 TWN_TA|TWN|Taiwan|26568
-TJK_RR|TJK|Districtsof Republican Subordin|28383
+TJK_RR|TJK|Districts of Republican Subordin|28383
 TJK_DU|TJK|Dushanbe|169
 TJK_BK|TJK|Gorno-Badakhshan|63429
 TJK_KL|TJK|Khatlon|23925
@@ -3072,7 +3072,7 @@ TTO_DM|TTO|Diego Martin|142
 TTO_MR|TTO|Mayaro/Rio Claro|792
 TTO_PD|TTO|Penal-Debe|246
 TTO_PF|TTO|Point Fortin|29
-TTO_PS|TTO|Portof Spain|14
+TTO_PS|TTO|Port of Spain|14
 TTO_PT|TTO|Princes Town|619
 TTO_SF|TTO|San Fernando|20
 TTO_SL|TTO|San Juan-Laventille|216
@@ -3304,7 +3304,7 @@ USA_CA|USA|California|410314
 USA_CO|USA|Colorado|270116
 USA_CT|USA|Connecticut|12902
 USA_DE|USA|Delaware|5304
-USA_DC|USA|Districtof Columbia|166
+USA_DC|USA|District of Columbia|166
 USA_FL|USA|Florida|147978
 USA_GA|USA|Georgia|152863
 USA_HI|USA|Hawaii|16809
@@ -3359,7 +3359,7 @@ URY_LA|URY|Lavalleja|10055
 URY_MA|URY|Maldonado|4819
 URY_MO|URY|Montevideo|533
 URY_PA|URY|Paysandú|14141
-URY_RN|URY|RíoNegro|9727
+URY_RN|URY|Río Negro|9727
 URY_RV|URY|Rivera|9358
 URY_RO|URY|Rocha|10965
 URY_SA|URY|Salto|14226
@@ -3407,68 +3407,68 @@ VEN_T|VEN|Trujillo|8129
 VEN_U|VEN|Yaracuy|6259
 VEN_V|VEN|Zulia|44191
 VNM_AG|VNM|An Giang|3547
-VNM_BV|VNM|BàRịa-Vũng Tàu|1918
-VNM_BG|VNM|BắcGiang|3913
-VNM_BK|VNM|BắcKạn|4885
-VNM_BL|VNM|BạcLiêu|2495
-VNM_BN|VNM|BắcNinh|825
-VNM_BR|VNM|BếnTre|2354
-VNM_BD|VNM|BìnhĐịnh|6102
+VNM_BV|VNM|Bà Rịa-Vũng Tàu|1918
+VNM_BG|VNM|Bắc Giang|3913
+VNM_BK|VNM|Bắc Kạn|4885
+VNM_BL|VNM|Bạc Liêu|2495
+VNM_BN|VNM|Bắc Ninh|825
+VNM_BR|VNM|Bến Tre|2354
+VNM_BD|VNM|Bình Định|6102
 VNM_BI|VNM|Bình Dương|2709
 VNM_BP|VNM|Bình Phước|6909
 VNM_BU|VNM|Bình Thuận|7994
-VNM_CM|VNM|CàMau|5201
-VNM_CN|VNM|CầnThơ|1448
+VNM_CM|VNM|Cà Mau|5201
+VNM_CN|VNM|Cần Thơ|1448
 VNM_CB|VNM|Cao Bằng|6729
-VNM_DA|VNM|ĐàNẵng|988
-VNM_DC|VNM|ĐắkLắk|13105
-VNM_DO|VNM|ĐắkNông|6550
-VNM_DB|VNM|ĐiệnBiên|9549
+VNM_DA|VNM|Đà Nẵng|988
+VNM_DC|VNM|Đắk Lắk|13105
+VNM_DO|VNM|Đắk Nông|6550
+VNM_DB|VNM|Điện Biên|9549
 VNM_DN|VNM|Đồng Nai|5899
 VNM_DT|VNM|Đồng Tháp|3410
 VNM_GL|VNM|Gia Lai|15610
-VNM_HG|VNM|HàGiang|7958
-VNM_HM|VNM|HàNam|867
-VNM_HI|VNM|HàNội|3374
-VNM_HT|VNM|HàTĩnh|6016
-VNM_HD|VNM|HảiDương|1679
-VNM_HP|VNM|HảiPhòng|1407
-VNM_HU|VNM|HậuGiang|1633
-VNM_HC|VNM|HồChíMinh|2122
-VNM_HO|VNM|HoàBình|4602
+VNM_HG|VNM|Hà Giang|7958
+VNM_HM|VNM|Hà Nam|867
+VNM_HI|VNM|Hà Nội|3374
+VNM_HT|VNM|Hà Tĩnh|6016
+VNM_HD|VNM|Hải Dương|1679
+VNM_HP|VNM|Hải Phòng|1407
+VNM_HU|VNM|Hậu Giang|1633
+VNM_HC|VNM|Hồ Chí Minh|2122
+VNM_HO|VNM|Hoà Bình|4602
 VNM_HY|VNM|Hưng Yên|931
 VNM_KH|VNM|Khánh Hòa|4870
-VNM_KG|VNM|KiênGiang|6327
+VNM_KG|VNM|Kiên Giang|6327
 VNM_KT|VNM|Kon Tum|9706
 VNM_LI|VNM|Lai Châu|9106
-VNM_LD|VNM|LâmĐồng|9846
+VNM_LD|VNM|Lâm Đồng|9846
 VNM_LS|VNM|Lạng Sơn|8344
-VNM_LO|VNM|LàoCai|6390
+VNM_LO|VNM|Lào Cai|6390
 VNM_LA|VNM|Long An|4518
-VNM_ND|VNM|NamĐịnh|1595
-VNM_NA|VNM|NghệAn|16562
+VNM_ND|VNM|Nam Định|1595
+VNM_NA|VNM|Nghệ An|16562
 VNM_NB|VNM|Ninh Bình|1351
 VNM_NT|VNM|Ninh Thuận|3382
-VNM_PT|VNM|PhúThọ|3555
-VNM_PY|VNM|PhúYên|5061
+VNM_PT|VNM|Phú Thọ|3555
+VNM_PY|VNM|Phú Yên|5061
 VNM_QB|VNM|Quảng Bình|8023
 VNM_QM|VNM|Quảng Nam|10634
 VNM_QG|VNM|Quảng Ngãi|5194
 VNM_QN|VNM|Quảng Ninh|6017
 VNM_QT|VNM|Quảng Trị|4639
-VNM_ST|VNM|SócTrăng|3303
-VNM_SL|VNM|SơnLa|14185
-VNM_TN|VNM|TâyNinh|4060
-VNM_TB|VNM|TháiBình|1620
-VNM_TY|VNM|TháiNguyên|3540
+VNM_ST|VNM|Sóc Trăng|3303
+VNM_SL|VNM|Sơn La|14185
+VNM_TN|VNM|Tây Ninh|4060
+VNM_TB|VNM|Thái Bình|1620
+VNM_TY|VNM|Thái Nguyên|3540
 VNM_TH|VNM|Thanh Hóa|11163
-VNM_TT|VNM|ThừaThiênHuế|5053
-VNM_TG|VNM|TiềnGiang|2421
-VNM_TV|VNM|TràVinh|2339
-VNM_TQ|VNM|TuyênQuang|5895
+VNM_TT|VNM|Thừa Thiên Huế|5053
+VNM_TG|VNM|Tiền Giang|2421
+VNM_TV|VNM|Trà Vinh|2339
+VNM_TQ|VNM|Tuyên Quang|5895
 VNM_VL|VNM|Vĩnh Long|1534
 VNM_VC|VNM|Vĩnh Phúc|1237
-VNM_YB|VNM|YênBái|6921
+VNM_YB|VNM|Yên Bái|6921
 VIR_SC|VIR|Saint Croix|222
 VIR_SJ|VIR|Saint John|53
 VIR_ST|VIR|Saint Thomas|89
@@ -3532,4 +3532,4 @@ Z05_UT|IND|Uttarakhand|259
 Z09_UT|IND|Uttarakhand|987
 Z06_JK|PAK|Azad Kashmir|13931
 Z06_NA|PAK|Gilgit-Baltistan|68053
-GBR_EN|GBR|England|417
+GBR_NA|GBR|England|417
