@@ -5,9 +5,6 @@ plugins {
     id 'com.mikepenz.aboutlibraries.plugin' version '11.1.1'
 }
 
-def keystorePropertiesFile = rootProject.file("app/keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace 'net.helcel.beans'
@@ -20,19 +17,34 @@ android {
         versionCode 1
         versionName "0.1a"
     }
-
     signingConfigs {
         create("release") {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            try {
+                def keystorePropertiesFile = rootProject.file("app/keystore.properties")
+                def keystoreProperties = new Properties()
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            } catch (FileNotFoundException e) {
+                println("File not found: ${e.message}")
+            }
         }
     }
 
 
     buildTypes {
+        debug {
+            debuggable true
+        }
         release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        signedRelease {
             minifyEnabled true
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

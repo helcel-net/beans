@@ -48,7 +48,7 @@ jobs:
           cache: 'gradle'
 
       - name: Build APK
-        run: ./gradlew assemble
+        run: ./gradlew assembleSignedRelease
 
       # - name: Upload APK
       #   uses: actions/upload-artifact@v4
@@ -61,4 +61,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            app/build/outputs/apk/release/app-release.apk   
+            app/build/outputs/apk/signedRelease/app-release.apk
