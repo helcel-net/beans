@@ -15,6 +15,7 @@ import net.helcel.beans.countries.GeoLoc
 import net.helcel.beans.databinding.ItemListGeolocBinding
 import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.DialogCloser
 import net.helcel.beans.helper.NO_GROUP
 import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.colorWrapper
@@ -52,7 +53,7 @@ class GeolocListAdapter(
         private val _binding: ItemListGeolocBinding,
         private val _parentHolder: FoldingListViewHolder? = null,
         private val _parentGeoLoc: GeoLoc,
-    ) : RecyclerView.ViewHolder(_binding.root) {
+    ) : RecyclerView.ViewHolder(_binding.root), DialogCloser {
 
         private fun bindGroup(el: GeoLoc) {
             refreshCount(el)
@@ -86,11 +87,11 @@ class GeolocListAdapter(
                     if (_binding.checkBox.isChecked) {
                         // If one has just checked the box (assign unique group)
                         Data.selected_group = Data.groups.getUniqueEntry()
-                        onColorDialogDismiss(false)
+                        onDialogDismiss(false)
                     } else {
                         // If one has just unchecked the box (unassign unique group)
                         Data.selected_group = null
-                        onColorDialogDismiss(true)
+                        onDialogDismiss(true)
                     }
                 } else {
                     Data.selected_group = null
@@ -103,7 +104,7 @@ class GeolocListAdapter(
             }
         }
 
-        fun onColorDialogDismiss(clear: Boolean) {
+        override fun onDialogDismiss(clear: Boolean) {
             if (clear) {
                 Data.visits.setVisited(Data.selected_geoloc, NO_GROUP)
                 Data.saveData()

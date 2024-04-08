@@ -3,17 +3,19 @@ package net.helcel.beans.activity.fragment
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import net.helcel.beans.activity.adapter.GeolocListAdapter
+import net.helcel.beans.R
 import net.helcel.beans.activity.adapter.GroupListAdapter
 import net.helcel.beans.databinding.FragmentEditPlacesColorsBinding
 import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.DialogCloser
 
 
-class EditPlaceColorFragment(private val parent: GeolocListAdapter.FoldingListViewHolder) :
+class EditPlaceColorFragment(private val parent: DialogCloser, private val delete: Boolean = false) :
     DialogFragment() {
 
     private lateinit var _binding: FragmentEditPlacesColorsBinding
@@ -21,7 +23,8 @@ class EditPlaceColorFragment(private val parent: GeolocListAdapter.FoldingListVi
     private var clear: Boolean = false
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = MaterialAlertDialogBuilder(requireContext())
+        val ctx = requireContext()
+        val builder = MaterialAlertDialogBuilder(ctx)
         _binding = FragmentEditPlacesColorsBinding.inflate(layoutInflater)
         _binding.btnAdd.setOnClickListener {
             EditGroupAddFragment(0, {
@@ -34,16 +37,25 @@ class EditPlaceColorFragment(private val parent: GeolocListAdapter.FoldingListVi
         }
 
         val dialog = builder.setView(_binding.root).create()
-        listAdapt = GroupListAdapter(requireActivity(), this)
+        listAdapt = GroupListAdapter(requireActivity(), this, delete)
         _binding.groupsColor.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            LinearLayoutManager(ctx, RecyclerView.VERTICAL, false)
         _binding.groupsColor.adapter = listAdapt
+
+        if (delete) {
+            _binding.btnAdd.visibility = View.GONE
+            _binding.btnClear.text = ctx.getString(R.string.cancel)
+            with (_binding.warningText) {
+                visibility = View.VISIBLE
+                text = ctx.getString(R.string.select_group)
+            }
+        }
 
         return dialog
     }
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        parent.onColorDialogDismiss(clear)
+        parent.onDialogDismiss(clear)
     }
 }

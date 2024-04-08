@@ -28,6 +28,11 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
         grps.remove(key)
     }
 
+    fun deleteAllExcept(grp: Int) {
+        val keysToDelete = grps.keys.filter { it != grp }
+        keysToDelete.forEach { grps.remove(it) }
+    }
+
     fun getGroupFromKey(key: Int): Group {
         return grps.getOrDefault(key, EmptyGroup())
     }
@@ -58,6 +63,10 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
 
     fun findGroupPos(key: Int): Int {
         return grps.keys.toList().indexOf(key)
+    }
+
+    fun forEach(action: (Map.Entry<Int, Group>) -> Unit) {
+        grps.forEach { action(it) }
     }
 
     class EmptyGroup : Group(0, "")

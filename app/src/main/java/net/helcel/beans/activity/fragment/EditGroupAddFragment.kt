@@ -52,8 +52,8 @@ class EditGroupAddFragment(
                 .setPositiveButton(android.R.string.ok) { _, _ ->
                     val pos = Data.groups.findGroupPos(key)
                     // Remove all countries belonging to that group
-                    // Delete the group
                     Data.visits.deleteVisited(key)
+                    // Delete the group
                     Data.groups.deleteGroup(key)
                     Data.saveData()
                     onDelCb(pos)

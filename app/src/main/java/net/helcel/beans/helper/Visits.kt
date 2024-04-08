@@ -42,6 +42,15 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
         return locs.keys.groupBy { getVisited(it) }
     }
 
+    fun reassignAllVisitedtoGroup(group: Int) {
+        val keys = locs.filter { (_, grp) ->
+            grp !in listOf(NO_GROUP, AUTO_GROUP)
+        }.keys
+        keys.forEach {
+            locs[it] = group
+        }
+    }
+
     @OptIn(ExperimentalSerializationApi::class)
     @Serializer(Visits::class)
     class VisitsSerializer {

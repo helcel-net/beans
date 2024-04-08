@@ -1,19 +1,52 @@
 package net.helcel.beans.activity.fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import net.helcel.beans.R
 import net.helcel.beans.countries.GeoLocImporter
+import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.DialogCloser
+import net.helcel.beans.helper.Settings
 
 
-class SettingsFragment : PreferenceFragmentCompat() {
+class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
+    private var savedInstanceState: Bundle? = null
+    private var rootKey: String? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        this.savedInstanceState = savedInstanceState
+        this.rootKey = rootKey
+
         setPreferencesFromResource(R.xml.fragment_settings, rootKey)
         val ctx = requireContext()
+
+        // Select Light/Dark/System Mode
+        findPreference<Preference>(getString(R.string.key_theme))?.setOnPreferenceChangeListener { _, key ->
+            setTheme(ctx, key as String)
+        }
+
+        // Toggle groups
+        findPreference<Preference>(getString(R.string.key_group))?.setOnPreferenceChangeListener { _, key ->
+            if (key as String == ctx.getString(R.string.off)) {
+                val fragment = EditPlaceColorFragment(this, true)
+                fragment.show(
+                    this.parentFragmentManager,
+                    "AddColorDialogFragment"
+                )
+                false
+            } else {
+                true
+            }
+        }
+
+
+        // Toggle regional geolocs
         findPreference<Preference>(getString(R.string.key_regional))?.setOnPreferenceChangeListener { _, key ->
             when (key as String) {
                 ctx.getString(R.string.off) -> GeoLocImporter.clearStates()
@@ -22,10 +55,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
             true
         }
 
-        // Select Light/Dark/System Mode
-        findPreference<Preference>(getString(R.string.key_theme))?.setOnPreferenceChangeListener { _, key ->
-            setTheme(ctx, key as String)
-        }
 
         // Open license fragment
         findPreference<Preference>(getString(R.string.licenses))?.setOnPreferenceClickListener {
@@ -56,6 +85,32 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 }
             )
             return true
+        }
+    }
+
+    override fun onDialogDismiss(clear: Boolean) {
+        // When turning groups off, select one group to keep and reassign everything
+        Data.selected_group?.let { selectedGroup ->
+            // Reassign all visited that are not to selectedGroup to selectedGroup
+            Data.visits.reassignAllVisitedtoGroup(selectedGroup.key)
+
+            // Delete all groups that are not selectedGroup
+            Data.groups.deleteAllExcept(selectedGroup.key)
+
+            // Save and clear global variables
+            Data.saveData()
+            Data.selected_geoloc = null
+            Data.selected_group = null
+
+            // Actually change preference
+            val ctx = requireContext()
+            val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
+            sp.edit().putString(ctx.getString(R.string.key_group), ctx.getString(R.string.off))
+                .commit()
+
+            // Refresh entire preference fragment to reflect changes
+            preferenceScreen.removeAll()
+            onCreatePreferences(savedInstanceState, rootKey)
         }
     }
 }

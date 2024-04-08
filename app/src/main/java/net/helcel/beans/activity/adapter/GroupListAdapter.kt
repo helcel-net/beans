@@ -13,7 +13,8 @@ import net.helcel.beans.helper.Theme.getContrastColor
 
 class GroupListAdapter(
     private val activity: FragmentActivity,
-    private val selectDialog: DialogFragment
+    private val selectDialog: DialogFragment,
+    private val delete: Boolean = false
 ) : RecyclerView.Adapter<GroupListAdapter.GroupViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
@@ -63,12 +64,14 @@ class GroupListAdapter(
                 Data.selected_group = entry.second
                 selectDialog.dismiss()
             }
-            _binding.groupColor.setOnLongClickListener {
-                dialogFragment.show(
-                    activity.supportFragmentManager,
-                    "AddColorDialogFragment"
-                )
-                true
+            if (!delete) {
+                _binding.groupColor.setOnLongClickListener {
+                    dialogFragment.show(
+                        activity.supportFragmentManager,
+                        "AddColorDialogFragment"
+                    )
+                    true
+                }
             }
         }
     }
