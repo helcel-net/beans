@@ -263,5 +263,5 @@ enum class Country(
 
     override val code = this.name
     override val type = GeoLoc.LocType.COUNTRY
-    override val children: MutableList<GeoLoc> = ArrayList()
+    override val children: MutableSet<GeoLoc> = HashSet()
 }

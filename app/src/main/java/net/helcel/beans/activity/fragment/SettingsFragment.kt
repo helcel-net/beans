@@ -1,8 +1,6 @@
 package net.helcel.beans.activity.fragment
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
@@ -12,7 +10,6 @@ import net.helcel.beans.R
 import net.helcel.beans.countries.GeoLocImporter
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.DialogCloser
-import net.helcel.beans.helper.Settings
 
 
 class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
@@ -106,7 +103,7 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
             val ctx = requireContext()
             val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
             sp.edit().putString(ctx.getString(R.string.key_group), ctx.getString(R.string.off))
-                .commit()
+                .apply()
 
             // Refresh entire preference fragment to reflect changes
             preferenceScreen.removeAll()

@@ -13,17 +13,15 @@ import net.helcel.beans.activity.fragment.EditPlaceColorFragment
 import net.helcel.beans.activity.fragment.EditPlaceFragment
 import net.helcel.beans.countries.GeoLoc
 import net.helcel.beans.databinding.ItemListGeolocBinding
-import net.helcel.beans.helper.AUTO_GROUP
-import net.helcel.beans.helper.Data
-import net.helcel.beans.helper.DialogCloser
-import net.helcel.beans.helper.NO_GROUP
-import net.helcel.beans.helper.Settings
+import net.helcel.beans.helper.*
 import net.helcel.beans.helper.Theme.colorWrapper
 
 class GeolocListAdapter(
     private val ctx: EditPlaceFragment, private val l: GeoLoc, private val pager: ViewPagerAdapter,
     private val parentHolder: FoldingListViewHolder?
 ) : RecyclerView.Adapter<GeolocListAdapter.FoldingListViewHolder>() {
+
+    private val sortedList = l.children.toList().sortedBy { it.fullName }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoldingListViewHolder {
         val binding = ItemListGeolocBinding.inflate(
@@ -35,7 +33,7 @@ class GeolocListAdapter(
     }
 
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
-        val el = l.children[position]
+        val el = sortedList[position]
         holder.bind(el)
         holder.addListeners(el) {
             if (el.children.isNotEmpty())
@@ -122,19 +120,19 @@ class GeolocListAdapter(
             _binding.checkBox.checkedState =
                 if (Data.visits.getVisited(geoLoc) == AUTO_GROUP && !Settings.isRegional(ctx) && geoLoc.type == GeoLoc.LocType.COUNTRY) {
                     MaterialCheckBox.STATE_CHECKED
-                }
-                else if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
+                } else if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
                     MaterialCheckBox.STATE_CHECKED
-                }
-                else if (geoLoc.children.isNotEmpty() && geoLoc.children.all { Data.visits.getVisited(it) != NO_GROUP }) {
+                } else if (geoLoc.children.isNotEmpty() && geoLoc.children.all {
+                        Data.visits.getVisited(
+                            it
+                        ) != NO_GROUP
+                    }) {
                     Data.visits.setVisited(geoLoc, AUTO_GROUP)
                     MaterialCheckBox.STATE_CHECKED
-                }
-                else if (geoLoc.children.any { Data.visits.getVisited(it) != NO_GROUP }) {
+                } else if (geoLoc.children.any { Data.visits.getVisited(it) != NO_GROUP }) {
                     Data.visits.setVisited(geoLoc, AUTO_GROUP)
                     MaterialCheckBox.STATE_INDETERMINATE
-                }
-                else {
+                } else {
                     Data.visits.setVisited(geoLoc, NO_GROUP)
                     MaterialCheckBox.STATE_UNCHECKED
                 }
@@ -143,8 +141,7 @@ class GeolocListAdapter(
             var col = Data.groups.getGroupFromKey(Data.visits.getVisited(geoLoc)).color
             if (Data.visits.getVisited(geoLoc) == AUTO_GROUP) {
                 col = colorWrapper(ctx, android.R.attr.colorPrimary)
-            }
-            else if (col.color == Color.TRANSPARENT) {
+            } else if (col.color == Color.TRANSPARENT) {
                 col = colorWrapper(ctx, android.R.attr.panelColorBackground)
                 col.alpha = 64
             }
@@ -152,13 +149,15 @@ class GeolocListAdapter(
         }
 
         private fun refreshCount(geoLoc: GeoLoc) {
-            val numerator = geoLoc.children.map { Data.visits.getVisited(it) != NO_GROUP }.count { it }
+            val numerator =
+                geoLoc.children.map { Data.visits.getVisited(it) != NO_GROUP }.count { it }
             val denominator = geoLoc.children.size
             _binding.count.text = when (Settings.getStatPref(ctx)) {
                 ctx.getString(R.string.percentages) -> ctx.getString(
                     R.string.percentage,
                     (100 * (numerator.toFloat() / denominator.toFloat())).toInt()
                 )
+
                 else -> ctx.getString(R.string.rate, numerator, denominator)
             }
         }

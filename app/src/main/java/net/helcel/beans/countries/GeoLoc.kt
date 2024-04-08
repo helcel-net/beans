@@ -15,7 +15,7 @@ interface GeoLoc {
     val area: Int
 
     val type: LocType
-    val children: List<GeoLoc>
+    val children: Set<GeoLoc>
 
     fun shouldShowChildren(ctx: Context): Boolean {
         if (children.isEmpty())

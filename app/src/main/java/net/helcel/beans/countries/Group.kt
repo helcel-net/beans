@@ -2,10 +2,10 @@ package net.helcel.beans.countries
 
 import net.helcel.beans.countries.Country.*
 
-enum class Group(override val fullName: String, override val children: List<GeoLoc>) : GeoLoc {
+enum class Group(override val fullName: String, override val children: Set<GeoLoc>) : GeoLoc {
 
     EEE(
-        "Europe", listOf(
+        "Europe", setOf(
             XAD,
             ALA,// Åland Islands: an autonomous region of Finland, but not a member of the EU or UN
             ALB,
@@ -64,7 +64,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
         )
     ),
     ABB(
-        "Asia", listOf(
+        "Asia", setOf(
             AFG,
             ARM,
             AZE,
@@ -121,7 +121,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
         )
     ),
     FFF(
-        "Africa", listOf(
+        "Africa", setOf(
             DZA,
             AGO,
             BDI,
@@ -187,7 +187,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
         )
     ),
     NNN(
-        "North America", listOf(
+        "North America", setOf(
             ABW,
             AIA,
             ATG,
@@ -236,7 +236,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
         )
     ),
     SRR(
-        "South America", listOf(
+        "South America", setOf(
             ARG,
             BOL,
             BRA,
@@ -254,7 +254,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
         )
     ),
     UUU(
-        "Oceania", listOf(
+        "Oceania", setOf(
             ASM,
             AUS,
             COK,
@@ -284,7 +284,7 @@ enum class Group(override val fullName: String, override val children: List<GeoL
     ),
 
     XXX(
-        "Others", listOf(
+        "Others", setOf(
             ATA, // Antarctica: not in any other region
             BVT, // Bouvet Island: an uninhabited territory of Norway in the South Atlantic
             HMD, // Heard Island and McDonald Islands: an uninhabited Australian external territory in the southern Indian Ocean
@@ -293,13 +293,13 @@ enum class Group(override val fullName: String, override val children: List<GeoL
     ),
 
     ZZZ(
-        "Undefined", listOf(
+        "Undefined", setOf(
         )
     ),
 
 
     NTT(
-        "NATO", listOf(
+        "NATO", setOf(
             ALB, BEL, BGR, CAN, HRV, CZE, DNK, EST, FRA, DEU, GRC, HUN, ISL, ITA, LVA, LTU, LUX,
             MNE, NLD, NOR, POL, PRT, ROU, SVK, SVN, ESP, TUR, GBR, USA
         )
