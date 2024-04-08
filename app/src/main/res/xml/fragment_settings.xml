@@ -4,23 +4,13 @@
     android:theme="@style/Theme.Beans">
 
     <ListPreference
-        app:defaultValue="@string/off"
+        app:defaultValue="@string/system"
         app:enabled="true"
-        app:entries="@array/entries_onoff"
-        app:entryValues="@array/entries_onoff"
-        app:icon="@drawable/edit"
-        app:key="@string/key_group"
-        app:title="@string/key_group"
-        app:useSimpleSummaryProvider="true" />
-
-    <ListPreference
-        app:defaultValue="@string/off"
-        app:enabled="true"
-        app:entries="@array/entries_onoff"
-        app:entryValues="@array/entries_onoff"
-        app:icon="@drawable/edit"
-        app:key="@string/key_regional"
-        app:title="@string/key_regional"
+        app:entries="@array/entries_theme"
+        app:entryValues="@array/entries_theme"
+        app:icon="@drawable/palette"
+        app:key="@string/key_theme"
+        app:title="@string/key_theme"
         app:useSimpleSummaryProvider="true" />
 
     <ListPreference
@@ -32,20 +22,32 @@
         app:key="@string/key_stats"
         app:title="@string/key_stats"
         app:useSimpleSummaryProvider="true" />
-    
+
     <ListPreference
-        app:defaultValue="@string/system"
+        app:defaultValue="@string/off"
         app:enabled="true"
-        app:entries="@array/entries_theme"
-        app:entryValues="@array/entries_theme"
-        app:icon="@drawable/palette"
-        app:key="@string/key_theme"
-        app:title="@string/key_theme"
+        app:allowDividerAbove="true"
+        app:entries="@array/entries_onoff"
+        app:entryValues="@array/entries_onoff"
+        app:icon="@drawable/group"
+        app:key="@string/key_group"
+        app:title="@string/key_group"
+        app:useSimpleSummaryProvider="true" />
+
+    <ListPreference
+        app:defaultValue="@string/off"
+        app:enabled="true"
+        app:entries="@array/entries_onoff"
+        app:entryValues="@array/entries_onoff"
+        app:icon="@drawable/zoomin"
+        app:key="@string/key_regional"
+        app:title="@string/key_regional"
         app:useSimpleSummaryProvider="true" />
 
     <Preference
         android:summary="@string/foss_licenses"
         app:enabled="true"
+        app:allowDividerAbove="true"
         app:icon="@drawable/licenses"
         app:key="@string/licenses"
         app:title="@string/licenses" />
