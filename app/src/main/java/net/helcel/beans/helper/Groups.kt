@@ -13,6 +13,10 @@ import kotlin.random.Random
 private const val randSeed = 0
 private val rnd = Random(randSeed)
 
+const val NO_GROUP = 0
+const val DEFAULT_GROUP = 1
+const val AUTO_GROUP = -1
+
 @Serializable
 class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
 
@@ -30,7 +34,7 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
 
     fun genKey(): Int {
         val key = rnd.nextInt()
-        if (grps.containsKey(key) || key == 0) return genKey()
+        if (grps.containsKey(key) || key in listOf(NO_GROUP, AUTO_GROUP)) return genKey()
         return key
     }
 

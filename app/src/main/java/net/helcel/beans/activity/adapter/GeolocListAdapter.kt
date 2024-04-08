@@ -13,12 +13,15 @@ import net.helcel.beans.activity.fragment.EditPlaceColorFragment
 import net.helcel.beans.activity.fragment.EditPlaceFragment
 import net.helcel.beans.countries.GeoLoc
 import net.helcel.beans.databinding.ItemListGeolocBinding
+import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.NO_GROUP
 import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.colorWrapper
 
 class GeolocListAdapter(
-    private val ctx: EditPlaceFragment, private val l: GeoLoc, private val pager: ViewPagerAdapter
+    private val ctx: EditPlaceFragment, private val l: GeoLoc, private val pager: ViewPagerAdapter,
+    private val parentHolder: FoldingListViewHolder?
 ) : RecyclerView.Adapter<GeolocListAdapter.FoldingListViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoldingListViewHolder {
@@ -27,7 +30,7 @@ class GeolocListAdapter(
             viewGroup,
             false
         )
-        return FoldingListViewHolder(ctx.requireActivity(), binding)
+        return FoldingListViewHolder(ctx.requireActivity(), binding, parentHolder, l)
     }
 
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
@@ -35,7 +38,7 @@ class GeolocListAdapter(
         holder.bind(el)
         holder.addListeners(el) {
             if (el.children.isNotEmpty())
-                pager.addFragment(ctx, EditPlaceFragment(el, pager))
+                pager.addFragment(ctx, EditPlaceFragment(el, pager, holder))
             true
         }
     }
@@ -46,21 +49,13 @@ class GeolocListAdapter(
 
     class FoldingListViewHolder(
         private val ctx: FragmentActivity,
-        private val _binding: ItemListGeolocBinding
+        private val _binding: ItemListGeolocBinding,
+        private val _parentHolder: FoldingListViewHolder? = null,
+        private val _parentGeoLoc: GeoLoc,
     ) : RecyclerView.ViewHolder(_binding.root) {
 
         private fun bindGroup(el: GeoLoc) {
-            val numerator = el.children.map { Data.visits.getVisited(it) != 0 }.count { it }
-            val denominator = el.children.size
-
-            _binding.count.text = when (Settings.getStatPref(ctx)) {
-                ctx.getString(R.string.percentages) -> ctx.getString(
-                    R.string.percentage,
-                    (100 * (numerator.toFloat() / denominator.toFloat())).toInt()
-                )
-
-                else -> ctx.getString(R.string.rate, numerator, denominator)
-            }
+            refreshCount(el)
             _binding.textView.setTypeface(null, Typeface.BOLD)
             _binding.textView.backgroundTintList = ColorStateList.valueOf(
                 colorWrapper(
@@ -104,6 +99,7 @@ class GeolocListAdapter(
                         "AddColorDialogFragment"
                     )
                 }
+                _parentHolder?.refresh(_parentGeoLoc)
             }
         }
 
@@ -122,6 +118,24 @@ class GeolocListAdapter(
         }
 
         private fun refreshCheck(geoLoc: GeoLoc) {
+            _binding.checkBox.checkedState =
+                if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
+                    MaterialCheckBox.STATE_CHECKED
+                }
+                else if (geoLoc.children.isNotEmpty() && geoLoc.children.all { Data.visits.getVisited(it) != NO_GROUP }) {
+                    Data.visits.setVisited(geoLoc, AUTO_GROUP)
+                    MaterialCheckBox.STATE_CHECKED
+                }
+                else if (geoLoc.children.any { Data.visits.getVisited(it) != NO_GROUP }) {
+                    Data.visits.setVisited(geoLoc, AUTO_GROUP)
+                    MaterialCheckBox.STATE_INDETERMINATE
+                }
+                else {
+                    Data.visits.setVisited(geoLoc, NO_GROUP)
+                    MaterialCheckBox.STATE_UNCHECKED
+                }
+            Data.saveData()
+
             var col = Data.groups.getGroupFromKey(Data.visits.getVisited(geoLoc)).color
             if (col.color == Color.TRANSPARENT) {
                 col = colorWrapper(
@@ -130,12 +144,28 @@ class GeolocListAdapter(
                 )
                 col.alpha = 64
             }
-            _binding.checkBox.checkedState =
-                if (Data.visits.getVisited(geoLoc) != 0) MaterialCheckBox.STATE_CHECKED
-                else if (geoLoc.children.any { Data.visits.getVisited(it) != 0 }) MaterialCheckBox.STATE_INDETERMINATE
-                else MaterialCheckBox.STATE_UNCHECKED
-
             _binding.checkBox.buttonTintList = ColorStateList.valueOf(col.color)
+        }
+
+        private fun refreshCount(geoLoc: GeoLoc) {
+            val numerator = geoLoc.children.map { Data.visits.getVisited(it) != 0 }.count { it }
+            val denominator = geoLoc.children.size
+            _binding.count.text = when (Settings.getStatPref(ctx)) {
+                ctx.getString(R.string.percentages) -> ctx.getString(
+                    R.string.percentage,
+                    (100 * (numerator.toFloat() / denominator.toFloat())).toInt()
+                )
+                else -> ctx.getString(R.string.rate, numerator, denominator)
+            }
+        }
+
+        private fun refresh(geoLoc: GeoLoc) {
+            // Refresh
+            refreshCheck(geoLoc)
+            refreshCount(geoLoc)
+
+            // Recursively refresh parent
+            _parentHolder?.refresh(_parentGeoLoc)
         }
 
     }

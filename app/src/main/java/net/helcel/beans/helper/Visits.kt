@@ -27,7 +27,7 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
     }
 
     fun getVisited(key: GeoLoc): Int {
-        return locs.getOrDefault(key.code, 0)
+        return getVisited(key.code)
     }
 
     private fun getVisited(key: String): Int {

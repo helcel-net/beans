@@ -34,7 +34,7 @@ fun loadData(ctx: Context, id:Int) {
 
     // Add default group "Visited" with app's color if there is no group already
     if (groups.size() == 0) {
-        groups.setGroup(1, "Visited", ColorDrawable(ContextCompat.getColor(ctx, R.color.blue)))
+        groups.setGroup(DEFAULT_GROUP, "Visited", ColorDrawable(ContextCompat.getColor(ctx, R.color.blue)))
         saveData()
     }
 
