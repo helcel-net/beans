@@ -6,6 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import net.helcel.beans.activity.fragment.EditPlaceFragment
+import kotlin.math.max
 
 class ViewPagerAdapter(
     fragmentManager: FragmentManager,
@@ -17,15 +18,13 @@ class ViewPagerAdapter(
     private val fragmentList: MutableList<EditPlaceFragment> = ArrayList()
 
     fun addFragment(src: EditPlaceFragment?, target: EditPlaceFragment) {
-        if (src != null) {
-            while (fragmentList.last() != src) {
-                fragmentList.removeLast()
-                notifyItemRemoved(fragmentList.size)
-            }
+        val idx = fragmentList.indexOf(src)
+        viewPager.currentItem = max(0, idx)
+        if (src != null && idx >= 0) {
+            fragmentList.subList(idx + 1, fragmentList.size).clear()
         }
-        println(src.toString() + " -  " + target.toString())
         fragmentList.add(target)
-        notifyItemInserted(fragmentList.size)
+        notifyItemRangeChanged(max(0, idx), fragmentList.size)
         viewPager.currentItem = fragmentList.size - 1
     }
 
