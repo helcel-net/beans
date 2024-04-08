@@ -105,11 +105,11 @@ class GeolocListAdapter(
 
         fun onColorDialogDismiss(clear: Boolean) {
             if (clear) {
-                Data.visits.setVisited(Data.selected_geoloc, 0)
+                Data.visits.setVisited(Data.selected_geoloc, NO_GROUP)
                 Data.saveData()
             }
             if (Data.selected_group != null && Data.selected_geoloc != null) {
-                Data.visits.setVisited(Data.selected_geoloc, Data.selected_group?.key ?: 0)
+                Data.visits.setVisited(Data.selected_geoloc, Data.selected_group?.key ?: NO_GROUP)
                 Data.saveData()
             }
             Data.selected_geoloc?.let { refreshCheck(it) }
@@ -148,7 +148,7 @@ class GeolocListAdapter(
         }
 
         private fun refreshCount(geoLoc: GeoLoc) {
-            val numerator = geoLoc.children.map { Data.visits.getVisited(it) != 0 }.count { it }
+            val numerator = geoLoc.children.map { Data.visits.getVisited(it) != NO_GROUP }.count { it }
             val denominator = geoLoc.children.size
             _binding.count.text = when (Settings.getStatPref(ctx)) {
                 ctx.getString(R.string.percentages) -> ctx.getString(
