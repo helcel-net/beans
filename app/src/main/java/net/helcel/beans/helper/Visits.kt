@@ -42,6 +42,10 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
         return locs.keys.groupBy { getVisited(it) }
     }
 
+    fun getVisitedByValue(key: Int): List<String> {
+        return locs.filter { it.value == key }.keys.toList()
+    }
+
     fun reassignAllVisitedtoGroup(group: Int) {
         val keys = locs.filter { (_, grp) ->
             grp !in listOf(NO_GROUP, AUTO_GROUP)

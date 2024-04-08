@@ -87,6 +87,5 @@ dependencies {
 
     implementation 'com.caverock:androidsvg-aar:1.4'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation "com.github.AppDevNext:AndroidChart:3.1.0.21"
     implementation 'com.mikepenz:aboutlibraries:11.1.1'
 }
