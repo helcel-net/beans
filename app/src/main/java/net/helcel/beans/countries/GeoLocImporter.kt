@@ -1,6 +1,9 @@
 package net.helcel.beans.countries
 
 import android.content.Context
+import net.helcel.beans.helper.AUTO_GROUP
+import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.NO_GROUP
 import net.helcel.beans.helper.Settings
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -20,6 +23,19 @@ object GeoLocImporter {
     }
 
     fun clearStates() {
-        Country.entries.forEach { it.children.clear() }
+        Country.entries.forEach { country ->
+            if (country.children.any { region ->
+                Data.visits.getVisited(region) != NO_GROUP
+            }) {
+                if (Data.visits.getVisited(country) == NO_GROUP) {
+                    Data.visits.setVisited(country, AUTO_GROUP)
+                }
+                country.children.forEach { region ->
+                    Data.visits.setVisited(region, NO_GROUP)
+                }
+                Data.saveData()
+            }
+            country.children.clear()
+        }
     }
 }

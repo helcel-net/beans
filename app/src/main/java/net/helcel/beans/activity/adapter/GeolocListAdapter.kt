@@ -119,7 +119,10 @@ class GeolocListAdapter(
 
         private fun refreshCheck(geoLoc: GeoLoc) {
             _binding.checkBox.checkedState =
-                if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
+                if (Data.visits.getVisited(geoLoc) == AUTO_GROUP && !Settings.isRegional(ctx) && geoLoc.type == GeoLoc.LocType.COUNTRY) {
+                    MaterialCheckBox.STATE_CHECKED
+                }
+                else if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
                     MaterialCheckBox.STATE_CHECKED
                 }
                 else if (geoLoc.children.isNotEmpty() && geoLoc.children.all { Data.visits.getVisited(it) != NO_GROUP }) {
@@ -137,11 +140,11 @@ class GeolocListAdapter(
             Data.saveData()
 
             var col = Data.groups.getGroupFromKey(Data.visits.getVisited(geoLoc)).color
-            if (col.color == Color.TRANSPARENT) {
-                col = colorWrapper(
-                    ctx,
-                    android.R.attr.panelColorBackground
-                )
+            if (Data.visits.getVisited(geoLoc) == AUTO_GROUP) {
+                col = colorWrapper(ctx, android.R.attr.colorPrimary)
+            }
+            else if (col.color == Color.TRANSPARENT) {
+                col = colorWrapper(ctx, android.R.attr.panelColorBackground)
                 col.alpha = 64
             }
             _binding.checkBox.buttonTintList = ColorStateList.valueOf(col.color)
