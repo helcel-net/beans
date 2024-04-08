@@ -32,7 +32,8 @@ AFG_TK|AFG|Takhar|12361
 AFG_OZ|AFG|Uruzgan|12900
 AFG_VR|AFG|Wardak|8945
 AFG_ZB|AFG|Zabul|17375
-XAD_NA|XAD|Dhekelia|125
+XAD_Akrotiri|XAD|Akrotiri|109
+XAD_Dhekelia|XAD|Dhekelia|125
 ALA_AR|ALA|Archipelago|448
 ALA_CO|ALA|Countryside|1022
 ALA_MH|ALA|Mariehamn|13
@@ -126,14 +127,17 @@ AGO_NA|AGO|Namibe|58240
 AGO_UI|AGO|Uíge|62425
 AGO_ZA|AGO|Zaire|36821
 AIA_BP|AIA|Blowing Point|5
-AIA_NA|AIA|Sombrero Island|0
+AIA_DogIsland|AIA|Dog Island|2
 AIA_EE|AIA|East End|5
 AIA_GH|AIA|George Hill|7
 AIA_IH|AIA|Island Harbour|6
 AIA_NH|AIA|North Hill|1
 AIA_NS|AIA|North Side|9
+AIA_PriclyPearCays|AIA|Pricly Pear Cays|0
 AIA_SG|AIA|Sandy Ground|1
 AIA_SH|AIA|Sandy Hill|7
+AIA_ScrubIsland|AIA|Scrub Island|4
+AIA_SombreroIsland|AIA|Sombrero Island|0
 AIA_SO|AIA|South Hill|7
 AIA_ST|AIA|Stoney Ground|7
 AIA_TF|AIA|The Farrington|5
@@ -169,7 +173,7 @@ ARG_SJ|ARG|San Juan|89103
 ARG_SL|ARG|San Luis|76041
 ARG_SC|ARG|Santa Cruz|242689
 ARG_SF|ARG|Santa Fe|133534
-ARG_SE|ARG|Santiagodel Estero|137431
+ARG_SE|ARG|Santiago del Estero|137431
 ARG_TF|ARG|Tierra del Fuego|20841
 ARG_TM|ARG|Tucumán|22628
 ARM_AG|ARM|Aragatsotn|2884
@@ -183,7 +187,7 @@ ARM_SH|ARM|Shirak|2987
 ARM_SU|ARM|Syunik|4504
 ARM_TV|ARM|Tavush|2521
 ARM_VD|ARM|Vayots Dzor|2316
-AUS_AS|AUS|Ashmoreand Cartier Islands|18
+AUS_AS|AUS|Ashmore and Cartier Islands|18
 AUS_AC|AUS|Australian Capital Territory|2364
 AUS_CR|AUS|Coral Sea Islands Territory|7
 AUS_JB|AUS|Jervis Bay Territory|68
@@ -203,8 +207,16 @@ AUT_ST|AUT|Steiermark|16408
 AUT_TR|AUT|Tirol|12646
 AUT_VO|AUT|Vorarlberg|2602
 AUT_WI|AUT|Wien|415
-AZE_NA|AZE|Yukhari-Karabakh|7407
+AZE_Absheron|AZE|Absheron|6147
+AZE_Aran|AZE|Aran|21914
+AZE_Daglig-Shirvan|AZE|Daglig-Shirvan|5989
+AZE_Ganja-Qazakh|AZE|Ganja-Qazakh|12044
+AZE_Kalbajar-Lachin|AZE|Kalbajar-Lachin|5770
 AZE_LA|AZE|Lankaran|5592
+AZE_Nakhchivan|AZE|Nakhchivan|5400
+AZE_Quba-Khachmaz|AZE|Quba-Khachmaz|7339
+AZE_Shaki-Zaqatala|AZE|Shaki-Zaqatala|8729
+AZE_Yukhari-Karabakh|AZE|Yukhari-Karabakh|7407
 BHS_AK|BHS|Acklins|496
 BHS_BR|BHS|Berry Islands|61
 BHS_BI|BHS|Biminis|34
@@ -266,7 +278,9 @@ BLR_HR|BLR|Grodno|24952
 BLR_MI|BLR|Minsk|2255
 BLR_MA|BLR|Mogilev|28984
 BLR_VI|BLR|Vitebsk|40056
-BEL_NA|BEL|Wallonie|16827
+BEL_Bruxelles|BEL|Bruxelles|156
+BEL_Vlaanderen|BEL|Vlaanderen|13685
+BEL_Wallonie|BEL|Wallonie|16827
 BLZ_BZ|BLZ|Belize|3372
 BLZ_CY|BLZ|Cayo|5322
 BLZ_CZ|BLZ|Corozal|2012
@@ -366,17 +380,21 @@ BRA_PR|BRA|Paraná|200198
 BRA_PE|BRA|Pernambuco|98705
 BRA_PI|BRA|Piauí|253394
 BRA_RJ|BRA|Rio de Janeiro|43962
-BRA_RN|BRA|Rio Grandedo Norte|53165
-BRA_RS|BRA|Rio Grandedo Sul|282688
+BRA_RN|BRA|Rio Grande do Norte|53165
+BRA_RS|BRA|Rio Grande do Sul|282688
 BRA_RO|BRA|Rondônia|238929
 BRA_RR|BRA|Roraima|225857
 BRA_SC|BRA|Santa Catarina|96032
 BRA_SP|BRA|São Paulo|249417
 BRA_SE|BRA|Sergipe|22079
 BRA_TO|BRA|Tocantins|279170
-VGB_NA|VGB|Virgin Gorda|28
+VGB_Anegada|VGB|Anegada|40
+VGB_JostVanDyke|VGB|Jost Van Dyke|11
+VGB_OtherIslands|VGB|Other Islands|14
+VGB_Tortola|VGB|Tortola|76
+VGB_VirginGorda|VGB|Virgin Gorda|28
 BRN_BE|BRN|Belait|2863
-BRN_BM|BRN|Bruneiand Muara|533
+BRN_BM|BRN|Brunei and Muara|533
 BRN_TE|BRN|Temburong|1283
 BRN_TU|BRN|Tutong|1136
 BGR_BL|BGR|Blagoevgrad|6611
@@ -555,7 +573,7 @@ CHL_AN|CHL|Antofagasta|126678
 CHL_AR|CHL|Araucanía|31844
 CHL_AP|CHL|Aricay Parinacota|16931
 CHL_AT|CHL|Atacama|75995
-CHL_AI|CHL|Ayséndel General Ibañez del Cam|106476
+CHL_AI|CHL|Aysén del General Ibañez del Cam|106476
 CHL_BI|CHL|Bío-Bío|24032
 CHL_CO|CHL|Coquimbo|40711
 CHL_LI|CHL|Libertador General Bernardo O'Hi|16389
@@ -626,7 +644,7 @@ COL_NS|COL|Norte de Santander|22077
 COL_PU|COL|Putumayo|26063
 COL_QD|COL|Quindío|1947
 COL_RI|COL|Risaralda|3562
-COL_SA|COL|San Andrés y Providencia|52
+COL_SA|COL|San Andrés yProvidencia|52
 COL_ST|COL|Santander|30788
 COL_SU|COL|Sucre|10787
 COL_TO|COL|Tolima|24131
@@ -636,7 +654,17 @@ COL_VD|COL|Vichada|100014
 COM_MO|COM|Mwali|220
 COM_GC|COM|Njazídja|1028
 COM_AN|COM|Nzwani|436
-COK_NA|COK|Rarotonga|70
+COK_Aitutaki|COK|Aitutaki|28
+COK_Atiu|COK|Atiu|31
+COK_Mangaia|COK|Mangaia|49
+COK_Manihiki|COK|Manihiki|8
+COK_Mauke|COK|Mauke|20
+COK_Mitiaro|COK|Mitiaro|25
+COK_Palmerston|COK|Palmerston|24
+COK_Penhryn|COK|Penhryn|17
+COK_Pukapuka|COK|Pukapuka|6
+COK_Rakahanga|COK|Rakahanga|5
+COK_Rarotonga|COK|Rarotonga|70
 CRI_AL|CRI|Alajuela|9834
 CRI_CA|CRI|Cartago|3113
 CRI_GU|CRI|Guanacaste|10250
@@ -682,11 +710,11 @@ HRV_ZG|HRV|Zagrebačka|2395
 CUB_CM|CUB|Camagüey|15816
 CUB_CA|CUB|CiegodeÁvila|7393
 CUB_CF|CUB|Cienfuegos|4019
-CUB_CH|CUB|Ciudaddela Habana|822
+CUB_CH|CUB|Ciudad de la Habana|822
 CUB_GR|CUB|Granma|8700
 CUB_GU|CUB|Guantánamo|6187
 CUB_HO|CUB|Holguín|8738
-CUB_IJ|CUB|Isladela Juventud|2519
+CUB_IJ|CUB|Isla de la Juventud|2519
 CUB_LH|CUB|La Habana|1964
 CUB_LT|CUB|Las Tunas|6583
 CUB_MA|CUB|Matanzas|11741
@@ -878,7 +906,7 @@ EST_JN|EST|Jõgeva|2597
 EST_LN|EST|Lääne|2420
 EST_LV|EST|Lääne-Viru|3478
 EST_PR|EST|Pärnu|4796
-EST_NA|EST|Peipsi|1758
+EST_Peipsi|EST|Peipsi|1758
 EST_PL|EST|Põlva|2161
 EST_RA|EST|Rapla|2971
 EST_SA|EST|Saare|2932
@@ -934,7 +962,7 @@ PYF_MI|PYF|Îles Marquises|996
 PYF_LI|PYF|Îles Sous-le-Vent|429
 PYF_TG|PYF|Îles Tuamotu-Gambier|1039
 ATF_CR|ATF|Îles Crozet|372
-ATF_NA|ATF|Îles Éparses|44
+ATF_ÎlesÉparses|ATF|Îles Éparses|44
 ATF_AS|ATF|Îles Saint Paulet Amsterdam|64
 ATF_KG|ATF|Kerguelen|7372
 GAB_ES|GAB|Estuaire|20024
@@ -1001,7 +1029,7 @@ GRC_MA|GRC|Athos|338
 GRC_AT|GRC|Attica|3853
 GRC_CR|GRC|Crete|8391
 GRC_EM|GRC|Epirusand Western Macedonia|18771
-GRC_MH|GRC|Macedoniaand Thrace|33122
+GRC_MH|GRC|Macedonia and Thrace|33122
 GRC_PW|GRC|Peloponnese, Western Greeceand|29194
 GRC_TC|GRC|Thessalyand Central Greece|29744
 GRL_KU|GRL|Kujalleq|45647
@@ -1071,9 +1099,14 @@ GGY_SV|GGY|Saint Saviour|6
 GGY_SK|GGY|Sark|7
 GGY_TV|GGY|Torteval|3
 GGY_VA|GGY|Vale|10
-GIN_NA|GIN|Nzérékoré|36751
+GIN_Boké|GIN|Boké|34287
 GIN_C|GIN|Conakry|423
+GIN_Faranah|GIN|Faranah|35989
 GIN_K|GIN|Kankan|72197
+GIN_Kindia|GIN|Kindia|25816
+GIN_Labé|GIN|Labé|22959
+GIN_Mamou|GIN|Mamou|17935
+GIN_Nzérékoré|GIN|Nzérékoré|36751
 GNB_BA|GNB|Bafatá|5881
 GNB_BM|GNB|Biombo|761
 GNB_BS|GNB|Bissau|83
@@ -1113,7 +1146,7 @@ HND_EP|HND|El Paraíso|7417
 HND_FM|HND|Francisco Morazán|8606
 HND_GD|HND|Graciasa Dios|16439
 HND_IN|HND|Intibucá|3167
-HND_IB|HND|Islasdela Bahía|233
+HND_IB|HND|Islas de la Bahía|233
 HND_LP|HND|La Paz|2463
 HND_LE|HND|Lempira|4277
 HND_OC|HND|Ocotepeque|1704
@@ -1155,7 +1188,7 @@ IND_AS|IND|Assam|78810
 IND_BR|IND|Bihar|94631
 IND_CH|IND|Chandigarh|118
 IND_CT|IND|Chhattisgarh|136109
-IND_DN|IND|Dadraand Nagar Haveli|494
+IND_DN|IND|Dadra and Nagar Haveli|494
 IND_DD|IND|Damanand Diu|84
 IND_GA|IND|Goa|3717
 IND_GJ|IND|Gujarat|186600
@@ -1171,7 +1204,7 @@ IND_MN|IND|Manipur|22420
 IND_ML|IND|Meghalaya|22612
 IND_MZ|IND|Mizoram|21350
 IND_NL|IND|Nagaland|16668
-IND_DL|IND|NCT of Delhi|1508
+IND_DL|IND|N C Tof Delhi|1508
 IND_OR|IND|Odisha|156427
 IND_PY|IND|Puducherry|550
 IND_PB|IND|Punjab|50386
@@ -1298,7 +1331,7 @@ IMN_MC|IMN|Michael|34
 IMN_MD|IMN|Santon|16
 IMN_GR|IMN|Garff|72
 IMN_GB|IMN|Peel|2
-ISR_NA|ISR|Golan|1238
+ISR_Golan|ISR|Golan|1238
 ISR_HD|ISR|Ha Darom|14557
 ISR_HA|ISR|Haifa|887
 ISR_HM|ISR|Ha Merkaz|1243
@@ -1471,10 +1504,13 @@ KEN_UG|KEN|Uasin Gishu|3453
 KEN_VI|KEN|Vihiga|562
 KEN_WJ|KEN|Wajir|57017
 KEN_WP|KEN|West Pokot|9574
-XKO_NA|XKO|Uroševac|1056
+XKO_Đakovica|XKO|Đakovica|1109
+XKO_Gnjilane|XKO|Gnjilane|1360
 XKO_KM|XKO|Kosovska Mitrovica|2070
 XKO_PE|XKO|Pećki|1357
+XKO_Pristina|XKO|Pristina|2175
 XKO_PZ|XKO|Prizren|1715
+XKO_Uroševac|XKO|Uroševac|1056
 KWT_AH|KWT|Al Ahmadi|4659
 KWT_FA|KWT|Al Farwaniyah|219
 KWT_JA|KWT|Al Jahrah|12438
@@ -1512,7 +1548,14 @@ LVA_L|LVA|Latgale|14678
 LVA_R|LVA|Riga|10324
 LVA_V|LVA|Vidzeme|15240
 LVA_Z|LVA|Zemgale|10775
-LBN_NA|LBN|South|919
+LBN_Akkar|LBN|Akkar|793
+LBN_Baalbak-Hermel|LBN|Baalbak-Hermel|2854
+LBN_Beirut|LBN|Beirut|21
+LBN_Bekaa|LBN|Bekaa|1408
+LBN_MountLebanon|LBN|Mount Lebanon|1990
+LBN_Nabatiyeh|LBN|Nabatiyeh|1099
+LBN_North|LBN|North|1181
+LBN_South|LBN|South|919
 LSO_BE|LSO|Berea|1999
 LSO_BB|LSO|Butha-Buthe|1796
 LSO_LE|LSO|Leribe|2829
@@ -1624,7 +1667,7 @@ MKD_KZ|MKD|Kriva Palanka|508
 MKD_KG|MKD|Krivogaštani|95
 MKD_KS|MKD|Kruševo|183
 MKD_UM|MKD|Kumanovo|503
-MKD_NA|MKD|Staro Nagoričane|438
+MKD_LakeOhrid|MKD|Lake Ohrid|247
 MKD_LI|MKD|Lipkovo|265
 MKD_LO|MKD|Lozovo|161
 MKD_MK|MKD|Makedonska Kamenica|198
@@ -1647,6 +1690,7 @@ MKD_RM|MKD|Rosoman|133
 MKD_AJ|MKD|Saraj|234
 MKD_SS|MKD|Sopište|214
 MKD_SD|MKD|Star Dojran|150
+MKD_NA|MKD|Staro Nagoričane|438
 MKD_ST|MKD|Štip|565
 MKD_UG|MKD|Struga|475
 MKD_RU|MKD|Strumitsa|320
@@ -1669,7 +1713,7 @@ MDG_D|MDG|Antsiranana|44120
 MDG_F|MDG|Fianarantsoa|101276
 MDG_M|MDG|Mahajanga|152526
 MDG_A|MDG|Toamasina|71636
-MDG_NA|MDG|Toliary|164809
+MDG_Toliary|MDG|Toliary|164809
 MWI_BA|MWI|Balaka|2143
 MWI_BL|MWI|Blantyre|2038
 MWI_CK|MWI|Chikwawa|4908
@@ -1728,9 +1772,29 @@ MLT_GO|MLT|Għawdex|71
 MLT_SO|MLT|Nofsinhar|78
 MLT_NO|MLT|Tramuntana|116
 MLT_SE|MLT|Xlokk|36
-MHL_NA|MHL|NA|26
+MHL_Ailinglaplap|MHL|Ailinglaplap|18
+MHL_Ailuk|MHL|Ailuk|11
+MHL_Arno|MHL|Arno|28
+MHL_Aur|MHL|Aur|6
+MHL_Ebon|MHL|Ebon|8
+MHL_Enewetok|MHL|Enewetok|16
+MHL_Jabat|MHL|Jabat|1
+MHL_Jaluit|MHL|Jaluit|13
 MHL_KWA|MHL|Kwajalein|27
+MHL_Lae|MHL|Lae|3
+MHL_Lib|MHL|Lib|1
+MHL_Likiep|MHL|Likiep|13
 MHL_MAJ|MHL|Majuro|22
+MHL_Maloelap|MHL|Maloelap|12
+MHL_Mejit|MHL|Mejit|4
+MHL_Mili|MHL|Mili|27
+MHL_Namorik|MHL|Namorik|5
+MHL_Namu|MHL|Namu|7
+MHL_Ujae|MHL|Ujae|3
+MHL_Utirik|MHL|Utirik|14
+MHL_Wotho|MHL|Wotho|6
+MHL_Wotje|MHL|Wotje|15
+MHL_19_1|MHL|NA|26
 MTQ_FF|MTQ|Fort-de-France|189
 MTQ_MA|MTQ|Le Marin|393
 MTQ_TR|MTQ|Le Trinité|353
@@ -1968,13 +2032,15 @@ NLD_FL|NLD|Flevoland|1466
 NLD_FR|NLD|Fryslân|3573
 NLD_GE|NLD|Gelderland|5102
 NLD_GR|NLD|Groningen|2370
-NLD_SH|NLD|Zuid-Holland|3143
+NLD_IJsselmeer|NLD|IJsselmeer|1995
 NLD_LI|NLD|Limburg|2159
 NLD_NB|NLD|Noord-Brabant|5082
 NLD_NH|NLD|Noord-Holland|2872
 NLD_OV|NLD|Overijssel|3369
 NLD_UT|NLD|Utrecht|1555
 NLD_ZE|NLD|Zeeland|1804
+NLD_Zeeuwsemeren|NLD|Zeeuwsemeren|477
+NLD_14_1|NLD|NA|3143
 NCL_IL|NCL|Îles Loyauté|1988
 NCL_NO|NCL|Nord|9520
 NCL_SU|NCL|Sud|7408
@@ -2067,13 +2133,18 @@ PRK_WB|PRK|Hwanghae-bukto|8248
 PRK_WN|PRK|Hwanghae-namdo|8563
 PRK_KS|PRK|Kaesŏng|1182
 PRK_KW|PRK|Kangwŏn-do|10286
-PRK_NA|PRK|Sinŭiju|109
+PRK_Kumgangsan|PRK|Kumgangsan|987
 PRK_PB|PRK|P'yŏngan-bukto|12424
 PRK_PN|PRK|P'yŏngan-namdo|12479
 PRK_PY|PRK|P'yŏngyang|2718
 PRK_NJ|PRK|Rasŏn|856
 PRK_YG|PRK|Ryanggang|13935
-ZNC_NA|ZNC|Nicosia|522
+PRK_Sinŭiju|PRK|Sinŭiju|109
+ZNC_Gazimağusa|ZNC|Gazimağusa|927
+ZNC_Girne|ZNC|Girne|677
+ZNC_Güzelyurt|ZNC|Güzelyurt|346
+ZNC_Iskele|ZNC|Iskele|849
+ZNC_Nicosia|ZNC|Nicosia|522
 MNP_NI|MNP|Northern Islands|181
 MNP_RO|MNP|Rota|90
 MNP_SA|MNP|Saipan|123
@@ -2211,8 +2282,8 @@ PER_TA|PER|Tacna|16085
 PER_TU|PER|Tumbes|4673
 PER_UC|PER|Ucayali|105741
 PHL_AB|PHL|Abra|3992
-PHL_AN|PHL|Agusandel Norte|3013
-PHL_AS|PHL|Agusandel Sur|8641
+PHL_AN|PHL|Agusan del Norte|3013
+PHL_AS|PHL|Agusan del Sur|8641
 PHL_AK|PHL|Aklan|1673
 PHL_AL|PHL|Albay|2529
 PHL_AQ|PHL|Antique|2753
@@ -2236,8 +2307,8 @@ PHL_CT|PHL|Catanduanes|1482
 PHL_CV|PHL|Cavite|1251
 PHL_CB|PHL|Cebu|4912
 PHL_CL|PHL|Compostela Valley|4277
-PHL_DV|PHL|Davaodel Norte|3511
-PHL_DS|PHL|Davaodel Sur|6091
+PHL_DV|PHL|Davao del Norte|3511
+PHL_DS|PHL|Davao del Sur|6091
 PHL_DO|PHL|Davao Oriental|5158
 PHL_DI|PHL|Dinagat Islands|813
 PHL_ES|PHL|Eastern Samar|4304
@@ -2250,8 +2321,8 @@ PHL_IB|PHL|Isabela|10340
 PHL_KA|PHL|Kalinga|2914
 PHL_LU|PHL|La Union|1470
 PHL_LG|PHL|Laguna|2713
-PHL_LN|PHL|Lanaodel Norte|2859
-PHL_LS|PHL|Lanaodel Sur|3904
+PHL_LN|PHL|Lanao del Norte|2859
+PHL_LS|PHL|Lanao del Sur|3904
 PHL_LE|PHL|Leyte|5595
 PHL_MG|PHL|Maguindanao|4817
 PHL_MQ|PHL|Marinduque|934
@@ -2283,12 +2354,12 @@ PHL_SC|PHL|South Cotabato|4375
 PHL_SL|PHL|Southern Leyte|1694
 PHL_SK|PHL|Sultan Kudarat|4478
 PHL_SU|PHL|Sulu|1562
-PHL_SN|PHL|Surigaodel Norte|2110
-PHL_SS|PHL|Surigaodel Sur|4335
+PHL_SN|PHL|Surigao del Norte|2110
+PHL_SS|PHL|Surigao del Sur|4335
 PHL_TR|PHL|Tarlac|3032
 PHL_TT|PHL|Tawi-Tawi|1183
-PHL_ZN|PHL|Zamboangadel Norte|6433
-PHL_ZS|PHL|Zamboangadel Sur|5329
+PHL_ZN|PHL|Zamboanga del Norte|6433
+PHL_ZS|PHL|Zamboanga del Sur|5329
 PHL_ZY|PHL|Zamboanga Sibugay|2733
 POL_02|POL|Dolnośląskie|19878
 POL_04|POL|Kujawsko-Pomorskie|17940
@@ -2318,7 +2389,7 @@ PRT_FA|PRT|Faro|4975
 PRT_GU|PRT|Guarda|5541
 PRT_LE|PRT|Leiria|3501
 PRT_LI|PRT|Lisboa|2765
-PRT_NA|PRT|Madeira|801
+PRT_Madeira|PRT|Madeira|801
 PRT_PA|PRT|Portalegre|6091
 PRT_PO|PRT|Porto|2332
 PRT_SA|PRT|Santarém|6725
@@ -2511,7 +2582,7 @@ RUS_LP|RUS|Lipetsk|24425
 RUS_MG|RUS|Magadan|459480
 RUS_ME|RUS|Mariy-El|23468
 RUS_MR|RUS|Mordovia|26161
-RUS_NA|RUS|Moscow City|1095
+RUS_MoscowCity|RUS|Moscow City|1095
 RUS_MS|RUS|Moskva|46592
 RUS_MM|RUS|Murmansk|142851
 RUS_NN|RUS|Nenets|175502
@@ -2557,7 +2628,8 @@ RWA_SU|RWA|Amajyepfo|5997
 RWA_ES|RWA|Iburasirazuba|9530
 RWA_OU|RWA|Iburengerazuba|5910
 RWA_KV|RWA|Umujyiwa Kigali|733
-BLM_NA|BLM|Sousle Vent|8
+BLM_AuVent|BLM|Au Vent|13
+BLM_SousleVent|BLM|Sous le Vent|8
 SHN_AC|SHN|Ascension|100
 SHN_SH|SHN|Saint Helena|124
 SHN_TA|SHN|Tristanda Cunha|189
@@ -2697,7 +2769,11 @@ SLE_EA|SLE|Eastern|15846
 SLE_NO|SLE|Northern|36238
 SLE_SO|SLE|Southern|20261
 SLE_WE|SLE|Western|722
-SGP_NA|SGP|West|230
+SGP_Central|SGP|Central|133
+SGP_East|SGP|East|103
+SGP_North|SGP|North|131
+SGP_North-East|SGP|North-East|103
+SGP_West|SGP|West|230
 SVK_BC|SVK|Banskobystrický|9565
 SVK_BL|SVK|Bratislavský|2015
 SVK_KI|SVK|Košický|6768
@@ -2708,7 +2784,7 @@ SVK_TA|SVK|Trnavský|4125
 SVK_ZI|SVK|Žilinský|6828
 SVN_GO|SVN|Gorenjska|2117
 SVN_SP|SVN|Goriška|2277
-SVN_NA|SVN|Jugovzhodna Slovenija|2635
+SVN_JugovzhodnaSlovenija|SVN|Jugovzhodna Slovenija|2635
 SVN_KO|SVN|Koroška|1032
 SVN_NO|SVN|Notranjsko-kraška|1452
 SVN_JP|SVN|Obalno-kraška|945
@@ -3191,7 +3267,12 @@ TKM_BA|TKM|Balkan|136605
 TKM_DA|TKM|Daşoguz|76751
 TKM_LE|TKM|Lebap|96478
 TKM_MA|TKM|Mary|86353
-TCA_NA|TCA|South Caicosand East Caicos|247
+TCA_GrandTurk|TCA|Grand Turk|20
+TCA_MiddleCaicos|TCA|Middle Caicos|306
+TCA_NorthCaicos|TCA|North Caicos|259
+TCA_ProvidencialesandWestCaicos|TCA|Providenciales and West Caicos|152
+TCA_SaltCay|TCA|Salt Cay|11
+TCA_SouthCaicosandEastCaicos|TCA|South Caicos and East Caicos|247
 TUV_FN|TUV|Funafuti|7
 TUV_NG|TUV|Nanumanga|3
 TUV_NA|TUV|Nanumea|4
@@ -3231,7 +3312,8 @@ UGA_TG|UGA|Kitgum|9621
 UGA_KF|UGA|Kotido|13366
 UGA_KU|UGA|Kumi|2867
 UGA_KJ|UGA|Kyenjojo|4125
-UGA_NA|UGA|Nakasongola|3536
+UGA_LakeAlbert|UGA|Lake Albert|3212
+UGA_LakeVictoria|UGA|Lake Victoria|28585
 UGA_LA|UGA|Lira|7285
 UGA_LW|UGA|Luwero|5734
 UGA_MA|UGA|Masaka|3643
@@ -3245,6 +3327,7 @@ UGA_MI|UGA|Mpigi|3321
 UGA_MD|UGA|Mubende|6242
 UGA_MN|UGA|Mukono|3434
 UGA_NP|UGA|Nakapiripirit|5859
+UGA_NA|UGA|Nakasongola|3536
 UGA_NE|UGA|Nebbi|2910
 UGA_NT|UGA|Ntungamo|2068
 UGA_PD|UGA|Pader|6905
@@ -3293,9 +3376,9 @@ ARE_RK|ARE|Ras Al-Khaimah|2442
 ARE_SH|ARE|Sharjah|2529
 ARE_UQ|ARE|Ummal-Qaywayn|746
 GBR_NIR|GBR|Northern Ireland|14134
-GBR_SCT|GBR|Scotland|79121
+GBR_SCT|GBR|Scotland|78704
 GBR_WLS|GBR|Wales|20818
-GBR_NA|GBR|England|130659
+GBR_1_1|GBR|England|130659
 USA_AL|USA|Alabama|133995
 USA_AK|USA|Alaska|1501231
 USA_AZ|USA|Arizona|296082
@@ -3347,7 +3430,15 @@ USA_WA|USA|Washington|174789
 USA_WV|USA|West Virginia|62782
 USA_WI|USA|Wisconsin|169315
 USA_WY|USA|Wyoming|253420
-UMI_NA|UMI|Wake|9
+UMI_Baker|UMI|Baker|2
+UMI_Howland|UMI|Howland|2
+UMI_Jarvisisland|UMI|Jarvis island|5
+UMI_Johnston|UMI|Johnston|5
+UMI_KingmanReef|UMI|Kingman Reef|3
+UMI_Midway|UMI|Midway|12
+UMI_Navassa|UMI|Navassa|5
+UMI_Palmyra|UMI|Palmyra|4
+UMI_Wake|UMI|Wake|9
 URY_AR|URY|Artigas|12058
 URY_CA|URY|Canelones|4536
 URY_CL|URY|Cerro Largo|13843
@@ -3388,22 +3479,28 @@ VUT_SE|VUT|Shefa|1522
 VUT_TF|VUT|Tafea|1666
 VUT_TR|VUT|Torba|889
 VEN_Z|VEN|Amazonas|184052
-VEN_NA|VEN|Vargas|1002
+VEN_Anzoátegui|VEN|Anzoátegui|48025
 VEN_C|VEN|Apure|74003
 VEN_D|VEN|Aragua|6977
 VEN_E|VEN|Barinas|36436
+VEN_Bolívar|VEN|Bolívar|241518
 VEN_G|VEN|Carabobo|4812
 VEN_H|VEN|Cojedes|14572
 VEN_Y|VEN|Delta Amacuro|40278
 VEN_DP|VEN|Dependencias Federales|343
 VEN_A|VEN|Distrito Capital|329
+VEN_Falcón|VEN|Falcón|27275
+VEN_Guárico|VEN|Guárico|67685
 VEN_K|VEN|Lara|19166
+VEN_Mérida|VEN|Mérida|12914
 VEN_M|VEN|Miranda|8623
 VEN_N|VEN|Monagas|29251
 VEN_O|VEN|Nueva Esparta|1039
 VEN_P|VEN|Portuguesa|19622
 VEN_R|VEN|Sucre|10950
+VEN_Táchira|VEN|Táchira|10851
 VEN_T|VEN|Trujillo|8129
+VEN_Vargas|VEN|Vargas|1002
 VEN_U|VEN|Yaracuy|6259
 VEN_V|VEN|Zulia|44191
 VNM_AG|VNM|An Giang|3547
@@ -3478,7 +3575,7 @@ WLF_UV|WLF|Uvéa|82
 ESH_BO|ESH|Boujdour|43588
 ESH_ES|ESH|Es Semara|67211
 ESH_LA|ESH|Laayoune|30514
-ESH_OD|ESH|Ouedel Dahab|127186
+ESH_OD|ESH|Oued el Dahab|127186
 YEM_AD|YEM|`Adan|730
 YEM_AB|YEM|Abyan|16406
 YEM_BA|YEM|Al Bayda'|9338

@@ -58,12 +58,25 @@ const groups = {
 var dict0 = {}
 var dict1 = {}
 
-const formatStr = (str)=> str.replace(/(?<!\b\w)\B[A-Z]|,(?!$)/g, match => {
+const formatStr = (str)=> str.replace(/(?<!\b\w\u00E0-\u00FC)\B[A-Z\u00C0-\u00DC]|,(?!$)/g, match => {
   if (match.startsWith(',')) {
       return ', ';
   } else {
       return ' ' + match;
-  }})
+  }}).replace("ofthe "," of the ").replace("dela ", " de la ").replace("delos ", " de los ").replace("áD","á D")
+  .replace("Côted'","Côte d'").replace("leof ","le of ").replace("dde ","d de ").replace("iode ","io de ").replace("àde ","à de ")
+  .replace("yof ","y of ").replace("Andrésy ","Andrés y")
+  .replace("aand ","a and ").replace("iand ", "i and ").replace("tsand ","ts and ").replace("onand ","on and ").replace("reand ", "re and ")
+  .replace("odel ","o del ").replace("adel ", "a del ").replace("ndel ","n del ").replace("zdel ","z del ").replace("falde ", "fal de ").replace("casdel ","cas del ")
+  .replace("odosÓ", "o dos Ó")
+  .replace("Grandedo ", "Grande do ").replace("Grandede ","Grande de ")
+  .replace("Santiagode ","Santiago de ").replace("Joséde ","José de ").replace("Pedrode ","Pedro de ")
+  .replace("andthe "," and the ")
+  .replace("emunicipality", "e municipality").replace("Villede ", "Ville de ")
+  .replace("Valledel ","Valle del ").replace("Valde ","Val de ").replace("Îlesdu ","Îles du ")
+  .replace("sÉ","s É").replace("áO","á O").replace("N C Tof ","NCT of ").replace("N A","NA")
+  .replace("Nortede ", "Norte de ")
+  .trim()
 
 const parse0 = (country) => {
   const filepath = `temp/0/${country}.json`

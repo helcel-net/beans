@@ -6,6 +6,7 @@ GADM_VERSION="4.1"
 GADM_BASEPATH="https://geodata.ucdavis.edu/gadm"
 
 mapshaper="./node_modules/mapshaper/bin/mapshaper"
+ATA_URL="https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/905b0baf5f4fb3b9ccf45293647dcacdb2b799d4/releaseData/gbOpen/ATA/ADM0/geoBoundaries-ATA-ADM0_simplified.geojson"
 
 countries=(
   "AFG" "XAD" "ALA" "ALB" "DZA" "ASM" "AND" "AGO" "AIA" "ATG" "ARG" "ARM" "ABW" "AUS" "AUT" "AZE"
@@ -67,7 +68,10 @@ download_1() {
         jq '.features[] |= . + {properties: (.properties | .GID_1 = (.GID_0 + "_" + (
             if .HASC_1 != "NA" then (.HASC_1 | split(".") | .[-1])
             elif .ISO_1 != "NA" then (.ISO_1 | split("-") | .[-1])
-            else (.CC_1)
+            elif .CC_1 != "NA" then (.CC_1)
+            elif .NAME_1 != "NA" then (.NAME_1)
+            elif .GID_1 != "NA" then (.GID_1 | split(".") | .[-1])
+            else .GID_1
             end
             )))}' "$output_dir/gadm41_${1}_1.json"  > "$output_dir/$1.json.1"
         sed -E 's/"[gadm41_]*([A-Z]*)_1"/"\1"/g' "$output_dir/$1.json.1" > "$output_dir/$1.json"
@@ -76,7 +80,7 @@ download_1() {
 
 
 toSVG_0() {
-    local input_files=()
+    local input_files=("ATA")
 
     for country in "${countries[@]}"
     do
@@ -94,7 +98,7 @@ toSVG_0() {
 }
 
 toSVG_1() {
-    input_files=()
+    input_files=("ATA")
 
     for country in "${countries[@]}"
     do
@@ -113,12 +117,12 @@ toSVG_1() {
 
 
 toSVG_01() {
-    input_files=()
+    input_files=("./temp/1/ATA.json" "./temp/0/ATA.json")
 
     for country in "${countries[@]}"
     do
-        input_file0="./temp/0/${country}.json"
         input_file1="./temp/1/${country}.json"
+        input_file0="./temp/0/${country}.json"
         if [ -f "$input_file1" ]; then
             input_files+=("$input_file1")
         fi
@@ -127,8 +131,13 @@ toSVG_01() {
         fi
     done
 
-    "$mapshaper" -i combine-files ${input_files[@]} -proj webmercator -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/mercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} -proj aeqd +lat_0=90 -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+
+    # "$mapshaper" -i combine-files ${input_files[@]} -proj eqdc +lat_1=55 +lat_2=60 -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/eqdc01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    # "$mapshaper" -i combine-files ${input_files[@]} -proj loxim -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/loxim01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    # "$mapshaper" -i combine-files ${input_files[@]} -proj eqearth -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/eqearth01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} -proj merc +lat_ts=47.36667 -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/mercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    # "$mapshaper" -i combine-files ${input_files[@]} -proj webmercator -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/webmercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    # "$mapshaper" -i combine-files ${input_files[@]} -proj aeqd +lat_0=90 -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
 }
 
 do_1() {
@@ -136,15 +145,17 @@ do_1() {
     do
         download_1 "$country"
     done
+    wget -q -O "./temp/1/ATA.json" "$ATA_URL"
 }
 do_0() {
     for country in "${countries[@]}"
     do
         download_0 "$country"
     done
+    wget -q -O "./temp/1/ATA.json" "$ATA_URL"
 }
-# do_0
+do_0
 do_1
 # toSVG_0
-toSVG_1
+# toSVG_1
 toSVG_01
