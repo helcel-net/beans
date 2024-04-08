@@ -34,7 +34,7 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
 
     fun genKey(): Int {
         val key = rnd.nextInt()
-        if (grps.containsKey(key) || key in listOf(NO_GROUP, AUTO_GROUP)) return genKey()
+        if (grps.containsKey(key) || key in listOf(NO_GROUP, DEFAULT_GROUP, AUTO_GROUP)) return genKey()
         return key
     }
 
