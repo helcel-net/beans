@@ -644,7 +644,7 @@ COL_NS|COL|Norte de Santander|22077
 COL_PU|COL|Putumayo|26063
 COL_QD|COL|Quindío|1947
 COL_RI|COL|Risaralda|3562
-COL_SA|COL|San Andrés yProvidencia|52
+COL_SA|COL|San Andrés y Providencia|52
 COL_ST|COL|Santander|30788
 COL_SU|COL|Sucre|10787
 COL_TO|COL|Tolima|24131
@@ -1204,7 +1204,7 @@ IND_MN|IND|Manipur|22420
 IND_ML|IND|Meghalaya|22612
 IND_MZ|IND|Mizoram|21350
 IND_NL|IND|Nagaland|16668
-IND_DL|IND|N C Tof Delhi|1508
+IND_DL|IND|NCT of Delhi|1508
 IND_OR|IND|Odisha|156427
 IND_PY|IND|Puducherry|550
 IND_PB|IND|Punjab|50386
