@@ -1,40 +1,80 @@
 package net.helcel.beans.activity.adapter
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textview.MaterialTextView
+import net.helcel.beans.R
+import net.helcel.beans.activity.COUNTRY
+import net.helcel.beans.activity.REGION
+import net.helcel.beans.activity.WORLD
 import net.helcel.beans.countries.GeoLoc
 import net.helcel.beans.countries.World
 import net.helcel.beans.databinding.ItemListGroupBinding
+import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Groups
+import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.getContrastColor
 
-class StatsListAdapter(private val stats: RecyclerView) :
+class StatsListAdapter(private val stats: RecyclerView, private val total: MaterialTextView) :
     RecyclerView.Adapter<StatsListAdapter.StatsViewHolder>() {
+    private var locMode: String = WORLD
+    private lateinit var ctx: Context
+    private var countMode: Boolean = true
+    private var initialSum: Int = 0
+
+    private val wwwTotal: List<GeoLoc> = World.WWW.children.toList()
+    private val countryTotal: List<GeoLoc> = World.WWW.children.flatMap { it.children }
+    private val stateTotal: List<GeoLoc> = World.WWW.children.flatMap{ it.children.flatMap { itt -> itt.children } }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatsViewHolder {
+        ctx = parent.context
         val binding =
-            ItemListGroupBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
+            ItemListGroupBinding.inflate(LayoutInflater.from(ctx), parent, false)
 
         return StatsViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: StatsViewHolder, pos: Int) {
-        holder.bind(Data.groups.getGroupFromPos(pos))
+        initialSum += if (pos == itemCount - 1) {
+            holder.bind(Pair(AUTO_GROUP, Groups.Group(AUTO_GROUP, ctx.getString(R.string.uncategorized))))
+        } else {
+            holder.bind(Data.groups.getGroupFromPos(pos))
+        }
+        total.text = Settings.getStats(ctx, initialSum, getTotal())
     }
 
     override fun getItemCount(): Int {
-        return Data.groups.size()
+        return Data.groups.size() + 1
+    }
+
+    private fun getTotal(): Int {
+        return if (countMode) {
+            when (locMode) {
+                WORLD -> wwwTotal.size
+                COUNTRY -> countryTotal.size
+                REGION -> stateTotal.size
+                else -> 0
+            }
+        } else {
+            when (locMode) {
+                WORLD -> wwwTotal.sumOf { it.area }
+                COUNTRY -> countryTotal.sumOf { it.area }
+                REGION -> stateTotal.sumOf { it.area }
+                else -> 0
+            }
+        }
     }
 
     fun refreshMode(mode: String) {
-        for (i in 0 until itemCount) {
-            val viewHolder = stats.findViewHolderForAdapterPosition(i) as? StatsViewHolder
+        val sum = (0 until itemCount).map {
+            val viewHolder = stats.findViewHolderForAdapterPosition(it) as? StatsViewHolder
             viewHolder?.refresh(mode)
-        }
-
+        }.reduce { acc, i -> acc?.plus((i ?: 0)) }
+        total.text = Settings.getStats(ctx, sum, getTotal())
     }
 
     inner class StatsViewHolder(
@@ -42,13 +82,12 @@ class StatsListAdapter(private val stats: RecyclerView) :
     ) : RecyclerView.ViewHolder(_binding.root) {
 
         private lateinit var data: Pair<Int, Groups.Group>
-        private var countMode: Boolean = true
-        private var locMode: String = "World"
 
         private lateinit var wwwCount: List<GeoLoc>
         private lateinit var countryCount: List<GeoLoc>
         private lateinit var stateCount: List<GeoLoc>
-        fun bind(entry: Pair<Int, Groups.Group>) {
+
+        fun bind(entry: Pair<Int, Groups.Group>): Int {
             data = entry
             _binding.groupColor.text = entry.second.name
 
@@ -60,10 +99,10 @@ class StatsListAdapter(private val stats: RecyclerView) :
 
             _binding.groupColor.setOnClickListener {
                 countMode = !countMode
-                refresh(locMode)
+                refreshMode(locMode)
             }
             compute()
-            refresh(locMode)
+            return refresh(locMode)
         }
 
         private fun compute() {
@@ -77,24 +116,27 @@ class StatsListAdapter(private val stats: RecyclerView) :
                     .flatten().flatten()
         }
 
-        fun refresh(mode: String) {
+        fun refresh(mode: String): Int {
             locMode = mode
-            if (countMode) {
-                _binding.name.text = when (locMode) {
-                    "World" -> wwwCount.size
-                    "Country" -> countryCount.size
-                    "Region" -> stateCount.size
-                    else -> "?"
-                }.toString()
+            return if (countMode) {
+                val count = when (locMode) {
+                    WORLD -> wwwCount.size
+                    COUNTRY -> countryCount.size
+                    REGION -> stateCount.size
+                    else -> -1
+                }
+                _binding.name.text = count.toString()
+                count
             } else {
-                _binding.name.text = when (locMode) {
-                    "World" -> wwwCount.sumOf { it.area }
-                    "Country" -> countryCount.sumOf { it.area }
-                    "Region" -> stateCount.sumOf { it.area }
-                    else -> "?"
-                }.toString()
+                val area = when (locMode) {
+                    WORLD -> wwwCount.sumOf { it.area }
+                    COUNTRY -> countryCount.sumOf { it.area }
+                    REGION -> stateCount.sumOf { it.area }
+                    else -> -1
+                }
+                _binding.name.text = area.toString()
+                area
             }
-
         }
 
     }

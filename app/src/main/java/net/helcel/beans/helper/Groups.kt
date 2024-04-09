@@ -2,11 +2,14 @@ package net.helcel.beans.helper
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import androidx.core.content.ContextCompat
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Serializer
 import kotlinx.serialization.json.Json
+import net.helcel.beans.R
 import java.io.InputStream
+import kotlin.coroutines.coroutineContext
 import kotlin.random.Random
 
 
@@ -65,10 +68,6 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
         return grps.keys.toList().indexOf(key)
     }
 
-    fun forEach(action: (Map.Entry<Int, Group>) -> Unit) {
-        grps.forEach { action(it) }
-    }
-
     class EmptyGroup : Group(0, "")
 
     @Serializable
@@ -76,7 +75,7 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
         val key: Int,
         val name: String,
         @Serializable(with = Theme.ColorDrawableSerializer::class) val color: ColorDrawable = ColorDrawable(
-            Color.TRANSPARENT
+            Color.GRAY
         )
     )
 

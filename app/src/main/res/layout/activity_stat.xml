@@ -49,7 +49,7 @@
             android:gravity="start|center_vertical"
             android:paddingStart="20dp"
             android:paddingEnd="52dp"
-            android:text="TODO"
+            android:text=""
             android:textColor="?attr/colorOnPrimary"
             app:layout_constraintBottom_toBottomOf="@id/group_color"
             app:layout_constraintEnd_toEndOf="@id/group_color"

@@ -44,4 +44,18 @@ object Settings {
             else -> false
         }
     }
+
+    fun getStats(ctx: Context, numerator: Int?, denominator: Int?): String {
+        if (numerator == null || denominator == null || denominator == 0) {
+            return ""
+        }
+        return when (getStatPref(ctx)) {
+            ctx.getString(R.string.percentages) -> ctx.getString(
+                R.string.percentage,
+                (100 * (numerator.toFloat() / denominator.toFloat())).toInt()
+            )
+
+            else -> ctx.getString(R.string.rate, numerator, denominator)
+        }
+    }
 }

@@ -153,14 +153,7 @@ class GeolocListAdapter(
             val numerator =
                 geoLoc.children.map { Data.visits.getVisited(it) != NO_GROUP }.count { it }
             val denominator = geoLoc.children.size
-            _binding.count.text = when (Settings.getStatPref(ctx)) {
-                ctx.getString(R.string.percentages) -> ctx.getString(
-                    R.string.percentage,
-                    (100 * (numerator.toFloat() / denominator.toFloat())).toInt()
-                )
-
-                else -> ctx.getString(R.string.rate, numerator, denominator)
-            }
+            _binding.count.text = Settings.getStats(ctx, numerator, denominator)
         }
 
         private fun refresh(geoLoc: GeoLoc) {
