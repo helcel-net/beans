@@ -114,6 +114,7 @@ class GeolocListAdapter(
             Data.selected_geoloc?.let { refreshCheck(it) }
             Data.selected_geoloc = null
             Data.selected_group = null
+            _parentHolder?.refresh(_parentGeoLoc)
         }
 
         private fun refreshCheck(geoLoc: GeoLoc) {
