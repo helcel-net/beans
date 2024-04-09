@@ -7,9 +7,11 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import net.helcel.beans.R
+import net.helcel.beans.activity.MainActivity
 import net.helcel.beans.countries.GeoLocImporter
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.DialogCloser
+import net.helcel.beans.helper.Settings
 
 
 class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
@@ -28,6 +30,11 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
             setTheme(ctx, key as String)
         }
 
+        // Select map projection
+        findPreference<Preference>(getString(R.string.key_projection))?.setOnPreferenceChangeListener { _, key ->
+            Settings.refreshProjection()
+        }
+
         // Toggle groups
         findPreference<Preference>(getString(R.string.key_group))?.setOnPreferenceChangeListener { _, key ->
             if (key as String == ctx.getString(R.string.off)) {
@@ -41,7 +48,6 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
                 true
             }
         }
-
 
         // Toggle regional geolocs
         findPreference<Preference>(getString(R.string.key_regional))?.setOnPreferenceChangeListener { _, key ->

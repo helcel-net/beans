@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var css: CSSWrapper
 
     override fun onRestart() {
+        refreshProjection()
         refreshMap()
         super.onRestart()
     }
@@ -50,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         Settings.start(this)
         supportActionBar?.setBackgroundDrawable(colorWrapper(this, android.R.attr.colorPrimary))
 
-
         setContentView(_binding.root)
 
         _binding.photoView.minimumScale = 1f
@@ -58,9 +58,8 @@ class MainActivity : AppCompatActivity() {
 
         GeoLocImporter.importStates(this)
         Data.loadData(this, Int.MIN_VALUE)
-        psvg = SVGWrapper(this)
-        css = CSSWrapper(this)
 
+        refreshProjection()
         refreshMap()
     }
 
@@ -68,6 +67,11 @@ class MainActivity : AppCompatActivity() {
         val opt: RenderOptions = RenderOptions.create()
         opt.css(css.get())
         _binding.photoView.setImageDrawable(PictureDrawable(psvg.get()?.renderToPicture(opt)))
+    }
+
+    fun refreshProjection() {
+        psvg = SVGWrapper(this)
+        css = CSSWrapper(this)
     }
 
 }

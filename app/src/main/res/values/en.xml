@@ -37,4 +37,11 @@
     <string name="ok">Ok</string>
     <string name="total">Total</string>
     <string name="uncategorized">Uncategorized</string>
+    <string name="azimuthalequidistant">Azimuthal Equidistant</string>
+    <string name="equirectangular">Equirectangular</string>
+    <string name="equidistant">Equidistant</string>
+    <string name="mercator">Mercator</string>
+    <string name="loximuthal">Loximuthal</string>
+    <string name="webmercator">Web Mercator</string>
+    <string name="key_projection">Map Projection</string>
 </resources>

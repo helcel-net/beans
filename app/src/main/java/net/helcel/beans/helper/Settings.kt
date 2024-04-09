@@ -4,12 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import net.helcel.beans.R
+import net.helcel.beans.activity.MainActivity
 import net.helcel.beans.activity.fragment.SettingsFragment
 
 object Settings {
 
     private lateinit var sp: SharedPreferences
-    fun start(ctx: Context) {
+    private lateinit var mainActivity: MainActivity
+    fun start(ctx: MainActivity) {
+        mainActivity = ctx
         sp = PreferenceManager.getDefaultSharedPreferences(ctx)
         SettingsFragment.setTheme(
             ctx, sp.getString(ctx.getString(R.string.key_theme), ctx.getString(R.string.system))
@@ -35,6 +38,11 @@ object Settings {
             ctx.getString(R.string.key_stats),
             ctx.getString(R.string.counters)
         )
+    }
+
+    fun refreshProjection(): Boolean {
+        mainActivity.refreshProjection()
+        return true
     }
 
     private fun getBooleanValue(ctx: Context, key: String?): Boolean {

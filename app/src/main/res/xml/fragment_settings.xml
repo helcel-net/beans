@@ -14,6 +14,16 @@
         app:useSimpleSummaryProvider="true" />
 
     <ListPreference
+        app:defaultValue="@string/webmercator"
+        app:enabled="true"
+        app:entries="@array/map_projection"
+        app:entryValues="@array/map_projection"
+        app:icon="@drawable/map"
+        app:key="@string/key_projection"
+        app:title="@string/key_projection"
+        app:useSimpleSummaryProvider="true" />
+
+    <ListPreference
         app:defaultValue="@string/counters"
         app:enabled="true"
         app:entries="@array/entries_stats"
