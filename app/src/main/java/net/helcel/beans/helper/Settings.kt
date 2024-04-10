@@ -53,7 +53,7 @@ object Settings {
         }
     }
 
-    fun getStats(ctx: Context, numerator: Int?, denominator: Int?): String {
+    fun getStats(ctx: Context, numerator: Int?, denominator: Int?, unit: String = ""): String {
         if (numerator == null || denominator == null || denominator == 0) {
             return ""
         }
@@ -63,7 +63,13 @@ object Settings {
                 (100 * (numerator.toFloat() / denominator.toFloat())).toInt()
             )
 
-            else -> ctx.getString(R.string.rate, numerator, denominator)
+            else -> {
+                if (unit == "") {
+                    ctx.getString(R.string.rate, numerator, denominator)
+                } else {
+                    ctx.getString(R.string.rate_with_unit, numerator, denominator, unit)
+                }
+            }
         }
     }
 }

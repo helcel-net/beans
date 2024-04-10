@@ -30,7 +30,9 @@
     <string name="logo">Logo</string>
     <string name="name">Name</string>
     <string name="rate">%1$d/%2$d</string>
+    <string name="rate_with_unit">%1$d / %2$d %3$s</string>
     <string name="percentage">%1$d&#65285;</string>
+    <string name="number_with_unit">%1$d %2$s</string>
     <string name="color_rrggbb">RRGGBB</string>
     <string name="hashtag">#</string>
     <string name="on">On</string>

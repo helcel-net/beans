@@ -31,6 +31,7 @@ class StatsActivity : AppCompatActivity() {
         _binding.stats.layoutManager =
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         val adapter = StatsListAdapter(_binding.stats, _binding.name)
+        _binding.groupColor.setOnClickListener { adapter.invertCountMode() }
         _binding.stats.adapter = adapter
 
         _binding.pager.adapter = object : FragmentStateAdapter(supportFragmentManager, lifecycle) {

@@ -18,6 +18,8 @@ import net.helcel.beans.helper.Theme.getContrastColor
 
 class StatsListAdapter(private val stats: RecyclerView, private val total: MaterialTextView) :
     RecyclerView.Adapter<StatsListAdapter.StatsViewHolder>() {
+    private val unit = "km²"
+
     private var locMode = LocType.WORLD
     private lateinit var ctx: Context
     private var countMode: Boolean = true
@@ -47,7 +49,8 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
         } else {
             holder.bind(Data.groups.getGroupFromPos(pos))
         }
-        total.text = Settings.getStats(ctx, initialSum, getTotal())
+        val unitNow = if (!countMode) unit else ""
+        total.text = Settings.getStats(ctx, initialSum, getTotal(), unitNow)
     }
 
     override fun getItemCount(): Int {
@@ -77,7 +80,13 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
             val viewHolder = stats.findViewHolderForAdapterPosition(it) as? StatsViewHolder
             viewHolder?.refresh(mode)
         }.reduce { acc, i -> acc?.plus((i ?: 0)) }
-        total.text = Settings.getStats(ctx, sum, getTotal())
+        val unitNow = if (!countMode) unit else ""
+        total.text = Settings.getStats(ctx, sum, getTotal(), unitNow)
+    }
+
+    fun invertCountMode() {
+        countMode = !countMode
+        refreshMode(locMode)
     }
 
     inner class StatsViewHolder(
@@ -100,10 +109,7 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
             _binding.groupColor.setTextColor(contrastEntryColor)
             _binding.name.setTextColor(contrastEntryColor)
 
-            _binding.groupColor.setOnClickListener {
-                countMode = !countMode
-                refreshMode(locMode)
-            }
+            _binding.groupColor.setOnClickListener { invertCountMode() }
             compute()
             return refresh(locMode)
         }
@@ -137,7 +143,7 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
                     LocType.STATE -> stateCount.sumOf { it.area }
                     else -> -1
                 }
-                _binding.name.text = area.toString()
+                _binding.name.text = ctx.getString(R.string.number_with_unit, area, unit)
                 area
             }
         }
