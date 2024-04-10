@@ -18,7 +18,13 @@ object GeoLocImporter {
         while (fs.ready()) {
             val line = fs.readLine().split("|")
             val state = State(line[0], line[2], line[3].toInt())
-            Country.entries.find { it.code == line[1] }?.children?.add(state)
+            val country = Country.entries.find { it.code == line[1] }
+            country?.children?.add(state)
+            country?.let {
+                if (Data.visits.getVisited(it) == NO_GROUP) {
+                    Data.visits.setVisited(state, NO_GROUP)
+                }
+            }
         }
     }
 
