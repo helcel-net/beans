@@ -18,7 +18,6 @@
 
     <string-array name="map_projection">
         <item>@string/azimuthalequidistant</item>
-        <item>@string/equirectangular</item>
         <item>@string/loximuthal</item>
         <item>@string/mercator</item>
 

@@ -13,7 +13,6 @@ class SVGWrapper(ctx: Context) {
         ctx.getString(R.string.mercator)
     )) {
         ctx.getString(R.string.azimuthalequidistant) -> "aeqd01.svg"
-        ctx.getString(R.string.equirectangular) -> "eqdc01.svg"
         ctx.getString(R.string.loximuthal) -> "loxim01.svg"
         ctx.getString(R.string.mercator) -> "webmercator01.svg"
         else -> "webmercator01.svg"
