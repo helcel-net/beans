@@ -14,7 +14,7 @@
         app:useSimpleSummaryProvider="true" />
 
     <ListPreference
-        app:defaultValue="@string/webmercator"
+        app:defaultValue="@string/mercator"
         app:enabled="true"
         app:entries="@array/map_projection"
         app:entryValues="@array/map_projection"

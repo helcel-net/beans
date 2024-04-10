@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@style/Theme.Beans"
-    tools:context=".activity.StatActivity">
+    tools:context=".activity.StatsActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"

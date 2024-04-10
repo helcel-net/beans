@@ -20,7 +20,7 @@
         <item>@string/azimuthalequidistant</item>
         <item>@string/equirectangular</item>
         <item>@string/loximuthal</item>
-        <item>@string/webmercator</item>
+        <item>@string/mercator</item>
 
     </string-array>
 </resources>
