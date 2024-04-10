@@ -10,42 +10,40 @@ import net.helcel.beans.countries.GeoLoc
 import java.util.HashMap
 
 object Data {
+    var visits : Visits = Visits(0, HashMap())
+    var groups : Groups = Groups(0,HashMap())
 
+    var selected_group : Groups.Group? = null
+    var selected_geoloc: GeoLoc? = null
+    var clearing_geoloc: GeoLoc? = null
 
-var visits : Visits = Visits(0, HashMap())
-var groups : Groups = Groups(0,HashMap())
+    private val groupsSerial = Groups.GroupsSerializer()
+    private val visitsSerial = Visits.VisitsSerializer()
 
-var selected_group : Groups.Group? = null
-var selected_geoloc: GeoLoc? = null
+    private lateinit var sharedPreferences: SharedPreferences
 
-private val groupsSerial = Groups.GroupsSerializer()
-private val visitsSerial = Visits.VisitsSerializer()
+    fun loadData(ctx: Context, id:Int) {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx)
 
-private lateinit var sharedPreferences: SharedPreferences
+        val groupsString = sharedPreferences.getString("groups_$id",null)
+        val visitsString = sharedPreferences.getString("visits_$id",null)
 
-fun loadData(ctx: Context, id:Int) {
-    sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx)
+        groups = if(!groupsString.isNullOrEmpty()) groupsSerial.readFrom(groupsString.byteInputStream()) else groupsSerial.defaultValue
+        visits = if(!visitsString.isNullOrEmpty()) visitsSerial.readFrom(visitsString.byteInputStream()) else visitsSerial.defaultValue
 
-    val groupsString = sharedPreferences.getString("groups_$id",null)
-    val visitsString = sharedPreferences.getString("visits_$id",null)
-
-    groups = if(!groupsString.isNullOrEmpty()) groupsSerial.readFrom(groupsString.byteInputStream()) else groupsSerial.defaultValue
-    visits = if(!visitsString.isNullOrEmpty()) visitsSerial.readFrom(visitsString.byteInputStream()) else visitsSerial.defaultValue
-
-    // Add default group "Visited" with app's color if there is no group already
-    if (groups.size() == 0) {
-        groups.setGroup(DEFAULT_GROUP, "Visited", ColorDrawable(ContextCompat.getColor(ctx, R.color.blue)))
-        saveData()
+        // Add default group "Visited" with app's color if there is no group already
+        if (groups.size() == 0) {
+            groups.setGroup(DEFAULT_GROUP, "Visited", ColorDrawable(ContextCompat.getColor(ctx, R.color.blue)))
+            saveData()
+        }
     }
 
-}
-
-fun saveData() {
-    if(groups.id != visits.id) return
-    val id = groups.id
-    val editor = sharedPreferences.edit()
-    editor.putString("groups_$id", groupsSerial.writeTo(groups))
-    editor.putString("visits_$id", visitsSerial.writeTo(visits))
-    editor.apply()
-}
+    fun saveData() {
+        if(groups.id != visits.id) return
+        val id = groups.id
+        val editor = sharedPreferences.edit()
+        editor.putString("groups_$id", groupsSerial.writeTo(groups))
+        editor.putString("visits_$id", visitsSerial.writeTo(visits))
+        editor.apply()
     }
+}

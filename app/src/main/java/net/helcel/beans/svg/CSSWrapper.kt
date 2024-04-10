@@ -1,6 +1,8 @@
 package net.helcel.beans.svg
 
 import android.content.Context
+import net.helcel.beans.countries.Country
+import net.helcel.beans.countries.GeoLoc
 import net.helcel.beans.countries.World
 import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
@@ -42,6 +44,18 @@ class CSSWrapper(private val ctx: Context) {
         customCSS = visits.getVisitedByValue().map { (k, v) ->
             if (!Settings.isRegional(ctx) && k == AUTO_GROUP) {
                 v.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
+                    colorToHex6(colorWrapper(ctx, android.R.attr.colorPrimary))
+                };}"
+            }
+            else if (Settings.isRegional(ctx) && k == AUTO_GROUP) {
+                Country.entries.filter { it.code in v }
+                    .filter {
+                        it.children.all { itt ->
+                            visits.getVisited(itt) == NO_GROUP
+                        }
+                    }.map {
+                        it.code
+                    }.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
                     colorToHex6(colorWrapper(ctx, android.R.attr.colorPrimary))
                 };}"
             }

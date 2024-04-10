@@ -106,6 +106,10 @@ class GeolocListAdapter(
             if (clear) {
                 Data.visits.setVisited(Data.selected_geoloc, NO_GROUP)
                 Data.saveData()
+
+                if (_parentGeoLoc.children.all { Data.visits.getVisited(it) == NO_GROUP }) {
+                    Data.clearing_geoloc = _parentGeoLoc
+                }
             }
             if (Data.selected_group != null && Data.selected_geoloc != null) {
                 Data.visits.setVisited(Data.selected_geoloc, Data.selected_group?.key ?: NO_GROUP)
@@ -123,6 +127,14 @@ class GeolocListAdapter(
                     MaterialCheckBox.STATE_CHECKED
                 } else if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
                     MaterialCheckBox.STATE_CHECKED
+                } else if (
+                           Data.visits.getVisited(geoLoc) == AUTO_GROUP
+                        && Settings.isRegional(ctx)
+                        && geoLoc.type == GeoLoc.LocType.COUNTRY
+                        && (geoLoc.children.all { Data.visits.getVisited(it) == NO_GROUP })
+                        && geoLoc != Data.clearing_geoloc
+                    ) {
+                    MaterialCheckBox.STATE_CHECKED
                 } else if (geoLoc.children.isNotEmpty() && geoLoc.children.all {
                         Data.visits.getVisited(
                             it
@@ -135,6 +147,9 @@ class GeolocListAdapter(
                     MaterialCheckBox.STATE_INDETERMINATE
                 } else {
                     Data.visits.setVisited(geoLoc, NO_GROUP)
+                    if (geoLoc == Data.clearing_geoloc) {
+                        Data.clearing_geoloc = null
+                    }
                     MaterialCheckBox.STATE_UNCHECKED
                 }
             Data.saveData()

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.helcel.beans.R
 import net.helcel.beans.activity.MainActivity
 import net.helcel.beans.countries.GeoLocImporter
@@ -52,10 +53,25 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
         // Toggle regional geolocs
         findPreference<Preference>(getString(R.string.key_regional))?.setOnPreferenceChangeListener { _, key ->
             when (key as String) {
-                ctx.getString(R.string.off) -> GeoLocImporter.clearStates()
-                ctx.getString(R.string.on) -> GeoLocImporter.importStates(ctx, true)
+                ctx.getString(R.string.off) -> {
+                    MaterialAlertDialogBuilder(requireActivity())
+                        .setMessage(R.string.delete_regions)
+                        .setPositiveButton(android.R.string.ok) { _, _ ->
+                            GeoLocImporter.clearStates()
+                            val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
+                            sp.edit().putString(ctx.getString(R.string.key_regional), ctx.getString(R.string.off)).apply()
+                            refreshPreferences()
+                        }
+                        .setNegativeButton(android.R.string.cancel) { _, _ -> }
+                        .show()
+                    false
+                }
+                ctx.getString(R.string.on) -> {
+                    GeoLocImporter.importStates(ctx, true)
+                    true
+                }
+                else -> false
             }
-            true
         }
 
 
@@ -108,12 +124,15 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
             // Actually change preference
             val ctx = requireContext()
             val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
-            sp.edit().putString(ctx.getString(R.string.key_group), ctx.getString(R.string.off))
-                .apply()
+            sp.edit().putString(ctx.getString(R.string.key_group), ctx.getString(R.string.off)).apply()
 
             // Refresh entire preference fragment to reflect changes
-            preferenceScreen.removeAll()
-            onCreatePreferences(savedInstanceState, rootKey)
+            refreshPreferences()
         }
+    }
+
+    private fun refreshPreferences() {
+        preferenceScreen.removeAll()
+        onCreatePreferences(savedInstanceState, rootKey)
     }
 }
