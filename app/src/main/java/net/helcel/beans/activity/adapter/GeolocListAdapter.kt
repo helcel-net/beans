@@ -149,6 +149,8 @@ class GeolocListAdapter(
                 ) {
                     Data.visits.setVisited(geoLoc, AUTO_GROUP)
                     MaterialCheckBox.STATE_CHECKED
+                } else if (geoLoc.children.isEmpty() && Data.visits.getVisited(geoLoc) == AUTO_GROUP) {
+                    MaterialCheckBox.STATE_CHECKED
                 } else if (geoLoc.children.any { Data.visits.getVisited(it) != NO_GROUP }) {
                     Data.visits.setVisited(geoLoc, AUTO_GROUP)
                     MaterialCheckBox.STATE_INDETERMINATE
