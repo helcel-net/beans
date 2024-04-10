@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val d = when (item.itemId) {
             R.id.action_edit -> EditActivity::class.java
-            R.id.action_stats -> StatActivity::class.java
+            R.id.action_stats -> StatsActivity::class.java
             R.id.action_settings -> SettingsActivity::class.java
             else -> throw Exception("Non Existent Menu Item")
         }

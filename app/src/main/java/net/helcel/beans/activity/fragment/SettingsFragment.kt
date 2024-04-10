@@ -8,7 +8,6 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.helcel.beans.R
-import net.helcel.beans.activity.MainActivity
 import net.helcel.beans.countries.GeoLocImporter
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.DialogCloser
@@ -58,18 +57,22 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
                         .setMessage(R.string.delete_regions)
                         .setPositiveButton(android.R.string.ok) { _, _ ->
                             GeoLocImporter.clearStates()
-                            val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
-                            sp.edit().putString(ctx.getString(R.string.key_regional), ctx.getString(R.string.off)).apply()
+                            PreferenceManager.getDefaultSharedPreferences(ctx).edit().putString(
+                                ctx.getString(R.string.key_regional),
+                                ctx.getString(R.string.off)
+                            ).apply()
                             refreshPreferences()
                         }
                         .setNegativeButton(android.R.string.cancel) { _, _ -> }
                         .show()
                     false
                 }
+
                 ctx.getString(R.string.on) -> {
                     GeoLocImporter.importStates(ctx, true)
                     true
                 }
+
                 else -> false
             }
         }
@@ -111,7 +114,7 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
         // When turning groups off, select one group to keep and reassign everything
         Data.selected_group?.let { selectedGroup ->
             // Reassign all visited that are not to selectedGroup to selectedGroup
-            Data.visits.reassignAllVisitedtoGroup(selectedGroup.key)
+            Data.visits.reassignAllVisitedToGroup(selectedGroup.key)
 
             // Delete all groups that are not selectedGroup
             Data.groups.deleteAllExcept(selectedGroup.key)
@@ -124,7 +127,8 @@ class SettingsFragment : PreferenceFragmentCompat(), DialogCloser {
             // Actually change preference
             val ctx = requireContext()
             val sp = PreferenceManager.getDefaultSharedPreferences(ctx)
-            sp.edit().putString(ctx.getString(R.string.key_group), ctx.getString(R.string.off)).apply()
+            sp.edit().putString(ctx.getString(R.string.key_group), ctx.getString(R.string.off))
+                .apply()
 
             // Refresh entire preference fragment to reflect changes
             refreshPreferences()

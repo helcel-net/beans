@@ -25,17 +25,14 @@ object GeoLocImporter {
     fun clearStates() {
         Country.entries.forEach { country ->
             if (country.children.any { region ->
-                Data.visits.getVisited(region) != NO_GROUP
-            }) {
+                    Data.visits.getVisited(region) != NO_GROUP
+                }) {
                 if (Data.visits.getVisited(country) == NO_GROUP) {
                     Data.visits.setVisited(country, AUTO_GROUP)
                 }
-                country.children.forEach { region ->
-                    Data.visits.setVisited(region, NO_GROUP)
-                }
-                Data.saveData()
             }
             country.children.clear()
         }
+        Data.saveData()
     }
 }

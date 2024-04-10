@@ -13,10 +13,7 @@ enum class World(override val fullName: String, override val children: Set<GeoLo
     override val area = children.fold(0) { acc, i ->
         acc + i.area
     }
-
-
+    
     override val type = GeoLoc.LocType.WORLD
     override val code = this.name
-
-
 }

@@ -1,16 +1,13 @@
 package net.helcel.beans.activity.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textview.MaterialTextView
 import net.helcel.beans.R
-import net.helcel.beans.activity.COUNTRY
-import net.helcel.beans.activity.REGION
-import net.helcel.beans.activity.WORLD
 import net.helcel.beans.countries.GeoLoc
+import net.helcel.beans.countries.GeoLoc.LocType
 import net.helcel.beans.countries.World
 import net.helcel.beans.databinding.ItemListGroupBinding
 import net.helcel.beans.helper.AUTO_GROUP
@@ -21,14 +18,15 @@ import net.helcel.beans.helper.Theme.getContrastColor
 
 class StatsListAdapter(private val stats: RecyclerView, private val total: MaterialTextView) :
     RecyclerView.Adapter<StatsListAdapter.StatsViewHolder>() {
-    private var locMode: String = WORLD
+    private var locMode = LocType.WORLD
     private lateinit var ctx: Context
     private var countMode: Boolean = true
     private var initialSum: Int = 0
 
     private val wwwTotal: List<GeoLoc> = World.WWW.children.toList()
     private val countryTotal: List<GeoLoc> = World.WWW.children.flatMap { it.children }
-    private val stateTotal: List<GeoLoc> = World.WWW.children.flatMap{ it.children.flatMap { itt -> itt.children } }
+    private val stateTotal: List<GeoLoc> =
+        World.WWW.children.flatMap { it.children.flatMap { itt -> itt.children } }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StatsViewHolder {
         ctx = parent.context
@@ -40,7 +38,12 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
 
     override fun onBindViewHolder(holder: StatsViewHolder, pos: Int) {
         initialSum += if (pos == itemCount - 1) {
-            holder.bind(Pair(AUTO_GROUP, Groups.Group(AUTO_GROUP, ctx.getString(R.string.uncategorized))))
+            holder.bind(
+                Pair(
+                    AUTO_GROUP,
+                    Groups.Group(AUTO_GROUP, ctx.getString(R.string.uncategorized))
+                )
+            )
         } else {
             holder.bind(Data.groups.getGroupFromPos(pos))
         }
@@ -54,22 +57,22 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
     private fun getTotal(): Int {
         return if (countMode) {
             when (locMode) {
-                WORLD -> wwwTotal.size
-                COUNTRY -> countryTotal.size
-                REGION -> stateTotal.size
+                LocType.WORLD -> wwwTotal.size
+                LocType.COUNTRY -> countryTotal.size
+                LocType.STATE -> stateTotal.size
                 else -> 0
             }
         } else {
             when (locMode) {
-                WORLD -> wwwTotal.sumOf { it.area }
-                COUNTRY -> countryTotal.sumOf { it.area }
-                REGION -> stateTotal.sumOf { it.area }
+                LocType.WORLD -> wwwTotal.sumOf { it.area }
+                LocType.COUNTRY -> countryTotal.sumOf { it.area }
+                LocType.STATE -> stateTotal.sumOf { it.area }
                 else -> 0
             }
         }
     }
 
-    fun refreshMode(mode: String) {
+    fun refreshMode(mode: LocType) {
         val sum = (0 until itemCount).map {
             val viewHolder = stats.findViewHolderForAdapterPosition(it) as? StatsViewHolder
             viewHolder?.refresh(mode)
@@ -116,22 +119,22 @@ class StatsListAdapter(private val stats: RecyclerView, private val total: Mater
                     .flatten().flatten()
         }
 
-        fun refresh(mode: String): Int {
+        fun refresh(mode: LocType): Int {
             locMode = mode
             return if (countMode) {
                 val count = when (locMode) {
-                    WORLD -> wwwCount.size
-                    COUNTRY -> countryCount.size
-                    REGION -> stateCount.size
+                    LocType.WORLD -> wwwCount.size
+                    LocType.COUNTRY -> countryCount.size
+                    LocType.STATE -> stateCount.size
                     else -> -1
                 }
                 _binding.name.text = count.toString()
                 count
             } else {
                 val area = when (locMode) {
-                    WORLD -> wwwCount.sumOf { it.area }
-                    COUNTRY -> countryCount.sumOf { it.area }
-                    REGION -> stateCount.sumOf { it.area }
+                    LocType.WORLD -> wwwCount.sumOf { it.area }
+                    LocType.COUNTRY -> countryCount.sumOf { it.area }
+                    LocType.STATE -> stateCount.sumOf { it.area }
                     else -> -1
                 }
                 _binding.name.text = area.toString()

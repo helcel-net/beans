@@ -1,12 +1,8 @@
 package net.helcel.beans.svg
 
 import android.content.Context
-import net.helcel.beans.countries.Country
-import net.helcel.beans.countries.GeoLoc
-import net.helcel.beans.countries.State
 import net.helcel.beans.countries.World
 import net.helcel.beans.helper.AUTO_GROUP
-import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Data.groups
 import net.helcel.beans.helper.Data.visits
 import net.helcel.beans.helper.NO_GROUP
@@ -43,29 +39,16 @@ class CSSWrapper(private val ctx: Context) {
     private fun refresh() {
         val id = if (Settings.isRegional(ctx)) "1" else "2"
         customCSS = visits.getVisitedByValue().map { (k, v) ->
-            if (!Settings.isRegional(ctx) && k == AUTO_GROUP) {
+            if (groups.getGroupFromKey(k).key != NO_GROUP || (!Settings.isRegional(ctx) && k == AUTO_GROUP)) {
                 v.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
-                    colorToHex6(colorWrapper(ctx, android.R.attr.colorPrimary))
+                    colorToHex6(
+                        if (k == AUTO_GROUP)
+                            colorWrapper(ctx, android.R.attr.colorPrimary)
+                        else groups.getGroupFromKey(k).color
+                    )
                 };}"
-            }
-            else if (Settings.isRegional(ctx) && k == AUTO_GROUP) {
-                Country.entries.filter { it.code in v }
-                    .filter {
-                        it.children.all { itt ->
-                            visits.getVisited(itt) == NO_GROUP
-                        }
-                    }.map {
-                        it.code
-                    }.takeIf { it.isNotEmpty() }?.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
-                    colorToHex6(colorWrapper(ctx, android.R.attr.colorPrimary))
-                };}"
-            }
-            else if (groups.getGroupFromKey(k).key == NO_GROUP)
+            } else {
                 ""
-            else {
-                v.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
-                    colorToHex6(groups.getGroupFromKey(k).color)
-                };}"
             }
         }.joinToString("")
     }

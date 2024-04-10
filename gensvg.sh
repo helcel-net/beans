@@ -132,12 +132,10 @@ toSVG_01() {
     done
 
 
-    # "$mapshaper" -i combine-files ${input_files[@]} -proj eqdc +lat_1=55 +lat_2=60 -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/eqdc01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    # "$mapshaper" -i combine-files ${input_files[@]} -proj loxim -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/loxim01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    # "$mapshaper" -i combine-files ${input_files[@]} -proj eqearth -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/eqearth01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} -proj merc +lat_ts=47.36667 -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/mercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    # "$mapshaper" -i combine-files ${input_files[@]} -proj webmercator -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/webmercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    # "$mapshaper" -i combine-files ${input_files[@]} -proj aeqd +lat_0=90 -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj eqdc +lat_1=55 +lat_2=60 -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/eqdc01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj loxim densify -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/loxim01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj webmercator densify -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/webmercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj aeqd +lat_0=90 densify -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
 }
 
 do_1() {

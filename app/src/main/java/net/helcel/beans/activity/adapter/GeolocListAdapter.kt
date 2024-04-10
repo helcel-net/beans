@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.checkbox.MaterialCheckBox
-import net.helcel.beans.R
 import net.helcel.beans.activity.fragment.EditPlaceColorFragment
 import net.helcel.beans.activity.fragment.EditPlaceFragment
 import net.helcel.beans.countries.GeoLoc
@@ -79,7 +78,7 @@ class GeolocListAdapter(
             _binding.textView.backgroundTintList =
                 ColorStateList.valueOf(colorWrapper(ctx, android.R.attr.colorBackground).color)
 
-            if (el.shouldShowChildren(ctx))
+            if (el.children.isNotEmpty())
                 bindGroup(el)
 
             refreshCheck(el)
@@ -94,7 +93,7 @@ class GeolocListAdapter(
         }
 
         fun addListeners(el: GeoLoc, expandLambda: () -> Boolean) {
-            if (el.shouldShowChildren(ctx)) {
+            if (el.children.isNotEmpty()) {
                 _binding.textView.setOnClickListener { expandLambda() }
             }
             _binding.checkBox.setOnClickListener {
@@ -141,23 +140,13 @@ class GeolocListAdapter(
 
         private fun refreshCheck(geoLoc: GeoLoc) {
             _binding.checkBox.checkedState =
-                if (Data.visits.getVisited(geoLoc) == AUTO_GROUP && !Settings.isRegional(ctx) && geoLoc.type == GeoLoc.LocType.COUNTRY) {
+                if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
                     MaterialCheckBox.STATE_CHECKED
-                } else if (Data.visits.getVisited(geoLoc) !in listOf(NO_GROUP, AUTO_GROUP)) {
-                    MaterialCheckBox.STATE_CHECKED
-                } else if (
-                           Data.visits.getVisited(geoLoc) == AUTO_GROUP
-                        && Settings.isRegional(ctx)
-                        && geoLoc.type == GeoLoc.LocType.COUNTRY
-                        && (geoLoc.children.all { Data.visits.getVisited(it) == NO_GROUP })
-                        && geoLoc != Data.clearing_geoloc
-                    ) {
-                    MaterialCheckBox.STATE_CHECKED
-                } else if (geoLoc.children.isNotEmpty() && geoLoc.children.all {
-                        Data.visits.getVisited(
-                            it
-                        ) != NO_GROUP
-                    }) {
+                } else if (geoLoc.children.isNotEmpty() &&
+                    geoLoc.children.all {
+                        Data.visits.getVisited(it) !in listOf(NO_GROUP, AUTO_GROUP)
+                    }
+                ) {
                     Data.visits.setVisited(geoLoc, AUTO_GROUP)
                     MaterialCheckBox.STATE_CHECKED
                 } else if (geoLoc.children.any { Data.visits.getVisited(it) != NO_GROUP }) {
@@ -165,7 +154,7 @@ class GeolocListAdapter(
                     MaterialCheckBox.STATE_INDETERMINATE
                 } else {
                     Data.visits.setVisited(geoLoc, NO_GROUP)
-                    if (geoLoc == Data.clearing_geoloc) {
+                    if (Data.clearing_geoloc == geoLoc) {
                         Data.clearing_geoloc = null
                     }
                     MaterialCheckBox.STATE_UNCHECKED

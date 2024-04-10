@@ -1,13 +1,10 @@
 package net.helcel.beans.countries
 
-import android.content.Context
-import net.helcel.beans.helper.Settings
-
 
 interface GeoLoc {
 
-    enum class LocType {
-        WORLD, GROUP, CUSTOM_GROUP, COUNTRY, STATE;
+    enum class LocType(val txt: String) {
+        WORLD("World"), GROUP("Group"), CUSTOM_GROUP("Group"), COUNTRY("Country"), STATE("State");
     }
 
     val code: String
@@ -16,15 +13,6 @@ interface GeoLoc {
 
     val type: LocType
     val children: Set<GeoLoc>
-
-    fun shouldShowChildren(ctx: Context): Boolean {
-        if (children.isEmpty())
-            return false
-        if (type == LocType.COUNTRY && !Settings.isRegional(ctx))
-            return false
-        return true
-    }
-
 }
 
 
