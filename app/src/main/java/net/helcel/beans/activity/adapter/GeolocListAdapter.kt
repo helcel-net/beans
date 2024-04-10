@@ -3,6 +3,7 @@ package net.helcel.beans.activity.adapter
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
@@ -22,6 +23,7 @@ class GeolocListAdapter(
 ) : RecyclerView.Adapter<GeolocListAdapter.FoldingListViewHolder>() {
 
     private val sortedList = l.children.toList().sortedBy { it.fullName }
+    private val holders: MutableSet<FoldingListViewHolder> = mutableSetOf()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): FoldingListViewHolder {
         val binding = ItemListGeolocBinding.inflate(
@@ -29,7 +31,9 @@ class GeolocListAdapter(
             viewGroup,
             false
         )
-        return FoldingListViewHolder(ctx.requireActivity(), binding, parentHolder, l)
+        val holder = FoldingListViewHolder(ctx.requireActivity(), binding, parentHolder, l)
+        holders.add(holder)
+        return holder
     }
 
     override fun onBindViewHolder(holder: FoldingListViewHolder, position: Int) {
@@ -46,12 +50,17 @@ class GeolocListAdapter(
         return l.children.size
     }
 
+    fun refreshColors(colorDrawable: ColorDrawable) {
+        holders.forEach { it.refreshColor(colorDrawable) }
+    }
+
     class FoldingListViewHolder(
         private val ctx: FragmentActivity,
         private val _binding: ItemListGeolocBinding,
         private val _parentHolder: FoldingListViewHolder? = null,
         private val _parentGeoLoc: GeoLoc,
     ) : RecyclerView.ViewHolder(_binding.root), DialogCloser {
+        private lateinit var el: GeoLoc
 
         private fun bindGroup(el: GeoLoc) {
             refreshCount(el)
@@ -65,6 +74,7 @@ class GeolocListAdapter(
         }
 
         fun bind(el: GeoLoc) {
+            this.el = el
             _binding.textView.text = el.fullName
             _binding.textView.backgroundTintList =
                 ColorStateList.valueOf(colorWrapper(ctx, android.R.attr.colorBackground).color)
@@ -73,6 +83,14 @@ class GeolocListAdapter(
                 bindGroup(el)
 
             refreshCheck(el)
+        }
+
+        fun refreshColor(colorDrawable: ColorDrawable) {
+            if (Data.visits.getVisited(el) !in listOf(NO_GROUP, AUTO_GROUP)) {
+                _binding.checkBox.buttonTintList =
+                    ColorStateList.valueOf(colorDrawable.color)
+                refreshCheck(el)
+            }
         }
 
         fun addListeners(el: GeoLoc, expandLambda: () -> Boolean) {

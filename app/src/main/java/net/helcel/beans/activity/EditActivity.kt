@@ -1,15 +1,22 @@
 package net.helcel.beans.activity
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import net.helcel.beans.R
 import net.helcel.beans.activity.adapter.ViewPagerAdapter
+import net.helcel.beans.activity.fragment.EditGroupAddFragment
+import net.helcel.beans.activity.fragment.EditPlaceColorFragment
 import net.helcel.beans.activity.fragment.EditPlaceFragment
 import net.helcel.beans.countries.World
 import net.helcel.beans.databinding.ActivityEditBinding
+import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.DialogCloser
+import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.createActionBar
 
 
@@ -39,8 +46,24 @@ class EditActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        if (Settings.isSingleGroup(this)) {
+            menuInflater.inflate(R.menu.menu_edit, menu)
+        }
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        finish()
+        when (item.itemId) {
+            R.id.action_color -> {
+                Data.groups.getUniqueEntry()?.let { group ->
+                    EditGroupAddFragment(group.key, {
+                        (_binding.pager.adapter as ViewPagerAdapter?)?.refreshColors(group.color)
+                    }, {}, false).show(supportFragmentManager, "AddColorDialogFragment")
+                }
+            }
+            else -> finish()
+        }
         return super.onOptionsItemSelected(item)
     }
 

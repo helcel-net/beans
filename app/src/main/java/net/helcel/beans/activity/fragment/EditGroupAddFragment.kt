@@ -24,7 +24,8 @@ import net.helcel.beans.helper.Theme.colorToHex6
 class EditGroupAddFragment(
     private val key: Int = 0,
     val onAddCb: (Int) -> Unit,
-    val onDelCb: (Int) -> Unit
+    val onDelCb: (Int) -> Unit,
+    private val deleteEnabled: Boolean = true
 ) : DialogFragment() {
 
     private lateinit var _binding: FragmentEditGroupsAddBinding
@@ -42,7 +43,7 @@ class EditGroupAddFragment(
         _binding.colorView.background = ColorDrawable(grp.color.color)
 
 
-        if (key == 0) {
+        if (key == 0 || !deleteEnabled) {
             _binding.btnDelete.visibility = View.INVISIBLE
             _binding.btnDelete.isEnabled = false
         }

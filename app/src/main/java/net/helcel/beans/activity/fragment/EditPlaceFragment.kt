@@ -1,5 +1,6 @@
 package net.helcel.beans.activity.fragment
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,5 +30,9 @@ class EditPlaceFragment(val loc: GeoLoc, private val pager: ViewPagerAdapter, pr
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         _binding.list.adapter = GeolocListAdapter(this, loc, pager, holder)
         return _binding.root
+    }
+
+    fun refreshColors(colorDrawable: ColorDrawable) {
+        (_binding.list.adapter as GeolocListAdapter?)?.refreshColors(colorDrawable)
     }
 }

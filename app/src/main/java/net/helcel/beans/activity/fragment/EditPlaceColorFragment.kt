@@ -45,10 +45,9 @@ class EditPlaceColorFragment(private val parent: DialogCloser, private val delet
         if (delete) {
             _binding.btnAdd.visibility = View.GONE
             _binding.btnClear.text = ctx.getString(R.string.cancel)
-            with (_binding.warningText) {
-                visibility = View.VISIBLE
-                text = ctx.getString(R.string.select_group)
-            }
+            _binding.warningText.text = ctx.getString(R.string.select_group)
+        } else {
+            _binding.warningText.text = ctx.getString(R.string.edit_group)
         }
 
         return dialog
