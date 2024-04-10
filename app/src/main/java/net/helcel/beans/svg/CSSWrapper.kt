@@ -3,6 +3,7 @@ package net.helcel.beans.svg
 import android.content.Context
 import net.helcel.beans.countries.Country
 import net.helcel.beans.countries.GeoLoc
+import net.helcel.beans.countries.State
 import net.helcel.beans.countries.World
 import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
@@ -55,16 +56,17 @@ class CSSWrapper(private val ctx: Context) {
                         }
                     }.map {
                         it.code
-                    }.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
+                    }.takeIf { it.isNotEmpty() }?.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
                     colorToHex6(colorWrapper(ctx, android.R.attr.colorPrimary))
                 };}"
             }
             else if (groups.getGroupFromKey(k).key == NO_GROUP)
                 ""
-            else
+            else {
                 v.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
                     colorToHex6(groups.getGroupFromKey(k).color)
                 };}"
+            }
         }.joinToString("")
     }
 
