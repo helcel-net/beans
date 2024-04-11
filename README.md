@@ -8,8 +8,8 @@
   <img src="https://forthebadge.com/images/badges/built-for-android.svg" alt="Built for Android">
   <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="Built with love">
   <br>
-    <a href="https://github.com/choelzl/beans/actions/workflows/build.yml">
-    <img src="https://github.com/choelzl/beans/actions/workflows/build.yml/badge.svg?branch=main" alt="Build Status">
+    <a href="https://github.com/helcel-net/beans/actions/workflows/build.yml">
+    <img src="https://github.com/helcel-net/beans/actions/workflows/build.yml/badge.svg?branch=main" alt="Build Status">
   </a>
 </div>
 
@@ -42,7 +42,7 @@
     <a href="https://f-droid.org/packages/net.helcel.beans/">
         <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" width="206">
     </a>
-    <a href="https://github.com/choelzl/beans/releases/latest">
+    <a href="https://github.com/helcel-net/beans/releases/latest">
         <img width="200" height="84" alt="APK Download" src=".github/images/apk.png">
     </a>
 </div>
