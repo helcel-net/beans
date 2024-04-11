@@ -1,10 +1,9 @@
 package net.helcel.beans.countries
 
-
 interface GeoLoc {
 
     enum class LocType(val txt: String) {
-        WORLD("World"), GROUP("Group"), CUSTOM_GROUP("Group"), COUNTRY("Country"), STATE("State");
+        WORLD("Continents"), GROUP("Groups"), CUSTOM_GROUP("Groups"), COUNTRY("Countries"), STATE("Regions");
     }
 
     val code: String
@@ -14,5 +13,3 @@ interface GeoLoc {
     val type: LocType
     val children: Set<GeoLoc>
 }
-
-
