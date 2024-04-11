@@ -39,14 +39,12 @@
 ## 📳 Installation
 
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
-
     <a href="https://f-droid.org/packages/net.helcel.beans/">
         <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" width="206">
     </a>
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
-
     <a href="https://github.com/choelzl/beans/releases/latest">
         <img width="200" height="84" alt="APK Download" src=".github/images/apk.png">
     </a>
