@@ -39,17 +39,20 @@ class CSSWrapper(private val ctx: Context) {
     private fun refresh() {
         val id = if (Settings.isRegional(ctx)) "1" else "2"
         customCSS = visits.getVisitedByValue().map { (k, v) ->
-            if (groups.getGroupFromKey(k).key != NO_GROUP || (!Settings.isRegional(ctx) && k == AUTO_GROUP)) {
-                v.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
-                    colorToHex6(
-                        if (k == AUTO_GROUP)
-                            colorWrapper(ctx, android.R.attr.colorPrimary)
-                        else groups.getGroupFromKey(k).color
-                    )
-                };}"
+            (if (groups.getGroupFromKey(k).key != NO_GROUP) {
+                v
+            } else if (!Settings.isRegional(ctx) && k == AUTO_GROUP) {
+                v.filter { it !in World.WWW.children.map { it1 -> it1.code } }
             } else {
-                ""
-            }
+                emptyList()
+            }).takeIf { it.isNotEmpty() }
+                ?.joinToString(",") { "#${it}$id,#${it}" } + "{fill:${
+                colorToHex6(
+                    if (k == AUTO_GROUP)
+                        colorWrapper(ctx, android.R.attr.colorPrimary)
+                    else groups.getGroupFromKey(k).color
+                )
+            };}"
         }.joinToString("")
     }
 

@@ -18,7 +18,7 @@
     <string name="key_regional">Regional</string>
     <string name="about">About</string>
     <string name="beans_is_foss">Beans is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
-    <string name="beans_repo">Project repository: https://git.helcel.net/helcel/beans\n Feel free to report issues or contribute to the project.</string>
+    <string name="beans_repo">Project repository: https://github.com/helcel-net/beans\n Feel free to report issues or contribute to the project.</string>
     <string name="foss_licenses">Free and open source dependencies and licenses</string>
     <string name="about_beans">About the Beans application</string>
     <string name="edit_group">Select the group to assign. Long press on a group to edit its name and color.</string>

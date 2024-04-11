@@ -1,13 +1,8 @@
 {
   "dependencies": {
     "@turf/area": "^6.5.0",
-    "@turf/concave": "^6.5.0",
-    "@turf/convex": "^6.5.0",
-    "@turf/projection": "^6.5.0",
-    "@turf/simplify": "^6.5.0",
-    "@turf/truncate": "^6.5.0",
     "@turf/turf": "^6.5.0",
-    "geojson2svg": "^2.0.1",
+    "jsdom": "^24.0.0",
     "mapshaper": "^0.6.79"
   },
   "type": "module"

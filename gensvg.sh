@@ -15,13 +15,13 @@ countries=(
   "DNK" "DJI" "DMA" "DOM" "ECU" "EGY" "SLV" "GNQ" "ERI" "EST" "ETH" "FLK" "FRO" "FJI" "FIN" "FRA" "GUF" "PYF" "ATF"
   "GAB" "GMB" "GEO" "DEU" "GHA" "GIB" "GRC" "GRL" "GRD" "GLP" "GUM" "GTM" "GGY" "GIN" "GNB" "GUY" "HTI" "HMD" "HND" "HUN"
   "ISL" "IND" "IDN" "IRN" "IRQ" "IRL" "IMN" "ISR" "ITA" "JAM" "JPN" "JEY" "JOR" "KAZ" "KEN" "KIR" "XKO" "KWT" "KGZ"
-  "LAO" "LVA" "LBN" "LSO" "LBR" "LBY" "LIE" "LTU" "LUX" "SXM"
-  "MKD" "MDG" "MWI" "MYS" "MDV" "MLI" "MLT" "MHL" "MTQ" "MRT" "MUS" "MYT" "MEX" "FSM" "MDA" "MCO" "MNG" "MNE" "MSR" "MAR" "MOZ" "MMR"
-  "NAM" "NRU" "NPL" "NLD" "NCL" "NZL" "NIC" "NER" "NGA" "NIU" "NFK" "PRK" "ZNC" "MNP" "NOR" "OMN"
-  "PAK" "PLW" "PSE" "PAN" "PNG" "PRY" "PER" "PHL" "PCN" "POL" "PRT" "PRI" "QAT" "COG" "REU" "ROU" "RUS" "RWA" "BLM" "MAF"
-  "SHN" "KNA" "LCA" "SPM" "VCT" "WSM" "SMR" "STP" "SAU" "SEN" "SRB" "SYC" "SLE" "SGP" "SVK" "SVN" "SLB" "SOM" "ZAF" "SGS" "KOR" "SSD" "ESP"
-  "LKA" "SDN" "SUR" "SJM" "SWZ" "SWE" "CHE" "SYR" "TWN" "TJK" "TZA" "THA" "TLS" "TGO" "TKL" "TON" "TTO" "TUN" "TUR" "TKM" "TCA" "TUV" "UGA"
-  "UKR" "ARE" "GBR" "USA" "UMI" "URY" "UZB" "VUT" "VAT" "VEN" "VNM" "VIR" "WLF" "ESH" "YEM" "ZMB" "ZWE"
+"LAO" "LVA" "LBN" "LSO" "LBR" "LBY" "LIE" "LTU" "LUX" "SXM"
+"MKD" "MDG" "MWI" "MYS" "MDV" "MLI" "MLT" "MHL" "MTQ" "MRT" "MUS" "MYT" "MEX" "FSM" "MDA" "MCO" "MNG" "MNE" "MSR" "MAR" "MOZ" "MMR"
+"NAM" "NRU" "NPL" "NLD" "NCL" "NZL" "NIC" "NER" "NGA" "NIU" "NFK" "PRK" "ZNC" "MNP" "NOR" "OMN"
+"PAK" "PLW" "PSE" "PAN" "PNG" "PRY" "PER" "PHL" "PCN" "POL" "PRT" "PRI" "QAT" "COG" "REU" "ROU" "RUS" "RWA" "BLM" "MAF"
+"SHN" "KNA" "LCA" "SPM" "VCT" "WSM" "SMR" "STP" "SAU" "SEN" "SRB" "SYC" "SLE" "SGP" "SVK" "SVN" "SLB" "SOM" "ZAF" "SGS" "KOR" "SSD" "ESP"
+"LKA" "SDN" "SUR" "SJM" "SWZ" "SWE" "CHE" "SYR" "TWN" "TJK" "TZA" "THA" "TLS" "TGO" "TKL" "TON" "TTO" "TUN" "TUR" "TKM" "TCA" "TUV" "UGA"
+"UKR" "ARE" "GBR" "USA" "UMI" "URY" "UZB" "VUT" "VAT" "VEN" "VNM" "VIR" "WLF" "ESH" "YEM" "ZMB" "ZWE"
 )
 
 
@@ -117,25 +117,28 @@ toSVG_1() {
 
 
 toSVG_01() {
-    input_files=("./temp/1/ATA.json" "./temp/0/ATA.json")
-
+    input_files=()
+    
+    input_files+=("./temp/1/ATA.json")
     for country in "${countries[@]}"
     do
         input_file1="./temp/1/${country}.json"
-        input_file0="./temp/0/${country}.json"
         if [ -f "$input_file1" ]; then
             input_files+=("$input_file1")
         fi
+    done
+    input_files+=("./temp/0/ATA.json")
+    for country in "${countries[@]}"
+    do
+        input_file0="./temp/0/${country}.json"
         if [ -f "$input_file0" ]; then
             input_files+=("$input_file0")
         fi
     done
 
-
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj eqdc +lat_1=55 +lat_2=60 -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/eqdc01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj loxim densify -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/loxim01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj webmercator densify -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/webmercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj aeqd +lat_0=90 densify -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj loxim densify -simplify 0.001 weighted keep-shapes -o ./app/src/main/assets/loxim01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj webmercator densify -simplify 0.001 weighted keep-shapes -o ./app/src/main/assets/webmercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    "$mapshaper" -i combine-files ${input_files[@]} snap -proj aeqd +lat_0=90 densify -simplify 0.001 weighted keep-shapes -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
 }
 
 do_1() {
@@ -152,8 +155,8 @@ do_0() {
     done
     wget -q -O "./temp/1/ATA.json" "$ATA_URL"
 }
-do_0
-do_1
+# do_0
+# do_1
 # toSVG_0
 # toSVG_1
 toSVG_01
