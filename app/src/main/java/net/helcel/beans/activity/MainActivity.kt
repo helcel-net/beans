@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         Settings.start(this)
-        supportActionBar?.setBackgroundDrawable(colorWrapper(this, android.R.attr.colorPrimary))
 
         setContentView(_binding.root)
 

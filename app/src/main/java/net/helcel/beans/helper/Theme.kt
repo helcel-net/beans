@@ -29,7 +29,6 @@ object Theme {
     }
 
     fun createActionBar(ctx: AppCompatActivity, title: String) {
-        ctx.supportActionBar?.setBackgroundDrawable(colorWrapper(ctx, android.R.attr.colorPrimary))
         ctx.supportActionBar?.title = title
         ctx.supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

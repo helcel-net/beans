@@ -6,9 +6,27 @@
         <item name="android:panelColorBackground">@color/lightgray</item>
         <item name="android:statusBarColor">?attr/colorPrimary</item>
 
-        <item name="checkboxStyle">@style/Widget.App.CheckBox</item>
+        <item name="checkboxStyle">@style/Theme.Beans.CheckBox</item>
+        <item name="actionBarStyle">@style/Theme.Beans.ActionBar</item>
+        <item name="android:actionOverflowButtonStyle">@style/Theme.Beans.ActionBar.ButtonOverflow</item>
     </style>
 
-    <style name="Widget.App.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+    <style name="Theme.Beans.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+    </style>
+
+    <style name="Theme.Beans.ActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">?attr/colorPrimary</item>
+        <item name="titleTextStyle">@style/Theme.Beans.ActionBar.Text</item>
+        <item name="android:tint">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="homeAsUpIndicator">@drawable/back</item>
+    </style>
+
+    <style name="Theme.Beans.ActionBar.Text" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Theme.Beans.ActionBar.ButtonOverflow" parent="Widget.Material3.Search.ActionButton.Overflow">
+        <item name="android:tint">@color/white</item>
     </style>
 </resources>
