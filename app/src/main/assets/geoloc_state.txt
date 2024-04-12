@@ -719,7 +719,7 @@ CUB_LH|CUB|La Habana|1964
 CUB_LT|CUB|Las Tunas|6583
 CUB_MA|CUB|Matanzas|11741
 CUB_MQ|CUB|Mayabeque|3692
-CUB_PR|CUB|Pinardel Río|11079
+CUB_PR|CUB|Pinar del Río|11079
 CUB_SS|CUB|Sancti Spíritus|6401
 CUB_SC|CUB|Santiago de Cuba|6441
 CUB_VC|CUB|Villa Clara|9161
@@ -1030,7 +1030,7 @@ GRC_AT|GRC|Attica|3853
 GRC_CR|GRC|Crete|8391
 GRC_EM|GRC|Epirusand Western Macedonia|18771
 GRC_MH|GRC|Macedonia and Thrace|33122
-GRC_PW|GRC|Peloponnese, Western Greeceand|29194
+GRC_PW|GRC|Peloponnese, Western Greece and the Ionian|29194
 GRC_TC|GRC|Thessalyand Central Greece|29744
 GRL_KU|GRL|Kujalleq|45647
 GRL_UO|GRL|Northeast Greenland National Par|919384
@@ -1537,8 +1537,8 @@ LAO_OU|LAO|Oudômxai|11832
 LAO_PH|LAO|Phôngsali|15414
 LAO_SL|LAO|Saravan|10238
 LAO_SV|LAO|Savannakhét|21546
-LAO_VI|LAO|Vientiane|12590
-LAO_VT|LAO|Vientiane[prefecture]|3639
+LAO_VI|LAO|Vientiane Province|12590
+LAO_VT|LAO|Vientiane Prefecture|3639
 LAO_XA|LAO|Xaignabouri|15691
 LAO_XS|LAO|Xaisômboun|7778
 LAO_XE|LAO|Xékong|8414
@@ -1613,7 +1613,7 @@ LIE_SN|LIE|Schaan|28
 LIE_SB|LIE|Schellenberg|3
 LIE_TN|LIE|Triesen|26
 LIE_TB|LIE|Triesenberg|29
-LIE_VA|LIE|Valduz|17
+LIE_VA|LIE|Vaduz|17
 LTU_AS|LTU|Alytaus|5624
 LTU_KS|LTU|Kauno|8156
 LTU_KP|LTU|Klaipedos|5363
@@ -1794,7 +1794,7 @@ MHL_Ujae|MHL|Ujae|3
 MHL_Utirik|MHL|Utirik|14
 MHL_Wotho|MHL|Wotho|6
 MHL_Wotje|MHL|Wotje|15
-MHL_19_1|MHL|NA|26
+MHL_19_1|MHL|Rongelap|26
 MTQ_FF|MTQ|Fort-de-France|189
 MTQ_MA|MTQ|Le Marin|393
 MTQ_TR|MTQ|Le Trinité|353
@@ -2040,7 +2040,7 @@ NLD_OV|NLD|Overijssel|3369
 NLD_UT|NLD|Utrecht|1555
 NLD_ZE|NLD|Zeeland|1804
 NLD_Zeeuwsemeren|NLD|Zeeuwsemeren|477
-NLD_14_1|NLD|NA|3143
+NLD_14_1|NLD|Zuid-Holland|3143
 NCL_IL|NCL|Îles Loyauté|1988
 NCL_NO|NCL|Nord|9520
 NCL_SU|NCL|Sud|7408
@@ -3352,7 +3352,7 @@ UKR_KK|UKR|Kharkiv|31388
 UKR_KS|UKR|Kherson|25534
 UKR_KM|UKR|Khmel'nyts'kyy|20718
 UKR_KV|UKR|Kiev|28073
-UKR_KC|UKR|Kiev City|695
+UKR_KC|UKR|Kiev City|831
 UKR_KH|UKR|Kirovohrad|24713
 UKR_LV|UKR|L'viv|21773
 UKR_LH|UKR|Luhans'k|27042
