@@ -6,7 +6,6 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
 
     EEE(
         "Europe", setOf(
-            XAD,
             ALA,// Åland Islands: an autonomous region of Finland, but not a member of the EU or UN
             ALB,
             AND,
@@ -16,7 +15,6 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             BIH,
             BGR,
             HRV,
-            CYP,
             CZE,
             DNK,
             EST,
@@ -26,6 +24,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             DEU,
             GIB, // Gibraltar: a British overseas territory located at the southern tip of the Iberian Peninsula
             GRC,
+            GRL,
             GGY, // Guernsey: a British Crown dependency in the English Channel
             HUN,
             ISL,
@@ -33,7 +32,6 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             IMN, // Isle of Man: a British Crown dependency located in the Irish Sea
             ITA,
             JEY, // Jersey: a British Crown dependency located in the English Channel
-            KAZ,
             XKO,
             LVA,
             LIE,
@@ -65,6 +63,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
     ),
     ABB(
         "Asia", setOf(
+            XAD,
             AFG,
             ARM,
             AZE,
@@ -77,6 +76,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             CCK, // Cocos (Keeling) Islands: an Australian external territory in the Indian Ocean
             CHN,
             CXR, // Christmas Island: an Australian external territory in the Indian Ocean
+            CYP,
             GEO,
             //HKG,
             IND,
@@ -86,6 +86,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             ISR,
             JPN,
             JOR,
+            KAZ,
             KWT,
             KGZ,
             LAO,
@@ -127,6 +128,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             BDI,
             BEN,
             BWA,
+            BVT, // Bouvet Island: an uninhabited territory of Norway in the South Atlantic
             BFA,
             BDI,
             CPV,
@@ -148,6 +150,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             GHA,
             GIN,
             GNB,
+            HMD, // Heard Island and McDonald Islands: an uninhabited Australian external territory in the southern Indian Ocean
             KEN,
             LSO,
             LBR,
@@ -206,7 +209,6 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             DMA,
             DOM,
             SLV,
-            GRL,
             GRD,
             GLP,
             GTM,
@@ -248,6 +250,7 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
             GUY,
             PRY,
             PER,
+            SGS, // South Georgia and the South Sandwich Islands: a British overseas territory in the southern Atlantic Ocean
             SUR,
             URY,
             VEN,
@@ -284,11 +287,8 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
     ),
 
     XXX(
-        "Others", setOf(
+        "Antarctica", setOf(
             ATA, // Antarctica: not in any other region
-            BVT, // Bouvet Island: an uninhabited territory of Norway in the South Atlantic
-            HMD, // Heard Island and McDonald Islands: an uninhabited Australian external territory in the southern Indian Ocean
-            SGS, // South Georgia and the South Sandwich Islands: a British overseas territory in the southern Atlantic Ocean
         )
     ),
 
