@@ -287,8 +287,8 @@ enum class Group(override val fullName: String, override val children: Set<GeoLo
     ),
 
     XXX(
-        "Antarctica", setOf(
-            ATA, // Antarctica: not in any other region
+        "Other", setOf(
+           
         )
     ),
 

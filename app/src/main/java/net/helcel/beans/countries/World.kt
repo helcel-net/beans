@@ -6,14 +6,15 @@ enum class World(override val fullName: String, override val children: Set<GeoLo
 
     WWW(
         "World", setOf(
-            EEE, ABB, FFF, NNN, SRR, UUU, XXX
-        )
+            EEE, ABB, FFF, NNN, SRR, UUU, Country.ATA,
+
+            )
     );
 
     override val area = children.fold(0) { acc, i ->
         acc + i.area
     }
-    
+
     override val type = GeoLoc.LocType.WORLD
     override val code = this.name
 }
