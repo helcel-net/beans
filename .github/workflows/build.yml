@@ -32,7 +32,7 @@ jobs:
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" --batch keystore.asc > app/keystore.properties
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" --batch key.asc > app/key.jks          
 
-      - uses: gradle/wrapper-validation-action@v2
+      - uses: gradle/wrapper-validation-action@v3
 
       - name: create and checkout branch
         if: github.event_name == 'pull_request'
