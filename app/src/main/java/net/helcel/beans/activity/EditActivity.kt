@@ -5,17 +5,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import net.helcel.beans.R
 import net.helcel.beans.activity.adapter.ViewPagerAdapter
 import net.helcel.beans.activity.fragment.EditGroupAddFragment
-import net.helcel.beans.activity.fragment.EditPlaceColorFragment
 import net.helcel.beans.activity.fragment.EditPlaceFragment
 import net.helcel.beans.countries.World
 import net.helcel.beans.databinding.ActivityEditBinding
 import net.helcel.beans.helper.Data
-import net.helcel.beans.helper.DialogCloser
 import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.createActionBar
 
@@ -62,6 +59,7 @@ class EditActivity : AppCompatActivity() {
                     }, {}, false).show(supportFragmentManager, "AddColorDialogFragment")
                 }
             }
+
             else -> finish()
         }
         return super.onOptionsItemSelected(item)

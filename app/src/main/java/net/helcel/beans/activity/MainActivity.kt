@@ -12,7 +12,6 @@ import net.helcel.beans.countries.GeoLocImporter
 import net.helcel.beans.databinding.ActivityMainBinding
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Settings
-import net.helcel.beans.helper.Theme.colorWrapper
 import net.helcel.beans.svg.CSSWrapper
 import net.helcel.beans.svg.SVGWrapper
 

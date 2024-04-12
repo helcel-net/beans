@@ -1,13 +1,15 @@
 package net.helcel.beans.svg
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import com.caverock.androidsvg.SVG
 import net.helcel.beans.R
 
 class SVGWrapper(ctx: Context) {
 
-    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx)
+    private val sharedPreferences: SharedPreferences =
+        PreferenceManager.getDefaultSharedPreferences(ctx)
     private val svgFile = when (sharedPreferences.getString(
         ctx.getString(R.string.key_projection),
         ctx.getString(R.string.mercator)
