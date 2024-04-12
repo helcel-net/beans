@@ -76,6 +76,11 @@ const formatStr = (str)=> str.replace(/(?<!\b\w\u00E0-\u00FC)\B[A-Z\u00C0-\u00DC
   .replace("Valledel ","Valle del ").replace("Valde ","Val de ").replace("Îlesdu ","Îles du ")
   .replace("sÉ","s É").replace("áO","á O").replace("N C Tof ","NCT of ").replace("N A","NA")
   .replace("Nortede ", "Norte de ")
+  .replace("Pinardel ", "Pinar del ")
+  .replace("Greeceand", "Greece and the Ionian")
+  .replace("Vientiane", "Vientiane Province")
+  .replace("Vientiane Province[prefecture]", "Vientiane Prefecture")
+  .replace("Valduz", "Vaduz")
   .trim()
 
 const parse0 = (country) => {
