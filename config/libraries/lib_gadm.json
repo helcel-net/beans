@@ -1,0 +1,21 @@
+{
+  "uniqueId": "org.gadm:data",
+  "developers": [
+    {
+      "organisationUrl": "https://gadm.org/index.html",
+      "name": "GADM"
+    }
+  ],
+  "artifactVersion": "4.1",
+  "description": "GADM provides maps and spatial data for all countries and their sub-divisions.",
+  "scm": {
+    "connection": "scm:git@github.com:mikepenz/MaterialDrawer.git",
+    "url": "https://github.com/mikepenz/MaterialDrawer",
+    "developerConnection": "scm:git@github.com:mikepenz/MaterialDrawer.git"
+  },
+  "name": "GADM maps and data",
+  "website": "https://gadm.org/index.html",
+  "licenses": [
+    "0151ac7b561a385c536ad4c94532e60b"
+  ]
+}
