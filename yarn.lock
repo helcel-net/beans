@@ -1199,9 +1199,9 @@
   integrity sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==
 
 "@types/node@*":
-  version "20.12.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.7.tgz#04080362fa3dd6c5822061aa3124f5c152cff384"
-  integrity sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==
+  version "20.12.11"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.11.tgz#c4ef00d3507000d17690643278a60dc55a9dc9be"
+  integrity sha512-vDg9PZ/zi+Nqp6boSOT7plNuthRugEKixDv5sFTIpkE89MmNtEArAShI4mxuX2+UrLEe9pxC1vm2cjm9YlWbJw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -1727,9 +1727,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 mapshaper@^0.6.79:
-  version "0.6.91"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.91.tgz#afb6588d70d286d44dd5b41244c090cb16b655bb"
-  integrity sha512-QCjK3tNBxfNh6IZ6xeGOZWgVDlQX1lNZq0AnRG0uDMfw5zHjO+aLaIheogcRu8SGREIgciUakNjAfBbT0WpMLw==
+  version "0.6.93"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.93.tgz#6c77d82c0a46b72449fce0a33ca52090a9279978"
+  integrity sha512-opdMUpHOvRtIqQz2csYF17q/Y1gmWzp5v5mnD5tuXyTZmGMbGuteLEF2GG3Om4/U+jK/bGk0as6bD262F1/rJQ==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
