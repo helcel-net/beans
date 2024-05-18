@@ -1199,9 +1199,9 @@
   integrity sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==
 
 "@types/node@*":
-  version "20.12.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.11.tgz#c4ef00d3507000d17690643278a60dc55a9dc9be"
-  integrity sha512-vDg9PZ/zi+Nqp6boSOT7plNuthRugEKixDv5sFTIpkE89MmNtEArAShI4mxuX2+UrLEe9pxC1vm2cjm9YlWbJw==
+  version "20.12.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.12.tgz#7cbecdf902085cec634fdb362172dfe12b8f2050"
+  integrity sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==
   dependencies:
     undici-types "~5.26.4"
 
@@ -1727,9 +1727,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 mapshaper@^0.6.79:
-  version "0.6.93"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.93.tgz#6c77d82c0a46b72449fce0a33ca52090a9279978"
-  integrity sha512-opdMUpHOvRtIqQz2csYF17q/Y1gmWzp5v5mnD5tuXyTZmGMbGuteLEF2GG3Om4/U+jK/bGk0as6bD262F1/rJQ==
+  version "0.6.95"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.95.tgz#bc1c8e75a04885d85f2d6a5eab1339c813a4d3ed"
+  integrity sha512-5sjWPC1ZGcCztObJ8cy58IAS09i4mmuNQaJnm20a5ThyNfpP8TqI1Q6vM6WGXAfmLiBeWtQzGO+7NU09gWUwkQ==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
@@ -1794,9 +1794,9 @@ msgpackr-extract@^3.0.2:
     "@msgpackr-extract/msgpackr-extract-win32-x64" "3.0.2"
 
 msgpackr@^1.10.1:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.10.1.tgz#51953bb4ce4f3494f0c4af3f484f01cfbb306555"
-  integrity sha512-r5VRLv9qouXuLiIBrLpl2d5ZvPt8svdQTl5/vMvE4nzDMyEX4sgW5yWhuBBj5UmgwOTWj8CIdSXn5sAfsHAWIQ==
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.10.2.tgz#a73de4767f76659e8c69cf9c80fdfce83937a44a"
+  integrity sha512-L60rsPynBvNE+8BWipKKZ9jHcSGbtyJYIwjRq0VrIvQ08cRjntGXJYW/tmciZ2IHWIY8WEW32Qa2xbh5+SKBZA==
   optionalDependencies:
     msgpackr-extract "^3.0.2"
 
