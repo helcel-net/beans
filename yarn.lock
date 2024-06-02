@@ -1231,9 +1231,9 @@
   integrity sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==
 
 adm-zip@^0.5.9:
-  version "0.5.12"
-  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.12.tgz#87786328e91d54b37358d8a50f954c4cd73ba60b"
-  integrity sha512-6TVU49mK6KZb4qG6xWaaM4C7sA/sgUMLy/JYMOzkcp3BvVLpW0fXDFQiIzAuxFCt/2+xD7fNIiPFAoLZPhVNLQ==
+  version "0.5.13"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.13.tgz#e2fbd87d0bb75603ccfdcb03a57a57c4831d9758"
+  integrity sha512-4U51tTl9J8UVEcuKGr6zRzY95tWoAa9l+ureGBNmsfleszjZblm5NyEEL/ZQxkhi86co5mZhSvL2T7gkZ6feYQ==
 
 agent-base@^7.0.2, agent-base@^7.1.0:
   version "7.1.1"
