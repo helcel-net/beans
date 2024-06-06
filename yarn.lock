@@ -1199,9 +1199,9 @@
   integrity sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==
 
 "@types/node@*":
-  version "20.13.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.13.0.tgz#011a76bc1e71ae9a026dddcfd7039084f752c4b6"
-  integrity sha512-FM6AOb3khNkNIXPnHFDYaHerSv8uN22C91z098AnGccVu+Pcdhi+pNUFDi0iLmPIsVE0JBD0KVS7mzUYt4nRzQ==
+  version "20.14.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.14.2.tgz#a5f4d2bcb4b6a87bffcaa717718c5a0f208f4a18"
+  integrity sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==
   dependencies:
     undici-types "~5.26.4"
 
@@ -1231,9 +1231,9 @@
   integrity sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==
 
 adm-zip@^0.5.9:
-  version "0.5.13"
-  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.13.tgz#e2fbd87d0bb75603ccfdcb03a57a57c4831d9758"
-  integrity sha512-4U51tTl9J8UVEcuKGr6zRzY95tWoAa9l+ureGBNmsfleszjZblm5NyEEL/ZQxkhi86co5mZhSvL2T7gkZ6feYQ==
+  version "0.5.14"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.14.tgz#2c557c0bf12af4311cf6d32970f4060cf8133b2a"
+  integrity sha512-DnyqqifT4Jrcvb8USYjp6FHtBpEIz1mnXu6pTRHZ0RL69LbQYiO+0lDFg5+OKA7U29oWSs3a/i8fhn8ZcceIWg==
 
 agent-base@^7.0.2, agent-base@^7.1.0:
   version "7.1.1"
@@ -1727,9 +1727,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 mapshaper@^0.6.79:
-  version "0.6.96"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.96.tgz#18cdc6d5c44fae6ee034c08305d0ba73a842e1b6"
-  integrity sha512-QqUkQu3hDBWk/+9VTbNpeievPxZg5KxfY338oABShCyMXpJh8kpyHnxP/KoTc+YhxwjLK7m2WgmwiWiV2NwJwA==
+  version "0.6.97"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.97.tgz#d3e385e8b35d478582f36b873bde468c98cfa5a8"
+  integrity sha512-cWFVb2pbDHjANPqVNNSoUTl91wDdu7Rb2CnzQcWFt67H2gCUbWwnkP2ljRjfGR7KRor4K8Ys8PweHlF9GPwK7A==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
