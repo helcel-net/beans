@@ -2048,9 +2048,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 mapshaper@^0.6.79:
-  version "0.6.97"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.97.tgz#d3e385e8b35d478582f36b873bde468c98cfa5a8"
-  integrity sha512-cWFVb2pbDHjANPqVNNSoUTl91wDdu7Rb2CnzQcWFt67H2gCUbWwnkP2ljRjfGR7KRor4K8Ys8PweHlF9GPwK7A==
+  version "0.6.98"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.98.tgz#19ab22980cdd88db94b24d17484db08ba1c741ca"
+  integrity sha512-bVsp6PWtXqpAo0yis80tILfiOOMvDfFMUUgttvGSeQjP/POYJozr1yxIrz6Btk3mUhgS0NbhXsu7LjRCzAh8Rg==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
