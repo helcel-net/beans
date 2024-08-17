@@ -1379,11 +1379,11 @@
   integrity sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==
 
 "@types/node@*":
-  version "22.1.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.1.0.tgz#6d6adc648b5e03f0e83c78dc788c2b037d0ad94b"
-  integrity sha512-AOmuRF0R2/5j1knA3c6G3HOk523Ga+l+ZXltX8SF1+5oqcXijjfTd8fY3XRZqSihEu9XhtQnKYLmkFaoxgsJHw==
+  version "22.4.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.4.0.tgz#c295fe1d6f5f58916cc61dbef8cf65b5b9b71de9"
+  integrity sha512-49AbMDwYUz7EXxKU/r7mXOsxwFr4BYbvB7tWYxVuLdb2ibd30ijjXINSMAHiEEZk5PCRBmW1gUeisn2VMKt3cQ==
   dependencies:
-    undici-types "~6.13.0"
+    undici-types "~6.19.2"
 
 "@types/node@^10.0.3":
   version "10.17.60"
@@ -1411,9 +1411,9 @@
   integrity sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==
 
 adm-zip@^0.5.9:
-  version "0.5.14"
-  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.14.tgz#2c557c0bf12af4311cf6d32970f4060cf8133b2a"
-  integrity sha512-DnyqqifT4Jrcvb8USYjp6FHtBpEIz1mnXu6pTRHZ0RL69LbQYiO+0lDFg5+OKA7U29oWSs3a/i8fhn8ZcceIWg==
+  version "0.5.15"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.15.tgz#c2c9b3d4f3b1c911e72b2394e84fd91bcc81e08e"
+  integrity sha512-jYPWSeOA8EFoZnucrKCNihqBjoEGQSU4HKgHYQgKNEQ0pQF9a/DYuo/+fAxY76k4qe75LUlLWpAM1QWcBMTOKw==
 
 agent-base@^7.0.2, agent-base@^7.1.0:
   version "7.1.1"
@@ -2048,9 +2048,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 mapshaper@^0.6.79:
-  version "0.6.98"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.98.tgz#19ab22980cdd88db94b24d17484db08ba1c741ca"
-  integrity sha512-bVsp6PWtXqpAo0yis80tILfiOOMvDfFMUUgttvGSeQjP/POYJozr1yxIrz6Btk3mUhgS0NbhXsu7LjRCzAh8Rg==
+  version "0.6.99"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.99.tgz#8b86f19c5ca4d39806d4432db858435981cc7c3f"
+  integrity sha512-PAKaI/nsYEkari67hQPFkCvCuVLDdeqJxMXfsPVAUgYc2XixA+Ff4rxZbXvWwRy6u3BakQD5tnZpDqPutM5LLw==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
@@ -2493,10 +2493,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-undici-types@~6.13.0:
-  version "6.13.0"
-  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.13.0.tgz#e3e79220ab8c81ed1496b5812471afd7cf075ea5"
-  integrity sha512-xtFJHudx8S2DSoujjMd1WeWvn7KKWFRESZTMeL1RptAYERu29D6jphMjjY+vn96jvN3kVPDNxU/E13VTaXj6jg==
+undici-types@~6.19.2:
+  version "6.19.6"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.6.tgz#e218c3df0987f4c0e0008ca00d6b6472d9b89b36"
+  integrity sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==
 
 universalify@^0.2.0:
   version "0.2.0"
