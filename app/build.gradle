@@ -88,5 +88,5 @@ dependencies {
 
     implementation 'com.caverock:androidsvg-aar:1.4'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation 'com.mikepenz:aboutlibraries:11.2.2'
+    implementation 'com.mikepenz:aboutlibraries:11.2.3'
 }
