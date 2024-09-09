@@ -2,10 +2,10 @@ Beans is a scratchmap of the world for Android.
 
 Keep track of your discovery of the world on a colorful visual map.
 
-• Color a map of places based on custom labels
-• Country/State based coloring
-• Single/Multi color modes
-• Different map projections available
-• Small & Fast
-• Statistics (WIP)
-• 100% Free and Open Source software, with no proprietary dependencies
+* Color a map of places based on custom labels
+* Country/State based coloring
+* Single/Multi color modes
+* Different map projections available
+* Small & Fast
+* Statistics (WIP)
+* 100% Free and Open Source software, with no proprietary dependencies
