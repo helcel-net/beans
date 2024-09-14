@@ -33,9 +33,9 @@
   integrity sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==
 
 "@placemarkio/tokml@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@placemarkio/tokml/-/tokml-0.3.3.tgz#5b42c19d38fda3577cb6c09904ca7e9622bb793e"
-  integrity sha512-Y6lprxpPfDxLoUyeNcI/vfxMkeWlTjNFvh73zlxfQtZ8TWIj+rmPY99l5wNFVkHQOAwCzLaBXyxULpbtaMGyHQ==
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@placemarkio/tokml/-/tokml-0.3.4.tgz#4cd1cd138ba750c51b1c11238a19bd83f6d3c1c8"
+  integrity sha512-0ENaPdLbBYVj34vFDoZjV95zlB+Dw8MTBjVvxtXTTaDU+8+6CRrScI03ktkA1TICHKAT/O3UzzIRlwoSc+T7/w==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
