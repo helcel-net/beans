@@ -1733,7 +1733,7 @@ earcut@^2.2.4:
   resolved "https://registry.yarnpkg.com/earcut/-/earcut-2.2.4.tgz#6d02fd4d68160c114825d06890a92ecaae60343a"
   integrity sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ==
 
-entities@^4.4.0:
+entities@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.5.0.tgz#5d268ea5e7113ec74c4d033b79ea5a35a488fb48"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
@@ -1773,18 +1773,19 @@ flatqueue@^1.2.1:
   integrity sha512-X86TpWS1rGuY7m382HuA9vngLeDuWA9lJvhEG+GfgKMV5onSvx5a71cl7GMbXzhWtlN9dGfqOBrpfqeOtUfGYQ==
 
 form-data@^2.2.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.5.1.tgz#f2cbec57b5e59e23716e128fe44d4e5dd23895f4"
-  integrity sha512-m21N3WOmEEURgk6B9GLOE4RuWOFf28Lhh9qGYeNlGq4VDXUlJy2th2slBNU8Gp8EzloYZOibZJ7t5ecIrFSjVA==
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.5.2.tgz#dc653743d1de2fcc340ceea38079daf6e9069fd2"
+  integrity sha512-GgwY0PS7DbXqajuGf4OYlsrIu3zgxD6Vvql43IBhm6MahqA5SK/7mwhtNj2AdH2z35YR34ujJ7BN+3fFC3jP5Q==
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
+    safe-buffer "^5.2.1"
 
 form-data@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.0.tgz#93919daeaf361ee529584b9b31664dc12c9fa452"
-  integrity sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.1.tgz#ba1076daaaa5bfd7e99c1a6cb02aa0a5cff90d48"
+  integrity sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
@@ -2095,11 +2096,11 @@ parse-cache-control@^1.0.1:
   integrity sha512-60zvsJReQPX5/QP0Kzfd/VrpjScIQ7SHBW6bFCYfEP+fp0Eppr1SHhIO5nd1PjZtvclzSzES9D/p5nFJurwfWg==
 
 parse5@^7.1.2:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/parse5/-/parse5-7.1.2.tgz#0736bebbfd77793823240a23b7fc5e010b7f8e32"
-  integrity sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-7.2.0.tgz#8a0591ce9b7c5e2027173ab737d4d3fc3d826fab"
+  integrity sha512-ZkDsAOcxsUMZ4Lz5fVciOehNcJ+Gb8gTzcA4yl3wnc273BAybYWrQ+Ks/OjCjSEpjvQkDSeZbybK9qj2VHHdGA==
   dependencies:
-    entities "^4.4.0"
+    entities "^4.5.0"
 
 point-in-polygon-hao@^1.1.0:
   version "1.1.0"
@@ -2199,6 +2200,11 @@ rw@~1.3.2, rw@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/rw/-/rw-1.3.3.tgz#3f862dfa91ab766b14885ef4d01124bfda074fb4"
   integrity sha512-PdhdWy89SiZogBLaw42zdeqtRJ//zFd2PgQavcICDUgJT5oW10QCRKbJ6bg4r0/UY2M6BWd5tkxuGFRvCkgfHQ==
+
+safe-buffer@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
+  integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
 safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
@@ -2311,17 +2317,17 @@ tinyqueue@^2.0.0, tinyqueue@^2.0.3:
   resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-2.0.3.tgz#64d8492ebf39e7801d7bd34062e29b45b2035f08"
   integrity sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA==
 
-tldts-core@^6.1.50:
-  version "6.1.50"
-  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-6.1.50.tgz#8f8f87928adde862b8bc8ce6954c463e2dded790"
-  integrity sha512-na2EcZqmdA2iV9zHV7OHQDxxdciEpxrjbkp+aHmZgnZKHzoElLajP59np5/4+sare9fQBfixgvXKx8ev1d7ytw==
+tldts-core@^6.1.51:
+  version "6.1.51"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-6.1.51.tgz#abbb005cccc1c469ed7ddf1ec472acd91efda4d0"
+  integrity sha512-bu9oCYYWC1iRjx+3UnAjqCsfrWNZV1ghNQf49b3w5xE8J/tNShHTzp5syWJfwGH+pxUgTTLUnzHnfuydW7wmbg==
 
 tldts@^6.1.32:
-  version "6.1.50"
-  resolved "https://registry.yarnpkg.com/tldts/-/tldts-6.1.50.tgz#3b259a65bb11978a2a3d1b3c37660e542dbf9896"
-  integrity sha512-q9GOap6q3KCsLMdOjXhWU5jVZ8/1dIib898JBRLsN+tBhENpBDcAVQbE0epADOjw11FhQQy9AcbqKGBQPUfTQA==
+  version "6.1.51"
+  resolved "https://registry.yarnpkg.com/tldts/-/tldts-6.1.51.tgz#ee5b35a939e733515f8cbfc882791ec87962e12c"
+  integrity sha512-33lfQoL0JsDogIbZ8fgRyvv77GnRtwkNE/MOKocwUgPO1WrSfsq7+vQRKxRQZai5zd+zg97Iv9fpFQSzHyWdLA==
   dependencies:
-    tldts-core "^6.1.50"
+    tldts-core "^6.1.51"
 
 topojson-client@3.x:
   version "3.1.0"
