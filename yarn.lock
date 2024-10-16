@@ -1988,9 +1988,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 mapshaper@^0.6.79:
-  version "0.6.100"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.100.tgz#8897987b84609c85cf6835156eaadf5ea0d71f80"
-  integrity sha512-W6O2jXNJTFzQ987s1BBzOBhZFFbT2OYp16gEHblTcMzXUqD0USQyoioCIRClLipfCQpdAbvdxelbuzG83yaLuw==
+  version "0.6.101"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.101.tgz#33f884ddfeb5dce2b453b5620fd95519d6175554"
+  integrity sha512-HAeJfrYNO71Wz399LWV2rB6DIJdf4QMyP4CwqrtgOUnzsmZOgkameyvN2jGL9uakm3tgLo2mh8WflF7qBBg5Sg==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
