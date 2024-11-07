@@ -39,8 +39,11 @@
 ## 📳 Installation
 
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
-    <a href="https://f-droid.org/packages/net.helcel.beans/">
+    <!--<a href="https://f-droid.org/packages/net.helcel.beans/">
         <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" width="206">
+    </a>-->
+    <a href="https://apt.izzysoft.de/fdroid/index/apk/net.helcel.beans">
+        <img width="200" height="80" alt="Izzy Download" src=".github/images/izzy.png">
     </a>
     <a href="https://github.com/helcel-net/beans/releases/latest">
         <img width="200" height="84" alt="APK Download" src=".github/images/apk.png">
