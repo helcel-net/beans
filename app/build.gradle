@@ -78,6 +78,7 @@ android {
 aboutLibraries {
     exclusionPatterns = [~"androidx.*", ~"com.google.android.*", ~"org.jetbrains.*"]
     configPath = "config"
+    excludeFields = ["generated"]
 }
 
 dependencies {
