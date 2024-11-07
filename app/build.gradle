@@ -14,8 +14,8 @@ android {
         applicationId 'net.helcel.beans'
         minSdk 28
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0b"
     }
     signingConfigs {
         create("release") {
