@@ -1561,9 +1561,9 @@
   integrity sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==
 
 "@types/node@*":
-  version "24.0.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.6.tgz#d483f1407d022ef2a12118f7c02074ca218346c3"
-  integrity sha512-ZOyn+gOs749xU7ovp+Ibj0g1o3dFRqsfPnT22C2t5JzcRvgsEDpGawPbCISGKLudJk9Y0wiu9sYd6kUh0pc9TA==
+  version "24.0.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.0.7.tgz#ee580f7850c7eabaeef61ef96b8d8c04fdf94f53"
+  integrity sha512-YIEUUr4yf8q8oQoXPpSlnvKNVKDQlPMWrmOcgzoduo7kvA2UF0/BwJ/eMKFTiTtkNL17I0M6Xe2tvwFU7be6iw==
   dependencies:
     undici-types "~7.8.0"
 
@@ -2066,9 +2066,9 @@ lru-cache@^10.4.3:
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
 
 mapshaper@^0.6.79:
-  version "0.6.104"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.104.tgz#4486a34ac9308e8c97fa5b65492610a9803abb3c"
-  integrity sha512-L+qVqlnHYfZx8rPcIPyMKFEzghJW4Ev1SNqVWmFUsMRmcwsnT4yXYaAjihoO7V8I9V7ZiiFWlthPKJZmtpfDYA==
+  version "0.6.105"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.105.tgz#c049d50554e5851d020c927b32a1aec7a888bebb"
+  integrity sha512-xlvZv5In4m+ahLcBeCARpUiFXYVW+XKKyxsLPebET0W65ugT7P4DH0gydK1TMVq6kvIHDpx2o/U3ql58+K5NfQ==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
