@@ -77,9 +77,9 @@
   integrity sha512-pQaoQTBvDf7p7d/3ZHDaxWaU62guSYB9KQ6vvecshELunzpdN5tbgw0d+SVO1eYaTlrxX3Nvi7F9DI8FcoJePg==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.45.1"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.45.1.tgz#0d4c8d0b8f801902f0844a40a9d981a0179f4971"
-  integrity sha512-+E/lYl6qu1zqgPEnTrs4WysQtvc/Sh4fC2nByfFExqgYrqkKWp1tWIbe+ELhixnenSpBbLXNi6vbEEJ8M7fiHw==
+  version "4.45.3"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.45.3.tgz#d4137cdf72bc2cba7a9cdcab6a7d4f5cfa8b7f50"
+  integrity sha512-SUDXU5YabLAMl86FpupSQQEWzVG8X0HM+Q/famnJusbPiUgQnTGuSxtxg4UAYgv1ZmRV1nioYYXsgtSokU/7+Q==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
@@ -2072,9 +2072,9 @@ lru-cache@^10.4.3:
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
 
 mapshaper@^0.6.79:
-  version "0.6.106"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.106.tgz#789b75bd25ca4a495965e4e61170a5623851a176"
-  integrity sha512-hf2T5yycfLVnD7AMz5v+iSDs7h+ioUR3iKAN6oW69y9aclJXfOjjGdK8mCpu/7dLjj1r+QvQVANaaaCDJC98Tw==
+  version "0.6.107"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.107.tgz#b99ad54b18232cc3b541fe3f146e54f620635f17"
+  integrity sha512-ea0Y3h1fbvxGr71BM4e3e5tyJAjYElbnRr02mxUJbq0xObXW7+LirBsxLo2uS69z0k/sb0mMGiEn3eND9eDYog==
   dependencies:
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
