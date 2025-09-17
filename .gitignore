@@ -20,8 +20,6 @@ app/build/
 app/debug/
 app/release/
 captures/
-.externalNativeBuild
-.cxx
 local.properties
 keystore.properties
 key.jks

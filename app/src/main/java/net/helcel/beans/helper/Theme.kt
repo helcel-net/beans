@@ -1,23 +1,16 @@
 package net.helcel.beans.helper
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.TypedValue
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
+import androidx.core.graphics.drawable.toDrawable
 
 object Theme {
-    fun colorWrapper(ctx: Context, res: Int): ColorDrawable {
-        val colorPrimaryTyped = TypedValue()
-        ctx.theme.resolveAttribute(res, colorPrimaryTyped, true)
-        return ColorDrawable(colorPrimaryTyped.data)
-    }
 
     fun colorToHex6(c: ColorDrawable): String {
         return '#' + colorToHex8(c).substring(3)
@@ -26,11 +19,6 @@ object Theme {
     @OptIn(ExperimentalStdlibApi::class)
     fun colorToHex8(c: ColorDrawable): String {
         return '#' + c.color.toHexString()
-    }
-
-    fun createActionBar(ctx: AppCompatActivity, title: String) {
-        ctx.supportActionBar?.title = title
-        ctx.supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun getContrastColor(color: Int): Int {
@@ -43,7 +31,7 @@ object Theme {
         override val descriptor = PrimitiveSerialDescriptor("ColorDrawable", PrimitiveKind.INT)
 
         override fun deserialize(decoder: Decoder): ColorDrawable {
-            return ColorDrawable(decoder.decodeInt())
+            return decoder.decodeInt().toDrawable()
         }
 
         override fun serialize(encoder: Encoder, value: ColorDrawable) {

@@ -2,20 +2,23 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization' version '2.2.20'
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.2.20'
     id 'com.mikepenz.aboutlibraries.plugin' version '12.2.4'
 }
 
 
 android {
     namespace 'net.helcel.beans'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
+        buildConfigField("String", "APP_NAME", "\"Beans\"")
+        manifestPlaceholders["APP_NAME"] = "Beans"
         applicationId 'net.helcel.beans'
         minSdk 28
-        targetSdk 34
-        versionCode 2
-        versionName "1.0b"
+        targetSdk 36
+        versionCode 3
+        versionName "1.0c"
     }
     signingConfigs {
         create("release") {
@@ -54,17 +57,15 @@ android {
     compileOptions {
         coreLibraryDesugaringEnabled true
 
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
         encoding 'utf-8'
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17
     }
 
     buildFeatures {
         viewBinding true
+        compose true
+        buildConfig true
     }
 
     dependenciesInfo {
@@ -73,21 +74,43 @@ android {
         // Disables dependency metadata when building Android App Bundles.
         includeInBundle = false
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "2.2.20"
+    }
+
+    lint {
+        disable 'UsingMaterialAndMaterial3Libraries'
+    }
 
 }
 aboutLibraries {
-    exclusionPatterns = [~"androidx.*", ~"com.google.android.*", ~"org.jetbrains.*"]
-    configPath = "config"
+    library {
+        exclusionPatterns = [~"androidx.*", ~"com.google.android.*", ~"org.jetbrains.*"]
+    }
     excludeFields = ["generated"]
 }
 
 dependencies {
+    implementation 'androidx.compose.material3:material3:1.3.2'
+    implementation 'androidx.navigation:navigation-compose:2.9.4'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.1.5'
     implementation 'androidx.preference:preference-ktx:1.2.1'
+    implementation 'androidx.compose.ui:ui'
+    implementation "androidx.compose.material:material:1.9.1"
+    implementation "androidx.activity:activity-ktx:1.11.0"
+
+    implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'com.google.android.material:material:1.13.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0'
 
     implementation 'com.caverock:androidsvg-aar:1.4'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
     implementation 'com.mikepenz:aboutlibraries:12.2.4'
+    implementation 'com.mikepenz:aboutlibraries-compose-m3:12.2.4'
+    implementation 'com.mikepenz:aboutlibraries-core:12.2.4'
+
+
+    implementation platform('androidx.compose:compose-bom:2025.09.00')
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.9.1'
 }

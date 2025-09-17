@@ -2,15 +2,16 @@ package net.helcel.beans.helper
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.core.content.ContextCompat
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Serializer
 import kotlinx.serialization.json.Json
-import net.helcel.beans.R
 import java.io.InputStream
-import kotlin.coroutines.coroutineContext
 import kotlin.random.Random
+import androidx.core.graphics.drawable.toDrawable
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 
 private const val randSeed = 0
@@ -20,20 +21,23 @@ const val NO_GROUP = 0
 const val DEFAULT_GROUP = 1
 const val AUTO_GROUP = -1
 
+
+
 @Serializable
 class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
+    @kotlinx.serialization.Transient
+    private val _groupsFlow = MutableStateFlow<List<Group>>(grps.values.toList())
+    @kotlinx.serialization.Transient
+    val groupsFlow: StateFlow<List<Group>> = _groupsFlow.asStateFlow()
 
     fun setGroup(key: Int, name: String, col: ColorDrawable) {
         grps[key] = Group(key, name, col)
+        _groupsFlow.value = grps.values.toList()
     }
 
     fun deleteGroup(key: Int) {
         grps.remove(key)
-    }
-
-    fun deleteAllExcept(grp: Int) {
-        val keysToDelete = grps.keys.filter { it != grp }
-        keysToDelete.forEach { grps.remove(it) }
+        _groupsFlow.value = grps.values.toList()
     }
 
     fun getGroupFromKey(key: Int): Group {
@@ -60,6 +64,7 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
     }
 
     fun getGroupFromPos(pos: Int): Pair<Int, Group> {
+        if(grps.keys.isEmpty()) return Pair(NO_GROUP,Group(NO_GROUP,"-"))
         val key = grps.keys.toList()[pos]
         return Pair(key, getGroupFromKey(key))
     }
@@ -74,9 +79,7 @@ class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
     open class Group(
         val key: Int,
         val name: String,
-        @Serializable(with = Theme.ColorDrawableSerializer::class) val color: ColorDrawable = ColorDrawable(
-            Color.GRAY
-        )
+        @Serializable(with = Theme.ColorDrawableSerializer::class) val color: ColorDrawable = Color.GRAY.toDrawable()
     )
 
     @OptIn(ExperimentalSerializationApi::class)

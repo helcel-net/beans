@@ -4,19 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import net.helcel.beans.R
-import net.helcel.beans.activity.MainActivity
-import net.helcel.beans.activity.fragment.SettingsFragment
+import net.helcel.beans.activity.MainScreen
 
 object Settings {
 
     private lateinit var sp: SharedPreferences
-    private lateinit var mainActivity: MainActivity
-    fun start(ctx: MainActivity) {
+    private lateinit var mainActivity: MainScreen
+    fun start(ctx: MainScreen) {
         mainActivity = ctx
         sp = PreferenceManager.getDefaultSharedPreferences(ctx)
-        SettingsFragment.setTheme(
-            ctx, sp.getString(ctx.getString(R.string.key_theme), ctx.getString(R.string.system))
-        )
     }
 
     fun isSingleGroup(ctx: Context): Boolean {
@@ -41,7 +37,7 @@ object Settings {
     }
 
     fun refreshProjection(): Boolean {
-        mainActivity.refreshProjection()
+        (mainActivity).refreshProjection()
         return true
     }
 

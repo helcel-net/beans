@@ -7,8 +7,8 @@ enum class Country(
     ATA("Antarctica", 14000000),
 
     //    HKG("Hong Kong", 1104),
-//    MAC("Macao", 32),
-//    ANT("Netherlands Antilles", 800),
+    //    MAC("Macao", 32),
+    //    ANT("Netherlands Antilles", 800),
     AFG("Afghanistan", 645487),
     XAD("Akrotiri and Dhekelia", 234),
     ALA("Åland", 1483),

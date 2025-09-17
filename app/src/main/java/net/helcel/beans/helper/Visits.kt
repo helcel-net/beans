@@ -1,5 +1,7 @@
 package net.helcel.beans.helper
 
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Serializer
@@ -11,9 +13,17 @@ import java.io.InputStream
 @Serializable
 class Visits(val id: Int, private val locs: HashMap<String, Int>) {
 
+    @kotlinx.serialization.Transient
+    private val _visitsFlow = MutableStateFlow<Map<String,Int>>(locs.toMutableMap())
+    @kotlinx.serialization.Transient
+    val visitsFlow: StateFlow<Map<String,Int>> = _visitsFlow
+
     fun setVisited(key: GeoLoc?, b: Int) {
         if (key == null)
             return
+        _visitsFlow.value = _visitsFlow.value.toMutableMap().apply {
+            this[key.code] = b
+        }
         locs[key.code] = b
     }
 
@@ -21,6 +31,9 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
         val keysToDelete = locs
             .filter { it.value == key }
             .map { it.key }
+        _visitsFlow.value = _visitsFlow.value.toMutableMap().apply {
+            keysToDelete.forEach { this.remove(it)}
+        }
         keysToDelete.forEach {
             locs.remove(it)
         }
@@ -53,6 +66,7 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
         keys.forEach {
             locs[it] = group
         }
+        _visitsFlow.value = locs
     }
 
     @OptIn(ExperimentalSerializationApi::class)
