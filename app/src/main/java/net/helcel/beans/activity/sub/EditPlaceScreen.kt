@@ -16,8 +16,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.Tab
+import androidx.compose.material.TabRow
 import androidx.compose.material.Text
 import androidx.compose.material.TriStateCheckbox
 import androidx.compose.runtime.Composable
@@ -111,21 +111,21 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
 
     Column {
         val currentTab = tabs.getOrNull(selectedTab) ?: return@Column
-
-        ScrollableTabRow(
-            selectedTabIndex = min(tabs.lastIndex,selectedTab)
-        ) {
-            tabs.forEachIndexed { index, tab ->
-                Tab(
-                    selected = selectedTab == index,
-                    onClick = {
-                        while (tabs.size > index + 1)
-                            tabs.removeAt(tabs.lastIndex)
-                    },
-                    text = { Text(tab.fullName) }
-                )
+            TabRow(
+                selectedTabIndex = min(tabs.lastIndex, selectedTab),
+            ) {
+                tabs.forEachIndexed { index, tab ->
+                    Tab(
+                        selected = selectedTab == index,
+                        onClick = {
+                            while (tabs.size > index + 1)
+                                tabs.removeAt(tabs.lastIndex)
+                        },
+                        text = { Text(tab.fullName) }
+                    )
+                }
             }
-        }
+
 
         LazyColumn(
             modifier = Modifier.fillMaxSize()
