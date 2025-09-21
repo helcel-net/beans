@@ -78,6 +78,10 @@ android {
         kotlinCompilerExtensionVersion = "2.2.20"
     }
 
+    kotlin {
+        jvmToolchain(21)
+    }
+
     lint {
         disable 'UsingMaterialAndMaterial3Libraries'
     }
