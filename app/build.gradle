@@ -115,6 +115,6 @@ dependencies {
     implementation 'com.mikepenz:aboutlibraries-core:12.2.4'
 
 
-    implementation platform('androidx.compose:compose-bom:2025.09.00')
+    implementation platform('androidx.compose:compose-bom:2025.09.01')
     debugImplementation 'androidx.compose.ui:ui-tooling:1.9.1'
 }
