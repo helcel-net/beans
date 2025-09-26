@@ -116,5 +116,5 @@ dependencies {
 
 
     implementation platform('androidx.compose:compose-bom:2025.09.01')
-    debugImplementation 'androidx.compose.ui:ui-tooling:1.9.1'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.9.2'
 }
