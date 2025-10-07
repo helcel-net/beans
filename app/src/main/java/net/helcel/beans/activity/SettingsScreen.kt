@@ -118,9 +118,10 @@ fun settingsNav(): NavHostController {
     return navController
 }
 
+@Preview
 @Composable
 fun SettingsMainScreen(onExit: ()->Unit = {}) {
-    var nav: NavHostController? = null
+    val nav: NavHostController = settingsNav()
     SysTheme {
         Scaffold(
             topBar = {
@@ -128,7 +129,7 @@ fun SettingsMainScreen(onExit: ()->Unit = {}) {
                     title = { Text(stringResource(R.string.action_settings)) },
                     navigationIcon = {
                         IconButton(onClick = {
-                            if(nav!=null && !nav!!.popBackStack())
+                            if(!nav.popBackStack())
                                 onExit()
                         }) {
                             Icon(
@@ -141,13 +142,12 @@ fun SettingsMainScreen(onExit: ()->Unit = {}) {
             }
         ) { innerPadding ->
             Box(modifier = Modifier.padding(innerPadding)) {
-                nav = settingsNav()
+                SettingsScreen()
             }
         }
     }
 }
 
-@Preview
 @Composable
 fun SettingsScreen(navController: NavHostController = settingsNav()) {
     val context = LocalContext.current

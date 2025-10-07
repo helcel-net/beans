@@ -18,6 +18,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Percent
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -82,7 +83,7 @@ class MainScreen : ComponentActivity() {
                                 Icon(Icons.Default.Edit, contentDescription = "Edit")
                             }
                             IconButton(onClick = {  nav.navigate("stats") }){
-                                Icon(Icons.Default.DateRange, contentDescription = "Stats")
+                                Icon(Icons.Default.Percent, contentDescription = "Stats")
                             }
                             IconButton(onClick = { nav.navigate("settings") }) {
                                 Icon(Icons.Default.Settings, contentDescription = "Settings")
