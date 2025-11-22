@@ -8,15 +8,15 @@
   integrity sha512-2kJ1HxBKzPLbmhZpxBiTZggjtgCwKg1ma5RHShxvd6zgqhDEdEkzpiwe7jLkI2p2BrZvFCXIihdoMkl1H39VnA==
 
 "@asamuzakjp/css-color@^4.0.3":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@asamuzakjp/css-color/-/css-color-4.0.5.tgz#cc533095241d8a56c49614591955280ab8c4bb02"
-  integrity sha512-lMrXidNhPGsDjytDy11Vwlb6OIGrT3CmLg3VWNFyWkLWtijKl7xjvForlh8vuj0SHGjgl4qZEQzUmYTeQA2JFQ==
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@asamuzakjp/css-color/-/css-color-4.1.0.tgz#4c8c6f48ed2e5c1ad9cc1aa23c80d665e56dd458"
+  integrity sha512-9xiBAtLn4aNsa4mDnpovJvBn72tNEIACyvlqaNJ+ADemR+yeMJWnBudOi2qGDviJa7SwcDOU/TRh5dnET7qk0w==
   dependencies:
     "@csstools/css-calc" "^2.1.4"
     "@csstools/css-color-parser" "^3.1.0"
     "@csstools/css-parser-algorithms" "^3.0.5"
     "@csstools/css-tokenizer" "^3.0.4"
-    lru-cache "^11.2.1"
+    lru-cache "^11.2.2"
 
 "@asamuzakjp/dom-selector@^6.7.4":
   version "6.7.4"
@@ -58,9 +58,9 @@
   integrity sha512-DaDeUkXZKjdGhgYaHNJTV9pV7Y9B3b644jCLs9Upc3VeNGg6LWARAT6O+Q+/COo+2gg/bM5rhpMAtf70WqfBdQ==
 
 "@csstools/css-syntax-patches-for-csstree@^1.0.14":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@csstools/css-syntax-patches-for-csstree/-/css-syntax-patches-for-csstree-1.0.16.tgz#327f24b8cc2583565f8d60df16e682b8fa0e9a70"
-  integrity sha512-2SpS4/UaWQaGpBINyG5ZuCHnUDeVByOhvbkARwfmnfxDvTaj80yOI1cD8Tw93ICV5Fx4fnyDKWQZI1CDtcWyUg==
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/@csstools/css-syntax-patches-for-csstree/-/css-syntax-patches-for-csstree-1.0.17.tgz#307685b5204cdf9fc029a5850a94edd3a8dc100f"
+  integrity sha512-LCC++2h8pLUSPY+EsZmrrJ1EOUu+5iClpEiDhhdw3zRJpPbABML/N5lmRuBHjxtKm9VnRcsUzioyD0sekFMF0A==
 
 "@csstools/css-tokenizer@^3.0.4":
   version "3.0.4"
@@ -103,9 +103,9 @@
   integrity sha512-pQaoQTBvDf7p7d/3ZHDaxWaU62guSYB9KQ6vvecshELunzpdN5tbgw0d+SVO1eYaTlrxX3Nvi7F9DI8FcoJePg==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.53.2"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.53.2.tgz#42c3b8c94e9de37bd103cb2e26fb715118ef6459"
-  integrity sha512-yo8d6tdfdeBArzC7T/PnHd7OypfI9cbuZzPnzLJIyKYFhAQ8SvlkKtKBMbXDxe1h03Rcr7u++nFS7tqXz87Gtw==
+  version "4.53.3"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.53.3.tgz#fd0dea3bb9aa07e7083579f25e1c2285a46cb9fa"
+  integrity sha512-3EhFi1FU6YL8HTUJZ51imGJWEX//ajQPfqWLI3BQq4TlvHy4X0MOr5q3D2Zof/ka0d5FNdPwZXm3Yyib/UEd+w==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
@@ -2110,7 +2110,7 @@ keygrip@~1.1.0:
   dependencies:
     tsscmp "1.0.6"
 
-lru-cache@^11.2.1, lru-cache@^11.2.2:
+lru-cache@^11.2.2:
   version "11.2.2"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.2.2.tgz#40fd37edffcfae4b2940379c0722dc6eeaa75f24"
   integrity sha512-F9ODfyqML2coTIsQpSkRHnLSZMtkU8Q+mSfcaIyKwy58u+8k5nvAYeiNhsyMARvzNcXJ9QfWVrcPsC9e9rAxtg==
@@ -2474,17 +2474,17 @@ tinyqueue@^2.0.0, tinyqueue@^2.0.3:
   resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-2.0.3.tgz#64d8492ebf39e7801d7bd34062e29b45b2035f08"
   integrity sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA==
 
-tldts-core@^7.0.17:
-  version "7.0.17"
-  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-7.0.17.tgz#dadfee3750dd272ed219d7367beb7cbb2ff29eb8"
-  integrity sha512-DieYoGrP78PWKsrXr8MZwtQ7GLCUeLxihtjC1jZsW1DnvSMdKPitJSe8OSYDM2u5H6g3kWJZpePqkp43TfLh0g==
+tldts-core@^7.0.18:
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-7.0.18.tgz#78edfd38e8c35e20fb4d2cde63c759139e169d31"
+  integrity sha512-jqJC13oP4FFAahv4JT/0WTDrCF9Okv7lpKtOZUGPLiAnNbACcSg8Y8T+Z9xthOmRBqi/Sob4yi0TE0miRCvF7Q==
 
 tldts@^7.0.5:
-  version "7.0.17"
-  resolved "https://registry.yarnpkg.com/tldts/-/tldts-7.0.17.tgz#a6cdc067b9e80ea05f3be471c0ea410688cc78b2"
-  integrity sha512-Y1KQBgDd/NUc+LfOtKS6mNsC9CCaH+m2P1RoIZy7RAPo3C3/t8X45+zgut31cRZtZ3xKPjfn3TkGTrctC2TQIQ==
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/tldts/-/tldts-7.0.18.tgz#72cac7a2bdb6bba78f8a09fdf7ef84843b09aa94"
+  integrity sha512-lCcgTAgMxQ1JKOWrVGo6E69Ukbnx4Gc1wiYLRf6J5NN4HRYJtCby1rPF8rkQ4a6qqoFBK5dvjJ1zJ0F7VfDSvw==
   dependencies:
-    tldts-core "^7.0.17"
+    tldts-core "^7.0.18"
 
 topojson-client@3.x:
   version "3.1.0"
