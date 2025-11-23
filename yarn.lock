@@ -3,9 +3,9 @@
 
 
 "@acemir/cssom@^0.9.23":
-  version "0.9.23"
-  resolved "https://registry.yarnpkg.com/@acemir/cssom/-/cssom-0.9.23.tgz#9930458ccace533c597e1cd90c200edc336ed80a"
-  integrity sha512-2kJ1HxBKzPLbmhZpxBiTZggjtgCwKg1ma5RHShxvd6zgqhDEdEkzpiwe7jLkI2p2BrZvFCXIihdoMkl1H39VnA==
+  version "0.9.24"
+  resolved "https://registry.yarnpkg.com/@acemir/cssom/-/cssom-0.9.24.tgz#1917a2d9f307e247831415cc7c5ac987e670b645"
+  integrity sha512-5YjgMmAiT2rjJZU7XK1SNI7iqTy92DpaYVgG6x63FxkJ11UpYfLndHJATtinWJClAXiOlW9XWaUyAQf8pMrQPg==
 
 "@asamuzakjp/css-color@^4.0.3":
   version "4.1.0"
@@ -2474,17 +2474,17 @@ tinyqueue@^2.0.0, tinyqueue@^2.0.3:
   resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-2.0.3.tgz#64d8492ebf39e7801d7bd34062e29b45b2035f08"
   integrity sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA==
 
-tldts-core@^7.0.18:
-  version "7.0.18"
-  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-7.0.18.tgz#78edfd38e8c35e20fb4d2cde63c759139e169d31"
-  integrity sha512-jqJC13oP4FFAahv4JT/0WTDrCF9Okv7lpKtOZUGPLiAnNbACcSg8Y8T+Z9xthOmRBqi/Sob4yi0TE0miRCvF7Q==
+tldts-core@^7.0.19:
+  version "7.0.19"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-7.0.19.tgz#9dd8a457a09b4e65c8266c029f1847fa78dead20"
+  integrity sha512-lJX2dEWx0SGH4O6p+7FPwYmJ/bu1JbcGJ8RLaG9b7liIgZ85itUVEPbMtWRVrde/0fnDPEPHW10ZsKW3kVsE9A==
 
 tldts@^7.0.5:
-  version "7.0.18"
-  resolved "https://registry.yarnpkg.com/tldts/-/tldts-7.0.18.tgz#72cac7a2bdb6bba78f8a09fdf7ef84843b09aa94"
-  integrity sha512-lCcgTAgMxQ1JKOWrVGo6E69Ukbnx4Gc1wiYLRf6J5NN4HRYJtCby1rPF8rkQ4a6qqoFBK5dvjJ1zJ0F7VfDSvw==
+  version "7.0.19"
+  resolved "https://registry.yarnpkg.com/tldts/-/tldts-7.0.19.tgz#84cd7a7f04e68ec93b93b106fac038c527b99368"
+  integrity sha512-8PWx8tvC4jDB39BQw1m4x8y5MH1BcQ5xHeL2n7UVFulMPH/3Q0uiamahFJ3lXA0zO2SUyRXuVVbWSDmstlt9YA==
   dependencies:
-    tldts-core "^7.0.18"
+    tldts-core "^7.0.19"
 
 topojson-client@3.x:
   version "3.1.0"
