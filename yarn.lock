@@ -3,9 +3,9 @@
 
 
 "@acemir/cssom@^0.9.23":
-  version "0.9.24"
-  resolved "https://registry.yarnpkg.com/@acemir/cssom/-/cssom-0.9.24.tgz#1917a2d9f307e247831415cc7c5ac987e670b645"
-  integrity sha512-5YjgMmAiT2rjJZU7XK1SNI7iqTy92DpaYVgG6x63FxkJ11UpYfLndHJATtinWJClAXiOlW9XWaUyAQf8pMrQPg==
+  version "0.9.26"
+  resolved "https://registry.yarnpkg.com/@acemir/cssom/-/cssom-0.9.26.tgz#8796d4d8401820fee140b0e84f13bb5757b5e749"
+  integrity sha512-UMFbL3EnWH/eTvl21dz9s7Td4wYDMtxz/56zD8sL9IZGYyi48RxmdgPMiyT7R6Vn3rjMTwYZ42bqKa7ex74GEQ==
 
 "@asamuzakjp/css-color@^4.0.3":
   version "4.1.0"
@@ -19,9 +19,9 @@
     lru-cache "^11.2.2"
 
 "@asamuzakjp/dom-selector@^6.7.4":
-  version "6.7.4"
-  resolved "https://registry.yarnpkg.com/@asamuzakjp/dom-selector/-/dom-selector-6.7.4.tgz#1b7cafe7793e399f9291de2689fdd2efc01838dd"
-  integrity sha512-buQDjkm+wDPXd6c13534URWZqbz0RP5PAhXZ+LIoa5LgwInT9HVJvGIJivg75vi8I13CxDGdTnz+aY5YUJlIAA==
+  version "6.7.5"
+  resolved "https://registry.yarnpkg.com/@asamuzakjp/dom-selector/-/dom-selector-6.7.5.tgz#aedff82baafcc7b2d1b3e7bce4459937e4ce550e"
+  integrity sha512-Eks6dY8zau4m4wNRQjRVaKQRTalNcPcBvU1ZQ35w5kKRk1gUeNCkVLsRiATurjASTp3TKM4H10wsI50nx3NZdw==
   dependencies:
     "@asamuzakjp/nwsapi" "^2.3.9"
     bidi-js "^1.0.3"
@@ -2111,9 +2111,9 @@ keygrip@~1.1.0:
     tsscmp "1.0.6"
 
 lru-cache@^11.2.2:
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.2.2.tgz#40fd37edffcfae4b2940379c0722dc6eeaa75f24"
-  integrity sha512-F9ODfyqML2coTIsQpSkRHnLSZMtkU8Q+mSfcaIyKwy58u+8k5nvAYeiNhsyMARvzNcXJ9QfWVrcPsC9e9rAxtg==
+  version "11.2.4"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.2.4.tgz#ecb523ebb0e6f4d837c807ad1abaea8e0619770d"
+  integrity sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg==
 
 mapshaper@^0.6.79:
   version "0.6.113"
