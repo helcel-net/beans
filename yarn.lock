@@ -142,13 +142,23 @@
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
-"@turf/area@7.3.1", "@turf/area@^7.0.0":
+"@turf/area@7.3.1":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@turf/area/-/area-7.3.1.tgz#30d615e77adf2a56091947eb74d3565a3d0cdd5b"
   integrity sha512-9nSiwt4zB5QDMcSoTxF28WpK1f741MNKcpUJDiHVRX08CZ4qfGWGV9ZIPQ8TVEn5RE4LyYkFuQ47Z9pdEUZE9Q==
   dependencies:
     "@turf/helpers" "7.3.1"
     "@turf/meta" "7.3.1"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/area@^7.0.0":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@turf/area/-/area-7.3.2.tgz#7e6e736cfa527114dbb3682e4d1086139757dd65"
+  integrity sha512-d7IuEjAO3TSX5aVeL5WXrtCZCwxUAUOD4+LZ+VjoEe2THmYKdUknCPbH6rdhMBzLyZNuSVRmpRD/QfpCnLqoZg==
+  dependencies:
+    "@turf/helpers" "7.3.2"
+    "@turf/meta" "7.3.2"
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
@@ -698,6 +708,14 @@
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
+"@turf/helpers@7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-7.3.2.tgz#deb2a1a5bb84d8db78571bc89ca8b75586e31ed7"
+  integrity sha512-5HFN42rgWjSobdTMxbuq+ZdXPcqp1IbMgFYULTLCplEQM3dXhsyRFe7DCss4Eiw12iW3q6Z5UeTNVfITsE5lgA==
+  dependencies:
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
 "@turf/hex-grid@7.3.1":
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@turf/hex-grid/-/hex-grid-7.3.1.tgz#011aa9c98d7ca79ff94baa44ea6572b9c08ebae0"
@@ -938,6 +956,15 @@
   dependencies:
     "@turf/helpers" "7.3.1"
     "@types/geojson" "^7946.0.10"
+
+"@turf/meta@7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-7.3.2.tgz#e31320bf0602692664291b827eb6eb7344430a45"
+  integrity sha512-FIcIY+ZsAe9QV4fHciTXeuRz2TKIVaEjivkl4vMFCibdj7FUkWDofqOncbIre1xPrgktQeh20ZrmD+p0kf3n4Q==
+  dependencies:
+    "@turf/helpers" "7.3.2"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
 
 "@turf/midpoint@7.3.1":
   version "7.3.1"
