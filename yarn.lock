@@ -142,13 +142,23 @@
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
-"@turf/area@7.3.2", "@turf/area@^7.0.0":
+"@turf/area@7.3.2":
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/@turf/area/-/area-7.3.2.tgz#7e6e736cfa527114dbb3682e4d1086139757dd65"
   integrity sha512-d7IuEjAO3TSX5aVeL5WXrtCZCwxUAUOD4+LZ+VjoEe2THmYKdUknCPbH6rdhMBzLyZNuSVRmpRD/QfpCnLqoZg==
   dependencies:
     "@turf/helpers" "7.3.2"
     "@turf/meta" "7.3.2"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/area@^7.0.0":
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/@turf/area/-/area-7.3.3.tgz#ad14ae9a171514e41b40b298094fdbddb62af6af"
+  integrity sha512-FT66TCxUec+3RsCCyO1kWP57/tiEWEqYfpIs5n44dup401Cne/E+xunahEWxMfP/HSUxfcRQqrjH5vEulLrNoA==
+  dependencies:
+    "@turf/helpers" "7.3.3"
+    "@turf/meta" "7.3.3"
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
@@ -705,6 +715,14 @@
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
+"@turf/helpers@7.3.3":
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-7.3.3.tgz#7fc3c4241464be3a854d8289fe2096221d9b7165"
+  integrity sha512-9Ias0L1GuZPIzO6sk8jraTEuLJye6n9LYNEdw69ZGOQ6C1IigjxkPW49zmn21aTv1z27vxdVLSS3r+78DB2QnQ==
+  dependencies:
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
 "@turf/hex-grid@7.3.2":
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/@turf/hex-grid/-/hex-grid-7.3.2.tgz#f520899b3669d283cdb4539eddb593a6746b017c"
@@ -950,6 +968,15 @@
   integrity sha512-FIcIY+ZsAe9QV4fHciTXeuRz2TKIVaEjivkl4vMFCibdj7FUkWDofqOncbIre1xPrgktQeh20ZrmD+p0kf3n4Q==
   dependencies:
     "@turf/helpers" "7.3.2"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/meta@7.3.3":
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-7.3.3.tgz#0080c026f2c4247f2dcb50dfb2b477aeaf14b590"
+  integrity sha512-Tz1j4h70iFB5SebWWoVv/uL59x4aOngXU+d1xQDXzOCn/O6txnreGVGMcYU362c5F06yqZx38H9UFTQ553lK0w==
+  dependencies:
+    "@turf/helpers" "7.3.3"
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
