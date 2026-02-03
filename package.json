@@ -2,7 +2,7 @@
   "dependencies": {
     "@turf/area": "^7.0.0",
     "@turf/turf": "^7.0.0",
-    "jsdom": "^27.0.0",
+    "jsdom": "^28.0.0",
     "mapshaper": "^0.6.79"
   },
   "type": "module"
