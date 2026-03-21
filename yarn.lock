@@ -105,9 +105,9 @@
   integrity sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==
 
 "@placemarkio/tokml@^0.3.3":
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/@placemarkio/tokml/-/tokml-0.3.7.tgz#c4d38a184028a7bbcedfd61987a45928b58c2c43"
-  integrity sha512-pQaoQTBvDf7p7d/3ZHDaxWaU62guSYB9KQ6vvecshELunzpdN5tbgw0d+SVO1eYaTlrxX3Nvi7F9DI8FcoJePg==
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@placemarkio/tokml/-/tokml-0.3.9.tgz#1e561a40b31ec6d85ff50a8586cf19646bc8f2e5"
+  integrity sha512-LjD/rzPWF/0gY2tCoS4IPLQZ3/DqxzCmI3/V+dmXdWuZmyi3UIhHgxVfJ//bopxSjWHuGwY/qu4iyuNM+xluug==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
   version "4.59.0"
