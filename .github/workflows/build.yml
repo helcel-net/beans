@@ -32,7 +32,6 @@ jobs:
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" --batch keystore.asc > app/keystore.properties
           gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" --batch key.asc > app/key.jks          
 
-      - uses: gradle/actions/wrapper-validation@v3
 
       - name: create and checkout branch
         if: github.event_name == 'pull_request'
@@ -45,7 +44,9 @@ jobs:
         with:
           java-version: 17
           distribution: "temurin"
-          cache: 'gradle'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build APK
         run: ./gradlew assembleSignedRelease
