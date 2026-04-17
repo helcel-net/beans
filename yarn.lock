@@ -2750,9 +2750,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.6.79:
-  version "0.6.117"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.117.tgz#95a45d02e75b95b5911454ddd1e8d4a6d5cfde03"
-  integrity sha512-ARSL7QOBe2j+SS/bXRlozlBgi2UOVJjm+aE0cIF10CjXB05qsrhDIy9RR9UlFGzRzJAPi9vkxGQUfCkArAN2Yw==
+  version "0.6.118"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.118.tgz#d71834f55d2a2a3fb3990cb6eb092dd7f3e97fcc"
+  integrity sha512-rjhb6V/dMBnxH79qt8DIsok/6zV7fZx3EURZUS8IMj57mefz+UYG6Z+2cdmqPu0Ark2QsRuQ9qdp8xOvQkBFhg==
   dependencies:
     "@ngageoint/geopackage" "^4.2.6"
     "@placemarkio/tokml" "^0.3.3"
