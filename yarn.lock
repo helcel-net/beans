@@ -2560,9 +2560,9 @@ has-tostringtag@^1.0.2:
     has-symbols "^1.0.3"
 
 hasown@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/hasown/-/hasown-2.0.2.tgz#003eaf91be7adc372e84ec59dc37252cedb80003"
-  integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/hasown/-/hasown-2.0.3.tgz#5e5c2b15b60370a4c7930c383dfb76bf17bc403c"
+  integrity sha512-ej4AhfhfL2Q2zpMmLo7U1Uv9+PyhIZpgQLGT1F9miIGmiCJIoCgSmczFdrc97mWT4kVY72KA+WnnhJ5pghSvSg==
   dependencies:
     function-bind "^1.1.2"
 
@@ -2750,9 +2750,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.6.79:
-  version "0.6.118"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.118.tgz#d71834f55d2a2a3fb3990cb6eb092dd7f3e97fcc"
-  integrity sha512-rjhb6V/dMBnxH79qt8DIsok/6zV7fZx3EURZUS8IMj57mefz+UYG6Z+2cdmqPu0Ark2QsRuQ9qdp8xOvQkBFhg==
+  version "0.6.119"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.6.119.tgz#272434d7c7a579c3b5ec17db9fac322eddc09e76"
+  integrity sha512-svY7eBiNRiSjfAZ7WQDt6ZjJUvrxduMNwlzqfwf3GvHSYATCkzSysDRrRaZSgqGUpQmj8hkx6MlfMOBQzcjPMA==
   dependencies:
     "@ngageoint/geopackage" "^4.2.6"
     "@placemarkio/tokml" "^0.3.3"
