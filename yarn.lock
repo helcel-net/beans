@@ -234,13 +234,13 @@
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
-"@turf/bbox@*", "@turf/bbox@7.3.4":
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-7.3.4.tgz#75673871c2d7e086bef085cce7b1daa4bed66aae"
-  integrity sha512-D5ErVWtfQbEPh11yzI69uxqrcJmbPU/9Y59f1uTapgwAwQHQztDWgsYpnL3ns8r1GmPWLP8sGJLVTIk2TZSiYA==
+"@turf/bbox@*":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-7.3.5.tgz#bf93e0a81aa98ca8809bea1bfa6cdfd03ce2470a"
+  integrity sha512-oG1ya/HtBjAIg4TimbWx+nOYPbY0bCvt82Bq8tm6sBw3qqtbOyRSfDz79Sq90TnH7DXJprJ1qnVGKNtZ6jemfw==
   dependencies:
-    "@turf/helpers" "7.3.4"
-    "@turf/meta" "7.3.4"
+    "@turf/helpers" "7.3.5"
+    "@turf/meta" "7.3.5"
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
@@ -251,6 +251,16 @@
   dependencies:
     "@turf/helpers" "^6.3.0"
     "@turf/meta" "^6.3.0"
+
+"@turf/bbox@7.3.4":
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-7.3.4.tgz#75673871c2d7e086bef085cce7b1daa4bed66aae"
+  integrity sha512-D5ErVWtfQbEPh11yzI69uxqrcJmbPU/9Y59f1uTapgwAwQHQztDWgsYpnL3ns8r1GmPWLP8sGJLVTIk2TZSiYA==
+  dependencies:
+    "@turf/helpers" "7.3.4"
+    "@turf/meta" "7.3.4"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
 
 "@turf/bbox@^6.5.0":
   version "6.5.0"
@@ -2784,9 +2794,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.0.tgz#b6359ca6a3658ab0beab974874e33624cda813f0"
-  integrity sha512-+WRW+qYw1BPXKu4UuE4RSFxJ+qNOzh1oQ8saWkcI9zFc+hrDlYtI115iEo/wdWbCyds0AB9oGUJRla+n4U51KA==
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.1.tgz#206eed11b0006ad8472c167b95764c0b822441d5"
+  integrity sha512-S/r3KiPH/nR8YcGWxV/aNAa+b5V+/gj8120Q17V+VfZ56LGLFiBprRmGKPWde+FDmtRCW0oPrtZLNnfbMXKfuw==
   dependencies:
     "@ngageoint/geopackage" "^4.2.6"
     "@placemarkio/tokml" "^0.3.3"
@@ -3721,9 +3731,9 @@ xmlchars@^2.2.0:
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
 zarrita@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/zarrita/-/zarrita-0.7.1.tgz#f839a9884583e366b3900076399d5be3f448edac"
-  integrity sha512-Nu4liRKJES1kkIjWALXSryglJf2+WJURUxgndklfX+mTBCd0lk4MV797p00lt4NzmU3Bbdbs10uxeN8LWwPyWA==
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/zarrita/-/zarrita-0.7.2.tgz#b197a9ba96447f24b24b38a7273e6cd80b96b760"
+  integrity sha512-BHP+Z+yemkl9pOogkO1XMOrJ5qI4RNqrmheqJeYtIhpiaW4uvqplYx/jGkMD6edQjIZRQhniFigJZE2oTh7dwQ==
   dependencies:
     "@zarrita/storage" "^0.2.0"
     numcodecs "^0.3.2"
