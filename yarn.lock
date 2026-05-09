@@ -34,6 +34,11 @@
   resolved "https://registry.yarnpkg.com/@asamuzakjp/nwsapi/-/nwsapi-2.3.9.tgz#ad5549322dfe9d153d4b4dd6f7ff2ae234b06e24"
   integrity sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==
 
+"@bokuweb/zstd-wasm@^0.0.27":
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/@bokuweb/zstd-wasm/-/zstd-wasm-0.0.27.tgz#89d8ed8c37528c4b9d11f47826b9f603346dfc4c"
+  integrity sha512-GDm2uOTK3ESjnYmSeLQifJnBsRCWajKLvN32D2ZcQaaCIJI/Hse9s74f7APXjHit95S10UImsRGkTsbwHmrtmg==
+
 "@bramus/specificity@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@bramus/specificity/-/specificity-2.4.2.tgz#aa8db8eb173fdee7324f82284833106adeecc648"
@@ -2607,10 +2612,11 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.0:
-  version "0.7.10"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.10.tgz#e0208c7682ecf43bf44f43f780a61f788547445a"
-  integrity sha512-VoFQ0gpgb+HcM+22WlM/v5N/Voie4MonpDelkF83qDfaqalCmJSz0JFHJqQAVlVljQjAcoB+T2zQXqC2lsZSqg==
+  version "0.7.12"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.12.tgz#240aaf01eb1759a09a66383e9b8096fbe3d4e2f5"
+  integrity sha512-HbnuOG+a7sY2p7zcZJ33nQYaFKOCUSMVfwwGuZf4tKQ9z2dVVHl4j1wjFrquEhZ0MCQDfi1xzJIfE4qxbP/yCA==
   dependencies:
+    "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
     "@placemarkio/tokml" "^0.3.3"
     "@tmcw/togeojson" "^5.6.0"
@@ -2639,7 +2645,6 @@ mapshaper@^0.7.0:
     open "^11.0.0"
     rw "~1.3.3"
     tinyqueue "^2.0.3"
-    zstd-codec "^0.1.5"
   optionalDependencies:
     "@rollup/rollup-linux-x64-gnu" "^4.44.1"
 
@@ -3078,9 +3083,9 @@ saxes@^6.0.0:
     xmlchars "^2.2.0"
 
 semver@^7.3.5:
-  version "7.7.4"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.4.tgz#28464e36060e991fa7a11d0279d2d3f3b57a7e8a"
-  integrity sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.0.tgz#ed0661039fcbcda2ce71f01fa6adbefaa77040df"
+  integrity sha512-AcM7dV/5ul4EekoQ29Agm5vri8JNqRyj39o0qpX6vDF2GZrtutZl5RwgD1XnZjiTAfncsJhMI48QQH3sN87YNA==
 
 signal-exit@^3.0.2:
   version "3.0.7"
@@ -3427,11 +3432,6 @@ zarrita@^0.7.1:
   dependencies:
     "@zarrita/storage" "^0.2.0"
     numcodecs "^0.3.2"
-
-zstd-codec@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/zstd-codec/-/zstd-codec-0.1.5.tgz#c180193e4603ef74ddf704bcc835397d30a60e42"
-  integrity sha512-v3fyjpK8S/dpY/X5WxqTK3IoCnp/ZOLxn144GZVlNUjtwAchzrVo03h+oMATFhCIiJ5KTr4V3vDQQYz4RU684g==
 
 zstddec@^0.2.0:
   version "0.2.0"
