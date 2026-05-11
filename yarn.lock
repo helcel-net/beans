@@ -2433,10 +2433,15 @@ hyparquet-writer@^0.14.0:
   dependencies:
     hyparquet "1.25.6"
 
-hyparquet@1.25.6, hyparquet@^1.25.6:
+hyparquet@1.25.6:
   version "1.25.6"
   resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.25.6.tgz#e4f4eb0589b1e4725d99987ff9048951d562aa69"
   integrity sha512-Q9W5IjkVch3ZMnYd4qFv2q8suu5Jc36yt7J+zUNM9grwnP1S189icp0jdEQKM5HJvQkTVy8NMiQ8n/dM5QAt1A==
+
+hyparquet@^1.25.6:
+  version "1.25.8"
+  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.25.8.tgz#9d81d9b8aea1347de3701ca619fe2e1def8dcf10"
+  integrity sha512-KYRKZCHBgEY9FOuqTe9m+zdrKBcTo9ZcaIUqG7SdZygv5hwrGD3C6wuTrGt07cbEkgO71UIih+KbojLKf3ENbg==
 
 hysnappy@1.0.0:
   version "1.0.0"
@@ -2612,9 +2617,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.0:
-  version "0.7.12"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.12.tgz#240aaf01eb1759a09a66383e9b8096fbe3d4e2f5"
-  integrity sha512-HbnuOG+a7sY2p7zcZJ33nQYaFKOCUSMVfwwGuZf4tKQ9z2dVVHl4j1wjFrquEhZ0MCQDfi1xzJIfE4qxbP/yCA==
+  version "0.7.13"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.13.tgz#d2142d7149247ccc813744ee4fb2414f09a996c9"
+  integrity sha512-kTktVqt6art7lc+dJwrx3QsV9D5LJO4wXHOqYa8maToBMI8en5FbfvVfjC/T3AGs5E503Lx8Q0UD0LAFPVPbBA==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
