@@ -1849,11 +1849,11 @@
   integrity sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==
 
 "@types/node@*":
-  version "25.6.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.6.2.tgz#8c491201373690e4ef2a2ffed0dfb510a5830b92"
-  integrity sha512-sokuT28dxf9JT5Kady1fsXOvI4HVpjZa95NKT5y9PNTIrs2AsobR4GFAA90ZG8M+nxVRLysCXsVj6eGC7Vbrlw==
+  version "25.7.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.7.0.tgz#7498f82e90dbdce7c34b75aaaa256c498a0ebe6c"
+  integrity sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg==
   dependencies:
-    undici-types "~7.19.0"
+    undici-types "~7.21.0"
 
 "@types/proj4@2.5.2":
   version "2.5.2"
@@ -2387,7 +2387,12 @@ geokdbush@^1.1.0:
   dependencies:
     tinyqueue "^1.2.2"
 
-"geotiff@^3.0.5 || ^3.1.0-beta.0":
+geotiff-geokeys-to-proj4@^2024.4.13:
+  version "2024.4.13"
+  resolved "https://registry.yarnpkg.com/geotiff-geokeys-to-proj4/-/geotiff-geokeys-to-proj4-2024.4.13.tgz#c2ac5bff653e79b1b29e302791307b7a875b2d76"
+  integrity sha512-Jgtm/lcPkgB44wCqQHaVQx5/fyhmiVDRUKQcI/vMolsED8/GRWBnn5qkQo/CgutQg9xkGzig21DY9Px9mFRdvg==
+
+geotiff@^3.0.5, "geotiff@^3.0.5 || ^3.1.0-beta.0":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/geotiff/-/geotiff-3.0.5.tgz#2a15e8a9b8355ba0a311bdffca789f7a6853b445"
   integrity sha512-OWcL9S9+yDZ6iAlXMt32T1iwUApJM8UiD47xbm6ZP1h33d10fqkPs14EG/ttT5EnefpZSx3G15iDFC5FxUNUwA==
@@ -2542,6 +2547,11 @@ is-wsl@^3.1.0:
   dependencies:
     is-inside-container "^1.0.0"
 
+jpeg-js@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.4.4.tgz#a9f1c6f1f9f0fa80cdb3484ed9635054d28936aa"
+  integrity sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==
+
 jsdom@^29.0.0:
   version "29.1.1"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-29.1.1.tgz#5b9704906f3cd510c34aa941ae2f8f7f8179df01"
@@ -2617,9 +2627,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.0:
-  version "0.7.13"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.13.tgz#d2142d7149247ccc813744ee4fb2414f09a996c9"
-  integrity sha512-kTktVqt6art7lc+dJwrx3QsV9D5LJO4wXHOqYa8maToBMI8en5FbfvVfjC/T3AGs5E503Lx8Q0UD0LAFPVPbBA==
+  version "0.7.15"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.15.tgz#dd40f885d7ef53291f6528da6a648a42d2313d39"
+  integrity sha512-e/ar62vLohZ95kfyEvsQGUrnZP3c2KcBGBrfZYaiWbRW6Ujhy98tPYCihqwoafLbKHmUvDPGciPmHOHv2jyieg==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2639,15 +2649,19 @@ mapshaper@^0.7.0:
     flatgeobuf "^4.3.4"
     geographiclib-geodesic "^2.2.0"
     geokdbush "^1.1.0"
+    geotiff "^3.0.5"
+    geotiff-geokeys-to-proj4 "^2024.4.13"
     hyparquet "^1.25.6"
     hyparquet-compressors "^1.1.1"
     hyparquet-writer "^0.14.0"
     iconv-lite "^0.6.3"
     idb-keyval "^6.2.0"
+    jpeg-js "^0.4.4"
     kdbush "^3.0.0"
     mproj "0.1.2"
     msgpackr "^1.10.1"
     open "^11.0.0"
+    pngjs "^7.0.0"
     rw "~1.3.3"
     tinyqueue "^2.0.3"
   optionalDependencies:
@@ -2821,6 +2835,11 @@ peek-readable@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/peek-readable/-/peek-readable-4.1.0.tgz#4ece1111bf5c2ad8867c314c81356847e8a62e72"
   integrity sha512-ZI3LnwUv5nOGbQzD9c2iDG6toheuXSZP5esSHBjopsXH4dg19soufvpUGA3uohi5anFtGb2lhAVdHzH6R/Evvg==
+
+pngjs@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-7.0.0.tgz#a8b7446020ebbc6ac739db6c5415a65d17090e26"
+  integrity sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==
 
 point-in-polygon-hao@^1.1.0:
   version "1.2.4"
@@ -3334,10 +3353,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-undici-types@~7.19.0:
-  version "7.19.2"
-  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-7.19.2.tgz#1b67fc26d0f157a0cba3a58a5b5c1e2276b8ba2a"
-  integrity sha512-qYVnV5OEm2AW8cJMCpdV20CDyaN3g0AjDlOGf1OW4iaDEx8MwdtChUp4zu4H0VP3nDRF/8RKWH+IPp9uW0YGZg==
+undici-types@~7.21.0:
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-7.21.0.tgz#433f7dd1b5daa9ab4dacb721a5e11a8de51eadda"
+  integrity sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ==
 
 undici@^7.25.0:
   version "7.25.0"
