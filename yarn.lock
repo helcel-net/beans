@@ -2627,9 +2627,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.0:
-  version "0.7.15"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.15.tgz#dd40f885d7ef53291f6528da6a648a42d2313d39"
-  integrity sha512-e/ar62vLohZ95kfyEvsQGUrnZP3c2KcBGBrfZYaiWbRW6Ujhy98tPYCihqwoafLbKHmUvDPGciPmHOHv2jyieg==
+  version "0.7.16"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.16.tgz#e29f28c9a9e11d3bb6983827ee69ecd1c165585a"
+  integrity sha512-eBVSzafKgOTa122lpwd+jcKzaPxER1JDxwlT7iNVNl7U1r4Y/pTEF6wjMWh5ccCg9cklw+4gwJkKXlvK22Wu0Q==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
