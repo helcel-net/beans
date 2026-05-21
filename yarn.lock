@@ -1849,9 +1849,9 @@
   integrity sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==
 
 "@types/node@*":
-  version "25.9.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.9.0.tgz#4823e66e0f486bfd8d9019fb445fbbb9e6f77348"
-  integrity sha512-AOQwYUNolgy3VosiRqXrACUXTN8nJUtPl7FJXMqZVyxiiCLhQuG3jXKvCS1ALr+Y2OmZhzzLVlYPEqJaiqkaJQ==
+  version "25.9.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.9.1.tgz#3bda556db500ae4319c08e7fc9ab94f19013ba0b"
+  integrity sha512-xfrlY7UD5rMJk3ZVJP8BNzS28J36YJg+xp+LPXV1TdWxr8uMH5A860QNxYDGQe/ylDSgjxE52Q9VnO7p75tJxg==
   dependencies:
     undici-types ">=7.24.0 <7.24.7"
 
@@ -2632,9 +2632,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.0:
-  version "0.7.18"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.18.tgz#7a39ad12273bacd1653a2eac734b9f44964eed62"
-  integrity sha512-YyYrh4HouhVqDNly4oRD1RDYM/tJkNLPme850B41O7NecsXE0Sq6YjW3gy9/3p1lb/3T/TUTWP+e0IS0q1zBUQ==
+  version "0.7.19"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.19.tgz#52db581df39d79064b6a4ab42857523e669f1ff5"
+  integrity sha512-G2SQjdyKCICdxv/gNee0W07TZNfh6f0SJVwnkP9RtUmo3xyFc98SDS/wBMyBoBrpnf8kdmNXllqJLerAfVV6WQ==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
