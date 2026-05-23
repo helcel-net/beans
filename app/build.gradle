@@ -15,7 +15,7 @@ android {
         applicationId 'net.helcel.beans'
         minSdk = 28
         targetSdk = 37
-        versionName "1.2"
+        versionName "1.2b"
         versionCode project.hasProperty('VERSION_CODE') ? project.property('VERSION_CODE').toInteger() : 1
     }
     signingConfigs {
