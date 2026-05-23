@@ -24,53 +24,53 @@ const val AUTO_GROUP = -1
 
 
 @Serializable
-class Groups(val id: Int, private val grps: HashMap<Int, Group>) {
+class Groups(val id: Int, private val groups: HashMap<Int, Group>) {
     @kotlinx.serialization.Transient
-    private val _groupsFlow = MutableStateFlow<List<Group>>(grps.values.toList())
+    private val _groupsFlow = MutableStateFlow<List<Group>>(groups.values.toList())
     @kotlinx.serialization.Transient
     val groupsFlow: StateFlow<List<Group>> = _groupsFlow.asStateFlow()
 
     fun setGroup(key: Int, name: String, col: ColorDrawable) {
-        grps[key] = Group(key, name, col)
-        _groupsFlow.value = grps.values.toList()
+        groups[key] = Group(key, name, col)
+        _groupsFlow.value = groups.values.toList()
     }
 
     fun deleteGroup(key: Int) {
-        grps.remove(key)
-        _groupsFlow.value = grps.values.toList()
+        groups.remove(key)
+        _groupsFlow.value = groups.values.toList()
     }
 
     fun getGroupFromKey(key: Int): Group {
-        return grps.getOrDefault(key, EmptyGroup())
+        return groups.getOrDefault(key, EmptyGroup())
     }
 
     fun genKey(): Int {
         val key = rnd.nextInt()
-        if (grps.containsKey(key) || key in listOf(NO_GROUP, DEFAULT_GROUP, AUTO_GROUP)) return genKey()
+        if (groups.containsKey(key) || key in listOf(NO_GROUP, DEFAULT_GROUP, AUTO_GROUP)) return genKey()
         return key
     }
 
     fun size(): Int {
-        return grps.size
+        return groups.size
     }
 
     fun getUniqueEntry(): Group? {
         assert(size() == 1)
-        return if (grps.size == 1) {
-            grps[grps.keys.first()]
+        return if (groups.size == 1) {
+            groups[groups.keys.first()]
         } else {
             null
         }
     }
 
     fun getGroupFromPos(pos: Int): Pair<Int, Group> {
-        if(grps.keys.isEmpty()) return Pair(NO_GROUP,Group(NO_GROUP,"-"))
-        val key = grps.keys.toList()[pos]
+        if(groups.keys.isEmpty()) return Pair(NO_GROUP,Group(NO_GROUP,"-"))
+        val key = groups.keys.toList()[pos]
         return Pair(key, getGroupFromKey(key))
     }
 
     fun findGroupPos(key: Int): Int {
-        return grps.keys.toList().indexOf(key)
+        return groups.keys.toList().indexOf(key)
     }
 
     class EmptyGroup : Group(0, "")

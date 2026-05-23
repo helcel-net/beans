@@ -2,6 +2,7 @@ package net.helcel.beans.countries
 
 import net.helcel.beans.countries.Country.*
 
+@Suppress("RedundantSuppression", "SpellCheckingInspection", "unused")
 enum class Group(override val fullName: String, override val children: Set<GeoLoc>) : GeoLoc {
 
     EEE(

@@ -152,11 +152,17 @@ fun SettingsMainScreen(onExit: ()->Unit = {}) {
 fun SettingsScreen(navController: NavHostController = settingsNav()) {
     val context = LocalContext.current
     val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+    val keyTheme = stringResource(R.string.key_theme)
+    val defaultTheme = stringResource(R.string.system)
+    val keyProjection = stringResource(R.string.key_projection)
+    val keyGroup = stringResource(R.string.key_group)
+    val offString = stringResource(R.string.off)
+
     var showEdit by remember { mutableStateOf(false) }
 
-    var theme by remember { mutableStateOf(prefs.getString(context.getString(R.string.key_theme), context.getString(R.string.system))!!) }
-    var projection by remember { mutableStateOf(prefs.getString(context.getString(R.string.key_projection), "default")!!) }
-    var groups by remember { mutableStateOf(prefs.getString(context.getString(R.string.key_group), context.getString(R.string.off))!!) }
+    var theme by remember { mutableStateOf(prefs.getString(keyTheme, defaultTheme)!!) }
+    var projection by remember { mutableStateOf(prefs.getString(keyProjection, "default")!!) }
+    var groups by remember { mutableStateOf(prefs.getString(keyGroup,offString)!!) }
 
         if(showEdit)
             EditPlaceDialog(true) {
@@ -179,7 +185,7 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                 )
                 MultiPreference(arrayOf(stringResource(R.string.system),stringResource(R.string.light),stringResource(R.string.dark)), theme) { newTheme ->
                     theme = newTheme
-                    prefs.edit { putString(context.getString(R.string.key_theme), newTheme) }
+                    prefs.edit { putString(keyTheme, newTheme) }
                 }
                 HorizontalDivider()
             }
@@ -192,7 +198,7 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                 )
                 MultiPreference(arrayOf(stringResource(R.string.mercator), stringResource(R.string.azimuthalequidistant)), projection) { newProj ->
                     projection = newProj
-                    prefs.edit { putString(context.getString(R.string.key_projection), newProj) }
+                    prefs.edit { putString(keyProjection, newProj) }
                     Settings.refreshProjection()
                 }
                 HorizontalDivider()
@@ -219,11 +225,11 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                     arrayOf(stringResource(R.string.on), stringResource(R.string.off)),
                     groups
                 ) { key ->
-                    if (key == context.getString(R.string.off)) {
+                    if (key == offString) {
                         showDialog=true
                     }
                     groups = key
-                    prefs.edit { putString(context.getString(R.string.key_group), key) }
+                    prefs.edit { putString(keyGroup, key) }
                 }
                 HorizontalDivider()
             }
@@ -283,9 +289,13 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
 @Composable
 fun RegionalScreen() {
     val context = LocalContext.current
+
+    val keyRegional = stringResource(R.string.key_regional)
+    val offString = stringResource(R.string.off)
+    val onString = stringResource(R.string.on)
     val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-    var selected by remember {  mutableStateOf(prefs.getString(context.getString(R.string.key_regional),context.getString(R.string.off))!!)}
-    var regional by remember{ mutableStateOf(prefs.getString(context.getString(R.string.key_regional), context.getString(R.string.off))!!)}
+    var selected by remember {  mutableStateOf(prefs.getString(keyRegional, offString)!!)}
+    var regional by remember{ mutableStateOf(prefs.getString(keyRegional, offString)!!)}
     var showDialog by remember{mutableStateOf(false)}
     var showLoad by remember{mutableStateOf(false)}
 
@@ -305,7 +315,7 @@ fun RegionalScreen() {
                         regional= selected
                         prefs.edit {
                             putString(
-                                context.getString(R.string.key_regional),
+                                keyRegional,
                                 regional
                             )
                         }
@@ -332,12 +342,12 @@ fun RegionalScreen() {
     val scope = rememberCoroutineScope()
     MultiPreference(arrayOf(stringResource(R.string.on),stringResource(R.string.off)),regional) { key ->
                 when (key) {
-                    context.getString(R.string.off) -> { showDialog=true
+                    offString -> { showDialog=true
                         selected=key
                     }
-                    context.getString(R.string.on) -> {
+                    onString -> {
                         regional = key
-                        prefs.edit { putString(context.getString(R.string.key_regional), key) }
+                        prefs.edit { putString(keyRegional, key) }
                         showLoad=true
                         scope.launch {
                             withContext(Dispatchers.IO) {
@@ -354,7 +364,7 @@ fun RegionalScreen() {
 @Composable
 fun MultiPreference(list: Array<String>, selected: String, onSelected: (String) -> Unit) {
     Column(Modifier.padding(2.dp)) {
-        list.map { value ->
+        list.forEach { value ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier

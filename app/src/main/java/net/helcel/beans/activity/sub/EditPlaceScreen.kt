@@ -58,7 +58,7 @@ fun syncVisited(loc: GeoLoc?=World.WWW){
     loc?.children?.forEach { tt ->
         tt.children.forEach {itc->
             if(Data.visits.getVisited(itc) in listOf(AUTO_GROUP,NO_GROUP)) {
-                if(itc.children.any { itcc -> Data.visits.getVisited(itcc) != NO_GROUP })
+                if(itc.children.any { c -> Data.visits.getVisited(c) != NO_GROUP })
                     Data.visits.setVisited(itc, AUTO_GROUP)
                 else
                     Data.visits.setVisited(itc, NO_GROUP)
@@ -111,21 +111,20 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
 
     Column {
         val currentTab = tabs.getOrNull(selectedTab) ?: return@Column
-            TabRow(
-                selectedTabIndex = min(tabs.lastIndex, selectedTab),
-            ) {
-                tabs.forEachIndexed { index, tab ->
-                    Tab(
-                        selected = selectedTab == index,
-                        onClick = {
-                            while (tabs.size > index + 1)
-                                tabs.removeAt(tabs.lastIndex)
-                        },
-                        text = { Text(tab.fullName) }
-                    )
-                }
+        TabRow(
+            selectedTabIndex = min(tabs.lastIndex, selectedTab),
+        ) {
+            tabs.forEachIndexed { index, tab ->
+                Tab(
+                    selected = selectedTab == index,
+                    onClick = {
+                        while (tabs.size > index + 1)
+                            tabs.removeAt(tabs.lastIndex)
+                    },
+                    text = { Text(tab.fullName) }
+                )
             }
-
+        }
 
         LazyColumn(
             modifier = Modifier.fillMaxSize()

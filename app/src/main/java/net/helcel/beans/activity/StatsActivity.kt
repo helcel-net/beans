@@ -115,7 +115,6 @@ fun StatsList(activeMode: LocType, countMode: Boolean) {
 
 @Composable
 fun StatsRow(group: Groups.Group, activeMode: LocType, countMode: Boolean) {
-    val context = LocalContext.current
 
     val visited = remember(group, activeMode) {
         Data.visits.getVisitedByValue(group.key)
@@ -124,18 +123,18 @@ fun StatsRow(group: Groups.Group, activeMode: LocType, countMode: Boolean) {
     val count = when (activeMode) {
         LocType.WORLD -> World.WWW.children.filter { it.code in visited }.size
         LocType.COUNTRY -> World.WWW.children.flatMap { it.children.filter { c -> c.code in visited } }.size
-        LocType.STATE -> World.WWW.children.flatMap { itc->itc.children.flatMap { it.children.filter { it.code in visited } } }.size
+        LocType.STATE -> World.WWW.children.flatMap { a->a.children.flatMap { b->b.children.filter { c->c.code in visited } } }.size
         else -> 0
     }
 
     val area = when (activeMode) {
         LocType.WORLD -> World.WWW.children.filter { it.code in visited }.sumOf { it.area }
         LocType.COUNTRY -> World.WWW.children.flatMap { it.children.filter { c -> c.code in visited } }.sumOf { it.area }
-        LocType.STATE -> World.WWW.children.flatMap { it.children.flatMap { it.children.filter { it.code in visited } } }.sumOf { it.area }
+        LocType.STATE -> World.WWW.children.flatMap { a->a.children.flatMap { b->b.children.filter { c->c.code in visited } } }.sumOf { it.area }
         else -> 0
     }
 
-    val displayValue = if (countMode) count.toString() else context.getString(R.string.number_with_unit, area, "km²")
+    val displayValue = if (countMode) count.toString() else stringResource(R.string.number_with_unit, area, "km²")
 
     val backgroundColor = group.color.color
     val textColor = getContrastColor(backgroundColor)

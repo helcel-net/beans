@@ -1,27 +1,25 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization' version '2.3.21'
     id 'org.jetbrains.kotlin.plugin.compose' version '2.3.21'
     id 'com.mikepenz.aboutlibraries.plugin' version '14.2.0'
 }
 
-
 android {
     namespace 'net.helcel.beans'
-    compileSdk 37
+    compileSdk = 37
 
     defaultConfig {
         buildConfigField("String", "APP_NAME", "\"Beans\"")
         manifestPlaceholders["APP_NAME"] = "Beans"
         applicationId 'net.helcel.beans'
-        minSdk 28
-        targetSdk 36
+        minSdk = 28
+        targetSdk = 37
         versionCode 4
         versionName "1.1a"
     }
     signingConfigs {
-        create("release") {
+        register("release") {
             try {
                 def keystorePropertiesFile = rootProject.file("app/keystore.properties")
                 def keystoreProperties = new Properties()
@@ -36,20 +34,18 @@ android {
             }
         }
     }
-
-
     buildTypes {
         debug {
             debuggable true
         }
         release {
             minifyEnabled true
-            shrinkResources false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         signedRelease {
             minifyEnabled true
-            shrinkResources false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig = signingConfigs.getByName("release")
         }
@@ -78,10 +74,6 @@ android {
         kotlinCompilerExtensionVersion = "2.2.20"
     }
 
-    kotlin {
-        jvmToolchain(21)
-    }
-
     lint {
         disable 'UsingMaterialAndMaterial3Libraries'
     }
@@ -91,7 +83,6 @@ aboutLibraries {
     library {
         exclusionPatterns = [~"androidx.*", ~"com.google.android.*", ~"org.jetbrains.*"]
     }
-    excludeFields = ["generated"]
 }
 
 dependencies {
