@@ -24,7 +24,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-
+        with:
+          fetch-depth: 0 
+    
       - name: set up secrets
         run: |
           echo "${{ secrets.RELEASE_KEYSTORE }}" > keystore.asc
@@ -49,7 +51,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
 
       - name: Build APK
-        run: ./gradlew assembleSignedRelease
+        run: |
+          VERSION_CODE=$(git rev-list --count HEAD)
+          ./gradlew assembleSignedRelease -PVERSION_CODE=$VERSION_CODE
 
       - name: Release
         uses: softprops/action-gh-release@v3
