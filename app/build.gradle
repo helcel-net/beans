@@ -1,3 +1,16 @@
+def getCommitCount() {
+    try {
+        def stdout = new ByteArrayOutputStream()
+        exec {
+            commandLine 'git', 'rev-list', '--count', 'HEAD'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim().toInteger()
+    } catch (ignored) {
+        return 1
+    }
+}
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.plugin.serialization' version '2.3.21'
@@ -15,8 +28,8 @@ android {
         applicationId 'net.helcel.beans'
         minSdk = 28
         targetSdk = 37
-        versionCode 4
-        versionName "1.1a"
+        versionName "1.2"
+        versionCode getCommitCount()
     }
     signingConfigs {
         register("release") {
