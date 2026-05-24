@@ -5,6 +5,8 @@
   
   <p>A virtual scratchmap of the world</p>
   
+  <a href="https://ko-fi.com/I2I615VP5M"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi"></a>
+  <br>
   <img src="https://forthebadge.com/images/badges/built-for-android.svg" alt="Built for Android">
   <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="Built with love">
   <br>
