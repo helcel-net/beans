@@ -3,6 +3,7 @@ package net.helcel.beans.helper
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Serializer
 import kotlinx.serialization.json.Json
@@ -24,7 +25,7 @@ const val AUTO_GROUP = -1
 
 
 @Serializable
-class Groups(val id: Int, private val groups: HashMap<Int, Group>) {
+class Groups(val id: Int, @SerialName("grps") private val groups: HashMap<Int, Group>) {
     @kotlinx.serialization.Transient
     private val _groupsFlow = MutableStateFlow<List<Group>>(groups.values.toList())
     @kotlinx.serialization.Transient
