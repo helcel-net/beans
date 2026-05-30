@@ -106,7 +106,7 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
     implementation 'com.mikepenz:aboutlibraries:14.2.1'
-    implementation 'com.mikepenz:aboutlibraries-compose-m3:14.2.0'
+    implementation 'com.mikepenz:aboutlibraries-compose-m3:14.2.1'
     implementation 'com.mikepenz:aboutlibraries-core:14.2.1'
 
 
