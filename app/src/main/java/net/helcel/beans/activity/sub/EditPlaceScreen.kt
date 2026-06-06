@@ -54,23 +54,35 @@ fun EditPlaceScreenPreview(){
     EditPlaceScreen(Group.EEE)
 }
 
-fun syncVisited(loc: GeoLoc?=World.WWW){
+fun syncVisited(loc: GeoLoc?=World.WWW): Boolean {
+    var changed = false
     loc?.children?.forEach { tt ->
         tt.children.forEach {itc->
             if(Data.visits.getVisited(itc) in listOf(AUTO_GROUP,NO_GROUP)) {
-                if(itc.children.any { c -> Data.visits.getVisited(c) != NO_GROUP })
-                    Data.visits.setVisited(itc, AUTO_GROUP)
+                val newState = if(itc.children.any { c -> Data.visits.getVisited(c) != NO_GROUP })
+                    AUTO_GROUP
                 else
-                    Data.visits.setVisited(itc, NO_GROUP)
+                    NO_GROUP
+
+                if (Data.visits.getVisited(itc) != newState) {
+                    Data.visits.setVisited(itc, newState)
+                    changed = true
+                }
             }
         }
         if(Data.visits.getVisited(tt) in listOf(AUTO_GROUP,NO_GROUP)) {
-            if(tt.children.any { itc -> Data.visits.getVisited(itc) != NO_GROUP })
-                Data.visits.setVisited(tt, AUTO_GROUP)
+            val newState = if(tt.children.any { itc -> Data.visits.getVisited(itc) != NO_GROUP })
+                AUTO_GROUP
             else
-                Data.visits.setVisited(tt, NO_GROUP)
+                NO_GROUP
+
+            if (Data.visits.getVisited(tt) != newState) {
+                Data.visits.setVisited(tt, newState)
+                changed = true
+            }
         }
     }
+    return changed
 }
 
 @Composable
@@ -84,7 +96,9 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
         selectedTab = tabs.lastIndex
     }
     SideEffect {
-        syncVisited()
+        if (syncVisited()) {
+            Data.saveData()
+        }
     }
     BackHandler {
         if (tabs.size > 1) tabs.removeAt(tabs.lastIndex)
@@ -144,6 +158,7 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
                                         Data.visits.getVisited(itc)!= NO_GROUP } == true) AUTO_GROUP
                                 else NO_GROUP
                             )
+                            Data.saveData()
                             Data.selected_group = null
                         } else {
                             Data.selected_group = null

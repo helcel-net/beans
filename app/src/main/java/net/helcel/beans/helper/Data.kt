@@ -43,14 +43,14 @@ object Data {
         if (groups.size() == 0) {
             groups.setGroup(DEFAULT_GROUP, "Visited",
                 ContextCompat.getColor(ctx, R.color.blue).toDrawable())
-            saveData()
         }
+        saveData()
     }
 
     fun saveData() {
         if(groups.id != visits.id) return
         val id = groups.id
-        sharedPreferences.edit {
+        sharedPreferences.edit(commit=true) {
             putString("groups_$id", groupsSerial.writeTo(groups))
             putString("visits_$id", visitsSerial.writeTo(visits))
         }

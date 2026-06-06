@@ -32,6 +32,8 @@ class Groups(val id: Int, @SerialName("grps") private val groups: HashMap<Int, G
     val groupsFlow: StateFlow<List<Group>> = _groupsFlow.asStateFlow()
 
     fun setGroup(key: Int, name: String, col: ColorDrawable) {
+        val old = groups[key]
+        if (old != null && old.name == name && old.color.color == col.color) return
         groups[key] = Group(key, name, col)
         _groupsFlow.value = groups.values.toList()
     }

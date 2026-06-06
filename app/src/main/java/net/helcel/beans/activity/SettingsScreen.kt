@@ -168,8 +168,10 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
             EditPlaceDialog(true) {
                 showEdit = false
                 val g = Data.selected_group
-                if (it && g != null)
+                if (it && g != null) {
                     Data.visits.reassignAllVisitedToGroup(g.key)
+                    Data.saveData()
+                }
             }
 
         LazyColumn(
@@ -216,8 +218,10 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                         deleteMode = true,
                         onDismiss = {
                             val g = Data.selected_group
-                            if (g != null)
+                            if (g != null) {
                                 Data.visits.reassignAllVisitedToGroup(g.key)
+                                Data.saveData()
+                            }
                             showDialog = false
                         })
                 }

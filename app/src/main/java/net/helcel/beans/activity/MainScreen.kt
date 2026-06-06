@@ -50,8 +50,8 @@ class MainScreen : ComponentActivity() {
         super.onCreate(savedInstanceState)
         actionBar?.hide()
         Settings.start(this)
-        GeoLocImporter.importStates(this)
         Data.loadData(this, Int.MIN_VALUE)
+        GeoLocImporter.importStates(this)
 
         setContent {
             SysTheme {

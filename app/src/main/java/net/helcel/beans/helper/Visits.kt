@@ -19,7 +19,7 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
     val visitsFlow: StateFlow<Map<String,Int>> = _visitsFlow
 
     fun setVisited(key: GeoLoc?, b: Int) {
-        if (key == null)
+        if (key == null || locs[key.code] == b)
             return
         _visitsFlow.value = _visitsFlow.value.toMutableMap().apply {
             this[key.code] = b
