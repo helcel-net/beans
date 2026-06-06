@@ -21,22 +21,23 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
     fun setVisited(key: GeoLoc?, b: Int) {
         if (key == null || locs[key.code] == b)
             return
-        _visitsFlow.value = _visitsFlow.value.toMutableMap().apply {
-            this[key.code] = b
-        }
         locs[key.code] = b
+        updateFlow()
+    }
+
+    private fun updateFlow() {
+        _visitsFlow.value = locs.toMap()
     }
 
     fun deleteVisited(key: Int) {
         val keysToDelete = locs
             .filter { it.value == key }
             .map { it.key }
-        _visitsFlow.value = _visitsFlow.value.toMutableMap().apply {
-            keysToDelete.forEach { this.remove(it)}
-        }
+        if (keysToDelete.isEmpty()) return
         keysToDelete.forEach {
             locs.remove(it)
         }
+        updateFlow()
     }
 
     fun getVisited(key: GeoLoc): Int {
@@ -60,13 +61,19 @@ class Visits(val id: Int, private val locs: HashMap<String, Int>) {
     }
 
     fun reassignAllVisitedToGroup(group: Int) {
+        var changed = false
         val keys = locs.filter { (_, grp) ->
             grp !in listOf(NO_GROUP, AUTO_GROUP)
         }.keys
         keys.forEach {
-            locs[it] = group
+            if (locs[it] != group) {
+                locs[it] = group
+                changed = true
+            }
         }
-        _visitsFlow.value = locs
+        if (changed) {
+            updateFlow()
+        }
     }
 
     @OptIn(ExperimentalSerializationApi::class)

@@ -35,11 +35,15 @@ class Groups(val id: Int, @SerialName("grps") private val groups: HashMap<Int, G
         val old = groups[key]
         if (old != null && old.name == name && old.color.color == col.color) return
         groups[key] = Group(key, name, col)
-        _groupsFlow.value = groups.values.toList()
+        updateFlow()
     }
 
     fun deleteGroup(key: Int) {
         groups.remove(key)
+        updateFlow()
+    }
+
+    private fun updateFlow() {
         _groupsFlow.value = groups.values.toList()
     }
 

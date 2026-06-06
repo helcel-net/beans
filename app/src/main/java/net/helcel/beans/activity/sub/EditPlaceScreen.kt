@@ -82,11 +82,23 @@ fun syncVisited(loc: GeoLoc?=World.WWW): Boolean {
             }
         }
     }
+    // Sync World from Continents
+    if (loc != null && Data.visits.getVisited(loc) in listOf(AUTO_GROUP, NO_GROUP)) {
+        val newState = if(loc.children.any { Data.visits.getVisited(it) != NO_GROUP })
+            AUTO_GROUP
+        else
+            NO_GROUP
+        if (Data.visits.getVisited(loc) != newState) {
+            Data.visits.setVisited(loc, newState)
+            changed = true
+        }
+    }
     return changed
 }
 
 @Composable
 fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
+    val visits by Data.visits.visitsFlow.collectAsState()
     var showEdit by remember { mutableStateOf(false) }
     val tabs : SnapshotStateList<GeoLoc> = remember { mutableStateListOf(loc) }
     val ctx = LocalContext.current
@@ -96,8 +108,11 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
         selectedTab = tabs.lastIndex
     }
     SideEffect {
-        if (syncVisited()) {
-            Data.saveData()
+        // visits is used to trigger sync whenever data changes
+        if (visits.isNotEmpty() || true) {
+            if (syncVisited()) {
+                Data.saveData()
+            }
         }
     }
     BackHandler {
@@ -109,6 +124,7 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
             showEdit = false
             if (it) {
                 Data.visits.setVisited(Data.selected_geoloc, NO_GROUP)
+                syncVisited()
                 Data.saveData()
 
                 if (Data.selected_geoloc!=null && Data.selected_geoloc!!.children.any { itc-> Data.visits.getVisited(itc) != NO_GROUP }) {
@@ -117,6 +133,7 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
             }
             if (Data.selected_group != null && Data.selected_geoloc != null) {
                 Data.visits.setVisited(Data.selected_geoloc, Data.selected_group!!.key)
+                syncVisited()
                 Data.saveData()
             }
             Data.selected_geoloc = null
@@ -164,7 +181,8 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
                             Data.selected_group = null
                             showEdit=true
                         }
-
+                        syncVisited()
+                        Data.saveData()
                     })
 
             }
