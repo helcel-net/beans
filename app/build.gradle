@@ -113,3 +113,9 @@ dependencies {
     implementation platform('androidx.compose:compose-bom:2026.05.01')
     debugImplementation 'androidx.compose.ui:ui-tooling:1.11.2'
 }
+
+tasks.configureEach { task ->
+    if (task.name.startsWith("merge") && task.name.endsWith("Assets")) {
+        task.outputs.upToDateWhen { false }
+    }
+}

@@ -1,8 +1,10 @@
 #!/bin/node
 
-import {readFileSync, existsSync} from 'fs'
+import {readFileSync,writeFileSync,existsSync} from 'fs'
 import area from '@turf/area'
 import * as turf from '@turf/turf'
+import * as path from 'path';
+import { JSDOM } from 'jsdom';
 
 
 const countries =
@@ -24,7 +26,7 @@ const countries =
 
 
 const groups = {
-  "EEE":["ALB","AND","AUT","BLR","BEL","BIH","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","ISL","IRL","ITA","KAZ","XKO","LVA","LIE","LTU","LUX","MLT","MDA","MCO","MNE","NLD","MKD","NOR","POL","PRT","ROU","RUS","SMR","SRB","SVK","SVN","ESP","SWE","CHE","UKR","GBR","VAT","XAD"],
+  "EEE":["ALA","ALB","AND","AUT","BLR","BEL","BIH","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GIB","GGY","GRC","HUN","ISL","IRL","IMN","JEY","ITA","KAZ","XKO","LVA","LIE","LTU","LUX","MLT","MDA","MCO","MNE","NLD","MKD","NOR","SJM","POL","PRT","ROU","RUS","SMR","SRB","SVK","SVN","ESP","SWE","CHE","UKR","GBR","VAT","XAD"],
   "ABB":["AFG","ARM","AZE","BHR","BGD","BTN","BRN","KHM","CHN","GEO","HKG","IND","IDN","IRN","IRQ","ISR","JPN","JOR","KWT","KGZ","LAO","LBN","MAC","MYS","MDV","MNG","MMR","NPL","PRK","OMN","PAK","PSE","PHL","QAT","SAU","SGP","KOR","LKA","SYR","TWN","TJK","THA","TLS","TUR","TKM","ARE","UZB","VNM","YEM","ZNC"],
   "FFF":["DZA","AGO","BDI","BEN","BWA","BFA","BDI","CPV","CMR","CAF","TCD","COM","COG","COD","CIV","DJI","EGY","GNQ","ERI","SWZ","ETH","GAB","GMB","GHA","GIN","GNB","KEN","LSO","LBR","LBY","MDG","MWI","MLI","MRT","MUS","MYT","MAR","MOZ","NAM","NER","NGA","COD","REU","RWA","STP","SEN","SYC","SLE","SOM","ZAF","SSD","SHN","SDN","TZA","TGO","TUN","UGA","COD","ZMB","ZWE","ESH"],
   "NNN":["ABW","AIA","ATG","BHS","BRB","BLZ","BMU","VGB","CAN","CYM","CRI","CUB","CUW","DMA","DOM","SLV","GRL","GRD","GLP","GTM","HTI","HND","JAM","MTQ","MEX","MSR","ANT","CUW","NIC","PAN","PRI","KNA","LCA","MAF","SPM","VCT","TTO","TCA","USA","XCL"],
@@ -32,7 +34,6 @@ const groups = {
   "UUU":["ASM","AUS","COK","FJI","PYF","GUM","KIR","MHL","FSM","NRU","NCL","NZL","NIU","NFK","MNP","PLW","PNG","PCN","SLB","TKL","TON","TUV","VUT","WLF"],
   "XXX":[
       "ATA", // Antarctica: not in any other region
-      "ALA",// Åland Islands: an autonomous region of Finland, but not a member of the EU or UN
       "BES",// Bonaire, Sint Eustatius and Saba: special municipalities of the Netherlands in the Caribbean
       "BVT",// Bouvet Island: an uninhabited territory of Norway in the South Atlantic
       "IOT",// British Indian Ocean Territory: a British overseas territory in the Indian Ocean
@@ -40,16 +41,11 @@ const groups = {
       "CCK",// Cocos (Keeling) Islands: an Australian external territory in the Indian Ocean
       "FRO",// Faroe Islands: an autonomous region of Denmark
       "ATF",// French Southern and Antarctic Lands: a territory of France located in the southern Indian Ocean
-      "GIB",// Gibraltar: a British overseas territory located at the southern tip of the Iberian Peninsula
-      "GGY",// Guernsey: a British Crown dependency in the English Channel
       "HMD",// Heard Island and McDonald Islands: an uninhabited Australian external territory in the southern Indian Ocean
-      "IMN",// Isle of Man: a British Crown dependency located in the Irish Sea
-      "JEY",// Jersey: a British Crown dependency located in the English Channel
       "BLM",// Saint Barthélemy: an overseas collectivity of France in the Caribbean
       "WSM",// Samoa: an independent island nation in the South Pacific
       "SXM",// Sint Maarten: a constituent country of the Kingdom of the Netherlands in the Caribbean
       "SGS",// South Georgia and the South Sandwich Islands: a British overseas territory in the southern Atlantic Ocean
-      "SJM",// Svalbard and Jan Mayen: an archipelago administered by Norway
       "UMI",// United States Minor Outlying Islands: a collection of nine insular areas of the United States
       "VIR",// United States Virgin Islands: an unincorporated territory of the United States in the Caribbean
   ]
@@ -166,4 +162,52 @@ async function run(){
   }
 }
 
+
+function fixSvg(svgPath) {
+  const countryToRegion = {};
+  for (const [region, countries] of Object.entries(groups)) {
+    countries.forEach(country => countryToRegion[country] = region);
+  }
+  const absoluteInputPath = path.resolve(svgPath);
+  if (!existsSync(absoluteInputPath)) {
+    throw new Error(`Input file not found at: ${absoluteInputPath}`);
+  }
+  const svgContent = readFileSync(absoluteInputPath, 'utf8');
+  const dom = new JSDOM(svgContent, { contentType: 'image/svg+xml' });
+  const document = dom.window.document;
+  const svgRoot = document.querySelector('svg');
+    if (!svgRoot) {
+      throw new Error("Invalid or empty SVG structure encountered.");
+    }
+    if (svgRoot.getAttribute('data-processed') === 'true') {
+      console.log(`Skipping: File at "${svgPath}" has already been processed.`);
+      return;
+    }
+
+  const elementGroups = Array.from(svgRoot.querySelectorAll('g'));
+ elementGroups.forEach(group => {
+    const currentId = group.getAttribute('id') || '';
+    const baseIsoCode = currentId.replace(/\d+$/, '');
+    const regionKey = countryToRegion[baseIsoCode] || 'XXXX';
+    let regionGroup = svgRoot.querySelector(`g[id="${regionKey}"]`);
+    if (!regionGroup) {
+      regionGroup = document.createElementNS('http://w3.org', 'g');
+      regionGroup.setAttribute('id', regionKey);
+      svgRoot.appendChild(regionGroup);
+    }
+    regionGroup.appendChild(group);
+  });
+  svgRoot.setAttribute('data-processed', 'true');
+  const absoluteOutputPath = path.resolve(svgPath);
+  let cleanXmlString = svgRoot.outerHTML;
+  cleanXmlString = cleanXmlString.replace(/[\r\n]+/g, '');
+  cleanXmlString = cleanXmlString.replace(/xmlns="http:\/\/w3\.org"\s?/g, '');
+  cleanXmlString = cleanXmlString.replace(/xmlns="http:\/\/www\.w3\.org\/2000\/svg"\s?/g, '');
+  cleanXmlString = cleanXmlString.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+  writeFileSync(absoluteOutputPath, cleanXmlString, 'utf8');
+}
+
 run()
+fixSvg("./app/src/main/assets/loxim01.svg")
+fixSvg("./app/src/main/assets/webmercator01.svg")
+fixSvg("./app/src/main/assets/aeqd01.svg")

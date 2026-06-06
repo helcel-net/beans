@@ -8,10 +8,11 @@ GADM_BASEPATH="https://geodata.ucdavis.edu/gadm"
 mapshaper="./node_modules/mapshaper/bin/mapshaper"
 ATA_URL="https://media.githubusercontent.com/media/wmgeolab/geoBoundaries/905b0baf5f4fb3b9ccf45293647dcacdb2b799d4/releaseData/gbOpen/ATA/ADM0/geoBoundaries-ATA-ADM0_simplified.geojson"
 
+# Caspian Sea: "XCA"
 countries=(
   "AFG" "XAD" "ALA" "ALB" "DZA" "ASM" "AND" "AGO" "AIA" "ATG" "ARG" "ARM" "ABW" "AUS" "AUT" "AZE"
   "BHS" "BHR" "BGD" "BRB" "BLR" "BEL" "BLZ" "BEN" "BMU" "BTN" "BOL" "BES" "BIH" "BWA" "BVT" "BRA" "IOT" "VGB" "BRN" "BGR" "BFA" "BDI" "KHM"
-  "CMR" "CAN" "CPV" "XCA" "CYM" "CAF" "TCD" "CHL" "CHN" "CXR" "XCL" "CCK" "COL" "COM" "COK" "CRI" "CIV" "HRV" "CUB" "CUW" "CYP" "CZE" "COD"
+  "CMR" "CAN" "CPV"  "CYM" "CAF" "TCD" "CHL" "CHN" "CXR" "XCL" "CCK" "COL" "COM" "COK" "CRI" "CIV" "HRV" "CUB" "CUW" "CYP" "CZE" "COD"
   "DNK" "DJI" "DMA" "DOM" "ECU" "EGY" "SLV" "GNQ" "ERI" "EST" "ETH" "FLK" "FRO" "FJI" "FIN" "FRA" "GUF" "PYF" "ATF"
   "GAB" "GMB" "GEO" "DEU" "GHA" "GIB" "GRC" "GRL" "GRD" "GLP" "GUM" "GTM" "GGY" "GIN" "GNB" "GUY" "HTI" "HMD" "HND" "HUN"
   "ISL" "IND" "IDN" "IRN" "IRQ" "IRL" "IMN" "ISR" "ITA" "JAM" "JPN" "JEY" "JOR" "KAZ" "KEN" "KIR" "XKO" "KWT" "KGZ"
@@ -115,6 +116,47 @@ toSVG_1() {
     "$mapshaper" -i combine-files ${input_files[@]} -proj aeqd +lat_0=90 -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd1.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
 }
 
+generate_svg_map() {
+    local OUT_FILE="$1"      # First argument: Output destination path
+    local PROJ_ARGS="$2"     # Second argument: Projection parameters
+    shift 2                  # Remove the first two arguments, leaving only the files
+    local FILES_TO_RUN=("$@") # Capture all remaining arguments as the file array
+
+    echo "Generating: $OUT_FILE using projection [$PROJ_ARGS]"
+    echo "Processing ${#FILES_TO_RUN[@]} files..."
+
+    local JS_PIPELINE_LOGIC="
+        const conflicts = {
+                'Z01': 'IND', 'Z04': 'IND', 'Z05': 'IND', 'Z07': 'IND', 'Z09': 'IND',
+                'Z02': 'CHN', 'Z03': 'CHN','Z08': 'CHN',
+                'Z06': 'PAK'
+        };
+        let rawCode = GID_0 || 'UNK';
+        let cCode = conflicts[rawCode] ? conflicts[rawCode] : rawCode;
+        let isGidMissing = (!GID || GID === 'undefined' || GID === 'null' || GID === '');
+        if (isGidMissing) {
+            COUNTRY_GROUP = cCode+'2';
+        } else {
+            COUNTRY_GROUP = cCode+'1';
+        }
+    "
+
+    "$mapshaper" -i "${FILES_TO_RUN[@]}" combine-files \
+        -snap \
+        -merge-layers force\
+        -proj $PROJ_ARGS densify \
+        -simplify 2% weighted keep-shapes \
+        -filter-islands min-area=0 \
+        -sort 'this.area' ascending \
+        -each "$JS_PIPELINE_LOGIC" \
+        -split COUNTRY_GROUP \
+        -o "$OUT_FILE" \
+        format=svg \
+        id-field=GID \
+        precision=0.1 \
+        target=*
+
+}
 
 toSVG_01() {
     input_files=()
@@ -136,9 +178,9 @@ toSVG_01() {
         fi
     done
 
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj loxim densify -simplify 0.001 weighted keep-shapes -o ./app/src/main/assets/loxim01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj webmercator densify -simplify 0.001 weighted keep-shapes -o ./app/src/main/assets/webmercator01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} snap -proj aeqd +lat_0=90 densify -simplify 0.001 weighted keep-shapes -o ./app/src/main/assets/aeqd01.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
+    generate_svg_map "./app/src/main/assets/loxim01.svg" "loxim" "${input_files[@]}"
+    generate_svg_map "./app/src/main/assets/webmercator01.svg" "webmercator" "${input_files[@]}"
+    generate_svg_map "./app/src/main/assets/aeqd01.svg" "aeqd +lat_0=90" "${input_files[@]}"
 }
 
 do_1() {
@@ -153,10 +195,12 @@ do_0() {
     do
         download_0 "$country"
     done
-    wget -q -O "./temp/1/ATA.json" "$ATA_URL"
+    wget -q -O "./temp/0/ATA.json" "$ATA_URL"
 }
 # do_0
 # do_1
 # toSVG_0
 # toSVG_1
 toSVG_01
+
+#CUW, CCK, XCL, CXR, IOT, BVT, ABW, FLK, GIB, HMD, KIR, SXM, MDV, MCO, NIU, NFK, PCN, MAF, SGS, VAT

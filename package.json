@@ -3,7 +3,7 @@
     "@turf/area": "^7.3.5",
     "@turf/turf": "^7.3.5",
     "jsdom": "^29.1.1",
-    "mapshaper": "^0.7.19"
+    "mapshaper": "^0.7.22"
   },
   "type": "module"
 }

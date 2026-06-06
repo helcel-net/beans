@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Beans" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/blue</item>
+        <!-- Window background - shows through statusBarsPadding() area -->
+        <item name="android:windowBackground">@color/blue</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- Optional: Primary colors for the theme -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue</item>
+        <item name="colorAccent">@color/blue</item>
+    </style>
+</resources>
