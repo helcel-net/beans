@@ -55,7 +55,7 @@ class MainScreen : ComponentActivity() {
 
         setContent {
             SysTheme {
-                Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.background).statusBarsPadding(),) {
+                Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.primary).statusBarsPadding(),) {
                     AppNavHost(psvg, css)
                 }
             }
@@ -114,6 +114,7 @@ class MainScreen : ComponentActivity() {
                 PhotoView(ctx).apply {
                     setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null)
                     setImageDrawable(drawable)
+                    maximumScale = 32f
                     scaleType = ImageView.ScaleType.FIT_CENTER
                 }
             }, modifier = Modifier.fillMaxSize())
