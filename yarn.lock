@@ -161,9 +161,9 @@
   integrity sha512-Javneu5lsuhwNCryN+pXH93VPQ8g0dBX7wItHFgYiwQmzE1sVdg5tWHiOgHywzL2W21XQopa7IwIEnNbmeUJYA==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.61.1"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.61.1.tgz#32085c3f532c59269824ed9239e13f5acbe182b9"
-  integrity sha512-bVWIOIk6pV01p4CdUbPP7CJ/434z+OooYjDuFcR+44N35YvKUC66G8MGnvcWx5mWKW3g61J+t74l3Kj15Kwn2Q==
+  version "4.62.0"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.62.0.tgz#85dda72aa08cdc256f80f46d881b2a988bb0cce2"
+  integrity sha512-7SDIalKeIpG0Ifogbbdn58HmSotYMlf23K3dCJEmiVd9Fg36Vmni82iPQec27N3wY4Bvbxftkxz6vSx9OcouTg==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
@@ -1927,6 +1927,14 @@ base64-js@^1.3.1:
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
+better-sqlite3@^12.10.0:
+  version "12.10.1"
+  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-12.10.1.tgz#1fedf77460210c83d5140fb700c81700964a1a24"
+  integrity sha512-HfFtzCqnSfwB3+HroF6PSKzyh+7RfNMGPCzHFUZXRlvrPCb4P3cvxKZNN43Sr7IrkofqQZM+gIvffGpA8VvqgA==
+  dependencies:
+    bindings "^1.5.0"
+    prebuild-install "^7.1.1"
+
 better-sqlite3@^9.1.1:
   version "9.6.0"
   resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-9.6.0.tgz#b01e58ba7c48abcdc0383b8301206ee2ab81d271"
@@ -1941,11 +1949,6 @@ bidi-js@^1.0.3:
   integrity sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==
   dependencies:
     require-from-string "^2.0.2"
-
-big.js@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/big.js/-/big.js-7.0.1.tgz#c537c649ec6ea11d1306723d13c096ba199aadc4"
-  integrity sha512-iFgV784tD8kq4ccF1xtNMZnXeZzVuXWWM+ERFzKQjv+A5G9HC8CY3DuV45vgzFFcW+u2tIvmF95+AzWgs6BjCg==
 
 bignumber.js@^9.1.0:
   version "9.3.1"
@@ -2304,12 +2307,12 @@ flatbuffers@25.9.23:
   resolved "https://registry.yarnpkg.com/flatbuffers/-/flatbuffers-25.9.23.tgz#346811557fe9312ab5647535e793c761e9c81eb1"
   integrity sha512-MI1qs7Lo4Syw0EOzUl0xjs2lsoeqFku44KpngfIduHBYvzm8h2+7K8YMQh1JtVVVrUvhLpNwqVi4DERegUJhPQ==
 
-flatbush@^3.2.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/flatbush/-/flatbush-3.3.1.tgz#2ba10dfe4069ef142b8692a0c19982cf0ebabce0"
-  integrity sha512-oKuPbtT+DS2CxH+9Vhbsq8HifmSCuOw+3Cy5zt/vCIrZl5KyengoTHDBLmtpZoBhcwa7/biNjgL1DwdLMJYm1A==
+flatbush@^4.6.0:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/flatbush/-/flatbush-4.6.2.tgz#1bd7d09bced1a88b1ed45f84961ab1d06b85f736"
+  integrity sha512-nNT7MFJ58Q4IAm3aYsEg+zgZGpdRcmR1i4U+aa8c+r91jmYZg7FTQwNnIMC0FyBqVZTbClKdAnrJkKkfp1BOvw==
   dependencies:
-    flatqueue "^1.2.1"
+    flatqueue "^3.1.0"
 
 flatgeobuf@^4.3.4:
   version "4.4.0"
@@ -2322,10 +2325,10 @@ flatgeobuf@^4.3.4:
   optionalDependencies:
     ol ">=10"
 
-flatqueue@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/flatqueue/-/flatqueue-1.2.1.tgz#82f501758fc5925742fbeb478637230456157ef2"
-  integrity sha512-X86TpWS1rGuY7m382HuA9vngLeDuWA9lJvhEG+GfgKMV5onSvx5a71cl7GMbXzhWtlN9dGfqOBrpfqeOtUfGYQ==
+flatqueue@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/flatqueue/-/flatqueue-3.1.0.tgz#e957f66df148b6f77cb379412fb7f357c5a640c5"
+  integrity sha512-Ia4qIYrrsEqIRx3c3XhkT+QDLQuUV5ovsr6ah1rIgKT5wclhoGK3lAMS1bWRAWxlx7wtlTBpV7QXB5d9fOSRxA==
 
 from@^0.1.7:
   version "0.1.7"
@@ -2384,13 +2387,6 @@ geojson-stream@0.1.0:
   dependencies:
     JSONStream "^1.0.0"
     through "^2.3.4"
-
-geokdbush@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/geokdbush/-/geokdbush-1.1.0.tgz#aa5e8e7953a6594b40a85fbdb61059af0f51468f"
-  integrity sha512-pyyrGCMXZwWJaGt1YZIgGQg5ol3JjvEKESTon10HxdfWXlaqh5An8fNJkwOYUE+VkQfCdvYQKPVezTQU9AqWAA==
-  dependencies:
-    tinyqueue "^1.2.2"
 
 geotiff-geokeys-to-proj4@^2024.4.13:
   version "2024.4.13"
@@ -2632,9 +2628,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.22"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.22.tgz#3b5436929f72cfa4df32055e74a66379f79ae227"
-  integrity sha512-1C9QP8C8/jIZcfP4a+OJ9222xtlO4lOXc3REu9MF8OdDEHC+NnSlLLMroqZscl54lqRC+cFEZRIS7BT9NrMrng==
+  version "0.7.23"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.23.tgz#62af35a2880ae700cd9b51e559d9e30a10d36542"
+  integrity sha512-mFZtOCDFIUqdDIIVPcCCM0mSWVLEdeK7AYwNIz0tEa05kkxX6qPc74HeIAv//1HzoWW0I6eyr9cDtELkEu0V8g==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2642,7 +2638,6 @@ mapshaper@^0.7.22:
     "@tmcw/togeojson" "^5.6.0"
     "@xmldom/xmldom" "^0.8.6"
     adm-zip "^0.5.9"
-    big.js "^7.0.1"
     commander "^14.0.3"
     cookies "^0.8.0"
     d3-color "3.1.0"
@@ -2650,10 +2645,9 @@ mapshaper@^0.7.22:
     d3-scale-chromatic "3.0.0"
     delaunator "^5.0.0"
     fflate "0.8.2"
-    flatbush "^3.2.1"
+    flatbush "^4.6.0"
     flatgeobuf "^4.3.4"
     geographiclib-geodesic "^2.2.0"
-    geokdbush "^1.1.0"
     geotiff "^3.0.5"
     geotiff-geokeys-to-proj4 "^2024.4.13"
     hyparquet "^1.25.6"
@@ -2664,13 +2658,14 @@ mapshaper@^0.7.22:
     jpeg-js "^0.4.4"
     kdbush "^3.0.0"
     mproj "0.1.3"
-    msgpackr "^1.10.1"
+    msgpackr "^1.11.12"
     open "^11.0.0"
     pngjs "^7.0.0"
     rw "~1.3.3"
     tinyqueue "^2.0.3"
   optionalDependencies:
     "@rollup/rollup-linux-x64-gnu" "^4.44.1"
+    better-sqlite3 "^12.10.0"
 
 mdn-data@2.27.1:
   version "2.27.1"
@@ -2724,7 +2719,7 @@ msgpackr-extract@^3.0.2:
     "@msgpackr-extract/msgpackr-extract-linux-x64" "3.0.4"
     "@msgpackr-extract/msgpackr-extract-win32-x64" "3.0.4"
 
-msgpackr@^1.10.1:
+msgpackr@^1.11.12:
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.12.1.tgz#61d48d6becf4d5c4d659b2c5260240dc2c09bd44"
   integrity sha512-4EUH9tQHnMmEgzW/MdAP0KIfa1T9AF+htl0ffe2n5vb2EKn9y2co8ccpgWko6S52Jy1PQZKwRnx5/KkYjtd9MQ==
@@ -3260,11 +3255,6 @@ through@2, "through@>=2.2.7 <3", through@^2.3.4, through@^2.3.6, through@^2.3.8,
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
-
-tinyqueue@^1.2.2:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-1.2.3.tgz#b6a61de23060584da29f82362e45df1ec7353f3d"
-  integrity sha512-Qz9RgWuO9l8lT+Y9xvbzhPT2efIUIFd69N7eF7tJ9lnQl0iLj1M7peK7IoUGZL9DJHw9XftqLreccfxcQgYLxA==
 
 tinyqueue@^2.0.0, tinyqueue@^2.0.3:
   version "2.0.3"
