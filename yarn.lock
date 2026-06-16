@@ -1928,9 +1928,9 @@ base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 better-sqlite3@^12.10.0:
-  version "12.10.1"
-  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-12.10.1.tgz#1fedf77460210c83d5140fb700c81700964a1a24"
-  integrity sha512-HfFtzCqnSfwB3+HroF6PSKzyh+7RfNMGPCzHFUZXRlvrPCb4P3cvxKZNN43Sr7IrkofqQZM+gIvffGpA8VvqgA==
+  version "12.11.1"
+  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-12.11.1.tgz#067846efabf7671957fc8a9e8df3be39c6cc0b84"
+  integrity sha512-dq9AtApgg5PGFtBzPFSBl3HZQjHok5gaQCM6zh2Yk0aSmDCs1CbnVI8/HgASQkNKsWFpseIO9beg5xxpYhbIfA==
   dependencies:
     bindings "^1.5.0"
     prebuild-install "^7.1.1"
@@ -2628,9 +2628,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.24"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.24.tgz#72e1abb88d51fd113a65d1201b115a3af73d92ba"
-  integrity sha512-eqA5X2FRfSrFM1yKOHpN5lVpUlPg4+mmYuhPHR4hul7vNEv/TflPymOp7bVRcoHPZa4IqpOT6dqIecqDB5kddg==
+  version "0.7.26"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.26.tgz#8d109721cd1fc7b18b2e1de298ff9ce90bec43a3"
+  integrity sha512-1M42rJgWw/7OdjGL7ENSVinA2VGJHdnioxpQtuMPVmZfRxx8uVsVmdtUNJ7e6Jl3cdImdobuVBwsl8aLg5cO2w==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
