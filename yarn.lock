@@ -2716,9 +2716,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.29"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.29.tgz#ba83ff470cd4f7194b5b4266f3a6db1b36f0aab3"
-  integrity sha512-3RQ6IiqGQ0EBjD7p5WrN/mqCPgA3uKRnxYERcpCPrhLat1a7qh/zRPxXqR07g4RugTMHf6mCl5hamQWOkHVCaw==
+  version "0.7.32"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.32.tgz#a61337daea44b16f92ad756a8edc93d7c8b7a4d1"
+  integrity sha512-yPftCbEvKj21Y6QFgZae5+hjCppC3X1Ab5e72xK5A8HVE00O5C8iBU4tl4jDF6mZT5SeUguCE3QsyeQhe2zRpA==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2872,9 +2872,9 @@ open@^11.0.0:
     wsl-utils "^0.3.0"
 
 pako@^2.0.4:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/pako/-/pako-2.1.0.tgz#266cc37f98c7d883545d11335c00fbd4062c9a86"
-  integrity sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-2.2.0.tgz#246b9d4c841a8d308e484c0d03786651b143e63a"
+  integrity sha512-zJq6RP/5q+TO2OpFV3FHzlPnFjmkb7Nc99a5SNjJE+uu/PkpChs+NIZSSzbBoD+6kjiISXjfYdwj1ZRQ81dz/w==
 
 parse-headers@^2.0.2:
   version "2.0.6"
