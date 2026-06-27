@@ -107,7 +107,7 @@ dependencies {
 
     implementation 'com.mikepenz:aboutlibraries:14.2.1'
     implementation 'com.mikepenz:aboutlibraries-compose-m3:15.0.2'
-    implementation 'com.mikepenz:aboutlibraries-core:15.0.0'
+    implementation 'com.mikepenz:aboutlibraries-core:15.0.2'
 
 
     implementation platform('androidx.compose:compose-bom:2026.06.00')
