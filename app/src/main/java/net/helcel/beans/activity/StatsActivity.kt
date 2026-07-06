@@ -57,7 +57,7 @@ fun StatsScreen(
                 TopAppBar(
                     title = {
                         Row(verticalAlignment = Alignment.CenterVertically){
-                            Text(text=stringResource(R.string.action_edit), modifier = Modifier.weight(1f))
+                            Text(text=stringResource(R.string.action_stat), modifier = Modifier.weight(1f))
                             Button(onClick = { countMode = !countMode }) {
                                 Text(if (countMode) "Count" else "Area")
                             }
