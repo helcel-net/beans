@@ -20,6 +20,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -32,11 +33,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import net.helcel.beans.R
+import net.helcel.beans.countries.Country
+import net.helcel.beans.countries.GeoLoc
 import net.helcel.beans.countries.GeoLoc.LocType
 import net.helcel.beans.countries.World
 import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Groups
+import net.helcel.beans.helper.NO_GROUP
 import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.getContrastColor
 
@@ -116,80 +120,82 @@ fun StatsList(activeMode: LocType, countMode: Boolean) {
 @Composable
 fun StatsRow(group: Groups.Group, activeMode: LocType, countMode: Boolean) {
     val context = LocalContext.current
-    val isRegionalStats = remember { Settings.isRegionalStats(context) }
+    val isCascadeStats = remember { Settings.isCascadeStats(context) }
+    val visits by Data.visits.visitsFlow.collectAsState()
 
-    val countries = remember { World.WWW.children.flatMap { it.children } }
     val continents = remember { World.WWW.children.toList() }
-
-    val count = remember(group, activeMode, isRegionalStats) {
-        when (activeMode) {
-            LocType.WORLD -> continents.filter { continent ->
-                if (group.key == AUTO_GROUP) {
-                    val isUncat = Data.visits.getVisited(continent) == AUTO_GROUP || continent.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
-                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
-                        Data.visits.getVisited(continent) == g.key || continent.children.any { Data.visits.getVisited(it) == g.key }
-                    }
-                    isUncat && (!isRegionalStats || !isInRealGroup)
-                } else {
-                    Data.visits.getVisited(continent) == group.key || (isRegionalStats && continent.children.any { Data.visits.getVisited(it) == group.key })
-                }
-            }.size
-
-            LocType.COUNTRY -> countries.filter { country ->
-                if (group.key == AUTO_GROUP) {
-                    val isUncat = Data.visits.getVisited(country) == AUTO_GROUP || country.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
-                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
-                        Data.visits.getVisited(country) == g.key || country.children.any { Data.visits.getVisited(it) == g.key }
-                    }
-                    isUncat && (!isRegionalStats || !isInRealGroup)
-                } else {
-                    Data.visits.getVisited(country) == group.key || (isRegionalStats && country.children.any { Data.visits.getVisited(it) == group.key })
-                }
-            }.size
-
-            LocType.STATE -> countries.flatMap { it.children }.filter { region ->
-                Data.visits.getVisited(region) == group.key
-            }.size
-
-            else -> 0
+    val countries = remember {
+        World.WWW.children.flatMap {
+            if (it is Country) listOf(it) else it.children
         }
     }
 
-    val area = remember(group, activeMode, isRegionalStats) {
-        when (activeMode) {
-            LocType.WORLD -> continents.filter { continent ->
-                if (group.key == AUTO_GROUP) {
-                    val isUncat = Data.visits.getVisited(continent) == AUTO_GROUP || continent.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
-                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
-                        Data.visits.getVisited(continent) == g.key || continent.children.any { Data.visits.getVisited(it) == g.key }
-                    }
-                    isUncat && (!isRegionalStats || !isInRealGroup)
-                } else {
-                    Data.visits.getVisited(continent) == group.key || (isRegionalStats && continent.children.any { Data.visits.getVisited(it) == group.key })
-                }
-            }.sumOf { it.area }
-
-            LocType.COUNTRY -> countries.filter { country ->
-                if (group.key == AUTO_GROUP) {
-                    val isUncat = Data.visits.getVisited(country) == AUTO_GROUP || country.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
-                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
-                        Data.visits.getVisited(country) == g.key || country.children.any { Data.visits.getVisited(it) == g.key }
-                    }
-                    isUncat && (!isRegionalStats || !isInRealGroup)
-                } else {
-                    Data.visits.getVisited(country) == group.key || (isRegionalStats && country.children.any { Data.visits.getVisited(it) == group.key })
-                }
-            }.sumOf { it.area }
-
-            LocType.STATE -> countries.flatMap { it.children }.filter { region ->
-                Data.visits.getVisited(region) == group.key
-            }.sumOf { it.area }
-
-            else -> 0
+    val visitedItems = remember(group, activeMode, isCascadeStats, visits) {
+        val list = when (activeMode) {
+            LocType.WORLD -> continents
+            LocType.COUNTRY -> countries
+            LocType.STATE -> countries.flatMap { it.children }
+            else -> emptyList()
         }
+
+        fun getExplicitColor(l: GeoLoc): Int? {
+            val c = visits.getOrDefault(l.code, 0)
+            return if (c != NO_GROUP && c != AUTO_GROUP) c else null
+        }
+
+        fun getEffectiveGroup(l: GeoLoc): Int {
+            getExplicitColor(l)?.let { return it }
+
+            if (isCascadeStats) {
+                // Parent -> Child (closest explicit ancestor)
+                val country = countries.find { it.children.contains(l) }
+                val countryColor = country?.let { getExplicitColor(it) }
+                if (countryColor != null) return countryColor
+
+                val continent = continents.find {
+                    it.children.contains(l) || (country != null && it.children.contains(country))
+                }
+                val continentColor = continent?.let { getExplicitColor(it) }
+                if (continentColor != null) return continentColor
+
+                val worldColor = getExplicitColor(World.WWW)
+                if (worldColor != null) return worldColor
+
+                // Child -> Parent (most common explicit descendant)
+                val descendants = mutableListOf<GeoLoc>()
+                fun collect(curr: GeoLoc) {
+                    curr.children.forEach {
+                        descendants.add(it)
+                        collect(it)
+                    }
+                }
+                collect(l)
+                val descendantColors = descendants.mapNotNull { getExplicitColor(it) }
+                if (descendantColors.isNotEmpty()) {
+                    return descendantColors.groupBy { it }.maxByOrNull { it.value.size }?.key ?: AUTO_GROUP
+                }
+            } else {
+                if (l.type == LocType.WORLD || l.type == LocType.COUNTRY) {
+                    val descendants = mutableListOf<GeoLoc>()
+                    fun collect(curr: GeoLoc) {
+                        curr.children.forEach { descendants.add(it); collect(it) }
+                    }
+                    collect(l)
+                    val dc = descendants.mapNotNull { getExplicitColor(it) }
+                    if (dc.isNotEmpty()) return dc.groupBy { it }.maxByOrNull { it.value.size }?.key ?: AUTO_GROUP
+                }
+            }
+
+            return AUTO_GROUP
+        }
+
+        list.filter { getEffectiveGroup(it) == group.key }
     }
 
-    val displayValue = if (countMode) count.toString() else stringResource(R.string.number_with_unit, area, "km²")
+    val count = visitedItems.size
+    val area = visitedItems.sumOf { it.area.toLong() }
+
+    val displayValue = if (countMode) count.toString() else stringResource(R.string.number_with_unit, area.toInt(), "km²")
 
     val backgroundColor = group.color.color
     val textColor = getContrastColor(backgroundColor)

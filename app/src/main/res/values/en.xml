@@ -17,9 +17,9 @@
     <string name="key_group">Groups</string>
     <string name="key_regional">Regional mode</string>
     <string name="key_regional_desc">Enable tracking of states and provinces</string>
-    <string name="key_regional_stats">key_regional_stats</string>
-    <string name="pref_regional_stats">Regional statistics</string>
-    <string name="pref_regional_stats_desc">Count countries with visited regions</string>
+    <string name="key_cascade_stats">key_cascade_stats</string>
+    <string name="pref_cascade_stats">Cascade statistics</string>
+    <string name="pref_cascade_stats_desc">Include parents and children in the counts</string>
     <string name="key_group_desc">Enable multiple colors</string>
     <string name="about">About</string>
     <string name="pref_category_appearance">Appearance</string>

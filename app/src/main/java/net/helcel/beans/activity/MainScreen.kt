@@ -57,23 +57,25 @@ class MainScreen : ComponentActivity() {
 
         setContent {
             SysTheme {
-                val currentPsvg = psvg
-                val currentCss = css
-                if (currentPsvg != null && currentCss != null) {
-                    Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.primary).statusBarsPadding(),) {
-                        AppNavHost(currentPsvg, currentCss)
-                    }
+                Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.primary).statusBarsPadding(),) {
+                    AppNavHost()
                 }
             }
         }
     }
 
     @Composable
-    fun AppNavHost(psvg: SVGWrapper, css: CSSWrapper) {
+    fun AppNavHost() {
         val navController = rememberNavController()
         NavHost(navController, startDestination = "main") {
-            composable("main") { MainScreenC(psvg,css, navController) }
-            composable("settings") { SettingsMainScreen { navController.navigate("main")} }
+            composable("main") {
+                val currentPsvg = psvg
+                val currentCss = css
+                if (currentPsvg != null && currentCss != null) {
+                    MainScreenC(currentPsvg, currentCss, navController)
+                }
+            }
+            composable("settings") { SettingsMainScreen { navController.navigate("main") } }
             composable("edit") { EditScreen { navController.navigate("main") } }
             composable("stats") { StatsScreen { navController.navigate("main") } }
         }

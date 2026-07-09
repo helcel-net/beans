@@ -29,10 +29,10 @@ object Settings {
         )
     }
 
-    fun isRegionalStats(ctx: Context): Boolean {
+    fun isCascadeStats(ctx: Context): Boolean {
         return getBooleanValue(
             ctx,
-            sp.getString(ctx.getString(R.string.key_regional_stats), ctx.getString(R.string.off))
+            sp.getString(ctx.getString(R.string.key_cascade_stats), ctx.getString(R.string.off))
         )
     }
 

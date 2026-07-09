@@ -43,6 +43,13 @@ class Groups(val id: Int, @SerialName("grps") private val groups: HashMap<Int, G
         updateFlow()
     }
 
+    fun keepOnly(key: Int) {
+        val keep = groups[key] ?: return
+        groups.clear()
+        groups[key] = keep
+        updateFlow()
+    }
+
     private fun updateFlow() {
         _groupsFlow.value = groups.values.toList()
     }

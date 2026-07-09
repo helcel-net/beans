@@ -156,7 +156,7 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
     val keyProjection = stringResource(R.string.key_projection)
     val keyGroup = stringResource(R.string.key_group)
     val keyRegional = stringResource(R.string.key_regional)
-    val keyRegionalStats = stringResource(R.string.key_regional_stats)
+    val keyCascadeStats = stringResource(R.string.key_cascade_stats)
     val offString = stringResource(R.string.off)
     val onString = stringResource(R.string.on)
 
@@ -164,7 +164,7 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
     var projection by remember { mutableStateOf(prefs.getString(keyProjection, "default")!!) }
     var groups by remember { mutableStateOf(prefs.getString(keyGroup, offString)!!) }
     var regional by remember { mutableStateOf(prefs.getString(keyRegional, offString)!!) }
-    var regionalStats by remember { mutableStateOf(prefs.getString(keyRegionalStats, offString)!!) }
+    var cascadeStats by remember { mutableStateOf(prefs.getString(keyCascadeStats, offString)!!) }
 
     var showGroupDialog by remember { mutableStateOf(false) }
     var showRegionalDialog by remember { mutableStateOf(false) }
@@ -178,7 +178,10 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                 val g = Data.selected_group
                 if (g != null) {
                     Data.visits.reassignAllVisitedToGroup(g.key)
+                    Data.groups.keepOnly(g.key)
                     Data.saveData()
+                    groups = offString
+                    prefs.edit { putString(keyGroup, offString) }
                 }
                 showGroupDialog = false
             })
@@ -274,6 +277,7 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                 isChecked = groups == onString,
                 onCheckedChange = { isChecked ->
                     if (!isChecked) {
+                        Data.selected_group = null
                         showGroupDialog = true
                     } else {
                         groups = onString
@@ -304,17 +308,18 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                     }
                 }
             )
-            if (regional == onString) {
-                SettingSwitch(
-                    label = stringResource(R.string.pref_regional_stats),
-                    subtitle = stringResource(R.string.pref_regional_stats_desc),
-                    isChecked = regionalStats == onString,
-                    onCheckedChange = { isChecked ->
-                        regionalStats = if (isChecked) onString else offString
-                        prefs.edit { putString(keyRegionalStats, regionalStats) }
-                    }
-                )
-            }
+            HorizontalDivider()
+        }
+        item {
+            SettingSwitch(
+                label = stringResource(R.string.pref_cascade_stats),
+                subtitle = stringResource(R.string.pref_cascade_stats_desc),
+                isChecked = cascadeStats == onString,
+                onCheckedChange = { isChecked ->
+                    cascadeStats = if (isChecked) onString else offString
+                    prefs.edit { putString(keyCascadeStats, cascadeStats) }
+                }
+            )
             HorizontalDivider()
         }
         item {
