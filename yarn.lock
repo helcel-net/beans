@@ -1988,9 +1988,9 @@
   integrity sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==
 
 "@types/node@*":
-  version "26.1.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.1.0.tgz#aa85f0727fc5611347091c478341c63650903439"
-  integrity sha512-O0A1G3xPGy4w7AgQdAQYUlQ+BKk2Oovw8eRpofyp5KdBZULnbe+WqaOVNrm705SHphCiG4XHsACrSmPu1f+Kgw==
+  version "26.1.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.1.1.tgz#bad758d601e97d6cf457d204ee76a35fce7bd119"
+  integrity sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw==
   dependencies:
     undici-types "~8.3.0"
 
@@ -2566,9 +2566,9 @@ iconv-lite@^0.7.2:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
 idb-keyval@^6.2.0:
-  version "6.2.6"
-  resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-6.2.6.tgz#6a1204e20dca567f7b8fef2fac5fc52af02fd553"
-  integrity sha512-FY64UEhw+5liMzMQ1R9Mw6AF0+wyBrg1CIA1z4CjI/EvT5ty/SvQcWZgd8s9sgaNhX10Y8UzScTh89tEAls5nA==
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/idb-keyval/-/idb-keyval-6.3.0.tgz#3fa4c062fcaddd7e577c51b51f69924bccfb58e6"
+  integrity sha512-um+2dgAWmYsu615EXpWVwSmapJhON0G43t3Ka/EVaohzPQXSMqKEqeDK/oIW3Ow+BXaF2PvSc+oBTFp793A5Ow==
 
 ieee754@^1.1.13, ieee754@^1.2.1:
   version "1.2.1"
@@ -2708,9 +2708,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.40"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.40.tgz#d1bf7cee4cb03232e36c9d94e8f18b8a757194c1"
-  integrity sha512-8gtiC4eTwOelFEc+OkBB0tNrfuSwT87FggrX/B36R+QuQNb5jbt9Kyrh2IKHWVwuRS/t2xQ7f5fpxHuCQ6bsBQ==
+  version "0.7.41"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.41.tgz#c03fa2aed375abbc92af47008dc81695a604ed23"
+  integrity sha512-TC1KL8OtYZPRuq/Wl0AW2LQOic/q/AQbEEiPkCXlN5dGFXPIRj8+Qllc3EWBhN7aViHStI2IIthP2/L7BDzobQ==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
