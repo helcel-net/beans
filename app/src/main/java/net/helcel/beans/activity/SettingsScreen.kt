@@ -48,23 +48,22 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import androidx.preference.PreferenceManager
-import net.helcel.beans.R
-import net.helcel.beans.countries.GeoLocImporter
-import net.helcel.beans.helper.Settings
 import androidx.core.content.edit
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.preference.PreferenceManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import net.helcel.beans.R
 import net.helcel.beans.activity.sub.AboutScreen
 import net.helcel.beans.activity.sub.EditPlaceColorDialog
-import net.helcel.beans.activity.sub.EditPlaceDialog
 import net.helcel.beans.activity.sub.LicenseScreen
+import net.helcel.beans.countries.GeoLocImporter
 import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.Settings
 
 @Composable
 fun SysTheme(
@@ -156,154 +155,36 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
     val defaultTheme = stringResource(R.string.system)
     val keyProjection = stringResource(R.string.key_projection)
     val keyGroup = stringResource(R.string.key_group)
+    val keyRegional = stringResource(R.string.key_regional)
+    val keyRegionalStats = stringResource(R.string.key_regional_stats)
     val offString = stringResource(R.string.off)
-
-    var showEdit by remember { mutableStateOf(false) }
+    val onString = stringResource(R.string.on)
 
     var theme by remember { mutableStateOf(prefs.getString(keyTheme, defaultTheme)!!) }
     var projection by remember { mutableStateOf(prefs.getString(keyProjection, "default")!!) }
-    var groups by remember { mutableStateOf(prefs.getString(keyGroup,offString)!!) }
+    var groups by remember { mutableStateOf(prefs.getString(keyGroup, offString)!!) }
+    var regional by remember { mutableStateOf(prefs.getString(keyRegional, offString)!!) }
+    var regionalStats by remember { mutableStateOf(prefs.getString(keyRegionalStats, offString)!!) }
 
-        if(showEdit)
-            EditPlaceDialog(true) {
-                showEdit = false
+    var showGroupDialog by remember { mutableStateOf(false) }
+    var showRegionalDialog by remember { mutableStateOf(false) }
+    var showLoad by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+
+    if (showGroupDialog) {
+        EditPlaceColorDialog(
+            deleteMode = true,
+            onDismiss = {
                 val g = Data.selected_group
-                if (it && g != null) {
+                if (g != null) {
                     Data.visits.reassignAllVisitedToGroup(g.key)
                     Data.saveData()
                 }
-            }
-
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-                .background(MaterialTheme.colors.background)
-        ) {
-            item {
-                Text(
-                    "Theme", style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onBackground,
-                )
-                MultiPreference(arrayOf(stringResource(R.string.system),stringResource(R.string.light),stringResource(R.string.dark)), theme) { newTheme ->
-                    theme = newTheme
-                    prefs.edit { putString(keyTheme, newTheme) }
-                }
-                HorizontalDivider()
-            }
-            item {
-                Text(
-                    "Map Projection",
-                    style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onBackground,
-                    modifier = Modifier.padding(top = 16.dp)
-                )
-                MultiPreference(arrayOf(stringResource(R.string.mercator), stringResource(R.string.azimuthalequidistant)), projection) { newProj ->
-                    projection = newProj
-                    prefs.edit { putString(keyProjection, newProj) }
-                    Settings.refreshProjection()
-                }
-                HorizontalDivider()
-            }
-            item {
-                Text(
-                    "Groups",
-                    style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onBackground,
-                    modifier = Modifier.padding(top = 16.dp)
-                )
-                var showDialog by remember{mutableStateOf(false)}
-                if(showDialog){
-                    EditPlaceColorDialog(
-                        deleteMode = true,
-                        onDismiss = {
-                            val g = Data.selected_group
-                            if (g != null) {
-                                Data.visits.reassignAllVisitedToGroup(g.key)
-                                Data.saveData()
-                            }
-                            showDialog = false
-                        })
-                }
-                MultiPreference(
-                    arrayOf(stringResource(R.string.on), stringResource(R.string.off)),
-                    groups
-                ) { key ->
-                    if (key == offString) {
-                        showDialog=true
-                    }
-                    groups = key
-                    prefs.edit { putString(keyGroup, key) }
-                }
-                HorizontalDivider()
-            }
-            item {
-                Text(
-                    text = "Regional",
-                    style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onBackground,
-                    modifier = Modifier
-                        .padding(top = 16.dp)
-                        .clickable(onClick = {}),
-                )
-                RegionalScreen()
-                HorizontalDivider()
-            }
-            item{
-                val launcher = rememberLauncherForActivityResult(
-                contract = ActivityResultContracts.OpenDocument(),
-                onResult = { uri -> Data.doImport(context, uri)   }
-                )
-                Row(
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Button(onClick = {
-                        launcher.launch(arrayOf("*/*"))
-                    }, modifier = Modifier
-                        .fillMaxWidth(fraction = 0.4f)
-                        .padding(vertical = 8.dp)) {
-                        Text("Import")
-                    }
-                    Spacer(
-                        modifier = Modifier.fillMaxWidth(0.4f)
-                    )
-                    Button(onClick = {
-                        Data.doExport(context)
-                    }, modifier = Modifier
-                        .fillMaxWidth(fraction = 1f)
-                        .padding(vertical = 8.dp)) {
-                        Text("Export")
-                    }
-                }
-                HorizontalDivider()
-            }
-            item {
-                PreferenceButton("Licenses") {
-                    if (navController.currentDestination?.route != "licenses")
-                        navController.navigate("licenses")
-                }
-                PreferenceButton("About") {
-                    if (navController.currentDestination?.route != "about")
-                        navController.navigate("about")
-                }
-            }
-        }
+                showGroupDialog = false
+            })
     }
 
-@Composable
-fun RegionalScreen() {
-    val context = LocalContext.current
-
-    val keyRegional = stringResource(R.string.key_regional)
-    val offString = stringResource(R.string.off)
-    val onString = stringResource(R.string.on)
-    val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-    var selected by remember {  mutableStateOf(prefs.getString(keyRegional, offString)!!)}
-    var regional by remember{ mutableStateOf(prefs.getString(keyRegional, offString)!!)}
-    var showDialog by remember{mutableStateOf(false)}
-    var showLoad by remember{mutableStateOf(false)}
-
-    if(showDialog)
+    if (showRegionalDialog) {
         Dialog(
             content = {
                 Column(
@@ -312,26 +193,27 @@ fun RegionalScreen() {
                             MaterialTheme.colors.background,
                             RoundedCornerShape(corner = CornerSize(16.dp))
                         )
-                        .padding(16.dp),){
-                Text(style=MaterialTheme.typography.caption, text=  stringResource(R.string.delete_regions))
+                        .padding(16.dp),
+                ) {
+                    Text(
+                        style = MaterialTheme.typography.caption,
+                        text = stringResource(R.string.delete_regions)
+                    )
                     Button(onClick = {
                         GeoLocImporter.clearStates()
-                        regional= selected
-                        prefs.edit {
-                            putString(
-                                keyRegional,
-                                regional
-                            )
-                        }
-                        showDialog=false
-                    }){
-                       Text(stringResource(R.string.ok))
+                        regional = offString
+                        prefs.edit { putString(keyRegional, offString) }
+                        showRegionalDialog = false
+                    }) {
+                        Text(stringResource(R.string.ok))
                     }
                 }
             },
-            onDismissRequest = { showDialog=false }
+            onDismissRequest = { showRegionalDialog = false }
         )
-    if(showLoad){
+    }
+
+    if (showLoad) {
         Dialog(
             content = {
                 CircularProgressIndicator(
@@ -343,41 +225,153 @@ fun RegionalScreen() {
             onDismissRequest = {}
         )
     }
-    val scope = rememberCoroutineScope()
-    MultiPreference(arrayOf(stringResource(R.string.on),stringResource(R.string.off)),regional) { key ->
-                when (key) {
-                    offString -> { showDialog=true
-                        selected=key
+
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .background(MaterialTheme.colors.background)
+    ) {
+        item {
+            Text(
+                stringResource(R.string.key_theme),
+                style = MaterialTheme.typography.h6,
+                color = MaterialTheme.colors.onBackground,
+            )
+            MultiPreference(
+                arrayOf(
+                    stringResource(R.string.system),
+                    stringResource(R.string.light),
+                    stringResource(R.string.dark)
+                ), theme
+            ) { newTheme ->
+                theme = newTheme
+                prefs.edit { putString(keyTheme, newTheme) }
+            }
+            HorizontalDivider()
+        }
+        item {
+            Text(
+                stringResource(R.string.key_projection),
+                style = MaterialTheme.typography.h6,
+                color = MaterialTheme.colors.onBackground,
+                modifier = Modifier.padding(top = 16.dp)
+            )
+            MultiPreference(
+                arrayOf(stringResource(R.string.mercator), stringResource(R.string.azimuthalequidistant)),
+                projection
+            ) { newProj ->
+                projection = newProj
+                prefs.edit { putString(keyProjection, newProj) }
+                Settings.refreshProjection()
+            }
+            HorizontalDivider()
+        }
+        item {
+            SettingSwitch(
+                label = stringResource(R.string.key_group),
+                subtitle = stringResource(R.string.key_group_desc),
+                isChecked = groups == onString,
+                onCheckedChange = { isChecked ->
+                    if (!isChecked) {
+                        showGroupDialog = true
+                    } else {
+                        groups = onString
+                        prefs.edit { putString(keyGroup, onString) }
                     }
-                    onString -> {
-                        regional = key
-                        prefs.edit { putString(keyRegional, key) }
-                        showLoad=true
+                }
+            )
+            HorizontalDivider()
+        }
+        item {
+            SettingSwitch(
+                label = stringResource(R.string.key_regional),
+                subtitle = stringResource(R.string.key_regional_desc),
+                isChecked = regional == onString,
+                onCheckedChange = { isChecked ->
+                    if (isChecked) {
+                        regional = onString
+                        prefs.edit { putString(keyRegional, onString) }
+                        showLoad = true
                         scope.launch {
                             withContext(Dispatchers.IO) {
                                 GeoLocImporter.importStates(context, true)
                             }
                             showLoad = false
                         }
+                    } else {
+                        showRegionalDialog = true
                     }
                 }
+            )
+            if (regional == onString) {
+                SettingSwitch(
+                    label = stringResource(R.string.pref_regional_stats),
+                    subtitle = stringResource(R.string.pref_regional_stats_desc),
+                    isChecked = regionalStats == onString,
+                    onCheckedChange = { isChecked ->
+                        regionalStats = if (isChecked) onString else offString
+                        prefs.edit { putString(keyRegionalStats, regionalStats) }
+                    }
+                )
             }
+            HorizontalDivider()
+        }
+        item {
+            val launcher = rememberLauncherForActivityResult(
+                contract = ActivityResultContracts.OpenDocument(),
+                onResult = { uri -> Data.doImport(context, uri) }
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+            ) {
+                Button(
+                    onClick = {
+                        launcher.launch(arrayOf("*/*"))
+                    }, modifier = Modifier
+                        .weight(1f)
+                ) {
+                    Text(stringResource(R.string.action_import))
+                }
+                Spacer(modifier = Modifier.size(16.dp))
+                Button(
+                    onClick = {
+                        Data.doExport(context)
+                    }, modifier = Modifier
+                        .weight(1f)
+                ) {
+                    Text(stringResource(R.string.action_export))
+                }
+            }
+            HorizontalDivider()
+        }
+        item {
+            PreferenceButton(stringResource(R.string.licenses)) {
+                if (navController.currentDestination?.route != "licenses")
+                    navController.navigate("licenses")
+            }
+            PreferenceButton(stringResource(R.string.about)) {
+                if (navController.currentDestination?.route != "about")
+                    navController.navigate("about")
+            }
+        }
+    }
 }
-
 
 @Composable
 fun MultiPreference(list: Array<String>, selected: String, onSelected: (String) -> Unit) {
-    Column(Modifier.padding(2.dp)) {
+    Column(Modifier.padding(vertical = 2.dp)) {
         list.forEach { value ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(36.dp)
+                    .height(42.dp)
                     .clickable { onSelected(value) }) {
                 RadioButton(selected = selected == value, onClick = { onSelected(value) })
                 Text(
-                    value, modifier = Modifier.padding(start = 8.dp),
+                    value, modifier = Modifier.padding(start = 12.dp),
+                    style = MaterialTheme.typography.body1,
                     color = MaterialTheme.colors.onBackground,
                 )
             }
@@ -391,5 +385,40 @@ fun PreferenceButton(text: String, onClick: () -> Unit) {
         .fillMaxWidth()
         .padding(vertical = 8.dp)) {
         Text(text)
+    }
+}
+
+@Composable
+fun SettingSwitch(
+    label: String,
+    subtitle: String? = null,
+    isChecked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onCheckedChange(!isChecked) }
+            .padding(vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text=label,
+                style = MaterialTheme.typography.h6,
+                color = MaterialTheme.colors.onBackground,
+            )
+            if (subtitle != null) {
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.body2,
+                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.6f)
+                )
+            }
+        }
+        androidx.compose.material.Switch(
+            checked = isChecked,
+            onCheckedChange = onCheckedChange
+        )
     }
 }

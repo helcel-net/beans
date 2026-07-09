@@ -37,7 +37,7 @@ import net.helcel.beans.countries.World
 import net.helcel.beans.helper.AUTO_GROUP
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.Groups
-import net.helcel.beans.helper.Settings.isRegional
+import net.helcel.beans.helper.Settings
 import net.helcel.beans.helper.Theme.getContrastColor
 
 private val MODE_LIST = listOf(LocType.WORLD, LocType.COUNTRY, LocType.STATE)
@@ -46,7 +46,7 @@ private val MODE_LIST = listOf(LocType.WORLD, LocType.COUNTRY, LocType.STATE)
 fun StatsScreen(
     onExit: ()-> Unit
 ) {
-    val modes = if (isRegional(LocalContext.current)) MODE_LIST else MODE_LIST.take(2)
+    val modes = if (Settings.isRegional(LocalContext.current)) MODE_LIST else MODE_LIST.take(2)
     var selectedTab by remember { mutableIntStateOf(0) }
     var countMode by remember { mutableStateOf(true) }
 
@@ -115,23 +115,78 @@ fun StatsList(activeMode: LocType, countMode: Boolean) {
 
 @Composable
 fun StatsRow(group: Groups.Group, activeMode: LocType, countMode: Boolean) {
+    val context = LocalContext.current
+    val isRegionalStats = remember { Settings.isRegionalStats(context) }
 
-    val visited = remember(group, activeMode) {
-        Data.visits.getVisitedByValue(group.key)
+    val countries = remember { World.WWW.children.flatMap { it.children } }
+    val continents = remember { World.WWW.children.toList() }
+
+    val count = remember(group, activeMode, isRegionalStats) {
+        when (activeMode) {
+            LocType.WORLD -> continents.filter { continent ->
+                if (group.key == AUTO_GROUP) {
+                    val isUncat = Data.visits.getVisited(continent) == AUTO_GROUP || continent.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
+                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
+                        Data.visits.getVisited(continent) == g.key || continent.children.any { Data.visits.getVisited(it) == g.key }
+                    }
+                    isUncat && (!isRegionalStats || !isInRealGroup)
+                } else {
+                    Data.visits.getVisited(continent) == group.key || (isRegionalStats && continent.children.any { Data.visits.getVisited(it) == group.key })
+                }
+            }.size
+
+            LocType.COUNTRY -> countries.filter { country ->
+                if (group.key == AUTO_GROUP) {
+                    val isUncat = Data.visits.getVisited(country) == AUTO_GROUP || country.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
+                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
+                        Data.visits.getVisited(country) == g.key || country.children.any { Data.visits.getVisited(it) == g.key }
+                    }
+                    isUncat && (!isRegionalStats || !isInRealGroup)
+                } else {
+                    Data.visits.getVisited(country) == group.key || (isRegionalStats && country.children.any { Data.visits.getVisited(it) == group.key })
+                }
+            }.size
+
+            LocType.STATE -> countries.flatMap { it.children }.filter { region ->
+                Data.visits.getVisited(region) == group.key
+            }.size
+
+            else -> 0
+        }
     }
 
-    val count = when (activeMode) {
-        LocType.WORLD -> World.WWW.children.filter { it.code in visited }.size
-        LocType.COUNTRY -> World.WWW.children.flatMap { it.children.filter { c -> c.code in visited } }.size
-        LocType.STATE -> World.WWW.children.flatMap { a->a.children.flatMap { b->b.children.filter { c->c.code in visited } } }.size
-        else -> 0
-    }
+    val area = remember(group, activeMode, isRegionalStats) {
+        when (activeMode) {
+            LocType.WORLD -> continents.filter { continent ->
+                if (group.key == AUTO_GROUP) {
+                    val isUncat = Data.visits.getVisited(continent) == AUTO_GROUP || continent.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
+                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
+                        Data.visits.getVisited(continent) == g.key || continent.children.any { Data.visits.getVisited(it) == g.key }
+                    }
+                    isUncat && (!isRegionalStats || !isInRealGroup)
+                } else {
+                    Data.visits.getVisited(continent) == group.key || (isRegionalStats && continent.children.any { Data.visits.getVisited(it) == group.key })
+                }
+            }.sumOf { it.area }
 
-    val area = when (activeMode) {
-        LocType.WORLD -> World.WWW.children.filter { it.code in visited }.sumOf { it.area }
-        LocType.COUNTRY -> World.WWW.children.flatMap { it.children.filter { c -> c.code in visited } }.sumOf { it.area }
-        LocType.STATE -> World.WWW.children.flatMap { a->a.children.flatMap { b->b.children.filter { c->c.code in visited } } }.sumOf { it.area }
-        else -> 0
+            LocType.COUNTRY -> countries.filter { country ->
+                if (group.key == AUTO_GROUP) {
+                    val isUncat = Data.visits.getVisited(country) == AUTO_GROUP || country.children.any { Data.visits.getVisited(it) == AUTO_GROUP }
+                    val isInRealGroup = Data.groups.groupsFlow.value.any { g ->
+                        Data.visits.getVisited(country) == g.key || country.children.any { Data.visits.getVisited(it) == g.key }
+                    }
+                    isUncat && (!isRegionalStats || !isInRealGroup)
+                } else {
+                    Data.visits.getVisited(country) == group.key || (isRegionalStats && country.children.any { Data.visits.getVisited(it) == group.key })
+                }
+            }.sumOf { it.area }
+
+            LocType.STATE -> countries.flatMap { it.children }.filter { region ->
+                Data.visits.getVisited(region) == group.key
+            }.sumOf { it.area }
+
+            else -> 0
+        }
     }
 
     val displayValue = if (countMode) count.toString() else stringResource(R.string.number_with_unit, area, "km²")

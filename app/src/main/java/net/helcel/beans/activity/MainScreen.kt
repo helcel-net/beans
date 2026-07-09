@@ -14,7 +14,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -24,8 +23,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -114,7 +111,7 @@ class MainScreen : ComponentActivity() {
                 PhotoView(ctx).apply {
                     setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null)
                     setImageDrawable(drawable)
-                    maximumScale = 32f
+                    maximumScale = 64f
                     scaleType = ImageView.ScaleType.FIT_CENTER
                 }
             }, modifier = Modifier.fillMaxSize())
