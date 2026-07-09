@@ -21,7 +21,10 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Percent
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
@@ -40,8 +43,8 @@ import net.helcel.beans.svg.SVGWrapper
 
 class MainScreen : ComponentActivity() {
 
-    private lateinit var psvg: SVGWrapper
-    private lateinit var css: CSSWrapper
+    private var psvg by mutableStateOf<SVGWrapper?>(null)
+    private var css by mutableStateOf<CSSWrapper?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,14 +53,19 @@ class MainScreen : ComponentActivity() {
         Data.loadData(this, Int.MIN_VALUE)
         GeoLocImporter.importStates(this)
 
+        refreshProjection()
+
         setContent {
             SysTheme {
-                Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.primary).statusBarsPadding(),) {
-                    AppNavHost(psvg, css)
+                val currentPsvg = psvg
+                val currentCss = css
+                if (currentPsvg != null && currentCss != null) {
+                    Box(modifier = Modifier.fillMaxSize().background(MaterialTheme.colors.primary).statusBarsPadding(),) {
+                        AppNavHost(currentPsvg, currentCss)
+                    }
                 }
             }
         }
-        refreshProjection()
     }
 
     @Composable
@@ -102,19 +110,25 @@ class MainScreen : ComponentActivity() {
     @Composable
     fun MapScreen(psvg: SVGWrapper, css: CSSWrapper) {
         Box {
-            val opt: RenderOptions = RenderOptions.create()
-            opt.css(css.get())
-            val drawable = remember(psvg, css) {
+            val cssContent = css.get()
+            val drawable = remember(psvg, css, cssContent) {
+                val opt: RenderOptions = RenderOptions.create()
+                opt.css(cssContent)
                 PictureDrawable(psvg.get()?.renderToPicture(opt))
             }
-            AndroidView(factory = { ctx ->
-                PhotoView(ctx).apply {
-                    setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null)
-                    setImageDrawable(drawable)
-                    maximumScale = 64f
-                    scaleType = ImageView.ScaleType.FIT_CENTER
-                }
-            }, modifier = Modifier.fillMaxSize())
+            AndroidView(
+                factory = { ctx ->
+                    PhotoView(ctx).apply {
+                        setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null)
+                        maximumScale = 64f
+                        scaleType = ImageView.ScaleType.FIT_CENTER
+                    }
+                },
+                update = { view ->
+                    view.setImageDrawable(drawable)
+                },
+                modifier = Modifier.fillMaxSize()
+            )
         }
     }
 
