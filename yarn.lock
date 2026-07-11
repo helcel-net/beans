@@ -2708,9 +2708,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.41"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.41.tgz#c03fa2aed375abbc92af47008dc81695a604ed23"
-  integrity sha512-TC1KL8OtYZPRuq/Wl0AW2LQOic/q/AQbEEiPkCXlN5dGFXPIRj8+Qllc3EWBhN7aViHStI2IIthP2/L7BDzobQ==
+  version "0.7.44"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.44.tgz#e08fc40d50347698ea07d2f82ead42a98b1c62f0"
+  integrity sha512-3Cx+IABMXt1G28Y8J7oalW5P5VYyt1vHz5FO+KkV51EHnJioo9h9maO+u+4IyCPZ9Mh1hqchgomFmc68GtFwQQ==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2737,7 +2737,7 @@ mapshaper@^0.7.22:
     idb-keyval "^6.2.0"
     jpeg-js "^0.4.4"
     kdbush "^3.0.0"
-    mproj "0.1.3"
+    mproj "0.1.5"
     msgpackr "^1.11.12"
     open "^11.0.0"
     pngjs "^7.0.0"
@@ -2772,10 +2772,10 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
 
-mproj@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/mproj/-/mproj-0.1.3.tgz#295b990970a80380dac85b29d605a5f4f66b25ff"
-  integrity sha512-XPxty3HPv1j5eXfxId1FSGX7JB8+KgozVOyCu5l40u/I0pW7gpWTaxouA8MNKHfEXN5oE8r9eowkM+0LuQduIQ==
+mproj@0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/mproj/-/mproj-0.1.5.tgz#b6e9353bf394abe7cd9263082b45bed5ed5ea747"
+  integrity sha512-HgUQtpYqzZzYD4gQXDiTFu2KgMJP7AAQCfYFR9lQpulx9hcspmnMOuCiMMs1bUUj9gPg9uAGnHQYU3We/5yipQ==
   dependencies:
     geographiclib "1.48.0"
     rw "~1.3.2"
