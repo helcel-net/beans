@@ -2708,9 +2708,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.46"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.46.tgz#1059bb97c697f334f13339cfa436016c7e4a4a68"
-  integrity sha512-QOr7U76WMF6q85jmISDb+VkqE8ZXhxE+mnXWAjTBcpoIPF6X76rTMO8pRyksqQzgL9UAN5G15SLuHbkzuuLk7A==
+  version "0.7.47"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.47.tgz#5cd811ed9d332770034792d15def855f58225b9c"
+  integrity sha512-xT0lEPiwsPf3OyuayhyF8WGMHUROn68XnZ8je1FHs1GMWdbVB/fWMR2O6+apdpBg6MFNGPXNHU8ZO9el1VGtZg==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -3420,9 +3420,9 @@ whatwg-url@^16.0.0, whatwg-url@^16.0.1:
     webidl-conversions "^8.0.1"
 
 wkt-parser@^1.3.1, wkt-parser@^1.5.5:
-  version "1.5.5"
-  resolved "https://registry.yarnpkg.com/wkt-parser/-/wkt-parser-1.5.5.tgz#251a5b0ba289842a2e8d5b25049c57fb49fb9183"
-  integrity sha512-/zMYi94/7D7fxcOSlVmWn6vnOMj3Gq5d1xvVjaYOS9n6h0qOJ4I7YYVxBWYcH1vq9+suhqzXkn05Yx47zQNUIA==
+  version "1.5.6"
+  resolved "https://registry.yarnpkg.com/wkt-parser/-/wkt-parser-1.5.6.tgz#3a19521914b2a21b7a8203590f5b180b9dba8dfa"
+  integrity sha512-cqHU3lzGt/gt2OqIORP0uVy5yeOX43WABmgFkmJsmcqH3HhQo9PiJG6ftytwGKmpQUbegeX7+pQc2BuNCRfcrw==
 
 wkx@0.4.8:
   version "0.4.8"
