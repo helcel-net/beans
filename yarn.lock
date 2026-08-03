@@ -289,9 +289,9 @@
   integrity sha512-Javneu5lsuhwNCryN+pXH93VPQ8g0dBX7wItHFgYiwQmzE1sVdg5tWHiOgHywzL2W21XQopa7IwIEnNbmeUJYA==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.62.3"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.62.3.tgz#57ef7f039c4f7de0e913f1f2680385467b86bb15"
-  integrity sha512-V4KtWtQfAFMU7+9/A/VDps/VI8CHd3cYz0L8sgJzz8qK7eY7wI4ruFD82UYIYvW9Z4DtlTfhQcsl4XyPHW5uSg==
+  version "4.62.4"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.62.4.tgz#1e7470123e7a8ba8c160a7a043447472d5549542"
+  integrity sha512-W69hukhZ3KKNRCaMIEzKvcFye42hh0FE1+YoYaf5+Ikacuftoco6yO/xouz0hc5d5W/s3yBro5jRiuEE/Q5vUw==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
@@ -2711,9 +2711,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.49"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.49.tgz#080834bce114c47479bbd94ebff4ea1513f05c9e"
-  integrity sha512-PrIPNdYOFk4uOOHtD8fHA6bTGbfW6+Z+jPn43Mq73g7WWEeHRJMrTAqdgovpk9L+8osj1KYbtJzkOT5+h8fs2g==
+  version "0.7.50"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.50.tgz#0d3b990196495c792e6f97e1715b75eacb12fda0"
+  integrity sha512-Bp77lwWd5WEtHJuYOtwqqRY9ek6wpxapvKOYJoyY7osm5yu14Zk503Fx013nVyQq1XZxUedpUaPWQB7dc6Rb0A==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2740,7 +2740,7 @@ mapshaper@^0.7.22:
     idb-keyval "^6.2.0"
     jpeg-js "^0.4.4"
     kdbush "^3.0.0"
-    mproj "0.1.5"
+    mproj "0.1.6"
     msgpackr "^1.11.12"
     open "^11.0.0"
     pngjs "^7.0.0"
@@ -2775,10 +2775,10 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
 
-mproj@0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/mproj/-/mproj-0.1.5.tgz#b6e9353bf394abe7cd9263082b45bed5ed5ea747"
-  integrity sha512-HgUQtpYqzZzYD4gQXDiTFu2KgMJP7AAQCfYFR9lQpulx9hcspmnMOuCiMMs1bUUj9gPg9uAGnHQYU3We/5yipQ==
+mproj@0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/mproj/-/mproj-0.1.6.tgz#a10e0bdf9aecb84efb0152eb74ef12011548b733"
+  integrity sha512-tw30j10qLYWJoc1Q448T5cfcQ26wO4yc3KdYyHcX9ts9u83lC0qoXg+/FNQbiV3wb40R0rzU15bPyO6N+lpkxg==
   dependencies:
     geographiclib "1.48.0"
     rw "~1.3.2"
