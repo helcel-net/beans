@@ -367,13 +367,13 @@
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
-"@turf/bbox@*", "@turf/bbox@7.3.5":
-  version "7.3.5"
-  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-7.3.5.tgz#bf93e0a81aa98ca8809bea1bfa6cdfd03ce2470a"
-  integrity sha512-oG1ya/HtBjAIg4TimbWx+nOYPbY0bCvt82Bq8tm6sBw3qqtbOyRSfDz79Sq90TnH7DXJprJ1qnVGKNtZ6jemfw==
+"@turf/bbox@*":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-7.4.0.tgz#29a3d64231741e323d63009bc50f1fc2b827e8be"
+  integrity sha512-yOX9lALc2GmjYUIE99+nRj7eZA7eDtx7Ixu/hrgIo+YqHvL1reaPVTC9rQWMHMm0pH0/WHjzk8uOpAHjptrudQ==
   dependencies:
-    "@turf/helpers" "7.3.5"
-    "@turf/meta" "7.3.5"
+    "@turf/helpers" "7.4.0"
+    "@turf/meta" "7.4.0"
     "@types/geojson" "^7946.0.10"
     tslib "^2.8.1"
 
@@ -384,6 +384,16 @@
   dependencies:
     "@turf/helpers" "^6.3.0"
     "@turf/meta" "^6.3.0"
+
+"@turf/bbox@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-7.3.5.tgz#bf93e0a81aa98ca8809bea1bfa6cdfd03ce2470a"
+  integrity sha512-oG1ya/HtBjAIg4TimbWx+nOYPbY0bCvt82Bq8tm6sBw3qqtbOyRSfDz79Sq90TnH7DXJprJ1qnVGKNtZ6jemfw==
+  dependencies:
+    "@turf/helpers" "7.3.5"
+    "@turf/meta" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
 
 "@turf/bbox@^6.5.0":
   version "6.5.0"
@@ -2738,9 +2748,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.50"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.50.tgz#0d3b990196495c792e6f97e1715b75eacb12fda0"
-  integrity sha512-Bp77lwWd5WEtHJuYOtwqqRY9ek6wpxapvKOYJoyY7osm5yu14Zk503Fx013nVyQq1XZxUedpUaPWQB7dc6Rb0A==
+  version "0.7.51"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.51.tgz#0baf876e07d4c88861b9b0459cd35beef98a6543"
+  integrity sha512-iYvQJgzYaKHXshXv8hnKu+6OOp4YVkkZwWJINF/Id+NNyYiiCw4gRQJb+BXJgjZJITUk9sc6zWLtwtW96DGHVw==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
