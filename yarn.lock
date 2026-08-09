@@ -3,9 +3,9 @@
 
 
 "@asamuzakjp/css-color@^6.0.5":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@asamuzakjp/css-color/-/css-color-6.0.6.tgz#6c2f217e2871a9ae4d89195ee29b8c6c451e3fe4"
-  integrity sha512-I2O7zWfXxyCUZIXjYqDDw8K1+/NjM3kxi1ldt+2QWSi1z3SWvZqISD99zyndtNz8+M9fqPyCMxiJILN6FgKV/w==
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/@asamuzakjp/css-color/-/css-color-6.0.7.tgz#8f9f67452e6636930949abe047dd553b13276939"
+  integrity sha512-vC/bk1Lz7Tn/EfU9/apOTBk80/8dyGyWMowPoV1tJ52muDGsDqt2HPT2klrFUiY60MQmQv9q8yIht15JnBgDGw==
   dependencies:
     "@csstools/css-calc" "^3.3.0"
     "@csstools/css-color-parser" "^4.1.10"
