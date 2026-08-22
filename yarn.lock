@@ -1996,9 +1996,9 @@
   integrity sha512-+N+2H39P8X+Hy1I5mC6awlTX54k3FhiUmvt7HWzGJZvF+syUAAxP/stwppS8JE84YHqFgRMv6fCy31202CMFxQ==
 
 "@xmldom/xmldom@^0.8.6":
-  version "0.8.14"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.14.tgz#96c3cbb30cb305f8f81d1d5965bf03e9ab5d6af6"
-  integrity sha512-T4EDRUBVZYRldYApjEJiU0e1stYWaRAX7CuSnKzrpwdZKo53zGV8/pqfzV6FfwNl9YThD2OumQYvqtvjvgG7aQ==
+  version "0.8.15"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.15.tgz#71ebf80729e4e95221d519ac9b1e1eaea7784907"
+  integrity sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==
 
 "@zarrita/storage@^0.2.0":
   version "0.2.0"
@@ -2727,9 +2727,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.54"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.54.tgz#9fdfb01d56543939af0f95e9cbc737e378ec5cac"
-  integrity sha512-LTB/pcyTQHspJIWVhXcJ/Ebvwd4J5MQjCfKdH90nowd1mGCUQkAUcDxlKNIZgAQvojuccBe5rvU9ye0qNMVdAw==
+  version "0.7.55"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.55.tgz#7b14e60137dea6e85a3994afc92da77f2f3c0c9e"
+  integrity sha512-B+faxWOL4K8C+DMCyYsuRJwXaIwv2dBBv8d/sn+O+uz2Lpf9SCBmIg8ijRLcYv6yxafD6TwSD9keeWuqvS8gcA==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
