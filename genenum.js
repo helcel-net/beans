@@ -1,10 +1,8 @@
 #!/bin/node
 
-import {readFileSync,writeFileSync,existsSync} from 'fs'
+import {readFileSync,existsSync} from 'fs'
 import area from '@turf/area'
 import * as turf from '@turf/turf'
-import * as path from 'path';
-import { JSDOM } from 'jsdom';
 
 
 const countries =
@@ -162,52 +160,4 @@ async function run(){
   }
 }
 
-
-function fixSvg(svgPath) {
-  const countryToRegion = {};
-  for (const [region, countries] of Object.entries(groups)) {
-    countries.forEach(country => countryToRegion[country] = region);
-  }
-  const absoluteInputPath = path.resolve(svgPath);
-  if (!existsSync(absoluteInputPath)) {
-    throw new Error(`Input file not found at: ${absoluteInputPath}`);
-  }
-  const svgContent = readFileSync(absoluteInputPath, 'utf8');
-  const dom = new JSDOM(svgContent, { contentType: 'image/svg+xml' });
-  const document = dom.window.document;
-  const svgRoot = document.querySelector('svg');
-    if (!svgRoot) {
-      throw new Error("Invalid or empty SVG structure encountered.");
-    }
-    if (svgRoot.getAttribute('data-processed') === 'true') {
-      console.log(`Skipping: File at "${svgPath}" has already been processed.`);
-      return;
-    }
-
-  const elementGroups = Array.from(svgRoot.querySelectorAll('g'));
- elementGroups.forEach(group => {
-    const currentId = group.getAttribute('id') || '';
-    const baseIsoCode = currentId.replace(/\d+$/, '');
-    const regionKey = countryToRegion[baseIsoCode] || 'XXXX';
-    let regionGroup = svgRoot.querySelector(`g[id="${regionKey}"]`);
-    if (!regionGroup) {
-      regionGroup = document.createElementNS('http://w3.org', 'g');
-      regionGroup.setAttribute('id', regionKey);
-      svgRoot.appendChild(regionGroup);
-    }
-    regionGroup.appendChild(group);
-  });
-  svgRoot.setAttribute('data-processed', 'true');
-  const absoluteOutputPath = path.resolve(svgPath);
-  let cleanXmlString = svgRoot.outerHTML;
-  cleanXmlString = cleanXmlString.replace(/[\r\n]+/g, '');
-  cleanXmlString = cleanXmlString.replace(/xmlns="http:\/\/w3\.org"\s?/g, '');
-  cleanXmlString = cleanXmlString.replace(/xmlns="http:\/\/www\.w3\.org\/2000\/svg"\s?/g, '');
-  cleanXmlString = cleanXmlString.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
-  writeFileSync(absoluteOutputPath, cleanXmlString, 'utf8');
-}
-
 run()
-fixSvg("./app/src/main/assets/loxim01.svg")
-fixSvg("./app/src/main/assets/webmercator01.svg")
-fixSvg("./app/src/main/assets/aeqd01.svg")

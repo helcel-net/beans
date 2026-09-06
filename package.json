@@ -1,8 +1,10 @@
 {
+  "scripts": {
+    "pack": "node packmap.js mapdata/loxim01.geojson mapdata/webmercator01.geojson mapdata/aeqd01.geojson"
+  },
   "dependencies": {
     "@turf/area": "^7.3.5",
     "@turf/turf": "^7.3.5",
-    "jsdom": "^30.0.0",
     "mapshaper": "^0.7.22"
   },
   "type": "module"

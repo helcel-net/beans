@@ -1,7 +1,5 @@
 #!/bin/bash
 
-LOCAL_SVG_PATH="app/src/main/assets/"
-
 GADM_VERSION="4.1"
 GADM_BASEPATH="https://geodata.ucdavis.edu/gadm"
 
@@ -80,43 +78,7 @@ download_1() {
 }
 
 
-toSVG_0() {
-    local input_files=("ATA")
-
-    for country in "${countries[@]}"
-    do
-        input_file="./temp/0/${country}.json"
-        if [ -f "$input_file" ]; then
-            input_files+=("$input_file")
-        else
-            echo "Input file $input_file not found."
-        fi
-    done
-
-
-    "$mapshaper" -i combine-files ${input_files[@]} -proj webmercator -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/mercator0.svg svg-data=GID_0,COUNTRY id-field=GID_0
-    "$mapshaper" -i combine-files ${input_files[@]} -proj aeqd +lat_0=90 -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd0.svg svg-data=GID_0,COUNTRY id-field=GID_0
-}
-
-toSVG_1() {
-    input_files=("ATA")
-
-    for country in "${countries[@]}"
-    do
-        input_file="./temp/1/${country}.json"
-        # input_file="./temp/1/gadm41_${country}_1.json"
-        if [ -f "$input_file" ]; then
-            input_files+=("$input_file")
-        else
-            echo "Input file $input_file not found."
-        fi
-    done
-
-    "$mapshaper" -i combine-files ${input_files[@]} -proj webmercator -simplify 0.005 weighted keep-shapes resolution=1200x1200  -o ./app/src/main/assets/mercator1.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-    "$mapshaper" -i combine-files ${input_files[@]} -proj aeqd +lat_0=90 -simplify 0.005 weighted keep-shapes resolution=1200x1200 -o ./app/src/main/assets/aeqd1.svg svg-data=GID_0,COUNTRY,GID,NAME id-field=GID
-}
-
-generate_svg_map() {
+generate_map() {
     local OUT_FILE="$1"      # First argument: Output destination path
     local PROJ_ARGS="$2"     # Second argument: Projection parameters
     shift 2                  # Remove the first two arguments, leaving only the files
@@ -125,6 +87,9 @@ generate_svg_map() {
     echo "Generating: $OUT_FILE using projection [$PROJ_ARGS]"
     echo "Processing ${#FILES_TO_RUN[@]} files..."
 
+    # Each feature is tagged with the place it belongs to and whether it is a
+    # country outline or one of its regions. packmap.js groups on that; nothing
+    # downstream needs the features split into layers.
     local JS_PIPELINE_LOGIC="
         const conflicts = {
                 'Z01': 'IND', 'Z04': 'IND', 'Z05': 'IND', 'Z07': 'IND', 'Z09': 'IND',
@@ -133,32 +98,27 @@ generate_svg_map() {
         };
         let rawCode = GID_0 || 'UNK';
         let cCode = conflicts[rawCode] ? conflicts[rawCode] : rawCode;
+        // Antarctica's boundary file carries no country code at either level.
+        if (cCode === 'UNK') cCode = 'ATA';
         let isGidMissing = (!GID || GID === 'undefined' || GID === 'null' || GID === '');
-        if (isGidMissing) {
-            COUNTRY_GROUP = cCode+'2';
-        } else {
-            COUNTRY_GROUP = cCode+'1';
-        }
+        CODE = isGidMissing ? cCode : GID;
+        LEVEL = isGidMissing ? 0 : 1;
     "
 
     "$mapshaper" -i "${FILES_TO_RUN[@]}" combine-files \
         -snap \
         -merge-layers force\
         -proj $PROJ_ARGS densify \
-        -simplify 2% weighted keep-shapes \
+        -simplify 10% weighted keep-shapes \
         -filter-islands min-area=0 \
         -sort 'this.area' ascending \
         -each "$JS_PIPELINE_LOGIC" \
-        -split COUNTRY_GROUP \
         -o "$OUT_FILE" \
-        format=svg \
-        id-field=GID \
-        precision=0.1 \
-        target=*
+        format=geojson
 
 }
 
-toSVG_01() {
+build_maps() {
     input_files=()
     
     input_files+=("./temp/1/ATA.json")
@@ -178,9 +138,12 @@ toSVG_01() {
         fi
     done
 
-    generate_svg_map "./app/src/main/assets/loxim01.svg" "loxim" "${input_files[@]}"
-    generate_svg_map "./app/src/main/assets/webmercator01.svg" "webmercator" "${input_files[@]}"
-    generate_svg_map "./app/src/main/assets/aeqd01.svg" "aeqd +lat_0=90" "${input_files[@]}"
+    generate_map "./mapdata/loxim01.geojson" "loxim" "${input_files[@]}"
+    generate_map "./mapdata/webmercator01.geojson" "webmercator" "${input_files[@]}"
+    generate_map "./mapdata/aeqd01.geojson" "aeqd +lat_0=90" "${input_files[@]}"
+
+    # The app reads the packed form; the GeoJSON above is only an intermediate.
+    node packmap.js ./mapdata/loxim01.geojson ./mapdata/webmercator01.geojson ./mapdata/aeqd01.geojson
 }
 
 do_1() {
@@ -199,8 +162,6 @@ do_0() {
 }
 # do_0
 # do_1
-# toSVG_0
-# toSVG_1
-toSVG_01
+build_maps
 
 #CUW, CCK, XCL, CXR, IOT, BVT, ABW, FLK, GIB, HMD, KIR, SXM, MDV, MCO, NIU, NFK, PCN, MAF, SGS, VAT

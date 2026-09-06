@@ -23,3 +23,5 @@ captures/
 local.properties
 keystore.properties
 key.jks
+# generated map intermediates; the packed .bmap in assets is what ships
+mapdata/*.geojson
