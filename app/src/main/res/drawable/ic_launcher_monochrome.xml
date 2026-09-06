@@ -7,20 +7,6 @@
         android:scaleY="0.8918919"
         android:translateX="6.918919"
         android:translateY="6.918919">
-
-        <group
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:translateX="10"
-            android:translateY="10">
-            <path
-                android:pathData="M36,36m-28,0a28,28 0,1 1,56 0a28,28 0,1 1,-56 0"
-                android:strokeLineJoin="round"
-                android:strokeWidth="2"
-                android:strokeColor="#000000"
-                android:strokeLineCap="round"/>
-
-        </group>
         <group
             android:scaleX="1.25"
             android:scaleY="1.25"
