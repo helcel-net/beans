@@ -21,6 +21,10 @@
     <string name="pref_cascade_stats">Cascade statistics</string>
     <string name="pref_cascade_stats_desc">Include parents and children in the counts</string>
     <string name="key_group_desc">Enable multiple colors</string>
+    <string name="key_touch_radius">key_touch_radius</string>
+    <string name="pref_touch_radius">Tap radius</string>
+    <string name="pref_touch_radius_desc">How far around a tap on the map other places should be considered</string>
+    <string name="pref_touch_radius_value">%1$d dp</string>
     <string name="about">About</string>
     <string name="pref_category_appearance">Appearance</string>
     <string name="pref_category_features">Features</string>
@@ -40,6 +44,8 @@
     <string name="select_group">Select the group to keep.</string>
     <string name="select_group_sub">All others will be deleted and its mappings reassigned to the group you choose here.</string>
     <string name="delete_group">Are your sure you want to delete this group and remove all its country mappings?</string>
+    <string name="select_place">Select a place</string>
+    <string name="select_place_sub">Tap the place to color, or a larger one that contains it.</string>
     <string name="delete_regions">Are you sure you want to disable regions and reassign all regional mappings to the corresponding countries?</string>
 
     <string name="name">Name</string>

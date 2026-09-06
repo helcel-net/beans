@@ -1,6 +1,7 @@
 package net.helcel.beans.activity.sub
 
 
+import android.content.Context
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -52,6 +53,44 @@ import kotlin.math.min
 @Composable
 fun EditPlaceScreenPreview(){
     EditPlaceScreen(Group.EEE)
+}
+
+/**
+ * Applies a place straight away where a single group makes the choice obvious,
+ * as tapping the checkbox does. Returns false when the group still has to be
+ * picked from the colour dialog.
+ */
+fun applyDirectVisit(ctx: Context, loc: GeoLoc): Boolean {
+    Data.selected_geoloc = loc
+    Data.selected_group = null
+    if (Data.groups.size() != 1 || !Settings.isSingleGroup(ctx)) return false
+    val current = Data.visits.getVisited(loc)
+    Data.visits.setVisited(
+        loc,
+        if (current == NO_GROUP || current == AUTO_GROUP) Data.groups.getUniqueEntry()!!.key
+        else if (loc.children.any { Data.visits.getVisited(it) != NO_GROUP }) AUTO_GROUP
+        else NO_GROUP,
+    )
+    syncVisited()
+    Data.saveData()
+    Data.selected_geoloc = null
+    return true
+}
+
+/** Stores whatever the colour dialog came back with. */
+fun commitVisitDialog(cleared: Boolean) {
+    if (cleared) {
+        Data.visits.setVisited(Data.selected_geoloc, NO_GROUP)
+        syncVisited()
+        Data.saveData()
+    }
+    if (Data.selected_group != null && Data.selected_geoloc != null) {
+        Data.visits.setVisited(Data.selected_geoloc, Data.selected_group!!.key)
+        syncVisited()
+        Data.saveData()
+    }
+    Data.selected_geoloc = null
+    Data.selected_group = null
 }
 
 fun syncVisited(loc: GeoLoc?=World.WWW): Boolean {
@@ -122,22 +161,7 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
     if(showEdit)
         EditPlaceDialog(false) {
             showEdit = false
-            if (it) {
-                Data.visits.setVisited(Data.selected_geoloc, NO_GROUP)
-                syncVisited()
-                Data.saveData()
-
-                if (Data.selected_geoloc!=null && Data.selected_geoloc!!.children.any { itc-> Data.visits.getVisited(itc) != NO_GROUP }) {
-                    Data.clearing_geoloc = Data.selected_geoloc
-                }
-            }
-            if (Data.selected_group != null && Data.selected_geoloc != null) {
-                Data.visits.setVisited(Data.selected_geoloc, Data.selected_group!!.key)
-                syncVisited()
-                Data.saveData()
-            }
-            Data.selected_geoloc = null
-            Data.selected_group = null
+            commitVisitDialog(it)
         }
 
     Column {
@@ -167,22 +191,7 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
                             tabs.add(loc)
                         }
                     }, {
-                        Data.selected_geoloc = loc
-                        if (Data.groups.size() == 1 && Settings.isSingleGroup(ctx)) {
-                            Data.visits.setVisited(Data.selected_geoloc,
-                                if (it != ToggleableState.On) Data.groups.getUniqueEntry()!!.key
-                                else if(Data.selected_geoloc?.children?.any{ itc->
-                                        Data.visits.getVisited(itc)!= NO_GROUP } == true) AUTO_GROUP
-                                else NO_GROUP
-                            )
-                            Data.saveData()
-                            Data.selected_group = null
-                        } else {
-                            Data.selected_group = null
-                            showEdit=true
-                        }
-                        syncVisited()
-                        Data.saveData()
+                        if (!applyDirectVisit(ctx, loc)) showEdit = true
                     })
 
             }
@@ -196,7 +205,7 @@ fun EditPlaceScreen(loc: GeoLoc, onExit:()->Unit={}) {
 fun GeoLocRow(
     loc: GeoLoc,
     onClick: () -> Unit,
-    onCheckedChange: (ToggleableState) -> Unit
+    onToggle: () -> Unit,
 ) {
     val visits by Data.visits.visitsFlow.collectAsState()
     val checked by remember(visits, loc) {
@@ -235,7 +244,7 @@ fun GeoLocRow(
 
         TriStateCheckbox(
             state = checked,
-            onClick= { onCheckedChange(checked) },
+            onClick = onToggle,
             colors = CheckboxDefaults.colors(
                 checkedColor = color,
             ),

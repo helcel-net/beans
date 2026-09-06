@@ -12,6 +12,7 @@ object GeoLocImporter {
 
     fun importStates(ctx: Context, force: Boolean = false) {
         if (!Settings.isRegional(ctx) and !force) {
+            GeoLocTree.rebuild()
             return
         }
         val fs = BufferedReader(InputStreamReader(ctx.assets.open("geoloc_state.txt")))
@@ -26,6 +27,7 @@ object GeoLocImporter {
                 }
             }
         }
+        GeoLocTree.rebuild()
     }
 
     fun clearStates() {
@@ -39,6 +41,7 @@ object GeoLocImporter {
             }
             country.children.clear()
         }
+        GeoLocTree.rebuild()
         Data.saveData()
     }
 }
