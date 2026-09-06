@@ -53,16 +53,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.preference.PreferenceManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import net.helcel.beans.R
 import net.helcel.beans.activity.sub.AboutScreen
 import net.helcel.beans.activity.sub.EditPlaceColorDialog
-import net.helcel.beans.activity.sub.LicenseScreen
 import net.helcel.beans.countries.GeoLocImporter
 import net.helcel.beans.helper.Data
+import net.helcel.beans.helper.defaultPreferences
 import net.helcel.beans.helper.Settings
 
 @Composable
@@ -70,7 +69,7 @@ fun SysTheme(
     content: @Composable () -> Unit
 ) {
     val context = LocalContext.current
-    val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+    val prefs = defaultPreferences(context)
     val themeKey = prefs.getString(stringResource(R.string.key_theme), stringResource(R.string.system))
     val darkTheme = when (themeKey) {
         stringResource(R.string.system) -> isSystemInDarkTheme()
@@ -111,7 +110,6 @@ fun settingsNav(): NavHostController {
     val navController = rememberNavController()
     NavHost(navController, startDestination= "settings"){
         composable("settings"){SettingsScreen(navController)}
-        composable("licenses"){ LicenseScreen() }
         composable("about"){ AboutScreen() }
     }
     return navController
@@ -150,7 +148,7 @@ fun SettingsMainScreen(onExit: ()->Unit = {}) {
 @Composable
 fun SettingsScreen(navController: NavHostController = settingsNav()) {
     val context = LocalContext.current
-    val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+    val prefs = defaultPreferences(context)
     val keyTheme = stringResource(R.string.key_theme)
     val defaultTheme = stringResource(R.string.system)
     val keyProjection = stringResource(R.string.key_projection)
@@ -351,10 +349,6 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
             HorizontalDivider()
         }
         item {
-            PreferenceButton(stringResource(R.string.licenses)) {
-                if (navController.currentDestination?.route != "licenses")
-                    navController.navigate("licenses")
-            }
             PreferenceButton(stringResource(R.string.about)) {
                 if (navController.currentDestination?.route != "about")
                     navController.navigate("about")

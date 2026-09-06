@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.plugin.serialization' version '2.4.10'
     id 'org.jetbrains.kotlin.plugin.compose' version '2.4.10'
-    id 'com.mikepenz.aboutlibraries.plugin' version '15.2.0'
 }
 
 android {
@@ -74,15 +73,16 @@ android {
         kotlinCompilerExtensionVersion = "2.2.20"
     }
 
+    androidResources {
+        // The app ships English strings only; without this the libraries drag
+        // in some eighty locales of their own.
+        localeFilters += ["en"]
+    }
+
     lint {
         disable 'UsingMaterialAndMaterial3Libraries'
     }
 
-}
-aboutLibraries {
-    library {
-        exclusionPatterns = [~"androidx.*", ~"com.google.android.*", ~"org.jetbrains.*"]
-    }
 }
 
 dependencies {
@@ -94,17 +94,10 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0'
 
-    implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'androidx.compose.ui:ui'
     implementation "androidx.activity:activity-ktx:1.13.0"
 
     implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'com.google.android.material:material:1.14.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0'
-
-    implementation 'com.mikepenz:aboutlibraries:14.2.1'
-    implementation 'com.mikepenz:aboutlibraries-compose-m3:15.2.0'
-    implementation 'com.mikepenz:aboutlibraries-core:15.2.0'
 
 
     implementation platform('androidx.compose:compose-bom:2026.08.00')

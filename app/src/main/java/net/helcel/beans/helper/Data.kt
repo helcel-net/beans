@@ -8,7 +8,6 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.ContextCompat
-import androidx.preference.PreferenceManager
 import net.helcel.beans.R
 import net.helcel.beans.countries.GeoLoc
 import java.util.HashMap
@@ -31,7 +30,7 @@ object Data {
     private lateinit var sharedPreferences: SharedPreferences
 
     fun loadData(ctx: Context, id:Int) {
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ctx)
+        sharedPreferences = defaultPreferences(ctx)
 
         val groupsString = sharedPreferences.getString("groups_$id",null)
         val visitsString = sharedPreferences.getString("visits_$id",null)

@@ -13,7 +13,6 @@
     <string name="key_stats">Statistics</string>
     <string name="counters">Prefer counters (#)</string>
     <string name="percentages">Prefer percentages (%)</string>
-    <string name="licenses">Licenses</string>
     <string name="key_group">Groups</string>
     <string name="key_regional">Regional mode</string>
     <string name="key_regional_desc">Enable tracking of states and provinces</string>
@@ -37,7 +36,6 @@
     <string name="beans_is_foss">Beans is free and open source software, licensed under the GNU General Public License (version 3 or later)</string>
     <string name="beans_repo_uri">https://github.com/helcel-net/beans</string>
     <string name="beans_repo">Project repository: %1$s\n Feel free to report issues or contribute.</string>
-    <string name="foss_licenses">Free and open source dependencies and licenses</string>
     <string name="about_beans">About the Beans application</string>
     <string name="edit_group">Select the group to assign.</string>
     <string name="edit_group_sub">Long press on a group to edit its name and color.</string>

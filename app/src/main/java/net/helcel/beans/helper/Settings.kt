@@ -2,7 +2,6 @@ package net.helcel.beans.helper
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 import net.helcel.beans.R
 import net.helcel.beans.activity.MainScreen
 
@@ -22,7 +21,7 @@ object Settings {
     private lateinit var mainActivity: MainScreen
     fun start(ctx: MainScreen) {
         mainActivity = ctx
-        sp = PreferenceManager.getDefaultSharedPreferences(ctx)
+        sp = defaultPreferences(ctx)
     }
 
     fun isSingleGroup(ctx: Context): Boolean {
