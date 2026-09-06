@@ -22,7 +22,6 @@ object Data {
 
     var selected_group : Groups.Group? = null
     var selected_geoloc: GeoLoc? = null
-    var clearing_geoloc: GeoLoc? = null
 
     private val groupsSerial = Groups.GroupsSerializer()
     private val visitsSerial = Visits.VisitsSerializer()
