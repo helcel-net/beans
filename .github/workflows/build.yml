@@ -50,10 +50,27 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
 
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest
+
       - name: Build APK
         run: |
           VERSION_CODE=$(git rev-list --count HEAD)
-          ./gradlew assembleSignedRelease -PVERSION_CODE=$VERSION_CODE
+          VERSION_BASE=$(git describe --tags --abbrev=0 | sed 's/^v//')
+          VERSION_DEV=$(git rev-list --count $(git describe --tags --abbrev=0)..HEAD)
+          if [ $VERSION_DEV -gt 0 ]; then
+            VERSION_NAME="${VERSION_BASE}.${VERSION_DEV}"
+          else
+            VERSION_NAME="${VERSION_BASE}"
+          fi
+          ./gradlew assembleSignedRelease -PVERSION_CODE=$VERSION_CODE -PVERSION_NAME=$VERSION_NAME
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          path: app/build/outputs/apk/signedRelease/app-signedRelease.apk
+          compression-level: 0
+          archive: false
 
       - name: Release
         uses: softprops/action-gh-release@v3
