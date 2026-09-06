@@ -26,6 +26,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.RadioButton
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Slider
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -37,6 +38,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -60,9 +62,12 @@ import net.helcel.beans.R
 import net.helcel.beans.activity.sub.AboutScreen
 import net.helcel.beans.activity.sub.EditPlaceColorDialog
 import net.helcel.beans.countries.GeoLocImporter
+import net.helcel.beans.helper.DEFAULT_TOUCH_RADIUS
 import net.helcel.beans.helper.Data
 import net.helcel.beans.helper.defaultPreferences
+import net.helcel.beans.helper.MAX_TOUCH_RADIUS
 import net.helcel.beans.helper.Settings
+import kotlin.math.roundToInt
 
 @Composable
 fun SysTheme(
@@ -98,27 +103,22 @@ fun SysTheme(
         isLight = !darkTheme,
     )
 
-    MaterialTheme(
-        colors = m2colors,
-        content = content
-    )
-}
-
-
-@Composable
-fun settingsNav(): NavHostController {
-    val navController = rememberNavController()
-    NavHost(navController, startDestination= "settings"){
-        composable("settings"){SettingsScreen(navController)}
-        composable("about"){ AboutScreen() }
+    // Both, because the app mixes the two: most of it is Material 2, while the
+    // dividers are Material 3 and would otherwise fall back to the default
+    // light scheme.
+    androidx.compose.material3.MaterialTheme(colorScheme = colorScheme) {
+        MaterialTheme(
+            colors = m2colors,
+            content = content
+        )
     }
-    return navController
 }
+
 
 @Preview
 @Composable
 fun SettingsMainScreen(onExit: ()->Unit = {}) {
-    val nav: NavHostController = settingsNav()
+    val nav: NavHostController = rememberNavController()
     SysTheme {
         Scaffold(
             topBar = {
@@ -138,15 +138,21 @@ fun SettingsMainScreen(onExit: ()->Unit = {}) {
                 )
             }
         ) { innerPadding ->
+            // One host, inside the scaffold. Building it here and again as a
+            // default argument left two of them: settings drawn twice, and
+            // only the inner one ever navigating.
             Box(modifier = Modifier.padding(innerPadding)) {
-                SettingsScreen()
+                NavHost(nav, startDestination = "settings") {
+                    composable("settings") { SettingsScreen(nav) }
+                    composable("about") { AboutScreen() }
+                }
             }
         }
     }
 }
 
 @Composable
-fun SettingsScreen(navController: NavHostController = settingsNav()) {
+fun SettingsScreen(navController: NavHostController) {
     val context = LocalContext.current
     val prefs = defaultPreferences(context)
     val keyTheme = stringResource(R.string.key_theme)
@@ -155,6 +161,7 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
     val keyGroup = stringResource(R.string.key_group)
     val keyRegional = stringResource(R.string.key_regional)
     val keyCascadeStats = stringResource(R.string.key_cascade_stats)
+    val keyTouchRadius = stringResource(R.string.key_touch_radius)
     val offString = stringResource(R.string.off)
     val onString = stringResource(R.string.on)
 
@@ -163,6 +170,9 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
     var groups by remember { mutableStateOf(prefs.getString(keyGroup, offString)!!) }
     var regional by remember { mutableStateOf(prefs.getString(keyRegional, offString)!!) }
     var cascadeStats by remember { mutableStateOf(prefs.getString(keyCascadeStats, offString)!!) }
+    var touchRadius by remember {
+        mutableIntStateOf(prefs.getInt(keyTouchRadius, DEFAULT_TOUCH_RADIUS))
+    }
 
     var showGroupDialog by remember { mutableStateOf(false) }
     var showRegionalDialog by remember { mutableStateOf(false) }
@@ -259,7 +269,11 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                 modifier = Modifier.padding(top = 16.dp)
             )
             MultiPreference(
-                arrayOf(stringResource(R.string.mercator), stringResource(R.string.azimuthalequidistant)),
+                arrayOf(
+                    stringResource(R.string.mercator),
+                    stringResource(R.string.azimuthalequidistant),
+                    stringResource(R.string.loximuthal),
+                ),
                 projection
             ) { newProj ->
                 projection = newProj
@@ -318,6 +332,36 @@ fun SettingsScreen(navController: NavHostController = settingsNav()) {
                     prefs.edit { putString(keyCascadeStats, cascadeStats) }
                 }
             )
+            HorizontalDivider()
+        }
+        item {
+            Text(
+                stringResource(R.string.pref_touch_radius),
+                style = MaterialTheme.typography.h6,
+                color = MaterialTheme.colors.onBackground,
+                modifier = Modifier.padding(top = 16.dp)
+            )
+            Text(
+                stringResource(R.string.pref_touch_radius_desc),
+                style = MaterialTheme.typography.body2,
+                color = MaterialTheme.colors.onSurface.copy(alpha = 0.6f)
+            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Slider(
+                    value = touchRadius.toFloat(),
+                    onValueChange = { touchRadius = it.roundToInt() },
+                    onValueChangeFinished = { prefs.edit { putInt(keyTouchRadius, touchRadius) } },
+                    valueRange = 0f..MAX_TOUCH_RADIUS.toFloat(),
+                    steps = MAX_TOUCH_RADIUS - 1,
+                    modifier = Modifier.weight(1f)
+                )
+                Text(
+                    stringResource(R.string.pref_touch_radius_value, touchRadius),
+                    style = MaterialTheme.typography.body1,
+                    color = MaterialTheme.colors.onBackground,
+                    modifier = Modifier.padding(start = 12.dp)
+                )
+            }
             HorizontalDivider()
         }
         item {
