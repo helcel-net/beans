@@ -101,7 +101,7 @@ dependencies {
 
 
     implementation platform('androidx.compose:compose-bom:2026.08.00')
-    debugImplementation 'androidx.compose.ui:ui-tooling:1.12.0'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.12.1'
 }
 
 tasks.configureEach { task ->
