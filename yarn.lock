@@ -223,9 +223,9 @@
   integrity sha512-Javneu5lsuhwNCryN+pXH93VPQ8g0dBX7wItHFgYiwQmzE1sVdg5tWHiOgHywzL2W21XQopa7IwIEnNbmeUJYA==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.63.1"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.63.1.tgz#f6e5c5c51f96ae298617fa26da54675acd60e3bc"
-  integrity sha512-gfI5T24WLLuFfSKw7Go/zDXjAAV0fny0swTaDv+WjK7vqcw4cRhFfdsyKL1n+ukI+ooBxn3bVQnyrn06WpI50w==
+  version "4.63.2"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.63.2.tgz#ec04d475cc62576a091a098ac19bcc59969473af"
+  integrity sha512-bcq2h2pkKmH2po4cZV8VWzO4lL40STyu/nLoFpYMQp9C2tCVNTdcVv86MwSsn3D5s1FBe2Ty1atqvVAUTMimNg==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
@@ -2450,9 +2450,9 @@ hyparquet@1.25.6:
   integrity sha512-Q9W5IjkVch3ZMnYd4qFv2q8suu5Jc36yt7J+zUNM9grwnP1S189icp0jdEQKM5HJvQkTVy8NMiQ8n/dM5QAt1A==
 
 hyparquet@^1.25.6:
-  version "1.30.0"
-  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.30.0.tgz#53c496b5c891397c9230683d05e5dd0adf28a84b"
-  integrity sha512-HlvW+Luuo2RtvTzDnTJN4F2rXxKQMcmAVNnT1khytf1MR/vDS6ALeYyWwbU1X9rrOLLIG0fjRa0Y5q3XxvOXdA==
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.30.1.tgz#d7ee8b0c6b473a61e1329304a97ba86f4f48bed0"
+  integrity sha512-307mnGbxzx0nXPGTV6Mhp10gKIu6t+NhvBQJF+PVQsHA295sqznlVOqEAH+fohH2Rqx7NV0Myh9rmuM9E9Ch+w==
 
 hysnappy@1.0.0:
   version "1.0.0"
@@ -2728,9 +2728,9 @@ once@^1.3.1, once@^1.4.0:
     wrappy "1"
 
 open@^11.0.0:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/open/-/open-11.0.2.tgz#146069263c50839eebbac6e5810f7da9ac80ab2a"
-  integrity sha512-RWqF+pBSkqecEvCKOn8QYhaNdRMJDZRIrlS/7rTDdLHaPcfXGCZ/h8zb413NfvdeAV0MR7T1yJcA34/q+CSm1Q==
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/open/-/open-11.0.3.tgz#ce13044e930beab892d30b485429a79225889641"
+  integrity sha512-b3souUgU0VaAvMmzA4+9cRgrOgMdE0vc9H9VhQ0FYnjjcyZ8R/f9DiwMU9V8rl+vjf05On9UJhbgb06fsTs87Q==
   dependencies:
     default-browser "^5.5.1"
     define-lazy-prop "^3.0.0"
