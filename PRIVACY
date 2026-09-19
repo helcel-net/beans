@@ -1,0 +1,59 @@
+# Privacy Policy for Beans
+
+**App:** Beans (`net.helcel.beans`)
+**Developer:** Helcel & MYDOLI
+**Effective date:**  19 September 2026
+
+## Data collection
+
+Beans does not collect, transmit, or share any personal or sensitive user data.
+The app requests no Android permissions, has no internet access, contains no
+analytics, advertising, or crash-reporting libraries, and requires no account.
+
+## Data stored on your device
+
+The places you mark, their labels and colours, and your display preferences are
+saved only in the app's private storage on your device. This data is never sent
+to us or to any third party.
+
+If Android's system backup is enabled on your device, your operating system may
+include this data in your device backup. That is handled by Android under your
+device vendor's privacy policy, not by Beans.
+
+## Data sharing
+
+None. No data leaves your device, so there is nothing to share, sell, or
+disclose to third parties.
+
+## Data retention and deletion
+
+Your data remains on your device until you delete it. Clearing the app's data
+in Android Settings, or uninstalling Beans, permanently removes everything the
+app has stored.
+
+## Children
+
+Beans is suitable for all ages and collects no data from any user, including
+children.
+
+## Security
+
+Because no data is transmitted or stored on any server, there is no remote data
+to secure. On-device data is protected by Android's app sandbox.
+
+## Open source
+
+Beans is released under the GNU General Public License v3.0. The full source is
+available at https://github.com/helcel-net/beans, so these statements can be
+independently verified.
+
+## Changes
+
+Any change affecting privacy will be published in this document before or with
+the release that introduces it.
+
+## Contact
+
+<!-- TODO: Play requires a working contact address here -->
+Email: net.helcel+privacy@gmail.com
+Issues: https://github.com/helcel-net/beans/issues
