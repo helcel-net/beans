@@ -41,17 +41,23 @@
 ## 📳 Installation
 
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
-    <!--<a href="https://f-droid.org/packages/net.helcel.beans/">
-        <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" width="206">
-    </a>-->
     <a href="https://apt.izzysoft.de/fdroid/index/apk/net.helcel.beans">
         <img width="200" height="80" alt="Izzy Download" src=".github/images/izzy.png">
     </a>
     <a href="https://github.com/helcel-net/beans/releases/latest">
         <img width="200" height="84" alt="APK Download" src=".github/images/apk.png">
     </a>
+    <a future-href="https://f-droid.org/en/packages/net.helcel.beans">
+        <img width="200" height="84" alt="Fdroid Download" src=".github/images/fdroid.png">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=net.helcel.beans">
+        <img width="200" height="84" alt="GooglePlay Download" src=".github/images/playstore.png">
+    </a>
 </div>
 
+Note:
+ - Fdroid: requested, see https://gitlab.com/fdroid/rfp/-/work_items/4410
+ - PlayStore: alpha test restriction by Google. To access, join https://groups.google.com/g/helcel-android-test
 
 ## ⚙️ Permissions
 
@@ -69,6 +75,13 @@ Beans is a user-driven project. We welcome any contribution, big or small.
 ## ✏️ Acknowledgements
 
 Thanks to all contributors, the developers of our dependencies, and our users.
+
+## Signinig key
+
+```
+net.helcel.beans
+62:53:15:7E:24:C9:6C:4B:EB:03:06:69:12:4F:92:7C:4A:17:E5:45:88:28:E6:B7:8F:8E:29:C4:E0:22:AF
+```
 
 ## 📝 License
 
