@@ -98,6 +98,6 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: net.helcel.beans
           releaseFiles: app/build/outputs/bundle/signedRelease/app-signedRelease.aab
-          tracks: ${{ startsWith(github.ref, 'refs/tags/') && 'production' || 'alpha' }}
+          tracks: 'alpha' # ${{ startsWith(github.ref, 'refs/tags/') && 'production' || 'alpha' }}
           status: completed
           whatsNewDirectory: tmp/whatsnew
