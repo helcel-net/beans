@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@bokuweb/zstd-wasm@^0.0.27":
+"@bokuweb/zstd-wasm@0.0.27", "@bokuweb/zstd-wasm@^0.0.27":
   version "0.0.27"
   resolved "https://registry.yarnpkg.com/@bokuweb/zstd-wasm/-/zstd-wasm-0.0.27.tgz#89d8ed8c37528c4b9d11f47826b9f603346dfc4c"
   integrity sha512-GDm2uOTK3ESjnYmSeLQifJnBsRCWajKLvN32D2ZcQaaCIJI/Hse9s74f7APXjHit95S10UImsRGkTsbwHmrtmg==
@@ -217,10 +217,10 @@
   resolved "https://registry.yarnpkg.com/@placemarkio/tokml/-/tokml-0.3.9.tgz#1e561a40b31ec6d85ff50a8586cf19646bc8f2e5"
   integrity sha512-LjD/rzPWF/0gY2tCoS4IPLQZ3/DqxzCmI3/V+dmXdWuZmyi3UIhHgxVfJ//bopxSjWHuGwY/qu4iyuNM+xluug==
 
-"@repeaterjs/repeater@3.0.6":
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.6.tgz#be23df0143ceec3c69f8b6c2517971a5578fdaa2"
-  integrity sha512-Javneu5lsuhwNCryN+pXH93VPQ8g0dBX7wItHFgYiwQmzE1sVdg5tWHiOgHywzL2W21XQopa7IwIEnNbmeUJYA==
+"@repeaterjs/repeater@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.1.0.tgz#312b20a655e5b3ebfe8b1e04ec7df567bcb48d87"
+  integrity sha512-TaoVksZRSx2KWYYpyLQtMQXXeS98VsgZImzW65xmiVgbYhXLk+aEsmzPLirqVuE4/XuUapH2iMtxUzaBNDzdSQ==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
   version "4.63.5"
@@ -2337,11 +2337,12 @@ flatbush@^4.6.0:
     flatqueue "^3.1.0"
 
 flatgeobuf@^4.3.4:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/flatgeobuf/-/flatgeobuf-4.4.0.tgz#f2067f359ed35a5bd6a19e0cde1a3cd2d16d6c37"
-  integrity sha512-uUt1xxywP+q8K73MmyKtapF4++dMCzvoqH+ojBTsCtZBbnQEg5qy0Ujze61Rwmpmt6Ra526jpRFHtEkFun5YVw==
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/flatgeobuf/-/flatgeobuf-4.5.0.tgz#7021561e1dba49fb1e56d227c9d329900073a342"
+  integrity sha512-prxx+zi2ae+K6FKxeXF/6RrtAUWlijUoLo6e7hveEfpP8GEXNfElTbIkHz6VI9golDpbbmHni79geC3XHKVuGQ==
   dependencies:
-    "@repeaterjs/repeater" "3.0.6"
+    "@bokuweb/zstd-wasm" "0.0.27"
+    "@repeaterjs/repeater" "3.1.0"
     flatbuffers "25.9.23"
     slice-source "0.4.1"
   optionalDependencies:
@@ -2489,9 +2490,9 @@ hyparquet@1.25.6:
   integrity sha512-Q9W5IjkVch3ZMnYd4qFv2q8suu5Jc36yt7J+zUNM9grwnP1S189icp0jdEQKM5HJvQkTVy8NMiQ8n/dM5QAt1A==
 
 hyparquet@^1.25.6:
-  version "1.31.1"
-  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.31.1.tgz#6711fdf2d361e97c3b6a9b1aefea3d7f16c9eb3e"
-  integrity sha512-tF9580Xb+41+Eb+mH0av1k7m1PWl+PSKrX66Yd7UOZ760cwEXP9/enwHRMSCeVncaubRI8XPb3v580/ujYKK5w==
+  version "1.31.2"
+  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.31.2.tgz#e8d9a7b8a87a7a799b04bf1413c2f094a359f10b"
+  integrity sha512-dpVTCGkPPIdfDExa7YZGaJpuBTmLFDKGeZ6meHUj1mz/Q3qmaQHGLLqCyPBkQjfxrYNb08YTax682qeGO+zkVA==
 
 hysnappy@1.1.1:
   version "1.1.1"
@@ -2623,9 +2624,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.67"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.67.tgz#c4fd84e6b95f042499a7db93f16bdec353c0bda6"
-  integrity sha512-vAEVfttpQtosUS6ec7QG0YotpXrYWWDsSAk/o2RVO+DhYkKmtDdx6p+9dyZOsOQHzWVTDrJxK/o/zVtqXAxZxw==
+  version "0.7.68"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.68.tgz#b2611c16e3dd74a116fe191eb45ffa9d6daf3d03"
+  integrity sha512-Yi24FYWlcru606ZoOZ4pIK1L32x4+Pstv+Bp27eN+OqOoOlVpQIr3qUQ/vGMZL4+wIu7dmVOSL4rL1/22i81qA==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
