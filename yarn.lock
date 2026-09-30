@@ -2237,9 +2237,9 @@ earcut@^2.2.4:
   integrity sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ==
 
 earcut@^3.0.0:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/earcut/-/earcut-3.2.3.tgz#74aec19555a7e28773429826729d2e4bfeb19022"
-  integrity sha512-vnS4AVwp1KHAF13i1vp1/2D5evWy3k5u/iW/B81QVsUZtV8cv2tU0b2VNFlqvh4kYwrFMDdjPCfAmfyJW9y14Q==
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/earcut/-/earcut-3.2.4.tgz#a030635fbb9a639984ce0e319b0f16e17e6e15ad"
+  integrity sha512-FHc6yNpnTORB0tM5kmZ03iD2mDuNakDE2lvf4Hw1XkfxtEHIGVi01B/GqUSwx+NcC1WGjidAfpTXzeALtPtfpg==
 
 end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   version "1.4.5"
@@ -2624,9 +2624,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.69.tgz#63e0b8f1020897eeb07cf06c4c715d48928f6df3"
-  integrity sha512-6vQ6N2/dc+uZFU42DdPwOvoMx24RmtvwfZyQWHNRu8HUqj5NdkYBcLzVpkMdwhzNfRJ/foeyNXwtn215n+XeJg==
+  version "0.7.70"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.70.tgz#854a71d779b5b23066b225eb3d8a926b45db1956"
+  integrity sha512-ble1TqkAMcDqgkgeswNIGLiRr+Tf1RkaAzyyzwHvY4nzV4wXSOIaOdCXcpUUyNjegX5qo+4t2NauPQ8KlQH/Tg==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
