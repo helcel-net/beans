@@ -2624,9 +2624,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.70"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.70.tgz#854a71d779b5b23066b225eb3d8a926b45db1956"
-  integrity sha512-ble1TqkAMcDqgkgeswNIGLiRr+Tf1RkaAzyyzwHvY4nzV4wXSOIaOdCXcpUUyNjegX5qo+4t2NauPQ8KlQH/Tg==
+  version "0.7.71"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.71.tgz#0e1f0114992f96282abf28b6e0af0dea38fff58c"
+  integrity sha512-/pN1B8f2ez4pNacp6z2zWT+FqZlSAIMHP+esL0CSPm3L9A0aOUl6wCXcVsiStL9dG44xH6MLOAdZTYpCTf92/A==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2847,12 +2847,7 @@ polygon-clipping@^0.15.3:
     robust-predicates "^3.0.2"
     splaytree "^3.1.0"
 
-powershell-utils@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/powershell-utils/-/powershell-utils-0.1.0.tgz#5a42c9a824fb4f2f251ccb41aaae73314f5d6ac2"
-  integrity sha512-dM0jVuXJPsDN6DvRpea484tCUaMiXWjuCn++HGTqUWzGDjv5tZkEZldAJ/UMlqRYGFrD/etByo4/xOuC/snX2A==
-
-powershell-utils@^0.2.1:
+powershell-utils@^0.2.0, powershell-utils@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/powershell-utils/-/powershell-utils-0.2.1.tgz#0853016f5b3c12d52b9571c8fe8059677d9ddbe2"
   integrity sha512-C+y9x90UElAddDZmV4qOx9W53B61PO7cIqWz2dQsWlwswuq4mr8NEwytdGKboYbQlGZ3awrkTeNvcZiZNHnQ8A==
@@ -3292,12 +3287,12 @@ wrappy@1:
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
 
 wsl-utils@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/wsl-utils/-/wsl-utils-1.0.0.tgz#e113d9964e766657c53f5d570da1bbbdfee7f837"
-  integrity sha512-Hl0ZOAs672vg+06kfujwRhoS6/jehvULrlFkuF2dRu6pHgA8U06h3xqNIqNNU1LTXPcedxByAR4GS6pwQK0mgA==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/wsl-utils/-/wsl-utils-1.0.1.tgz#7caaa5a713e5ed1b625e7ee95e505c53c2e41c80"
+  integrity sha512-c16PKLIRxBYpR3jSWsdS7SFp0COm5SOQdiFjY818dYFHJbMGuLBszpF07LBWmOS1uzrHa9VGdynsEgoeKy0oOQ==
   dependencies:
     is-wsl "^3.1.0"
-    powershell-utils "^0.1.0"
+    powershell-utils "^0.2.0"
 
 xml-utils@^1.10.2:
   version "1.10.2"
