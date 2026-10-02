@@ -223,9 +223,9 @@
   integrity sha512-TaoVksZRSx2KWYYpyLQtMQXXeS98VsgZImzW65xmiVgbYhXLk+aEsmzPLirqVuE4/XuUapH2iMtxUzaBNDzdSQ==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.63.5"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.63.5.tgz#246449b1aa0ba3b9dda84e236547a814f87123cc"
-  integrity sha512-3W9bTFcQNJn71cSJVM9RKIiZOy8DO/XLDii8Uv/Pm6WKqDRj7JV3ZfuXIEfyuy5LXpIzAbB/1M4Ukp9GKNa7nA==
+  version "4.63.6"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.63.6.tgz#3e10c7fccdf4e08e84693de6dfef4260aa902c3d"
+  integrity sha512-Ezx2E5D6Siz805j41x91JiGbzuCm8i2U98U37SQ7ytY737+wsJq+P9nPL6UmqDww491zO7MTivYOTrtmTTeCSw==
 
 "@swc/helpers@^0.5.12":
   version "0.5.23"
@@ -1920,9 +1920,9 @@
   integrity sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==
 
 "@types/node@*":
-  version "26.6.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.6.3.tgz#411dccb5fc25687c958fe35b6ca3741d48a8d13c"
-  integrity sha512-dsqMQQoeTLqu9wynDD00q573mNzso3IdQOAfHRJqLCcmCFPoGo9A1bDpUcv/9tnKpErQWv9uKeGfl37EIS02Yg==
+  version "26.6.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.6.4.tgz#5aaac1a7337945f7f9a2de4e0d14e7107157e813"
+  integrity sha512-ldVPDCzj7fsaGZrLB0NuHuTvJcsNasysBAqMolr/cgxrLd1xbqxIr3XJiPnHHJUCxj5sNF1vnRj9aWnrVh5Jcg==
   dependencies:
     undici-types "~8.9.0"
 
@@ -2624,9 +2624,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.71"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.71.tgz#0e1f0114992f96282abf28b6e0af0dea38fff58c"
-  integrity sha512-/pN1B8f2ez4pNacp6z2zWT+FqZlSAIMHP+esL0CSPm3L9A0aOUl6wCXcVsiStL9dG44xH6MLOAdZTYpCTf92/A==
+  version "0.7.72"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.72.tgz#1e26078a66ac546f2a14387e4585623a868d8c44"
+  integrity sha512-4iFrv6gSX3rlm1NYgb0A3sI+i3pYrgUHCP0dfeOiLq2jjf36a9hhdieSqV5Fysazn76Nf2cd6kj//lAloFLIyA==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
