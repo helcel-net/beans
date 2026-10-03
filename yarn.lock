@@ -223,9 +223,9 @@
   integrity sha512-TaoVksZRSx2KWYYpyLQtMQXXeS98VsgZImzW65xmiVgbYhXLk+aEsmzPLirqVuE4/XuUapH2iMtxUzaBNDzdSQ==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.63.6"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.63.6.tgz#3e10c7fccdf4e08e84693de6dfef4260aa902c3d"
-  integrity sha512-Ezx2E5D6Siz805j41x91JiGbzuCm8i2U98U37SQ7ytY737+wsJq+P9nPL6UmqDww491zO7MTivYOTrtmTTeCSw==
+  version "4.64.0"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.64.0.tgz#71738f0c2287fc88c5344ecbd2ca8776982faf7d"
+  integrity sha512-2dEF8GAcDKwshUfydD+GhosppNyBzhVUHkdFF3CXd3FpOkzj/RZzF5aoEtzklujklT5qFVRU2GK/cFeLaTNKVg==
 
 "@swc/helpers@^0.5.12":
   version "0.5.23"
