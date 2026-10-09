@@ -228,9 +228,9 @@
   integrity sha512-FqALmHI8D4o6lk/LRWDnhw95z5eO+eAa6ORjVg09YRR7BkcM6oPHU9uyC0gtQG5vpFLvgpeU4+zEAz2H8APHNw==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.64.2"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.64.2.tgz#0496abe7430af48e9983a0ac97c8571235bd6c91"
-  integrity sha512-aIChbkhC4d33bxkVP0LSi2/2lUSGRXE6k4Qa0G7tgpgTOK7kxHTixmx5qC3SKUJ6yUMznHBtQoWaG4QMqLUnhw==
+  version "4.64.3"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.64.3.tgz#40eaca7bce0ce3adcb15cb815fcb2afdd2094780"
+  integrity sha512-vMh+mt0cw1BHldd8cqaU6A5s1W4EUKl6+8MRsv86mj954L4xyruKD7qPXMUI2icImadAZARK10h0onaGTLmCVg==
 
 "@swc/helpers@^0.5.12":
   version "0.5.23"
@@ -2456,9 +2456,9 @@ hyparquet@1.25.6:
   integrity sha512-Q9W5IjkVch3ZMnYd4qFv2q8suu5Jc36yt7J+zUNM9grwnP1S189icp0jdEQKM5HJvQkTVy8NMiQ8n/dM5QAt1A==
 
 hyparquet@^1.25.6:
-  version "1.31.2"
-  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.31.2.tgz#e8d9a7b8a87a7a799b04bf1413c2f094a359f10b"
-  integrity sha512-dpVTCGkPPIdfDExa7YZGaJpuBTmLFDKGeZ6meHUj1mz/Q3qmaQHGLLqCyPBkQjfxrYNb08YTax682qeGO+zkVA==
+  version "1.31.3"
+  resolved "https://registry.yarnpkg.com/hyparquet/-/hyparquet-1.31.3.tgz#384f76f7ba2a07e54df336dc0d5a08a670474b55"
+  integrity sha512-qThDJfCrTClFdaIQuQTtFOGp33bkbOyk+y1NrwcC8YZjvr5wxjNdKz7/PUF3xfNd7ZKLsYW+fY6N8dInjjMWJg==
 
 hysnappy@1.1.1:
   version "1.1.1"
@@ -2593,9 +2593,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.80"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.80.tgz#8dd7d1555308ad37e683af0d997b982a6e3f9f5f"
-  integrity sha512-8EtL3piINvkSSxQNHBqfVhLKOVJhPX910rN+u4Y1TWh7L1L4JTwqN4VV/Ba53qWwLkSCEiy995FF0ou2ayZY1w==
+  version "0.7.81"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.81.tgz#4e4980ac0889ad4ab16e4f83b72dc2d6c9ad7993"
+  integrity sha512-18D1BPHDkmquDJVzxm7PBiAud9czTwu7S9G7cz2r3TggLWh5T7/BzeTXbEjTee6klcfwQBeveocg7yKuxNj5yg==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.6"
@@ -2694,9 +2694,9 @@ napi-build-utils@^2.0.0:
   integrity sha512-GEbrYkbfF7MoNaoh2iGG84Mnf/WZfB0GdGEsM8wz7Expx/LlWf5U8t9nvJKXSp3qr5IsEbK04cBGhol/KwOsWA==
 
 node-abi@^3.3.0:
-  version "3.97.0"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.97.0.tgz#6baca1e84394db3103d27b68c0fb03300c401731"
-  integrity sha512-6Pu8F0eXGZlyz0EepPJrWgWDcBI8rKt2Wj8exOJU1tjVbu/VyZy5ZaLYS5N+Jp/Y3IP3sIRKcIOElTu7uC6KKA==
+  version "3.98.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.98.0.tgz#3c7fe98381cf35f9da27431c9435044d9ebff143"
+  integrity sha512-Llh8noNw7s15m+rmIrZnZQbe4gLyasL9loT74rC92PkmwWKeEedKvc7o6pjp8B3MhrYT/Cl846NOYZbz1wmddw==
   dependencies:
     semver "^7.3.5"
 
