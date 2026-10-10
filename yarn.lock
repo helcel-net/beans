@@ -176,7 +176,7 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.4.tgz#a1c79dcc9ae5f8c02aea8c2f144e5af6a822e5e8"
   integrity sha512-CmCXPQrkbwExx3j946/PtHWHbYJiCRBRDl4BlkRQcJB/YOwQxJRTpoo7aTsortjgoJ1x7opzTSxn7C+ASSLVjQ==
 
-"@ngageoint/geopackage@^4.2.6":
+"@ngageoint/geopackage@^4.2.10":
   version "4.2.10"
   resolved "https://registry.yarnpkg.com/@ngageoint/geopackage/-/geopackage-4.2.10.tgz#cca682766148cf0953cee65438b1fd388e30f797"
   integrity sha512-+QV4/N0JDW0iXJAtdvYnvzYt5GXZWh/RqELjIg61FSXIxKE/fy+j+EIxlThF29KueP3mL9hEN3ijqDwAEIl6DQ==
@@ -1920,9 +1920,9 @@
   integrity sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==
 
 "@types/node@*":
-  version "26.6.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.6.4.tgz#5aaac1a7337945f7f9a2de4e0d14e7107157e813"
-  integrity sha512-ldVPDCzj7fsaGZrLB0NuHuTvJcsNasysBAqMolr/cgxrLd1xbqxIr3XJiPnHHJUCxj5sNF1vnRj9aWnrVh5Jcg==
+  version "26.6.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.6.5.tgz#cb35209e7767c503551b5fa42a48231c7441d979"
+  integrity sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==
   dependencies:
     undici-types "~8.9.0"
 
@@ -1936,7 +1936,7 @@
   resolved "https://registry.yarnpkg.com/@types/rbush/-/rbush-4.0.0.tgz#b327bf54952e9c924ea6702c36904c2ce1d47f35"
   integrity sha512-+N+2H39P8X+Hy1I5mC6awlTX54k3FhiUmvt7HWzGJZvF+syUAAxP/stwppS8JE84YHqFgRMv6fCy31202CMFxQ==
 
-"@xmldom/xmldom@^0.8.6":
+"@xmldom/xmldom@^0.8.15":
   version "0.8.15"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.15.tgz#71ebf80729e4e95221d519ac9b1e1eaea7784907"
   integrity sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==
@@ -1957,10 +1957,10 @@ JSONStream@^1.0.0:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
-adm-zip@^0.5.9:
-  version "0.5.18"
-  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.5.18.tgz#283a05f2bf1e3fd315f0f31cde29b7a6e3c1619d"
-  integrity sha512-ufJnssQGbxzLNS1Ho9bCtX4rQKCCvoVuDLHoJyc3F9dOGDB4BkWs2Ci0kv53lqocAEQ/Cbi+I2XCsNYGqVYqng==
+adm-zip@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/adm-zip/-/adm-zip-0.6.1.tgz#5b95da4a6e7af0663b71457c06e1517fa6ac8d5f"
+  integrity sha512-Xwrja8nx9e5o2N1my4DsKCeKpdrnACyr1wtbPxBDgGzKzKyE9kRtBFA8mWldI+RVlD7CBZNWY/wQ2+ydwOR6kQ==
 
 ansi-styles@^4.1.0:
   version "4.3.0"
@@ -2275,12 +2275,7 @@ fast-wrap-ansi@^0.2.0:
   dependencies:
     fast-string-width "^3.0.2"
 
-fflate@0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.8.2.tgz#fc8631f5347812ad6028bbe4a2308b2792aa1dea"
-  integrity sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==
-
-fflate@^0.8.0:
+fflate@0.8.3, fflate@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.8.3.tgz#bc27d8eb30343d4d512abb03480202ce65d825fc"
   integrity sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==
@@ -2593,24 +2588,24 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.81"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.81.tgz#4e4980ac0889ad4ab16e4f83b72dc2d6c9ad7993"
-  integrity sha512-18D1BPHDkmquDJVzxm7PBiAud9czTwu7S9G7cz2r3TggLWh5T7/BzeTXbEjTee6klcfwQBeveocg7yKuxNj5yg==
+  version "0.7.83"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.83.tgz#b0508e40c15407413f1b3652be08fa68beef7dfb"
+  integrity sha512-mwhUFiVMuc4jtEIZPnq1M6oZqGwtFkwOFclU8MSgQFVJWl3Rqh8FJ2AyRaCG0sq0ttO4T5ppbhCWxTmlNYQn1Q==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
-    "@ngageoint/geopackage" "^4.2.6"
+    "@ngageoint/geopackage" "^4.2.10"
     "@placemarkio/tokml" "^0.3.3"
     "@resvg/resvg-wasm" "^2.6.2"
     "@tmcw/togeojson" "^5.6.0"
-    "@xmldom/xmldom" "^0.8.6"
-    adm-zip "^0.5.9"
+    "@xmldom/xmldom" "^0.8.15"
+    adm-zip "^0.6.1"
     commander "^14.0.3"
     cookies "^0.8.0"
     d3-color "3.1.0"
     d3-interpolate "^3.0.1"
     d3-scale-chromatic "3.0.0"
     delaunator "^5.0.0"
-    fflate "0.8.2"
+    fflate "0.8.3"
     flatbush "^4.6.0"
     flatgeobuf "^4.3.4"
     fontkit "^2.0.4"
