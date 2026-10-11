@@ -228,9 +228,9 @@
   integrity sha512-FqALmHI8D4o6lk/LRWDnhw95z5eO+eAa6ORjVg09YRR7BkcM6oPHU9uyC0gtQG5vpFLvgpeU4+zEAz2H8APHNw==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.64.3"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.64.3.tgz#40eaca7bce0ce3adcb15cb815fcb2afdd2094780"
-  integrity sha512-vMh+mt0cw1BHldd8cqaU6A5s1W4EUKl6+8MRsv86mj954L4xyruKD7qPXMUI2icImadAZARK10h0onaGTLmCVg==
+  version "4.64.5"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.64.5.tgz#e34721aa6f17966a381b76f4ccf99c492d618ec5"
+  integrity sha512-dR9nd6OKnvSS60Ifz/L7Mj5zzYyoqyRn2NwTuaOONKaa3xsVGXyp8YusMbvFyEOR94DxnwgcbgsFqkHd29ZSzQ==
 
 "@swc/helpers@^0.5.12":
   version "0.5.23"
@@ -2298,9 +2298,9 @@ flatbush@^4.6.0:
     flatqueue "^3.1.0"
 
 flatgeobuf@^4.3.4:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/flatgeobuf/-/flatgeobuf-4.5.0.tgz#7021561e1dba49fb1e56d227c9d329900073a342"
-  integrity sha512-prxx+zi2ae+K6FKxeXF/6RrtAUWlijUoLo6e7hveEfpP8GEXNfElTbIkHz6VI9golDpbbmHni79geC3XHKVuGQ==
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/flatgeobuf/-/flatgeobuf-4.6.0.tgz#3f700afc4534f259bf61965dca03de478b654c9a"
+  integrity sha512-N+c3LTB2aKJD84Ki712E4DjJmvNu/sOTAmrKh5JARDlsh2zcdS47NTw45UZEgqRe7LjuIFpN+ZWCktI4OfP+xw==
   dependencies:
     "@bokuweb/zstd-wasm" "0.0.27"
     "@repeaterjs/repeater" "3.1.0"
