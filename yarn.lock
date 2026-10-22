@@ -2298,9 +2298,9 @@ flatbush@^4.6.0:
     flatqueue "^3.1.0"
 
 flatgeobuf@^4.3.4:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/flatgeobuf/-/flatgeobuf-4.6.0.tgz#3f700afc4534f259bf61965dca03de478b654c9a"
-  integrity sha512-N+c3LTB2aKJD84Ki712E4DjJmvNu/sOTAmrKh5JARDlsh2zcdS47NTw45UZEgqRe7LjuIFpN+ZWCktI4OfP+xw==
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/flatgeobuf/-/flatgeobuf-4.6.1.tgz#3c25d0ef59bcff3234de0a6f688aeb2edcec8f6e"
+  integrity sha512-oj1QaFZ91dxI+HdX/t4iu7sdMOz1y2wKDLdNvz+5n70WQ1qpMC19P4mjvS/j4tcllYlYioKCGPIKF3uR9RGuOg==
   dependencies:
     "@bokuweb/zstd-wasm" "0.0.27"
     "@repeaterjs/repeater" "3.1.0"
@@ -2588,9 +2588,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.7.22:
-  version "0.7.93"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.93.tgz#8ea89ac6a2bb9c100403605d5351465bdfea7b73"
-  integrity sha512-SnaPkM4jDvr+lqbLpD56PTxViAhkojORjQsM5joMgTSGXe9a8uGOVnAP7+4/cGbldRRLY0ErKXmlB5w6FHNVOg==
+  version "0.7.94"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.94.tgz#a971d3a56a35d0140a8f411e10398f60432abcc8"
+  integrity sha512-Q+bjvPNycz9SMXOl3uWvXdVSKHmtlvucffxvro57k4L4tDJvlswxaTj9rDMRCB9hmV6xMEu4EktypyG3sgTJDw==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.10"
@@ -2689,9 +2689,9 @@ napi-build-utils@^2.0.0:
   integrity sha512-GEbrYkbfF7MoNaoh2iGG84Mnf/WZfB0GdGEsM8wz7Expx/LlWf5U8t9nvJKXSp3qr5IsEbK04cBGhol/KwOsWA==
 
 node-abi@^3.3.0:
-  version "3.99.0"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.99.0.tgz#0f976005a65876550058fed92a7b5c677d64f0f1"
-  integrity sha512-lLdwkeg2XUVPTHqWjPltTxH81zbQNbUWC+AEb9ni50KjxkUzAAx1HGtMT21sbntzfUGfIphhcklvs3imJeqDXw==
+  version "3.100.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.100.0.tgz#31aa9623841051d14f52415557e18101bc0de7ca"
+  integrity sha512-KNU/E0VW9T1ndOAEWNlWtxhoBSF7hqe+dMSrRPK6+PfyL2s2AcfwnXCAOke4DNXOsweivNT6/7eFHwkxWblZew==
   dependencies:
     semver "^7.3.5"
 
