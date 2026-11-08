@@ -146,35 +146,35 @@
   resolved "https://registry.yarnpkg.com/@inquirer/type/-/type-4.2.1.tgz#ef7de2070d26e0e3f1c558b9e3939eab147717a3"
   integrity sha512-lDkPsnv5M5CcYB2T1qTc3dobNTPkVr4DU3Ic2Q6SW8/qVRHgvzdRdmVZ6YqG9Ag1aJTeMsLU0s0WPRh3CZWDQQ==
 
-"@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-3.0.4.tgz#22619f76a6b10ba78c8b74025b0d9754cad69cc7"
-  integrity sha512-LCkGo6JDfaBhgST7UpPWgNgLINpcpabaHfyz5OBx75nUYxBsaEPxjnyNjWpeb/xBup/682QnBfRBy2/LvPutZQ==
+"@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-3.0.7.tgz#3ce66f828e0b628e7426ccc075935d0b8d4eef6b"
+  integrity sha512-2zPHLn+MuGJ6GP/5jDrwa9Jy0CI+D3Ibpvopf5SFfmc1G9gdofR4uB7YrJAAp4vodn/7iDOciyv8bgkRPLw7cA==
 
-"@msgpackr-extract/msgpackr-extract-darwin-x64@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-x64/-/msgpackr-extract-darwin-x64-3.0.4.tgz#c2fc0573afe08b0cf213e66eef76842b121d1577"
-  integrity sha512-zExlW9zUJKZH/tOtVMttwjKa4Xm/3KcNjnE3dPN92uCktwavMxpgCA3MoJK/DOnTWsQgo224OaST27/mPNAf+w==
+"@msgpackr-extract/msgpackr-extract-darwin-x64@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-x64/-/msgpackr-extract-darwin-x64-3.0.7.tgz#26e403c6a3d0f5d4155f61b4af9ba0bc9576da60"
+  integrity sha512-of1miwFfEdgs5nythewsEoocfpbjzUf8PC996YDe3kAyv0ZJiMJs5NXlYhE6IdjxfNEPqUXj/BYBnpD8kRdfeQ==
 
-"@msgpackr-extract/msgpackr-extract-linux-arm64@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm64/-/msgpackr-extract-linux-arm64-3.0.4.tgz#4e3822f5522e18ed92611b894dc5db1bc882f39d"
-  integrity sha512-dgX0P/9wGPJeHFBG+ZmhgE6bmtMt7NP5CRBGyyktpopdk/mW4POnrpQsSLtKI1dwpc+pPLuXHDh6vvskyQE/sw==
+"@msgpackr-extract/msgpackr-extract-linux-arm64@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm64/-/msgpackr-extract-linux-arm64-3.0.7.tgz#be7afd1012d755399ec0053dbc11e508b63e6bd5"
+  integrity sha512-jcRydYARTW0gX5idJhxV7m3KkRUD7KtZLYFF1ZY18HrPqpGY0TCqPUTJCwka2kVfVOwfKs3ZmlPSmQb4S6xj7w==
 
-"@msgpackr-extract/msgpackr-extract-linux-arm@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm/-/msgpackr-extract-linux-arm-3.0.4.tgz#27ec4bc7eb6c311c982a50f1a6e1e1414638a6f8"
-  integrity sha512-Tg3yX65f5GbtXLkrYEHE5oibZG9epyYWas7FogTTEJeDEF9JlXJzKgXaNhT3UXlTOeA+AfZpYZYZ0uPj7Cfquw==
+"@msgpackr-extract/msgpackr-extract-linux-arm@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm/-/msgpackr-extract-linux-arm-3.0.7.tgz#f11b456b65c3c3d3fd2caf8de46cb8aa3f254d76"
+  integrity sha512-aDPbiEkFHs3H68705JKxJ15IT41wFdvDhba1pL8ygfdoshboL5dsXtiu76/CqhLWYneE+9hwBE+0abqNOiQ4Bw==
 
-"@msgpackr-extract/msgpackr-extract-linux-x64@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-3.0.4.tgz#37317d833c7d01d086f6155fa59c478adb6839f6"
-  integrity sha512-8TNXMEjJc3QEy7R/x1INhgiU+XakDAFUzBhaz7+Rbrs8NH5UQeHQxxmzsSBJGyV6I1jW79undiQm8tOI+D+8FQ==
+"@msgpackr-extract/msgpackr-extract-linux-x64@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-3.0.7.tgz#2c664b979e7d60235d56bc5f434e52b54ab4ceb6"
+  integrity sha512-A9xOmARctmUvHrBj5GGzGAigsZFnqE4kld5oprX3PyPbkVALV4jwBc17gPZrhSOvnXQc81hE9K7S2hDUCgialA==
 
-"@msgpackr-extract/msgpackr-extract-win32-x64@3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.4.tgz#a1c79dcc9ae5f8c02aea8c2f144e5af6a822e5e8"
-  integrity sha512-CmCXPQrkbwExx3j946/PtHWHbYJiCRBRDl4BlkRQcJB/YOwQxJRTpoo7aTsortjgoJ1x7opzTSxn7C+ASSLVjQ==
+"@msgpackr-extract/msgpackr-extract-win32-x64@3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.7.tgz#3b39f939f680dd1573ae3aa69669d10226f749de"
+  integrity sha512-PRBiOqK4mcR0rvm6nybO7pSOYRR2Zza0+43UK2IvbVGelzMqZViiZJmOWGuWOX678QKESO6YrHx36z43nSS6iQ==
 
 "@ngageoint/geopackage@^4.2.10":
   version "4.2.10"
@@ -228,16 +228,14 @@
   integrity sha512-FqALmHI8D4o6lk/LRWDnhw95z5eO+eAa6ORjVg09YRR7BkcM6oPHU9uyC0gtQG5vpFLvgpeU4+zEAz2H8APHNw==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.67.3"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.67.3.tgz#a134b8316fab847bad2cdb1e88d6d56b7ac604fa"
-  integrity sha512-K8HqIGH9CD57XmZFo/0T3pafDAzAoB9Iof02FEFvOXg7lBn7vlkLEjHgtZkYp+srWANrlxTSf8BolQM/27kiCw==
+  version "4.68.0"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.68.0.tgz#def6dd537d19c05834f42d2cc14ce6e4462a6d52"
+  integrity sha512-GDOmvgephpRCNyNGRQOZh0KD2gTyRVM1Bb1iOo759xeCUpCAoRCmJioOOSu2MwyWfNOocGd0V5I9vYLfteC6/A==
 
 "@swc/helpers@^0.5.12":
-  version "0.5.23"
-  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.5.23.tgz#19287d0d86d962b111376039a50c792902c9a86a"
-  integrity sha512-5lSsMOTXURePglDfvuAQUqkGek9Hg2kksOYay2m0+XR++b2NWYL/4sWyuvVBIs8oKnJaxkdi9whaL/sqN13afw==
-  dependencies:
-    tslib "^2.8.0"
+  version "0.5.24"
+  resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.5.24.tgz#b1a41a35fcfb1413564981be1bab04b46168961b"
+  integrity sha512-6tcXo4kA8HgGO7AVmawB57RYi/piBPYVHVcO6dXjX+SZw8GoHmi262sp4v2Ha2kNP9Cx84qei27yT+fjS1lxgg==
 
 "@tmcw/togeojson@^5.6.0":
   version "5.8.1"
@@ -2127,7 +2125,12 @@ d3-array@^2.5.0:
   dependencies:
     internmap "^1.0.0"
 
-"d3-color@1 - 3", d3-color@3.1.0:
+"d3-color@1 - 3":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-3.1.1.tgz#72442183223bc5bfd044745e9df2b2d242de744a"
+  integrity sha512-lfab8x0Bj0UO7SNsY8dZSbNIA6ipbkE3X0NG9nqjCu6CfCHZseuDnOSJY7hidKrjpP++i1M2qT+FlAdPKYRilA==
+
+d3-color@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-3.1.0.tgz#395b2833dfac71507f12ac2f7af23bf819de24e2"
   integrity sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==
@@ -2140,9 +2143,9 @@ d3-geo@^2.0.2:
     d3-array "^2.5.0"
 
 "d3-interpolate@1 - 3", d3-interpolate@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-3.0.1.tgz#3c47aa5b32c5b3dfb56ef3fd4342078a632b400d"
-  integrity sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-3.0.2.tgz#09c66b39a3a32a93cfa90883dd38c9a5b22436a4"
+  integrity sha512-IRzGU62DtxhvsnSTWMQIdnoZ6gA+BCWwBon1EJI6SjoN595799b6z/QRBzXfFhE8iupUPp3042yBNo0STPqnzQ==
   dependencies:
     d3-color "1 - 3"
 
@@ -2431,9 +2434,9 @@ has-flag@^4.0.0:
   integrity sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
 
 hyparquet-compressors@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/hyparquet-compressors/-/hyparquet-compressors-1.1.2.tgz#f6bece07becc85d2b394502963ec4a6b9d27467b"
-  integrity sha512-0Hx6w0ZpVpNCefKy5xBYLTp6rKeZn/tsUzuliNzfKqSCdLcTQSfwATEoeedS703Y17k1qNS61HwRME5aOeNkPg==
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/hyparquet-compressors/-/hyparquet-compressors-1.1.3.tgz#c0d3b89935597785f67fc70660068598233fb889"
+  integrity sha512-QqObpH8Vu1NKF5qzv7yWwgVso8sQE6irx0L5+WZ5QQ+xXnCQE5/X9K8hzYD6Z4wVjTmsMnZUO1vbutXLhU9AFQ==
   dependencies:
     fzstd "0.1.1"
     hysnappy "1.1.1"
@@ -2658,18 +2661,18 @@ mproj@0.1.6:
     rw "~1.3.2"
 
 msgpackr-extract@^3.0.2:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/msgpackr-extract/-/msgpackr-extract-3.0.4.tgz#d252698947f7a1a62478d22bfb789ba48dd4c1ac"
-  integrity sha512-4kmO/MdyUIkLIvTPr8VHLil4AtoKIoniWPIEk5+CDy0xnWC84azhSFmuJ7PxZdsYtiP5kEeQsORAVIeMgxT+Hw==
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/msgpackr-extract/-/msgpackr-extract-3.0.7.tgz#14e98b011ec2baf15f572aee3fb5b4a08f668729"
+  integrity sha512-/dOQboWnkR1cjm88XyH/cGSivECGgyQu3814+bNUAq5wACQC8Ya/CViB9WApvWJ5Hya/JJQQmUeBFOZj8MLjGA==
   dependencies:
     node-gyp-build-optional-packages "5.2.2"
   optionalDependencies:
-    "@msgpackr-extract/msgpackr-extract-darwin-arm64" "3.0.4"
-    "@msgpackr-extract/msgpackr-extract-darwin-x64" "3.0.4"
-    "@msgpackr-extract/msgpackr-extract-linux-arm" "3.0.4"
-    "@msgpackr-extract/msgpackr-extract-linux-arm64" "3.0.4"
-    "@msgpackr-extract/msgpackr-extract-linux-x64" "3.0.4"
-    "@msgpackr-extract/msgpackr-extract-win32-x64" "3.0.4"
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64" "3.0.7"
+    "@msgpackr-extract/msgpackr-extract-darwin-x64" "3.0.7"
+    "@msgpackr-extract/msgpackr-extract-linux-arm" "3.0.7"
+    "@msgpackr-extract/msgpackr-extract-linux-arm64" "3.0.7"
+    "@msgpackr-extract/msgpackr-extract-linux-x64" "3.0.7"
+    "@msgpackr-extract/msgpackr-extract-win32-x64" "3.0.7"
 
 msgpackr@^1.11.12:
   version "1.12.1"
@@ -2988,9 +2991,9 @@ safe-buffer@^5.0.1, safe-buffer@~5.2.0:
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
 semver@^7.3.5:
-  version "7.8.5"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.5.tgz#39b646037dd50c14fb451e7e4cac58ed8b863f69"
-  integrity sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==
+  version "7.8.6"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.6.tgz#67c0cda133a3ceb6f70b803e67625bf969000424"
+  integrity sha512-9lpSSU4Mly3mrtruwLs1eLK6+gzbzqeBFwRNjIjE+9LuDpWdYctrQlQ3ej1Ilgi7gknpsTRnPoLP8DpCHqHIJw==
 
 signal-exit@^4.1.0:
   version "4.1.0"
@@ -3120,7 +3123,7 @@ topojson-server@3.x:
   dependencies:
     commander "2"
 
-tslib@^2.8.0, tslib@^2.8.1:
+tslib@^2.8.1:
   version "2.9.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.9.1.tgz#8986213ba2f17f38ba39a7c43d0e565a9134ff5f"
   integrity sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==
