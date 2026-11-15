@@ -1978,9 +1978,9 @@ base64-js@^1.1.2, base64-js@^1.3.0, base64-js@^1.3.1:
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
 
 better-sqlite3@>=13.0.0:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-13.1.1.tgz#12aad5404a17f51a1d88bdfd95b0d36e350d9b28"
-  integrity sha512-JjyLCATp+VLxZVFyWkicyzKYwpEFLCrV4MmshW97xv3JXdhw5jBDcsbEWRGm2L/96E+k7rtjON8q9nml05h3Pw==
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-13.2.0.tgz#61b452adbc3db9fb13e1d0e5ad04347b6fc7f833"
+  integrity sha512-Z8Q/9x/uNyKxA1v4FNodyItRVRw1TeKBrmj32JhxhR0ceNcBY+wMobt/Bv7M7TzwPAXjnZRtNaEsATnUZSKWZQ==
   dependencies:
     node-addon-api "^8.0.0"
 
