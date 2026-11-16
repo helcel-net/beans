@@ -2390,10 +2390,10 @@ geojson-stream@0.1.0:
     JSONStream "^1.0.0"
     through "^2.3.4"
 
-geotiff-geokeys-to-proj4@^2024.4.13:
-  version "2024.4.13"
-  resolved "https://registry.yarnpkg.com/geotiff-geokeys-to-proj4/-/geotiff-geokeys-to-proj4-2024.4.13.tgz#c2ac5bff653e79b1b29e302791307b7a875b2d76"
-  integrity sha512-Jgtm/lcPkgB44wCqQHaVQx5/fyhmiVDRUKQcI/vMolsED8/GRWBnn5qkQo/CgutQg9xkGzig21DY9Px9mFRdvg==
+geotiff-geokeys-to-proj4@^2026.10.9:
+  version "2026.11.15"
+  resolved "https://registry.yarnpkg.com/geotiff-geokeys-to-proj4/-/geotiff-geokeys-to-proj4-2026.11.15.tgz#c2260b86199280c3e092ce567c92efe42942f251"
+  integrity sha512-uY5svBxyjLu/jGKs1jZejsqv1ItFtDBk0LVQGcBNeFZ1RN4Xhr9AQPhC5++ohwrQKYW+V+AOk1kJHELSCydj3g==
 
 geotiff@^3.0.5:
   version "3.0.5"
@@ -2590,10 +2590,10 @@ map-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.0.7.tgz#8a1f07896d82b10926bd3744a2420009f88974a8"
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
-mapshaper@^0.7.22:
-  version "0.7.101"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.7.101.tgz#23438aae453a4daa49e17fd2e229d72569f61ffd"
-  integrity sha512-h3uNgkr9Zu5fGBSn7+14kY8KhZjh387zoXLLoX1N74vow6v/l/zFwFEzdt/xNeHp4rlIhvSgcKEN12u/ORro5Q==
+mapshaper@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.8.0.tgz#4a824bbc4a7bb454a7235d2e61ab5a17596fc1a4"
+  integrity sha512-A4W6Y/cwh2PQpgTDqeQPFEq6fAtETYMudgUjmaqpAR7fzWjElohtunyXmoRqrdln+CDqrUSM2tp3VKAWYnrkWQ==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.10"
@@ -2614,7 +2614,7 @@ mapshaper@^0.7.22:
     fontkit "^2.0.4"
     geographiclib-geodesic "^2.2.0"
     geotiff "^3.0.5"
-    geotiff-geokeys-to-proj4 "^2024.4.13"
+    geotiff-geokeys-to-proj4 "^2026.10.9"
     hyparquet "^1.25.6"
     hyparquet-compressors "^1.1.1"
     hyparquet-writer "^0.14.0"

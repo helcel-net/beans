@@ -5,7 +5,7 @@
   "dependencies": {
     "@turf/area": "^7.3.5",
     "@turf/turf": "^7.3.5",
-    "mapshaper": "^0.7.22"
+    "mapshaper": "^0.8.0"
   },
   "type": "module"
 }
