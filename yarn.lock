@@ -228,9 +228,9 @@
   integrity sha512-FqALmHI8D4o6lk/LRWDnhw95z5eO+eAa6ORjVg09YRR7BkcM6oPHU9uyC0gtQG5vpFLvgpeU4+zEAz2H8APHNw==
 
 "@rollup/rollup-linux-x64-gnu@^4.44.1":
-  version "4.68.5"
-  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.68.5.tgz#2953f877d178a7ea2ab39843bf2c2281508869e5"
-  integrity sha512-JK5S9YhArjVwuetZ9nf6/GdpiXLl7DAVTdRUpF40wVMQNq28hkBrQI1+xy9sqjqtPvW08xagGPfBCBj5wLerZA==
+  version "4.68.7"
+  resolved "https://registry.yarnpkg.com/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.68.7.tgz#ae4abf262351bb7680417d5840eb59fac9e3cf0d"
+  integrity sha512-rsTjTf5HAm6F4sI6uUfJf2pc+7AWBKxgc2RveGvwB2OvVa1GezSSCDD1rtXPuFhcg3itPv7iHgcZsq/RwWvJ4Q==
 
 "@swc/helpers@^0.5.12":
   version "0.5.24"
@@ -2591,9 +2591,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.8.0:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.8.4.tgz#90616231fb4a76a97b8c50c9fa18b582dcde0c1f"
-  integrity sha512-XWUJM5zUL55xgb0W5EFQ4LIW+XxFGWeNP1Cej5aGihePy654zvlKYfpaaq1HYpaazljGfgYbochQiULComPBNw==
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.8.5.tgz#d694b58eca2c19256d49c0376414244ba18a5026"
+  integrity sha512-uXRKGHoVefei9Rf613oepjK4vdxFz7Gza+0PNi8zcFuEORrbhKw7Kulcwqx4XMVu/rFVWTiXYxb8nNibMClefw==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.10"
