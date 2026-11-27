@@ -1919,9 +1919,9 @@
   integrity sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ==
 
 "@types/node@*":
-  version "26.6.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.6.7.tgz#882494202d3e60d3b83829bc4f9be7039458874a"
-  integrity sha512-tovuRfrUILu6v46bMG+BgXxMvsqPBx2WO2as8Rpln+JTff1dbexMtAM4KFTejmL0axsnSWViCW7MecUQpLuBRA==
+  version "26.6.11"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-26.6.11.tgz#17799a1ddc1edfc99222a906a0952b3c9be8794a"
+  integrity sha512-uUyQ2XLEz+EXh34lmS3GhKrkqn/8FU7KUiKRpk347At2bmnMVWss45yz8b4FG/tUtmV1tV/+TVkITItPROyeeQ==
   dependencies:
     undici-types "~8.9.0"
 
@@ -2295,11 +2295,9 @@ flatbuffers@25.9.23:
   integrity sha512-MI1qs7Lo4Syw0EOzUl0xjs2lsoeqFku44KpngfIduHBYvzm8h2+7K8YMQh1JtVVVrUvhLpNwqVi4DERegUJhPQ==
 
 flatbush@^4.6.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/flatbush/-/flatbush-4.8.0.tgz#0808838acdbb315004f25710065772adc92029ec"
-  integrity sha512-VX5qs2fSGZlMIQQZg4x9LjbbRGTxY31UxYaE3XExXYvjgwUM1GGTeQAyfO8HPUAPvo/W01QaZ1AHJq7mWntmSA==
-  dependencies:
-    flatqueue "^3.1.0"
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/flatbush/-/flatbush-4.9.0.tgz#eda8ac75c509e4692be771b37041a93306c6e8d1"
+  integrity sha512-rEnIhaT0LPOgg7RdrHWy6wE4D4bZuUwJ92lz0r3/eAgRzRBEyFftFUg+9CtTmnRVQ7Q3Ub93vUdNj8/9n9b5fA==
 
 flatgeobuf@^4.3.4:
   version "4.6.1"
@@ -2312,11 +2310,6 @@ flatgeobuf@^4.3.4:
     slice-source "0.4.1"
   optionalDependencies:
     ol ">=10"
-
-flatqueue@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/flatqueue/-/flatqueue-3.1.0.tgz#e957f66df148b6f77cb379412fb7f357c5a640c5"
-  integrity sha512-Ia4qIYrrsEqIRx3c3XhkT+QDLQuUV5ovsr6ah1rIgKT5wclhoGK3lAMS1bWRAWxlx7wtlTBpV7QXB5d9fOSRxA==
 
 fontkit@^2.0.4:
   version "2.0.4"
@@ -2592,9 +2585,9 @@ map-stream@0.0.7:
   integrity sha512-C0X0KQmGm3N2ftbTGBhSyuydQ+vV1LC3f3zPvT3RXHXNZrvfPZcoXp/N5DOa8vedX/rTMm2CjTtivFg2STJMRQ==
 
 mapshaper@^0.8.0:
-  version "0.8.10"
-  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.8.10.tgz#6fd059552976800d0dcc2914725fcebe63ba3a89"
-  integrity sha512-xwEN6JLPzVSgLxveC3S89U8Gm0X4xmecX8ZW2qq/Lht5AgPME953zluSMNfNshSxHGHVGcXMeQLbMhFNTuYxYA==
+  version "0.8.12"
+  resolved "https://registry.yarnpkg.com/mapshaper/-/mapshaper-0.8.12.tgz#c862a0a827f07b32537dceb837940d5170dcfc27"
+  integrity sha512-fw1astCevZrq1VJI/TbmVsXRVyHPemMTURHCGZ1lPBqwnyO/fmi8pNT2zHuWYxfoUV1Qbz6YMDjsAy4B13/zoA==
   dependencies:
     "@bokuweb/zstd-wasm" "^0.0.27"
     "@ngageoint/geopackage" "^4.2.10"
@@ -3056,9 +3049,9 @@ stream-combiner@^0.2.2:
     through "~2.3.4"
 
 string_decoder@^1.1.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.3.0.tgz#42f114594a46cf1a8e30b0a84f56c78c3edac21e"
-  integrity sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.4.0.tgz#aaddaac5179c6cf72f840d82d01862ea1d57f5c4"
+  integrity sha512-r8azg21Y67ckRmeG0hHol5CeDXMs4ZFkFT6eXMO39hX7khvJcopBcYTCeWZ0rQXkMoPh8lVdbjmsOMGL8krxRQ==
   dependencies:
     safe-buffer "~5.2.0"
 
